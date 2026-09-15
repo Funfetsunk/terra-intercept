@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="BulletPatternData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/bullet_pattern_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+pattern_name = "Boss Phase 1 Ring"
+burst_size = 12
+angle_spread_degrees = 360.0
+burst_interval = 0.6
+rotation_per_burst_degrees = 10.0
+aim_at_player = false
+fixed_angle_degrees = 0.0
+jitter_degrees = 0.0
+rng_seed = 10
+bullet_speed = 100.0
+bullet_radius = 4.0
+bullet_color = Color(1, 0.6, 0.1, 1)
+bullet_damage = 1.0
+bullet_lifetime = 5.0

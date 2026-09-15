@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://dggg7ddlqp3vc"]
+
+[ext_resource type="PackedScene" uid="uid://bveh1trv7wuqf" path="res://scenes/player/player_ship.tscn" id="1_s6fwv"]
+[ext_resource type="Script" uid="uid://brvoh5s303sqb" path="res://scenes/player/player_ship.gd" id="2_7dx74"]
+[ext_resource type="Resource" path="res://data/ships/guardian_ship_data.tres" id="3_cjj60"]
+[ext_resource type="Script" uid="uid://ncywel0e8vw1" path="res://scenes/specials/squad_special_circle.gd" id="4_c33km"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kjavq"]
+radius = 2.0
+
+[node name="VerticalSlice" type="Node2D" unique_id=1011628576]
+
+[node name="PlayerShip" type="Node2D" parent="." unique_id=1276083379 instance=ExtResource("1_s6fwv")]
+position = Vector2(320, 300)
+script = ExtResource("2_7dx74")
+data = ExtResource("3_cjj60")
+
+[node name="Sprite" type="ColorRect" parent="PlayerShip" unique_id=668240328]
+offset_left = -12.0
+offset_top = -12.0
+offset_right = 12.0
+offset_bottom = 12.0
+mouse_filter = 2
+color = Color(0.3, 0.8, 0.3, 1)
+
+[node name="FocusHitboxVisual" type="ColorRect" parent="PlayerShip" unique_id=985356905]
+visible = false
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 2.0
+offset_bottom = 2.0
+mouse_filter = 2
+color = Color(1, 1, 1, 0.9)
+
+[node name="Hitbox" type="Area2D" parent="PlayerShip" unique_id=1478547012]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerShip/Hitbox" unique_id=1161019146]
+shape = SubResource("CircleShape2D_kjavq")
+
+[node name="SpecialCircleVFX" type="Node2D" parent="PlayerShip" unique_id=1062415370]
+visible = false
+script = ExtResource("4_c33km")

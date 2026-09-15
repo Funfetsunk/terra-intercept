@@ -38,6 +38,8 @@ These are not negotiable.
 
 ## Project settings
 
+These are already set. If any need checking or changing, use `get_project_settings` or `set_project_setting`.
+
 - `display/window/size/viewport_width = 640`, `viewport_height = 360`
 - Default window size 1920×1080 (3×)
 - `physics/common/physics_ticks_per_second = 60`
@@ -111,6 +113,25 @@ These are added as each one becomes needed, not all at once:
 - `SaveManager`: 3 slots, saving only after a completed mission
 - `AudioManager`: music sections and loops, sound effects, Sound Test unlocks
 - `Settings`: CRT filter, screen shake, remapping, high-contrast bullets, difficulty
+
+## Using Godot MCP Pro
+
+The Godot editor is open and connected through Godot MCP Pro. Use its tools in preference to editing files by hand.
+
+- **Editor tools versus runtime tools.** Editor tools (scene, node, script, project, resource, animation, shader and similar) work on the scene open in the editor and are always available. Runtime tools (game state, input simulation, capture and recording, testing, game screenshots) **only work after `play_scene`**, and they fail otherwise. Always finish with `stop_scene`.
+- **Building a scene:** `create_scene` or `open_scene`, then `add_node` or `batch_add_nodes`, then `create_script` + `attach_script`, then `save_scene`.
+- **Tuning values:** set node properties in the Inspector with `update_property` rather than in code. Use a script only when the value must change at runtime.
+- **Project settings and input actions:** use `set_project_setting` and `set_input_action`. **Never edit `project.godot` directly**, because the editor overwrites it.
+- **Testing gameplay:** `play_scene`, then drive input with **`simulate_action` using the `p1_` action names** (not raw keys), then check the result with `get_game_screenshot`, `capture_frames` or `monitor_properties`, then `stop_scene`. For the bullet manager, use `run_stress_test` and `get_performance_monitors` to check the 60fps target.
+- **After script changes:** run `validate_script`. If a new script doesn't take effect, run `reload_project`.
+- **Checking for errors:** use `get_editor_errors` and `get_output_log`.
+- **Pitfalls:**
+  - Property values are passed as strings, for example `"Vector2(100, 200)"` or `"Color(1, 0, 0, 1)"`.
+  - Give for-loop variables explicit types: `for enemy: Enemy in enemies`.
+  - `compare_screenshots` takes file paths (`user://...`), not image data.
+  - With `simulate_key`, use short durations (0.3–0.5s) to avoid overshooting.
+  - `execute_game_script` doesn't allow a function inside a function, and uses `.get("property")` for safe access.
+- **If "Godot editor is not connected" appears:** a stale `node.exe` is probably holding the port. Tell the developer instead of retrying repeatedly.
 
 ## Workflow
 

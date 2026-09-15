@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SpawnEntry" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/spawn_entry.gd" id="1"]
+[ext_resource type="PackedScene" path="res://scenes/pickups/special_charge_pickup.tscn" id="2"]
+
+[resource]
+script = ExtResource("1")
+scene = ExtResource("2")
+spawn_time = 13.0
+spawn_position = Vector2(200, 20)

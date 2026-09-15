@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bbu1i2vdl36db"]
+
+[ext_resource type="Script" uid="uid://dxne1w5pg4r4k" path="res://scenes/pickups/pickup.gd" id="1_08ttg"]
+[ext_resource type="Resource" path="res://data/pickups/weapon_level_pickup.tres" id="2_owlvl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_377g7"]
+
+[node name="WeaponPickup" type="Node2D" unique_id=993242960]
+script = ExtResource("1_08ttg")
+data = ExtResource("2_owlvl")
+
+[node name="Sprite" type="ColorRect" parent="." unique_id=2141651316]
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 5.0
+offset_bottom = 5.0
+mouse_filter = 2
+color = Color(0.3, 0.9, 1, 1)
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=780148317]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1676945954]
+shape = SubResource("CircleShape2D_377g7")

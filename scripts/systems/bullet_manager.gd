@@ -156,6 +156,9 @@ func get_player_position() -> Vector2:
 		return Vector2.ZERO
 	return _registered_player.global_position
 
+func get_registered_player() -> Node2D:
+	return _registered_player
+
 func spawn_player_bullet(pos: Vector2, direction: Vector2, speed: float, radius: float, color: Color, lifetime: float, damage: float) -> void:
 	if not _player_pool.spawn(pos, direction.normalized() * speed, radius, color, lifetime, damage):
 		bullet_pool_exhausted.emit(true)

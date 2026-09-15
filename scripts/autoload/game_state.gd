@@ -3,8 +3,10 @@ extends Node
 signal life_lost(lives_remaining: int)
 signal game_over_triggered
 signal weapon_level_dropped(new_level: int)
+signal weapon_level_changed(new_level: int)
 
 @export var starting_lives: int = 3
+@export var max_weapon_level: int = 5
 @export var selected_ship: ShipData
 @export var ship_roster: Array[ShipData] = []
 
@@ -36,3 +38,7 @@ func _on_player_hull_depleted(player: Node) -> void:
 func drop_weapon_level() -> void:
 	current_weapon_level = max(1, current_weapon_level - 1)
 	weapon_level_dropped.emit(current_weapon_level)
+
+func raise_weapon_level(amount: int) -> void:
+	current_weapon_level = min(max_weapon_level, current_weapon_level + amount)
+	weapon_level_changed.emit(current_weapon_level)

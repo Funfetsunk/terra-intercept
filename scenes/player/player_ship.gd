@@ -128,7 +128,13 @@ func _process_fire(delta: float) -> void:
 	if _fire_cooldown > 0.0:
 		return
 	var direction: Vector2 = fire_input["direction"]
-	_bullets.spawn_player_bullet(global_position, direction, data.bullet_speed, data.bullet_radius, data.bullet_color, 2.0, data.bullet_damage)
+	var stream_count: int = clamp(_game_state.current_weapon_level, 1, 5)
+	var base_angle: float = direction.angle()
+	for i in range(stream_count):
+		var offset_deg: float = data.weapon_stream_spread_degrees * (float(i) - float(stream_count - 1) / 2.0)
+		var rad: float = base_angle + deg_to_rad(offset_deg)
+		var stream_dir: Vector2 = Vector2(cos(rad), sin(rad))
+		_bullets.spawn_player_bullet(global_position, stream_dir, data.bullet_speed, data.bullet_radius, data.bullet_color, 2.0, data.bullet_damage)
 	_fire_cooldown = 1.0 / data.fire_rate
 
 func take_hit(damage: float) -> void:
@@ -157,6 +163,14 @@ func respawn() -> void:
 	shield_changed.emit(shield_current, data.shield_max)
 	hull_changed.emit(hull_current, data.hull_max)
 	respawned.emit()
+
+func repair_hull(amount: float) -> void:
+	hull_current = min(data.hull_max, hull_current + amount)
+	hull_changed.emit(hull_current, data.hull_max)
+
+func grant_special_charge(amount: int) -> void:
+	special_charges = min(data.special_charge_max, special_charges + amount)
+	special_charges_changed.emit(special_charges, data.special_charge_max)
 
 func on_damage_dealt(damage: float, was_kill: bool) -> void:
 	if special_charges >= data.special_charge_max:

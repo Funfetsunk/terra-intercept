@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="MissionData" load_steps=9 format=3]
+[gd_resource type="Resource" script_class="MissionData" load_steps=12 format=3]
 
 [ext_resource type="Script" path="res://scripts/resources/mission_data.gd" id="1"]
 [ext_resource type="Resource" path="res://data/missions/spawn_drone_01.tres" id="2"]
@@ -8,9 +8,12 @@
 [ext_resource type="Resource" path="res://data/missions/spawn_spinner_01.tres" id="6"]
 [ext_resource type="Resource" path="res://data/missions/spawn_drone_03.tres" id="7"]
 [ext_resource type="Resource" path="res://data/missions/spawn_boss_01.tres" id="8"]
+[ext_resource type="Resource" path="res://data/missions/spawn_pickup_weapon_01.tres" id="9"]
+[ext_resource type="Resource" path="res://data/missions/spawn_pickup_hull_01.tres" id="10"]
+[ext_resource type="Resource" path="res://data/missions/spawn_pickup_special_01.tres" id="11"]
 
 [resource]
 script = ExtResource("1")
 mission_name = "Vertical Slice"
 background_scroll_speed = 40.0
-spawn_entries = Array[Resource]([ExtResource("2"), ExtResource("3"), ExtResource("4"), ExtResource("5"), ExtResource("6"), ExtResource("7"), ExtResource("8")])
+spawn_entries = Array[Resource]([ExtResource("2"), ExtResource("3"), ExtResource("4"), ExtResource("5"), ExtResource("6"), ExtResource("7"), ExtResource("8"), ExtResource("9"), ExtResource("10"), ExtResource("11")])

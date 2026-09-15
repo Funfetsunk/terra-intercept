@@ -3,6 +3,8 @@ class_name EnemyBase
 
 signal enemy_destroyed(enemy: Node2D, score_value: int)
 
+const ALIEN_TECH_DROP_SCENE: PackedScene = preload("res://scenes/pickups/alien_tech_drop.tscn")
+
 @export var data: EnemyData
 @export var despawn_y: float = 400.0
 
@@ -72,6 +74,11 @@ func take_damage(amount: float) -> bool:
 
 func _die() -> void:
 	enemy_destroyed.emit(self, data.score_value)
+	if data.alien_tech_drop > 0:
+		var drop: Node2D = ALIEN_TECH_DROP_SCENE.instantiate()
+		get_parent().call_deferred("add_child", drop)
+		drop.global_position = global_position
+		(drop as AlienTechDrop).amount = data.alien_tech_drop
 	queue_free()
 
 func get_hitbox_radius() -> float:

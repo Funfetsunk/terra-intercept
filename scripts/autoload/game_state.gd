@@ -4,6 +4,7 @@ signal life_lost(lives_remaining: int)
 signal game_over_triggered
 signal weapon_level_dropped(new_level: int)
 signal weapon_level_changed(new_level: int)
+signal tech_changed(current: int)
 
 @export var starting_lives: int = 3
 @export var max_weapon_level: int = 5
@@ -14,6 +15,7 @@ signal weapon_level_changed(new_level: int)
 var lives_remaining: int = 0
 var current_weapon_level: int = 1
 var ordnance_ammo: int = 0
+var mission_tech: int = 0
 
 func _ready() -> void:
 	lives_remaining = starting_lives
@@ -22,6 +24,7 @@ func start_new_run() -> void:
 	lives_remaining = starting_lives
 	current_weapon_level = 1
 	ordnance_ammo = ordnance.starting_ammo if ordnance != null else 0
+	mission_tech = 0
 
 func register_player(player: Node) -> void:
 	if player.has_signal("hull_depleted"):
@@ -45,3 +48,7 @@ func drop_weapon_level() -> void:
 func raise_weapon_level(amount: int) -> void:
 	current_weapon_level = min(max_weapon_level, current_weapon_level + amount)
 	weapon_level_changed.emit(current_weapon_level)
+
+func collect_tech(amount: int) -> void:
+	mission_tech += amount
+	tech_changed.emit(mission_tech)

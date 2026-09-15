@@ -42,6 +42,10 @@ show_percentage = false
 layout_mode = 2
 text = "Ordnance: 5/5"
 
+[node name="TechLabel" type="Label" parent="HUDRoot/LeftPanel" unique_id=103671485]
+layout_mode = 2
+text = "Tech: 0"
+
 [node name="RightPanel" type="VBoxContainer" parent="HUDRoot" unique_id=83778539]
 layout_mode = 0
 offset_left = 484.0

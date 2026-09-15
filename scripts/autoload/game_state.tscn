@@ -1,6 +1,11 @@
 [gd_scene format=3 uid="uid://bnld0tj7rt72m"]
 
 [ext_resource type="Script" uid="uid://cyatx7pk5xwa5" path="res://scripts/autoload/game_state.gd" id="1_kkv1x"]
+[ext_resource type="Resource" path="res://data/ships/interceptor_ship_data.tres" id="2_interceptor"]
+[ext_resource type="Resource" path="res://data/ships/striker_ship_data.tres" id="3_striker"]
+[ext_resource type="Resource" path="res://data/ships/guardian_ship_data.tres" id="4_guardian"]
+[ext_resource type="Resource" path="res://data/ships/vanguard_ship_data.tres" id="5_vanguard"]
 
 [node name="GameState" type="Node" unique_id=1245739816]
 script = ExtResource("1_kkv1x")
+ship_roster = Array[Resource]([ExtResource("2_interceptor"), ExtResource("3_striker"), ExtResource("4_guardian"), ExtResource("5_vanguard")])

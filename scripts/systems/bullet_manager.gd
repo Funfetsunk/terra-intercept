@@ -180,5 +180,42 @@ func damage_enemies_in_circle(center: Vector2, radius: float, damage: float) -> 
 			if e.has_method("take_damage"):
 				e.take_damage(damage)
 
+func clear_enemy_bullets_in_rect(rect: Rect2) -> void:
+	var i: int = 0
+	while i < _enemy_pool.active_count:
+		if rect.has_point(_enemy_pool.positions[i]):
+			_enemy_pool.kill(i)
+		else:
+			i += 1
+
+func damage_enemies_in_rect(rect: Rect2, damage: float) -> void:
+	for e: Node2D in _registered_enemies:
+		if e == null or not is_instance_valid(e):
+			continue
+		if rect.has_point(e.global_position) and e.has_method("take_damage"):
+			e.take_damage(damage)
+
+func clear_enemy_bullets_in_cone(origin: Vector2, direction: Vector2, angle_degrees: float, max_range: float) -> void:
+	var i: int = 0
+	while i < _enemy_pool.active_count:
+		if _point_in_cone(_enemy_pool.positions[i], origin, direction, angle_degrees, max_range):
+			_enemy_pool.kill(i)
+		else:
+			i += 1
+
+func damage_enemies_in_cone(origin: Vector2, direction: Vector2, angle_degrees: float, max_range: float, damage: float) -> void:
+	for e: Node2D in _registered_enemies:
+		if e == null or not is_instance_valid(e):
+			continue
+		if _point_in_cone(e.global_position, origin, direction, angle_degrees, max_range) and e.has_method("take_damage"):
+			e.take_damage(damage)
+
+func _point_in_cone(point: Vector2, origin: Vector2, direction: Vector2, angle_degrees: float, max_range: float) -> bool:
+	var to_point: Vector2 = point - origin
+	if to_point.length() > max_range:
+		return false
+	var half_angle: float = deg_to_rad(angle_degrees) * 0.5
+	return absf(direction.normalized().angle_to(to_point)) <= half_angle
+
 func get_active_bullet_count() -> int:
 	return _player_pool.active_count + _enemy_pool.active_count

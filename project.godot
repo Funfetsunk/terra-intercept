@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Terra Intercept"
-run/main_scene="res://scenes/levels/vertical_slice.tscn"
+run/main_scene="res://scenes/menus/ship_select.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 run/max_fps=60
 config/icon="res://icon.svg"

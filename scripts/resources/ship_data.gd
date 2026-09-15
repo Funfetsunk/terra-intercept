@@ -1,6 +1,14 @@
 extends Resource
 class_name ShipData
 
+enum SpecialShape { VERTICAL_LINE, CONE, CIRCLE, HORIZONTAL_LINE }
+
+@export_group("Identity")
+@export var ship_name: String = ""
+@export var pilot_name: String = ""
+@export var ship_color: Color = Color.WHITE
+@export var traits_description: String = ""
+
 @export_group("Movement")
 @export var move_speed: float = 90.0
 
@@ -42,3 +50,7 @@ class_name ShipData
 @export var special_radius: float = 60.0
 @export var special_damage: float = 4.0
 @export var special_duration: float = 0.5
+@export var special_shape: SpecialShape = SpecialShape.CIRCLE
+@export var special_line_thickness: float = 40.0
+@export var special_cone_angle_degrees: float = 70.0
+@export var special_cone_range: float = 180.0

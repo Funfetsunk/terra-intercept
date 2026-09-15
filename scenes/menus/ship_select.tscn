@@ -1,0 +1,139 @@
+[gd_scene format=3 uid="uid://xjv0wopauwqg"]
+
+[ext_resource type="Script" uid="uid://cm7v10c4vvpsh" path="res://scenes/menus/ship_select.gd" id="1_goq04"]
+[ext_resource type="PackedScene" uid="uid://b8iglihbb86lg" path="res://scenes/menus/ship_select_entry.tscn" id="2_mh5ls"]
+[ext_resource type="Script" uid="uid://cpun6bp82db" path="res://scenes/menus/ship_select_entry.gd" id="3_ss83y"]
+[ext_resource type="Resource" path="res://data/ships/interceptor_ship_data.tres" id="4_an8i7"]
+[ext_resource type="Resource" path="res://data/ships/striker_ship_data.tres" id="5_fleu5"]
+[ext_resource type="Resource" uid="uid://b3c6554j4do4e" path="res://data/ships/guardian_ship_data.tres" id="6_qevhu"]
+[ext_resource type="Resource" path="res://data/ships/vanguard_ship_data.tres" id="7_fuxfl"]
+
+[node name="ShipSelect" type="Control" unique_id=536906164]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 360.0
+script = ExtResource("1_goq04")
+
+[node name="Backdrop" type="ColorRect" parent="." unique_id=9759301]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+mouse_filter = 2
+color = Color(0.04, 0.05, 0.1, 1)
+
+[node name="TitleLabel" type="Label" parent="." unique_id=430291404]
+layout_mode = 0
+offset_top = 24.0
+offset_right = 640.0
+offset_bottom = 60.0
+text = "Choose Your Ship"
+horizontal_alignment = 1
+
+[node name="ShipList" type="HBoxContainer" parent="." unique_id=785737800]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 120.0
+offset_right = 600.0
+offset_bottom = 300.0
+alignment = 1
+
+[node name="InterceptorEntry" type="Button" parent="ShipList" unique_id=102488305 instance=ExtResource("2_mh5ls")]
+custom_minimum_size = Vector2(120, 140)
+layout_mode = 2
+script = ExtResource("3_ss83y")
+ship = ExtResource("4_an8i7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ShipList/InterceptorEntry" unique_id=1310911915]
+layout_mode = 0
+mouse_filter = 2
+
+[node name="Swatch" type="ColorRect" parent="ShipList/InterceptorEntry/VBoxContainer" unique_id=1237554311]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="NameLabel" type="Label" parent="ShipList/InterceptorEntry/VBoxContainer" unique_id=1890638275]
+layout_mode = 2
+
+[node name="PilotLabel" type="Label" parent="ShipList/InterceptorEntry/VBoxContainer" unique_id=1577410494]
+layout_mode = 2
+
+[node name="TraitsLabel" type="Label" parent="ShipList/InterceptorEntry/VBoxContainer" unique_id=936772512]
+layout_mode = 2
+autowrap_mode = 3
+
+[node name="StrikerEntry" type="Button" parent="ShipList" unique_id=956093016 instance=ExtResource("2_mh5ls")]
+custom_minimum_size = Vector2(120, 140)
+layout_mode = 2
+script = ExtResource("3_ss83y")
+ship = ExtResource("5_fleu5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ShipList/StrikerEntry" unique_id=1056187019]
+layout_mode = 0
+mouse_filter = 2
+
+[node name="Swatch" type="ColorRect" parent="ShipList/StrikerEntry/VBoxContainer" unique_id=116698894]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="NameLabel" type="Label" parent="ShipList/StrikerEntry/VBoxContainer" unique_id=233476869]
+layout_mode = 2
+
+[node name="PilotLabel" type="Label" parent="ShipList/StrikerEntry/VBoxContainer" unique_id=2109220735]
+layout_mode = 2
+
+[node name="TraitsLabel" type="Label" parent="ShipList/StrikerEntry/VBoxContainer" unique_id=1064300566]
+layout_mode = 2
+autowrap_mode = 3
+
+[node name="GuardianEntry" type="Button" parent="ShipList" unique_id=1621962252 instance=ExtResource("2_mh5ls")]
+custom_minimum_size = Vector2(120, 140)
+layout_mode = 2
+script = ExtResource("3_ss83y")
+ship = ExtResource("6_qevhu")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ShipList/GuardianEntry" unique_id=1497389430]
+layout_mode = 0
+mouse_filter = 2
+
+[node name="Swatch" type="ColorRect" parent="ShipList/GuardianEntry/VBoxContainer" unique_id=858470503]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="NameLabel" type="Label" parent="ShipList/GuardianEntry/VBoxContainer" unique_id=1647773546]
+layout_mode = 2
+
+[node name="PilotLabel" type="Label" parent="ShipList/GuardianEntry/VBoxContainer" unique_id=1184239355]
+layout_mode = 2
+
+[node name="TraitsLabel" type="Label" parent="ShipList/GuardianEntry/VBoxContainer" unique_id=385897405]
+layout_mode = 2
+autowrap_mode = 3
+
+[node name="VanguardEntry" type="Button" parent="ShipList" unique_id=767301618 instance=ExtResource("2_mh5ls")]
+custom_minimum_size = Vector2(120, 140)
+layout_mode = 2
+script = ExtResource("3_ss83y")
+ship = ExtResource("7_fuxfl")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ShipList/VanguardEntry" unique_id=2077678984]
+layout_mode = 0
+mouse_filter = 2
+
+[node name="Swatch" type="ColorRect" parent="ShipList/VanguardEntry/VBoxContainer" unique_id=915349095]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="NameLabel" type="Label" parent="ShipList/VanguardEntry/VBoxContainer" unique_id=1795518992]
+layout_mode = 2
+
+[node name="PilotLabel" type="Label" parent="ShipList/VanguardEntry/VBoxContainer" unique_id=254706885]
+layout_mode = 2
+
+[node name="TraitsLabel" type="Label" parent="ShipList/VanguardEntry/VBoxContainer" unique_id=190840784]
+layout_mode = 2
+autowrap_mode = 3

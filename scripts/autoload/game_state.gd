@@ -6,6 +6,7 @@ signal weapon_level_dropped(new_level: int)
 
 @export var starting_lives: int = 3
 @export var selected_ship: ShipData
+@export var ship_roster: Array[ShipData] = []
 
 var lives_remaining: int = 0
 var current_weapon_level: int = 1

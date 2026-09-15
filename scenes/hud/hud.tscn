@@ -48,3 +48,7 @@ offset_bottom = 46.0
 [node name="SpecialChargesLabel" type="Label" parent="HUDRoot/RightPanel" unique_id=650194307]
 layout_mode = 2
 text = "Special: 0/3"
+
+[node name="SquadLabel" type="Label" parent="HUDRoot/RightPanel" unique_id=1090562693]
+layout_mode = 2
+text = "Squad: -"

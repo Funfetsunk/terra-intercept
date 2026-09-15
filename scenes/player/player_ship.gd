@@ -7,6 +7,7 @@ signal focus_changed(current: float, max_value: float)
 signal special_charges_changed(current: int, max_value: int)
 signal special_fired
 signal respawned
+signal squad_selection_changed(ship: ShipData)
 
 @export var data: ShipData
 @export var playfield_rect: Rect2 = Rect2(12, 12, 616, 336)
@@ -14,6 +15,9 @@ signal respawned
 var shield_current: float = 0.0
 var hull_current: float = 0.0
 var special_charges: int = 0
+
+var _squad: Array[ShipData] = []
+var _squad_index: int = 0
 
 var _spawn_origin: Vector2 = Vector2.ZERO
 var _shield_recharge_timer: float = 0.0
@@ -28,10 +32,12 @@ var _is_focused: bool = false
 
 @onready var _bullets: Node = get_node("/root/BulletManager")
 @onready var _game_state: Node = get_node("/root/GameState")
-@onready var _hitbox: Area2D = $Hitbox
-@onready var _special_vfx: Node2D = $SpecialCircleVFX
+@onready var _special_vfx: Node2D = $SpecialVFX
 
 func _ready() -> void:
+	if _game_state.selected_ship != null:
+		data = _game_state.selected_ship
+	$Sprite.color = data.ship_color
 	_spawn_origin = global_position
 	shield_current = data.shield_max
 	hull_current = data.hull_max
@@ -42,6 +48,10 @@ func _ready() -> void:
 	hull_changed.emit(hull_current, data.hull_max)
 	focus_changed.emit(_focus_meter, data.focus_meter_max)
 	special_charges_changed.emit(special_charges, data.special_charge_max)
+	_squad = _game_state.ship_roster.filter(func(s: ShipData) -> bool: return s != data)
+	if _squad.is_empty():
+		_squad = [data]
+	squad_selection_changed.emit(_squad[_squad_index])
 
 func _exit_tree() -> void:
 	_bullets.unregister_player()
@@ -54,6 +64,12 @@ func _physics_process(delta: float) -> void:
 	_process_fire(delta)
 	if Input.is_action_just_pressed("p1_special"):
 		_try_fire_special()
+	if Input.is_action_just_pressed("p1_squad_prev"):
+		_squad_index = wrapi(_squad_index - 1, 0, _squad.size())
+		squad_selection_changed.emit(_squad[_squad_index])
+	if Input.is_action_just_pressed("p1_squad_next"):
+		_squad_index = wrapi(_squad_index + 1, 0, _squad.size())
+		squad_selection_changed.emit(_squad[_squad_index])
 
 func _process_movement(delta: float) -> void:
 	var move_vec: Vector2 = Input.get_vector("p1_move_left", "p1_move_right", "p1_move_up", "p1_move_down")
@@ -155,15 +171,38 @@ func on_damage_dealt(damage: float, was_kill: bool) -> void:
 		special_charges_changed.emit(special_charges, data.special_charge_max)
 
 func _try_fire_special() -> void:
-	if special_charges <= 0:
+	if special_charges <= 0 or _squad.is_empty():
 		return
 	special_charges -= 1
 	special_charges_changed.emit(special_charges, data.special_charge_max)
-	_bullets.clear_enemy_bullets_in_circle(global_position, data.special_radius)
-	_bullets.damage_enemies_in_circle(global_position, data.special_radius, data.special_damage)
-	_special_invincible_timer = data.special_duration
-	_special_vfx.play(data.special_radius, data.special_duration)
+	var armed: ShipData = _squad[_squad_index]
+	_deploy_special(armed)
+	_special_invincible_timer = armed.special_duration
 	special_fired.emit()
+
+func _deploy_special(armed: ShipData) -> void:
+	match armed.special_shape:
+		ShipData.SpecialShape.CIRCLE:
+			_bullets.clear_enemy_bullets_in_circle(global_position, armed.special_radius)
+			_bullets.damage_enemies_in_circle(global_position, armed.special_radius, armed.special_damage)
+			_special_vfx.play_circle(armed.special_radius, armed.special_duration)
+		ShipData.SpecialShape.VERTICAL_LINE:
+			var world_rect: Rect2 = Rect2(global_position.x - armed.special_line_thickness * 0.5, playfield_rect.position.y, armed.special_line_thickness, playfield_rect.size.y)
+			_bullets.clear_enemy_bullets_in_rect(world_rect)
+			_bullets.damage_enemies_in_rect(world_rect, armed.special_damage)
+			_special_vfx.play_rect(Rect2(world_rect.position - global_position, world_rect.size), armed.special_duration)
+		ShipData.SpecialShape.HORIZONTAL_LINE:
+			var world_rect: Rect2 = Rect2(playfield_rect.position.x, global_position.y - armed.special_line_thickness * 0.5, playfield_rect.size.x, armed.special_line_thickness)
+			_bullets.clear_enemy_bullets_in_rect(world_rect)
+			_bullets.damage_enemies_in_rect(world_rect, armed.special_damage)
+			_special_vfx.play_rect(Rect2(world_rect.position - global_position, world_rect.size), armed.special_duration)
+		ShipData.SpecialShape.CONE:
+			_bullets.clear_enemy_bullets_in_cone(global_position, Vector2.UP, armed.special_cone_angle_degrees, armed.special_cone_range)
+			_bullets.damage_enemies_in_cone(global_position, Vector2.UP, armed.special_cone_angle_degrees, armed.special_cone_range, armed.special_damage)
+			_special_vfx.play_cone(Vector2.UP, armed.special_cone_angle_degrees, armed.special_cone_range, armed.special_duration)
+
+func get_armed_squad_ship() -> ShipData:
+	return _squad[_squad_index] if not _squad.is_empty() else null
 
 func get_hitbox_radius() -> float:
 	return data.normal_hitbox_radius

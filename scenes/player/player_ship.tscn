@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://brvoh5s303sqb" path="res://scenes/player/player_ship.gd" id="1_dr6dc"]
 [ext_resource type="Resource" uid="uid://b3c6554j4do4e" path="res://data/ships/guardian_ship_data.tres" id="2_ykp3x"]
-[ext_resource type="Script" uid="uid://ncywel0e8vw1" path="res://scenes/specials/squad_special_circle.gd" id="3_s1a8k"]
+[ext_resource type="Script" uid="uid://b5jrllxqn3mcp" path="res://scenes/specials/squad_special_vfx.gd" id="3_dr6dc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kjavq"]
 radius = 2.0
@@ -25,6 +25,6 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1161019146]
 shape = SubResource("CircleShape2D_kjavq")
 
-[node name="SpecialCircleVFX" type="Node2D" parent="." unique_id=1062415370]
+[node name="SpecialVFX" type="Node2D" parent="." unique_id=1062415370]
 visible = false
-script = ExtResource("3_s1a8k")
+script = ExtResource("3_dr6dc")

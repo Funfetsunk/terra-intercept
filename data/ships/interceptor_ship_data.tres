@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ShipData" format=3]
+
+[ext_resource type="Script" uid="uid://boquiv061idvy" path="res://scripts/resources/ship_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+ship_name = "Interceptor"
+pilot_name = "Hotshot"
+ship_color = Color(0.9, 0.3, 0.2, 1)
+traits_description = "Fast, fragile"
+move_speed = 130.0
+shield_max = 4.0
+hull_max = 2.0
+bullet_speed = 320.0
+special_shape = 0
+special_line_thickness = 40.0

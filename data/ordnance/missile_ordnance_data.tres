@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="OrdnanceData" format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/ordnance_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+ordnance_name = "Missile"
+starting_ammo = 5
+fire_cooldown = 0.4
+bullet_speed = 200.0
+bullet_radius = 5.0
+bullet_color = Color(1, 0.6, 0.1, 1)
+bullet_damage = 3.0

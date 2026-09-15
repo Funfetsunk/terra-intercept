@@ -9,6 +9,7 @@ signal special_progress_changed(progress: float)
 signal special_fired
 signal respawned
 signal squad_selection_changed(ship: ShipData)
+signal ordnance_ammo_changed(current: int)
 
 @export var data: ShipData
 @export var playfield_rect: Rect2 = Rect2(12, 12, 616, 336)
@@ -30,6 +31,8 @@ var _fire_cooldown: float = 0.0
 var _focus_meter: float = 0.0
 var _focus_refill_wait_timer: float = 0.0
 var _is_focused: bool = false
+var _last_move_dir: Vector2 = Vector2.UP
+var _ordnance_cooldown: float = 0.0
 
 @onready var _bullets: Node = get_node("/root/BulletManager")
 @onready var _game_state: Node = get_node("/root/GameState")
@@ -50,6 +53,7 @@ func _ready() -> void:
 	focus_changed.emit(_focus_meter, data.focus_meter_max)
 	special_charges_changed.emit(special_charges, data.special_charge_max)
 	special_progress_changed.emit(_special_progress)
+	ordnance_ammo_changed.emit(_game_state.ordnance_ammo)
 	_squad = _game_state.ship_roster.filter(func(s: ShipData) -> bool: return s != data)
 	if _squad.is_empty():
 		_squad = [data]
@@ -72,9 +76,13 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("p1_squad_next"):
 		_squad_index = wrapi(_squad_index + 1, 0, _squad.size())
 		squad_selection_changed.emit(_squad[_squad_index])
+	if Input.is_action_just_pressed("p1_ordnance"):
+		_try_fire_ordnance()
 
 func _process_movement(delta: float) -> void:
 	var move_vec: Vector2 = Input.get_vector("p1_move_left", "p1_move_right", "p1_move_up", "p1_move_down")
+	if move_vec != Vector2.ZERO:
+		_last_move_dir = move_vec.normalized()
 	global_position += move_vec * data.move_speed * delta
 	global_position.x = clamp(global_position.x, playfield_rect.position.x, playfield_rect.end.x)
 	global_position.y = clamp(global_position.y, playfield_rect.position.y, playfield_rect.end.y)
@@ -101,6 +109,8 @@ func _process_timers(delta: float) -> void:
 		_respawn_invincible_timer = max(0.0, _respawn_invincible_timer - delta)
 	if _special_invincible_timer > 0.0:
 		_special_invincible_timer = max(0.0, _special_invincible_timer - delta)
+	if _ordnance_cooldown > 0.0:
+		_ordnance_cooldown = max(0.0, _ordnance_cooldown - delta)
 
 func _process_shield_recharge(delta: float) -> void:
 	if _shield_recharge_timer > 0.0:
@@ -217,6 +227,17 @@ func _deploy_special(armed: ShipData) -> void:
 			_bullets.clear_enemy_bullets_in_cone(global_position, Vector2.UP, armed.special_cone_angle_degrees, armed.special_cone_range)
 			_bullets.damage_enemies_in_cone(global_position, Vector2.UP, armed.special_cone_angle_degrees, armed.special_cone_range, armed.special_damage)
 			_special_vfx.play_cone(Vector2.UP, armed.special_cone_angle_degrees, armed.special_cone_range, armed.special_duration)
+
+func _try_fire_ordnance() -> void:
+	if _ordnance_cooldown > 0.0 or _game_state.ordnance_ammo <= 0:
+		return
+	var ordnance: OrdnanceData = _game_state.ordnance
+	if ordnance == null:
+		return
+	_game_state.ordnance_ammo -= 1
+	ordnance_ammo_changed.emit(_game_state.ordnance_ammo)
+	_bullets.spawn_player_bullet(global_position, _last_move_dir, ordnance.bullet_speed, ordnance.bullet_radius, ordnance.bullet_color, 3.0, ordnance.bullet_damage)
+	_ordnance_cooldown = ordnance.fire_cooldown
 
 func get_armed_squad_ship() -> ShipData:
 	return _squad[_squad_index] if not _squad.is_empty() else null

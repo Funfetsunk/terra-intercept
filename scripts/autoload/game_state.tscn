@@ -5,7 +5,9 @@
 [ext_resource type="Resource" path="res://data/ships/striker_ship_data.tres" id="3_striker"]
 [ext_resource type="Resource" path="res://data/ships/guardian_ship_data.tres" id="4_guardian"]
 [ext_resource type="Resource" path="res://data/ships/vanguard_ship_data.tres" id="5_vanguard"]
+[ext_resource type="Resource" path="res://data/ordnance/missile_ordnance_data.tres" id="6_ordnance"]
 
 [node name="GameState" type="Node" unique_id=1245739816]
 script = ExtResource("1_kkv1x")
 ship_roster = Array[Resource]([ExtResource("2_interceptor"), ExtResource("3_striker"), ExtResource("4_guardian"), ExtResource("5_vanguard")])
+ordnance = ExtResource("6_ordnance")

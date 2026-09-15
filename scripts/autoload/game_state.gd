@@ -9,9 +9,11 @@ signal weapon_level_changed(new_level: int)
 @export var max_weapon_level: int = 5
 @export var selected_ship: ShipData
 @export var ship_roster: Array[ShipData] = []
+@export var ordnance: OrdnanceData
 
 var lives_remaining: int = 0
 var current_weapon_level: int = 1
+var ordnance_ammo: int = 0
 
 func _ready() -> void:
 	lives_remaining = starting_lives
@@ -19,6 +21,7 @@ func _ready() -> void:
 func start_new_run() -> void:
 	lives_remaining = starting_lives
 	current_weapon_level = 1
+	ordnance_ammo = ordnance.starting_ammo if ordnance != null else 0
 
 func register_player(player: Node) -> void:
 	if player.has_signal("hull_depleted"):

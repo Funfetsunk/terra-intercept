@@ -38,6 +38,10 @@ custom_minimum_size = Vector2(120, 12)
 layout_mode = 2
 show_percentage = false
 
+[node name="OrdnanceLabel" type="Label" parent="HUDRoot/LeftPanel" unique_id=2060462217]
+layout_mode = 2
+text = "Ordnance: 5/5"
+
 [node name="RightPanel" type="VBoxContainer" parent="HUDRoot" unique_id=83778539]
 layout_mode = 0
 offset_left = 484.0

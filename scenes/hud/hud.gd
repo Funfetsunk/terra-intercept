@@ -7,6 +7,7 @@ extends CanvasLayer
 @onready var _special_label: Label = $HUDRoot/RightPanel/SpecialChargesLabel
 @onready var _special_progress_bar: ProgressBar = $HUDRoot/RightPanel/SpecialProgressBar
 @onready var _squad_label: Label = $HUDRoot/RightPanel/SquadLabel
+@onready var _ordnance_label: Label = $HUDRoot/LeftPanel/OrdnanceLabel
 
 var _game_state: Node = null
 
@@ -17,6 +18,7 @@ func bind_player(player: Node) -> void:
 	player.special_charges_changed.connect(_on_special_changed)
 	player.special_progress_changed.connect(_on_special_progress_changed)
 	player.squad_selection_changed.connect(_on_squad_selection_changed)
+	player.ordnance_ammo_changed.connect(_on_ordnance_ammo_changed)
 	if player.has_method("get_armed_squad_ship"):
 		var armed: ShipData = player.get_armed_squad_ship()
 		if armed != null:
@@ -45,6 +47,11 @@ func _on_special_progress_changed(progress: float) -> void:
 
 func _on_squad_selection_changed(ship: ShipData) -> void:
 	_squad_label.text = "Squad: %s" % ship.ship_name
+
+func _on_ordnance_ammo_changed(current: int) -> void:
+	var game_state: Node = get_node("/root/GameState")
+	var max_ammo: int = game_state.ordnance.starting_ammo if game_state.ordnance != null else 0
+	_ordnance_label.text = "Ordnance: %d/%d" % [current, max_ammo]
 
 func _on_life_lost(lives_remaining: int) -> void:
 	_lives_label.text = "Lives: %d" % lives_remaining

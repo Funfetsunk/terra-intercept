@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="MissionData" load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/mission_data.gd" id="1"]
+[ext_resource type="Resource" path="res://data/missions/spawn_drone_01.tres" id="2"]
+[ext_resource type="Resource" path="res://data/missions/spawn_drone_02.tres" id="3"]
+[ext_resource type="Resource" path="res://data/missions/spawn_swarmer_01.tres" id="4"]
+[ext_resource type="Resource" path="res://data/missions/spawn_swarmer_02.tres" id="5"]
+[ext_resource type="Resource" path="res://data/missions/spawn_spinner_01.tres" id="6"]
+[ext_resource type="Resource" path="res://data/missions/spawn_drone_03.tres" id="7"]
+[ext_resource type="Resource" path="res://data/missions/spawn_boss_01.tres" id="8"]
+
+[resource]
+script = ExtResource("1")
+mission_name = "Vertical Slice"
+background_scroll_speed = 40.0
+spawn_entries = Array[Resource]([ExtResource("2"), ExtResource("3"), ExtResource("4"), ExtResource("5"), ExtResource("6"), ExtResource("7"), ExtResource("8")])

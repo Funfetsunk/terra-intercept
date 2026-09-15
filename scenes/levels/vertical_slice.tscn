@@ -3,12 +3,13 @@
 [ext_resource type="Script" uid="uid://ebhoutquxh0v" path="res://scenes/levels/vertical_slice.gd" id="1_c33km"]
 [ext_resource type="PackedScene" uid="uid://bveh1trv7wuqf" path="res://scenes/player/player_ship.tscn" id="1_s6fwv"]
 [ext_resource type="Script" uid="uid://brvoh5s303sqb" path="res://scenes/player/player_ship.gd" id="2_7dx74"]
-[ext_resource type="Resource" path="res://data/ships/guardian_ship_data.tres" id="3_cjj60"]
+[ext_resource type="Resource" uid="uid://b3c6554j4do4e" path="res://data/ships/guardian_ship_data.tres" id="3_cjj60"]
 [ext_resource type="Script" uid="uid://ncywel0e8vw1" path="res://scenes/specials/squad_special_circle.gd" id="4_c33km"]
 [ext_resource type="PackedScene" uid="uid://c1woeggvkgk0f" path="res://scenes/hud/hud.tscn" id="6_yqhg2"]
 [ext_resource type="Script" uid="uid://d0v1ssq1rlq0w" path="res://scenes/hud/hud.gd" id="7_akqp4"]
 [ext_resource type="Script" uid="uid://c6cns2cik14l2" path="res://scenes/levels/scrolling_background.gd" id="8_akqp4"]
 [ext_resource type="Script" uid="uid://bgoiagdeo8ki4" path="res://scripts/systems/enemy_spawner.gd" id="9_axun0"]
+[ext_resource type="Resource" path="res://data/missions/vertical_slice_mission.tres" id="10_axun0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kjavq"]
 radius = 2.0
@@ -113,3 +114,4 @@ color = Color(0.06, 0.07, 0.13, 1)
 
 [node name="EnemySpawner" type="Node" parent="." unique_id=962530199]
 script = ExtResource("9_axun0")
+mission = ExtResource("10_axun0")

@@ -7,6 +7,7 @@ signal enemy_destroyed(enemy: Node2D, score_value: int)
 @export var despawn_y: float = 400.0
 
 var hull_current: float = 0.0
+var pattern_override: BulletPatternData = null
 
 var _bullets: Node = null
 var _rng: RandomNumberGenerator = RandomNumberGenerator.new()
@@ -17,7 +18,7 @@ var _current_pattern: BulletPatternData = null
 func _ready() -> void:
 	_bullets = get_node("/root/BulletManager")
 	hull_current = data.hull_max
-	_current_pattern = data.pattern
+	_current_pattern = pattern_override if pattern_override != null else data.pattern
 	if _current_pattern != null:
 		_rng.seed = _current_pattern.rng_seed
 		_burst_timer = _current_pattern.burst_interval

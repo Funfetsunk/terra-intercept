@@ -3,11 +3,9 @@ class_name ShipData
 
 @export_group("Movement")
 @export var move_speed: float = 90.0
-@export var focus_move_speed: float = 45.0
 
 @export_group("Hitbox")
 @export var normal_hitbox_radius: float = 2.0
-@export var focus_hitbox_radius: float = 1.0
 
 @export_group("Shield")
 @export var shield_max: float = 6.0
@@ -27,6 +25,7 @@ class_name ShipData
 @export var focus_drain_rate: float = 1.0
 @export var focus_refill_delay: float = 2.0
 @export var focus_refill_rate: float = 1.0
+@export var focus_bullet_time_scale: float = 0.35
 
 @export_group("Weapon")
 @export var fire_rate: float = 8.0

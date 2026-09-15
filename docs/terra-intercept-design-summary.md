@@ -40,7 +40,7 @@
   |---|---|
   | Left stick | Move |
   | Right stick | Fire in the stick's direction (releasing it stops firing) |
-  | LT | Focus mode: slower movement and a visible hitbox. It runs off a meter that lasts about 4 seconds and starts refilling about 2 seconds after release. |
+  | LT | Focus mode: slows enemy bullets so patterns are easier to read and thread; movement speed and hitbox are unchanged. It runs off a meter that lasts about 4 seconds and starts refilling about 2 seconds after release. |
   | LB / RB | Cycle between squad-mates |
   | RT | Launch the selected squad-mate's special |
   | A | Fire ordnance in the direction you're moving (straight up if the left stick is idle) |

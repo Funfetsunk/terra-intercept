@@ -1,32 +1,9 @@
-[gd_resource type="Resource" script_class="ShipData" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="ShipData" format=3 uid="uid://b3c6554j4do4e"]
 
-[ext_resource type="Script" path="res://scripts/resources/ship_data.gd" id="1"]
+[ext_resource type="Script" uid="uid://boquiv061idvy" path="res://scripts/resources/ship_data.gd" id="1"]
 
 [resource]
 script = ExtResource("1")
-move_speed = 70.0
-focus_move_speed = 35.0
-normal_hitbox_radius = 2.0
-focus_hitbox_radius = 1.0
+move_speed = 100.0
 shield_max = 8.0
-shield_recharge_delay = 3.0
 shield_recharge_rate = 2.5
-hull_max = 3.0
-hull_hit_invincibility_duration = 1.0
-respawn_invincibility_duration = 2.0
-respawn_bullet_clear_radius = 60.0
-focus_meter_max = 4.0
-focus_drain_rate = 1.0
-focus_refill_delay = 2.0
-focus_refill_rate = 1.0
-fire_rate = 8.0
-bullet_speed = 260.0
-bullet_radius = 3.0
-bullet_color = Color(0.4, 0.9, 1, 1)
-bullet_damage = 1.0
-special_charge_max = 3
-special_charge_per_damage = 0.05
-special_charge_per_kill_bonus = 0.25
-special_radius = 60.0
-special_damage = 4.0
-special_duration = 0.5

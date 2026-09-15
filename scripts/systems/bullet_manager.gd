@@ -55,28 +55,32 @@ var _enemy_pool: BulletPool = BulletPool.new()
 var _registered_player: Node2D = null
 var _registered_player_hitbox_radius: float = 0.0
 var _registered_enemies: Array[Node2D] = []
+var _enemy_bullet_time_scale: float = 1.0
 
 func _ready() -> void:
 	_player_pool.setup(max_player_bullets)
 	_enemy_pool.setup(max_enemy_bullets)
 
 func _physics_process(delta: float) -> void:
-	_step_pool(_player_pool, delta)
-	_step_pool(_enemy_pool, delta)
+	_step_pool(_player_pool, delta, 1.0)
+	_step_pool(_enemy_pool, delta, _enemy_bullet_time_scale)
 	_check_enemy_bullets_vs_player()
 	_check_player_bullets_vs_enemies()
 	queue_redraw()
 
-func _step_pool(pool: BulletPool, delta: float) -> void:
+func _step_pool(pool: BulletPool, delta: float, time_scale: float) -> void:
 	var bounds: Rect2 = get_viewport_rect().grow(despawn_margin)
 	var i: int = 0
 	while i < pool.active_count:
-		pool.positions[i] += pool.velocities[i] * delta
+		pool.positions[i] += pool.velocities[i] * delta * time_scale
 		pool.lifetimes[i] -= delta
 		if pool.lifetimes[i] <= 0.0 or not bounds.has_point(pool.positions[i]):
 			pool.kill(i)
 		else:
 			i += 1
+
+func set_enemy_bullet_time_scale(time_scale: float) -> void:
+	_enemy_bullet_time_scale = time_scale
 
 func _check_enemy_bullets_vs_player() -> void:
 	if _registered_player == null:

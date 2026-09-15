@@ -29,8 +29,6 @@ var _is_focused: bool = false
 @onready var _bullets: Node = get_node("/root/BulletManager")
 @onready var _game_state: Node = get_node("/root/GameState")
 @onready var _hitbox: Area2D = $Hitbox
-@onready var _hitbox_shape: CollisionShape2D = $Hitbox/CollisionShape2D
-@onready var _focus_visual: CanvasItem = $FocusHitboxVisual
 @onready var _special_vfx: Node2D = $SpecialCircleVFX
 
 func _ready() -> void:
@@ -59,8 +57,7 @@ func _physics_process(delta: float) -> void:
 
 func _process_movement(delta: float) -> void:
 	var move_vec: Vector2 = Input.get_vector("p1_move_left", "p1_move_right", "p1_move_up", "p1_move_down")
-	var speed: float = data.focus_move_speed if _is_focused else data.move_speed
-	global_position += move_vec * speed * delta
+	global_position += move_vec * data.move_speed * delta
 	global_position.x = clamp(global_position.x, playfield_rect.position.x, playfield_rect.end.x)
 	global_position.y = clamp(global_position.y, playfield_rect.position.y, playfield_rect.end.y)
 
@@ -76,11 +73,7 @@ func _process_focus(delta: float) -> void:
 			_focus_refill_wait_timer -= delta
 		elif _focus_meter < data.focus_meter_max:
 			_focus_meter = min(data.focus_meter_max, _focus_meter + data.focus_refill_rate * delta)
-	_focus_visual.visible = _is_focused
-	var hitbox_radius: float = data.focus_hitbox_radius if _is_focused else data.normal_hitbox_radius
-	_bullets.set_player_hitbox_radius(hitbox_radius)
-	if _hitbox_shape.shape is CircleShape2D:
-		(_hitbox_shape.shape as CircleShape2D).radius = hitbox_radius
+	_bullets.set_enemy_bullet_time_scale(data.focus_bullet_time_scale if _is_focused else 1.0)
 	focus_changed.emit(_focus_meter, data.focus_meter_max)
 
 func _process_timers(delta: float) -> void:
@@ -173,4 +166,4 @@ func _try_fire_special() -> void:
 	special_fired.emit()
 
 func get_hitbox_radius() -> float:
-	return data.focus_hitbox_radius if _is_focused else data.normal_hitbox_radius
+	return data.normal_hitbox_radius

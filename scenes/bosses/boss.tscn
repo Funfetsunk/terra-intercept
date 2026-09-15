@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://8an6xs20iikn"]
+
+[ext_resource type="Script" uid="uid://blx0exha146r7" path="res://scenes/bosses/boss.gd" id="1_rdia2"]
+[ext_resource type="Resource" path="res://data/enemies/boss_data.tres" id="2_buxl7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tsxae"]
+radius = 32.0
+
+[node name="Boss" type="Node2D" unique_id=1719301672]
+script = ExtResource("1_rdia2")
+data = ExtResource("2_buxl7")
+
+[node name="Sprite" type="ColorRect" parent="." unique_id=452256481]
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+color = Color(0.55, 0.1, 0.15, 1)
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=524534122]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=226634705]
+shape = SubResource("CircleShape2D_tsxae")

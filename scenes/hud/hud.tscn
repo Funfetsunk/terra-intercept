@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://c1woeggvkgk0f"]
+
+[ext_resource type="Script" uid="uid://d0v1ssq1rlq0w" path="res://scenes/hud/hud.gd" id="1_48c2t"]
+
+[node name="HUD" type="CanvasLayer" unique_id=1725720245]
+script = ExtResource("1_48c2t")
+
+[node name="HUDRoot" type="Control" parent="." unique_id=1802526821]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 360.0
+mouse_filter = 2
+
+[node name="LeftPanel" type="VBoxContainer" parent="HUDRoot" unique_id=2079910361]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 156.0
+offset_bottom = 96.0
+
+[node name="LivesLabel" type="Label" parent="HUDRoot/LeftPanel" unique_id=1862482661]
+layout_mode = 2
+text = "Lives: 3"
+
+[node name="ShieldBar" type="ProgressBar" parent="HUDRoot/LeftPanel" unique_id=1070524969]
+custom_minimum_size = Vector2(120, 12)
+layout_mode = 2
+show_percentage = false
+
+[node name="HullBar" type="ProgressBar" parent="HUDRoot/LeftPanel" unique_id=1171664975]
+custom_minimum_size = Vector2(120, 12)
+layout_mode = 2
+show_percentage = false
+
+[node name="FocusBar" type="ProgressBar" parent="HUDRoot/LeftPanel" unique_id=2050544513]
+custom_minimum_size = Vector2(120, 12)
+layout_mode = 2
+show_percentage = false
+
+[node name="RightPanel" type="VBoxContainer" parent="HUDRoot" unique_id=83778539]
+layout_mode = 0
+offset_left = 484.0
+offset_top = 6.0
+offset_right = 634.0
+offset_bottom = 46.0
+
+[node name="SpecialChargesLabel" type="Label" parent="HUDRoot/RightPanel" unique_id=650194307]
+layout_mode = 2
+text = "Special: 0/3"

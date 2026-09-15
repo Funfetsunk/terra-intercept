@@ -1,0 +1,8 @@
+extends Node2D
+
+@onready var _player: Node = $PlayerShip
+@onready var _hud: CanvasLayer = $HUD
+
+func _ready() -> void:
+	get_node("/root/GameState").start_new_run()
+	_hud.bind_player(_player)

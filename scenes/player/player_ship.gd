@@ -5,6 +5,7 @@ signal hull_changed(current: float, max_value: float)
 signal hull_depleted
 signal focus_changed(current: float, max_value: float)
 signal special_charges_changed(current: int, max_value: int)
+signal special_progress_changed(progress: float)
 signal special_fired
 signal respawned
 signal squad_selection_changed(ship: ShipData)
@@ -48,6 +49,7 @@ func _ready() -> void:
 	hull_changed.emit(hull_current, data.hull_max)
 	focus_changed.emit(_focus_meter, data.focus_meter_max)
 	special_charges_changed.emit(special_charges, data.special_charge_max)
+	special_progress_changed.emit(_special_progress)
 	_squad = _game_state.ship_roster.filter(func(s: ShipData) -> bool: return s != data)
 	if _squad.is_empty():
 		_squad = [data]
@@ -169,6 +171,7 @@ func on_damage_dealt(damage: float, was_kill: bool) -> void:
 		gained = true
 	if gained:
 		special_charges_changed.emit(special_charges, data.special_charge_max)
+	special_progress_changed.emit(_special_progress)
 
 func _try_fire_special() -> void:
 	if special_charges <= 0 or _squad.is_empty():

@@ -52,3 +52,9 @@ text = "Special: 0/3"
 [node name="SquadLabel" type="Label" parent="HUDRoot/RightPanel" unique_id=1090562693]
 layout_mode = 2
 text = "Squad: -"
+
+[node name="SpecialProgressBar" type="ProgressBar" parent="HUDRoot/RightPanel" unique_id=1044090549]
+custom_minimum_size = Vector2(120, 4)
+layout_mode = 2
+max_value = 1.0
+show_percentage = false

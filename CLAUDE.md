@@ -6,17 +6,32 @@ Terra Intercept is a 2D pixel-art vertical-scrolling bullet hell with twin-stick
 
 ## Current milestone
 
-**Vertical slice, using placeholder squares (no real art yet).**
+Milestone 1 (vertical slice) is complete (tag `vertical-slice`).
+Milestone 2a (core systems) is complete (tag `milestone-2a`).
 
-It needs:
-- One player ship with twin-stick movement and firing
-- Focus mode, with its meter
-- Shields that recharge, and a hull that doesn't
-- 3 lives, with respawn
-- 3 enemy types: drone, swarmer, spinner
-- One squad special (the circle)
-- One boss
-- The 640×360 window, scaled up by whole numbers
+**Now: Milestone 2b, London (mission 1).**
+Build it entirely from the 2a systems: timeline `.tres`, backgrounds, pickups, dialogue. If something can't be done with those systems, stop and ask rather than hard-coding around them. Use placeholder art wherever real art isn't ready yet, but keep sprite sizes true to the design so real art drops straight in.
+
+Build in this order, one task at a time, committed separately:
+
+0. **Retire the vertical slice.** Convert the slice level into a developer-only test range (`scenes/levels/test_range.tscn`) using the 2a systems. Remove it from all game menu flow. Delete slice-only code that the 2a systems replaced. Check whether the slice boss can be reused as the task-5 mid-boss. List anything you plan to delete and wait for approval before deleting it.
+1. **Mission structure.** A London mission `.tres` split into three sections: tutorial, Thames run, boss. Section boundaries are markers in the timeline, so restarts can begin from a marker.
+2. **Tutorial section (non-lethal).**
+   - Hits still drain shields and hull, but the hull can't drop below 1.
+   - Commander prompts appear only when no threats are on screen, in this order: movement → aiming/firing → collecting a power-up and alien tech → focus mode → ordnance.
+   - Squad-mates then radio in, and the player uses each available special once.
+   - Enemies are light and slow, and each teaching beat waits until the player has done the action.
+   - When the section ends, shields and hull are silently restored to full.
+3. **Skip tutorial.** If the player has finished the tutorial and later dies in the mission, the restart prompt offers "Skip tutorial," which restarts from the Thames marker.
+4. **Thames run.** A scrolling flight up the river, gentle difficulty (this is the opening mission). Introduce the drone, swarmer and lander pod (pods land on rooftops and embankments). Include pickups and alien tech drops. About 3–4 minutes after the tutorial.
+5. **Mid-boss.** One of the reusable mid-bosses, built so it can be recoloured and reused in later missions.
+6. **Tower Bridge boss.** A unique boss attacking Tower Bridge, with 2 phases and learnable, fixed patterns. It ends with the results screen.
+7. **Mission flow.** Title → ship select → London → results → back to title. (The hangar and map come in milestone 3.)
+8. **Audio hooks.** Tutorial music during the tutorial, a stage theme for the Thames run, mid-boss and boss music with a phase change. Use placeholder audio files if the tracks aren't ready.
+
+**Dialogue:** pilot and commander names aren't decided yet. Use placeholders (`COMMANDER`, `INTERCEPTOR PILOT`, and so on), kept in the dialogue `.tres` files so they're easy to replace.
+
+**Coming later, do not build yet:** milestone 3 (hangar, upgrade list, save slots, world map), then the remaining missions.
 
 Success means it runs at a steady 60fps on the retro laptop (i7-1165G7 / Iris Xe). Don't start on the hangar, map, story or real art until this milestone is signed off.
 

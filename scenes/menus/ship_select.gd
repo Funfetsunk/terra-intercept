@@ -29,4 +29,6 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _on_ship_chosen(ship: ShipData) -> void:
 	_game_state.selected_ship = ship
+	_game_state.restart_section = ""
+	_game_state.tutorial_completed = false
 	get_tree().change_scene_to_file("res://scenes/levels/london.tscn")

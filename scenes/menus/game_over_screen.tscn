@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://nr1mke8xc6ng"]
+
+[ext_resource type="Script" uid="uid://dl5672h1cfhxx" path="res://scenes/menus/game_over_screen.gd" id="1_agkj2"]
+
+[node name="GameOverScreen" type="Control" unique_id=71803714]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 360.0
+script = ExtResource("1_agkj2")
+
+[node name="Backdrop" type="ColorRect" parent="." unique_id=35883284]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+mouse_filter = 2
+color = Color(0.04, 0.05, 0.1, 1)
+
+[node name="TitleLabel" type="Label" parent="." unique_id=878544757]
+layout_mode = 0
+offset_top = 16.0
+offset_right = 640.0
+offset_bottom = 40.0
+theme_override_font_sizes/font_size = 18
+text = "Mission Failed"
+horizontal_alignment = 1
+
+[node name="ButtonList" type="VBoxContainer" parent="." unique_id=1454568915]
+layout_mode = 0
+offset_left = 260.0
+offset_top = 140.0
+offset_right = 380.0
+offset_bottom = 260.0
+
+[node name="RestartButton" type="Button" parent="ButtonList" unique_id=136437513]
+layout_mode = 2
+text = "Restart Mission"
+
+[node name="SkipTutorialButton" type="Button" parent="ButtonList" unique_id=724030992]
+layout_mode = 2
+text = "Skip Tutorial"
+
+[node name="QuitButton" type="Button" parent="ButtonList" unique_id=1996368015]
+layout_mode = 2
+text = "Quit to Title"

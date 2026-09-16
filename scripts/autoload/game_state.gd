@@ -42,7 +42,6 @@ func _ready() -> void:
 	lives_remaining = starting_lives
 
 func start_new_run() -> void:
-	restart_section = ""
 	is_game_over = false
 	lives_remaining = starting_lives
 	current_weapon_level = 1

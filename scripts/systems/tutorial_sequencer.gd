@@ -36,6 +36,9 @@ func _ready() -> void:
 	_dialogue_box = get_node(dialogue_box_path)
 	_bullets = get_node("/root/BulletManager")
 	_game_state = get_node("/root/GameState")
+	if not _game_state.restart_section.is_empty():
+		_phase = _Phase.DONE
+		return
 	_game_state.tutorial_active = true
 	_player.process_mode = Node.PROCESS_MODE_ALWAYS
 	_bullets.process_mode = Node.PROCESS_MODE_ALWAYS

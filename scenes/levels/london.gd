@@ -7,7 +7,11 @@ func _ready() -> void:
 	var game_state: Node = get_node("/root/GameState")
 	game_state.start_new_run()
 	game_state.mission_completed.connect(_on_mission_completed)
+	game_state.game_over_triggered.connect(_on_game_over)
 	_hud.bind_player(_player)
 
 func _on_mission_completed(_results: Dictionary) -> void:
 	get_tree().change_scene_to_file("res://scenes/menus/results_screen.tscn")
+
+func _on_game_over() -> void:
+	get_tree().change_scene_to_file("res://scenes/menus/game_over_screen.tscn")

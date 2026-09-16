@@ -2,7 +2,7 @@ extends EnemyBase
 
 @export var fall_speed: float = 30.0
 @export var land_y: float = 160.0
-@export var unfold_delay: float = 0.6
+@export var unfold_delay: float = 0.1
 @export var active_color: Color = Color(0.9, 0.3, 0.15, 1.0)
 
 enum _State { FALLING, UNFOLDING, ACTIVE }

@@ -10,9 +10,13 @@ Milestone 1 (vertical slice) is complete (tag `vertical-slice`).
 Milestone 2a (core systems) is complete (tag `milestone-2a`).
 
 **Now: Milestone 2b, London (mission 1).**
-Build it entirely from the 2a systems: timeline `.tres`, backgrounds, pickups, dialogue. If something can't be done with those systems, stop and ask rather than hard-coding around them. Use placeholder art wherever real art isn't ready yet, but keep sprite sizes true to the design so real art drops straight in.
+Build it entirely from the 2a systems: timeline `.tres`, backgrounds, pickups, dialogue. If something can't be done with those systems, stop and ask rather than hard-coding around them. Use placeholder art, but keep sprite sizes true to the design so real art drops straight in.
 
-Build in this order, one task at a time, committed separately:
+**Priority before any more London content:**
+- **A. Lives bug.** Respawn's bullet-clear must never change the bullet pool while a collision loop is iterating over it (defer it). When lives reach 0, go straight to the restart/hangar prompt and stop processing hits. Lives can never go negative. Commit this on its own.
+- **B. Screen layout** (see "Screen layout" below). Existing London spawns, backgrounds and patterns must be converted to fit the playfield.
+
+Build in this order, one task at a time, committed separately. Mark each task **[done]** when it's finished and committed.
 
 0. **Retire the vertical slice.** Convert the slice level into a developer-only test range (`scenes/levels/test_range.tscn`) using the 2a systems. Remove it from all game menu flow. Delete slice-only code that the 2a systems replaced. Check whether the slice boss can be reused as the task-5 mid-boss. List anything you plan to delete and wait for approval before deleting it.
 1. **Mission structure.** A London mission `.tres` split into three sections: tutorial, Thames run, boss. Section boundaries are markers in the timeline, so restarts can begin from a marker.
@@ -31,9 +35,9 @@ Build in this order, one task at a time, committed separately:
 
 **Dialogue:** pilot and commander names aren't decided yet. Use placeholders (`COMMANDER`, `INTERCEPTOR PILOT`, and so on), kept in the dialogue `.tres` files so they're easy to replace.
 
-**Coming later, do not build yet:** milestone 3 (hangar, upgrade list, save slots, world map), then the remaining missions.
+**Coming later, do not build yet:** milestone 2c (London art pass, swapping in real art), milestone 3 (hangar, upgrade list, save slots, world map), then the remaining missions.
 
-Success means it runs at a steady 60fps on the retro laptop (i7-1165G7 / Iris Xe). Don't start on the hangar, map, story or real art until this milestone is signed off.
+Every milestone must run at a steady 60fps on the retro laptop (i7-1165G7 / Iris Xe).
 
 ## Hard rules
 
@@ -50,6 +54,30 @@ These are not negotiable.
 5. **Use static typing everywhere in GDScript.** Type every variable, parameter and return value (`var speed: float = 120.0`, `func fire(dir: Vector2) -> void:`). Use `class_name` for reusable scripts.
 6. **Pool bullets and spawn them in code.** This is the one exception to rule 1. Never `instantiate()` or `queue_free()` bullets during play. A bullet manager owns the pools, and patterns request bullets from it. Scale this for thousands of bullets on screen.
 7. **Lock to 60fps.** Gameplay logic runs in `_physics_process` at 60 ticks. Bullet patterns must be deterministic, identical on every run and at every difficulty. If randomness is needed, use a seeded `RandomNumberGenerator`, never `randf()`.
+
+## Screen layout
+
+- **Playfield:** a centred playfield of about 360×360 inside the 640×360 screen, with HUD side panels about 140px wide.
+- **No SubViewport.** It didn't display under the Compatibility renderer.
+- **`PlayfieldRoot`:** all gameplay (player, enemies, bullets, pickups, backgrounds) lives under a `Node2D` called `PlayfieldRoot`, offset to the playfield position. Screen shake moves `PlayfieldRoot` only.
+- **`Playfield` helper:** a shared helper holds the playfield rectangle. Use it for bounds checks, for converting relative spawn positions (0–1 across the playfield) to world positions, and for mouse-aim conversion. **Never hard-code playfield pixel positions.**
+- **Spawn positions** in timeline `.tres` files are stored as relative values (0–1).
+- **HUD:** a `CanvasLayer` above the playfield, with **opaque** side panels so gameplay overdraw at the edges is hidden. The panels hold the pilot portrait, shield and hull, special charges and selected squad-mate, focus meter, ordnance and ammo, score and multiplier, and lives.
+- **Dialogue:** the portrait sits in a side panel and the text runs along the bottom of the playfield.
+- **Test range:** uses the same layout.
+
+## Sprite sizes
+
+These apply to placeholders too.
+
+| Object | Size |
+|---|---|
+| Player ships | about 24×24 |
+| Player hitbox | 3–4px at the ship's centre, the same on all four ships |
+| Small enemies | 16–24 |
+| Mid-bosses | about 64 |
+| Bosses | 128–200 |
+| Bullets | 4–8 |
 
 ## Project settings
 
@@ -79,7 +107,7 @@ res://
   scripts/
     autoload/        # global singletons
     resources/       # custom Resource class definitions
-    systems/         # bullet manager, spawner, scoring, etc.
+    systems/         # bullet manager, spawner, playfield helper, scoring, etc.
   docs/
     design-summary.md
 ```
@@ -137,7 +165,8 @@ The Godot editor is open and connected through Godot MCP Pro. Use its tools in p
 - **Building a scene:** `create_scene` or `open_scene`, then `add_node` or `batch_add_nodes`, then `create_script` + `attach_script`, then `save_scene`.
 - **Tuning values:** set node properties in the Inspector with `update_property` rather than in code. Use a script only when the value must change at runtime.
 - **Project settings and input actions:** use `set_project_setting` and `set_input_action`. **Never edit `project.godot` directly**, because the editor overwrites it.
-- **Testing gameplay:** `play_scene`, then drive input with **`simulate_action` using the `p1_` action names** (not raw keys), then check the result with `get_game_screenshot`, `capture_frames` or `monitor_properties`, then `stop_scene`. For the bullet manager, use `run_stress_test` and `get_performance_monitors` to check the 60fps target.
+- **Keep the editor and disk in sync.** Change scenes and resources through the editor tools, not by editing .tscn/.tres files directly. Always call `save_scene` after scene changes. If a file had to be edited on disk, call `reload_project` afterwards.
+- **Testing gameplay:** `play_scene`, then drive input with **`simulate_action` using the `p1_` action names** (not raw keys), then check the result with `get_game_screenshot`, `capture_frames` or `monitor_properties`, then `stop_scene`. Never leave a game window running. For the bullet manager, use `run_stress_test` and `get_performance_monitors` to check the 60fps target.
 - **After script changes:** run `validate_script`. If a new script doesn't take effect, run `reload_project`.
 - **Checking for errors:** use `get_editor_errors` and `get_output_log`.
 - **Pitfalls:**
@@ -147,13 +176,18 @@ The Godot editor is open and connected through Godot MCP Pro. Use its tools in p
   - With `simulate_key`, use short durations (0.3–0.5s) to avoid overshooting.
   - `execute_game_script` doesn't allow a function inside a function, and uses `.get("property")` for safe access.
 - **If "Godot editor is not connected" appears:** a stale `node.exe` is probably holding the port. Tell the developer instead of retrying repeatedly.
+- **At the end of each task,** tell the developer which scene to run to see the change (F5 main scene or F6 a specific scene).
 
 ## Workflow
 
 - **Before starting a task,** check `docs/design-summary.md` and the current milestone above.
+- **Plan first.** For anything larger than a small fix, propose a plan and wait for approval before building.
 - **Do the work in the editor** through Godot MCP Pro wherever possible: create scenes, add nodes, set properties.
 - **Before calling a task done,** run the project through MCP, read the output and error log, and fix any errors or warnings. Take a screenshot when the change is visual.
+- **If you hit a blocker,** stop and report it with options rather than working around a hard rule.
+- **Report bugs you notice** that are outside the current task, and don't fix them without approval.
 - **Keep changes small and focused.** One feature per commit, with a clear message (`Add focus meter to player`).
+- **At the end of a session,** when asked, update the "Current milestone" section: mark finished tasks **[done]** and note where work stopped.
 - **Git:**
   - Commit to the local repo.
   - The remote is GitHub.
@@ -162,7 +196,7 @@ The Godot editor is open and connected through Godot MCP Pro. Use its tools in p
   - Ask before force-pushing or rewriting history.
 - **Ask first** before adding plugins or addons, changing any hard rule or project setting, or making a design decision the summary doesn't cover.
 - **Explain as you go.** The developer knows programming but is still learning Godot, so briefly explain Godot-specific choices (why a node type, why a signal) when you make them.
-- **Use placeholders freely** during the vertical slice: `ColorRect` or simple shapes, sized to the design (player about 24×24, small enemies 16–24, bullets 4–8).
+- **Placeholders:** use `ColorRect` or simple shapes until real art arrives, sized to the "Sprite sizes" table.
 
 ## Performance notes
 

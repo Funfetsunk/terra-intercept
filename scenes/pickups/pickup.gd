@@ -3,22 +3,29 @@ class_name Pickup
 
 @export var data: PickupData
 @export var despawn_y: float = 400.0
+@export var magnet_radius: float = 40.0
+@export var magnet_speed: float = 220.0
 
 var _bullets: Node = null
+var _collected: bool = false
 
 func _ready() -> void:
 	_bullets = get_node("/root/BulletManager")
 	$Sprite.color = data.pickup_color
 
 func _physics_process(delta: float) -> void:
-	global_position.y += data.drift_speed * delta
+	if _collected:
+		return
+	var player: Node2D = _bullets.get_registered_player()
+	if player != null and global_position.distance_to(player.global_position) <= magnet_radius:
+		global_position = global_position.move_toward(player.global_position, magnet_speed * delta)
+	else:
+		global_position.y += data.drift_speed * delta
 	if global_position.y > despawn_y:
 		queue_free()
 		return
-	var player: Node2D = _bullets.get_registered_player()
-	if player == null:
-		return
-	if global_position.distance_to(player.global_position) <= data.pickup_radius:
+	if player != null and global_position.distance_to(player.global_position) <= data.pickup_radius:
+		_collected = true
 		_apply(player)
 		queue_free()
 

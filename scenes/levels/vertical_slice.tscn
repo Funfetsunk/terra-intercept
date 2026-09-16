@@ -4,9 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://bveh1trv7wuqf" path="res://scenes/player/player_ship.tscn" id="1_s6fwv"]
 [ext_resource type="PackedScene" uid="uid://c1woeggvkgk0f" path="res://scenes/hud/hud.tscn" id="6_yqhg2"]
 [ext_resource type="Script" uid="uid://c6cns2cik14l2" path="res://scenes/levels/scrolling_background.gd" id="8_akqp4"]
+[ext_resource type="PackedScene" uid="uid://bdjsxy2elcbrc" path="res://scenes/hud/dialogue_box.tscn" id="8_axun0"]
 [ext_resource type="Script" uid="uid://bgoiagdeo8ki4" path="res://scripts/systems/enemy_spawner.gd" id="9_axun0"]
 [ext_resource type="PackedScene" uid="uid://ort4tmjdo7j" path="res://scenes/levels/background_layer.tscn" id="9_pbhpe"]
 [ext_resource type="Resource" path="res://data/missions/vertical_slice_mission.tres" id="10_axun0"]
+[ext_resource type="Script" uid="uid://b1vqxoh2qfcwi" path="res://scripts/systems/dialogue_controller.gd" id="10_pbhpe"]
 
 [node name="VerticalSlice" type="Node2D" unique_id=1011628576]
 script = ExtResource("1_c33km")
@@ -40,3 +42,10 @@ panel_b_color = Color(0.03, 0.035, 0.07, 1)
 [node name="EnemySpawner" type="Node" parent="." unique_id=962530199]
 script = ExtResource("9_axun0")
 mission = ExtResource("10_axun0")
+
+[node name="DialogueBox" parent="." unique_id=647446749 instance=ExtResource("8_axun0")]
+
+[node name="DialogueController" type="Node" parent="." unique_id=330970725]
+script = ExtResource("10_pbhpe")
+mission = ExtResource("10_axun0")
+dialogue_box_path = NodePath("../DialogueBox")

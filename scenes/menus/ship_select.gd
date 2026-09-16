@@ -19,6 +19,14 @@ func _ready() -> void:
 	if not entries.is_empty():
 		entries[0].grab_focus()
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("p1_ordnance"):
+		var viewport: Viewport = get_viewport()
+		var focused: Control = viewport.gui_get_focus_owner()
+		if focused is ShipSelectEntry:
+			viewport.set_input_as_handled()
+			(focused as ShipSelectEntry).activate()
+
 func _on_ship_chosen(ship: ShipData) -> void:
 	_game_state.selected_ship = ship
 	get_tree().change_scene_to_file("res://scenes/levels/vertical_slice.tscn")

@@ -19,3 +19,6 @@ func _ready() -> void:
 
 func _on_pressed() -> void:
 	ship_chosen.emit(ship)
+
+func activate() -> void:
+	_on_pressed()

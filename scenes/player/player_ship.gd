@@ -81,8 +81,7 @@ func _physics_process(delta: float) -> void:
 
 func _process_movement(delta: float) -> void:
 	var move_vec: Vector2 = Input.get_vector("p1_move_left", "p1_move_right", "p1_move_up", "p1_move_down")
-	if move_vec != Vector2.ZERO:
-		_last_move_dir = move_vec.normalized()
+	_last_move_dir = move_vec.normalized() if move_vec != Vector2.ZERO else Vector2.UP
 	global_position += move_vec * data.move_speed * delta
 	global_position.x = clamp(global_position.x, playfield_rect.position.x, playfield_rect.end.x)
 	global_position.y = clamp(global_position.y, playfield_rect.position.y, playfield_rect.end.y)

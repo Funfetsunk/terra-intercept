@@ -63,8 +63,9 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	_step_pool(_player_pool, delta, 1.0)
-	_step_pool(_enemy_pool, delta, _enemy_bullet_time_scale)
-	_check_enemy_bullets_vs_player()
+	if not get_tree().paused:
+		_step_pool(_enemy_pool, delta, _enemy_bullet_time_scale)
+		_check_enemy_bullets_vs_player()
 	_check_player_bullets_vs_enemies()
 	queue_redraw()
 

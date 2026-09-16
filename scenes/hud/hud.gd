@@ -26,6 +26,7 @@ func bind_player(player: Node) -> void:
 		var armed: ShipData = player.get_armed_squad_ship()
 		if armed != null:
 			_on_squad_selection_changed(armed)
+	_on_special_changed(player.special_charges, player.data.special_charge_max)
 	_game_state = get_node("/root/GameState")
 	_game_state.life_lost.connect(_on_life_lost)
 	_game_state.tech_changed.connect(_on_tech_changed)

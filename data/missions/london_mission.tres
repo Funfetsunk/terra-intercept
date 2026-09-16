@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="MissionData" load_steps=14 format=3]
+[gd_resource type="Resource" script_class="MissionData" load_steps=13 format=3]
 
 [ext_resource type="Script" path="res://scripts/resources/mission_data.gd" id="1"]
 [ext_resource type="Resource" path="res://data/missions/london_section_tutorial.tres" id="2"]
@@ -13,13 +13,12 @@
 [ext_resource type="Resource" path="res://data/missions/london_spawn_tutorial_drone_02.tres" id="11"]
 [ext_resource type="Resource" path="res://data/missions/london_spawn_tutorial_swarmer_01.tres" id="12"]
 [ext_resource type="Resource" path="res://data/missions/london_spawn_tutorial_drone_03.tres" id="13"]
-[ext_resource type="Resource" path="res://data/missions/spawn_pickup_weapon_01.tres" id="14"]
 
 [resource]
 script = ExtResource("1")
 mission_name = "London"
 background_scroll_speed = 40.0
-spawn_entries = Array[Resource]([ExtResource("10"), ExtResource("14"), ExtResource("11"), ExtResource("12"), ExtResource("13")])
+spawn_entries = Array[Resource]([ExtResource("10"), ExtResource("11"), ExtResource("12"), ExtResource("13")])
 dialogue_events = Array[Resource]([])
 section_markers = Array[Resource]([ExtResource("2"), ExtResource("3"), ExtResource("4")])
 tutorial_beats = Array[Resource]([ExtResource("5"), ExtResource("6"), ExtResource("7"), ExtResource("8"), ExtResource("9")])

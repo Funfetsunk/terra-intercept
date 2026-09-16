@@ -16,6 +16,8 @@
 [ext_resource type="Script" uid="uid://bgoiagdeo8ki4" path="res://scripts/systems/enemy_spawner.gd" id="14_08gnv"]
 [ext_resource type="Script" uid="uid://b1vqxoh2qfcwi" path="res://scripts/systems/dialogue_controller.gd" id="15_hpj1l"]
 [ext_resource type="Script" uid="uid://c22u4wcieqmm2" path="res://scripts/systems/tutorial_sequencer.gd" id="16_g5f8b"]
+[ext_resource type="PackedScene" uid="uid://bbu1i2vdl36db" path="res://scenes/pickups/weapon_pickup.tscn" id="17_j7qax"]
+[ext_resource type="PackedScene" uid="uid://d3f6kv8rj0pgl" path="res://scenes/pickups/alien_tech_drop.tscn" id="18_e2wpw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kjavq"]
 radius = 2.0
@@ -205,7 +207,10 @@ mission = ExtResource("11_vng0p")
 dialogue_box_path = NodePath("../DialogueBox")
 
 [node name="TutorialSequencer" type="Node" parent="." unique_id=2131576647]
+process_mode = 3
 script = ExtResource("16_g5f8b")
 mission = ExtResource("11_vng0p")
 player_path = NodePath("../PlayerShip")
 dialogue_box_path = NodePath("../DialogueBox")
+weapon_pickup_scene = ExtResource("17_j7qax")
+alien_tech_drop_scene = ExtResource("18_e2wpw")

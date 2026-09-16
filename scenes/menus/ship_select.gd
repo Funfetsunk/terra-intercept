@@ -3,15 +3,21 @@ extends Control
 @onready var _game_state: Node = get_node("/root/GameState")
 
 func _ready() -> void:
-	var first_entry: ShipSelectEntry = null
+	var entries: Array[ShipSelectEntry] = []
 	for child: Node in $ShipList.get_children():
 		if child is ShipSelectEntry:
 			var entry: ShipSelectEntry = child as ShipSelectEntry
 			entry.ship_chosen.connect(_on_ship_chosen)
-			if first_entry == null:
-				first_entry = entry
-	if first_entry != null:
-		first_entry.grab_focus()
+			entries.append(entry)
+	for i in range(entries.size()):
+		var prev_entry: ShipSelectEntry = entries[wrapi(i - 1, 0, entries.size())]
+		var next_entry: ShipSelectEntry = entries[wrapi(i + 1, 0, entries.size())]
+		entries[i].focus_neighbor_left = entries[i].get_path_to(prev_entry)
+		entries[i].focus_neighbor_right = entries[i].get_path_to(next_entry)
+		entries[i].focus_previous = entries[i].get_path_to(prev_entry)
+		entries[i].focus_next = entries[i].get_path_to(next_entry)
+	if not entries.is_empty():
+		entries[0].grab_focus()
 
 func _on_ship_chosen(ship: ShipData) -> void:
 	_game_state.selected_ship = ship

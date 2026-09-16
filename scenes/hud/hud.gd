@@ -1,5 +1,8 @@
 extends CanvasLayer
 
+@export var special_fire_flash_color: Color = Color(1.0, 1.0, 0.3, 1.0)
+@export var special_fire_flash_duration: float = 0.4
+
 @onready var _lives_label: Label = $HUDRoot/LeftPanel/LivesLabel
 @onready var _shield_bar: ProgressBar = $HUDRoot/LeftPanel/ShieldBar
 @onready var _hull_bar: ProgressBar = $HUDRoot/LeftPanel/HullBar
@@ -22,6 +25,7 @@ func bind_player(player: Node) -> void:
 	player.special_progress_changed.connect(_on_special_progress_changed)
 	player.squad_selection_changed.connect(_on_squad_selection_changed)
 	player.ordnance_ammo_changed.connect(_on_ordnance_ammo_changed)
+	player.special_fired.connect(_on_special_fired)
 	if player.has_method("get_armed_squad_ship"):
 		var armed: ShipData = player.get_armed_squad_ship()
 		if armed != null:
@@ -57,6 +61,10 @@ func _on_special_progress_changed(progress: float) -> void:
 
 func _on_squad_selection_changed(ship: ShipData) -> void:
 	_squad_label.text = "Squad: %s" % ship.ship_name
+
+func _on_special_fired(_ship: ShipData) -> void:
+	_squad_label.modulate = special_fire_flash_color
+	create_tween().tween_property(_squad_label, "modulate", Color.WHITE, special_fire_flash_duration)
 
 func _on_ordnance_ammo_changed(current: int) -> void:
 	var game_state: Node = get_node("/root/GameState")

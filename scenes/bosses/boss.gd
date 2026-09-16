@@ -1,5 +1,7 @@
 extends EnemyBase
 
+signal boss_defeated
+
 @export var hover_y: float = 70.0
 
 var _phase2_active: bool = false
@@ -21,4 +23,4 @@ func take_damage(amount: float) -> bool:
 
 func _die() -> void:
 	super._die()
-	get_node("/root/GameState").complete_mission()
+	boss_defeated.emit()

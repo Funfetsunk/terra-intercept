@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="MissionData" load_steps=13 format=3]
+[gd_resource type="Resource" script_class="MissionData" format=3 uid="uid://baxpsygp200ea"]
 
-[ext_resource type="Script" path="res://scripts/resources/mission_data.gd" id="1"]
+[ext_resource type="Script" uid="uid://cnhxdpsth8r8w" path="res://scripts/resources/mission_data.gd" id="1"]
+[ext_resource type="Script" uid="uid://cfm1tvmus3d7n" path="res://scripts/resources/dialogue_entry.gd" id="1_qsv8g"]
 [ext_resource type="Resource" path="res://data/missions/spawn_drone_01.tres" id="2"]
 [ext_resource type="Resource" path="res://data/missions/spawn_drone_02.tres" id="3"]
 [ext_resource type="Resource" path="res://data/missions/spawn_swarmer_01.tres" id="4"]
+[ext_resource type="Script" uid="uid://c33ljo8b85nep" path="res://scripts/resources/spawn_entry.gd" id="4_qmndi"]
 [ext_resource type="Resource" path="res://data/missions/spawn_swarmer_02.tres" id="5"]
 [ext_resource type="Resource" path="res://data/missions/spawn_spinner_01.tres" id="6"]
 [ext_resource type="Resource" path="res://data/missions/spawn_drone_03.tres" id="7"]
@@ -15,7 +17,7 @@
 
 [resource]
 script = ExtResource("1")
-mission_name = "Vertical Slice"
+mission_name = "Test Range"
 background_scroll_speed = 40.0
-spawn_entries = Array[Resource]([ExtResource("2"), ExtResource("3"), ExtResource("4"), ExtResource("5"), ExtResource("6"), ExtResource("7"), ExtResource("8"), ExtResource("9"), ExtResource("10"), ExtResource("11")])
-dialogue_events = Array[Resource]([ExtResource("12")])
+spawn_entries = Array[ExtResource("4_qmndi")]([ExtResource("2"), ExtResource("3"), ExtResource("4"), ExtResource("5"), ExtResource("6"), ExtResource("7"), ExtResource("8"), ExtResource("9"), ExtResource("10"), ExtResource("11")])
+dialogue_events = Array[ExtResource("1_qsv8g")]([ExtResource("12")])

@@ -153,6 +153,8 @@ func _process_fire(delta: float) -> void:
 	weapon_fired.emit()
 
 func take_hit(damage: float) -> void:
+	if _game_state.is_game_over:
+		return
 	if _is_invincible():
 		return
 	_game_state.break_chain()
@@ -176,7 +178,7 @@ func respawn() -> void:
 	shield_current = data.shield_max
 	hull_current = data.hull_max
 	_respawn_invincible_timer = data.respawn_invincibility_duration
-	_bullets.clear_enemy_bullets_in_circle(global_position, data.respawn_bullet_clear_radius)
+	_bullets.call_deferred("clear_enemy_bullets_in_circle", global_position, data.respawn_bullet_clear_radius)
 	shield_changed.emit(shield_current, data.shield_max)
 	hull_changed.emit(hull_current, data.hull_max)
 	respawned.emit()

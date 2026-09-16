@@ -27,6 +27,7 @@ signal mission_completed(results: Dictionary)
 var restart_section: String = ""
 var tutorial_active: bool = false
 var tutorial_completed: bool = false
+var is_game_over: bool = false
 var lives_remaining: int = 0
 var current_weapon_level: int = 1
 var ordnance_ammo: int = 0
@@ -42,6 +43,7 @@ func _ready() -> void:
 
 func start_new_run() -> void:
 	restart_section = ""
+	is_game_over = false
 	lives_remaining = starting_lives
 	current_weapon_level = 1
 	ordnance_ammo = ordnance.starting_ammo if ordnance != null else 0
@@ -55,13 +57,16 @@ func register_player(player: Node) -> void:
 		player.hull_depleted.connect(_on_player_hull_depleted.bind(player))
 
 func _on_player_hull_depleted(player: Node) -> void:
-	lives_remaining -= 1
+	if is_game_over:
+		return
+	lives_remaining = max(0, lives_remaining - 1)
 	if lives_remaining > 0:
 		life_lost.emit(lives_remaining)
 		drop_weapon_level()
 		if player.has_method("respawn"):
 			player.respawn()
 	else:
+		is_game_over = true
 		life_lost.emit(lives_remaining)
 		game_over_triggered.emit()
 

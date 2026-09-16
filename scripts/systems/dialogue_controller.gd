@@ -10,11 +10,9 @@ var _queue: Array[DialogueEntry] = []
 var _active_entry: DialogueEntry = null
 var _active_timer: float = 0.0
 
-var _bullets: Node = null
 var _dialogue_box: Node = null
 
 func _ready() -> void:
-	_bullets = get_node("/root/BulletManager")
 	_dialogue_box = get_node(dialogue_box_path)
 	_entries = mission.dialogue_events.duplicate()
 	_entries.sort_custom(func(a: DialogueEntry, b: DialogueEntry) -> bool: return a.trigger_time < b.trigger_time)
@@ -29,7 +27,7 @@ func _physics_process(delta: float) -> void:
 		if _active_timer <= 0.0:
 			_dialogue_box.hide_dialogue()
 			_active_entry = null
-	elif not _queue.is_empty() and _bullets.is_screen_clear():
+	elif not _queue.is_empty():
 		_active_entry = _queue.pop_front()
 		_active_timer = _active_entry.duration
 		_dialogue_box.show_dialogue(_active_entry)

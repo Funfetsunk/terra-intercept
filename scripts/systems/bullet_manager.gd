@@ -222,6 +222,3 @@ func _point_in_cone(point: Vector2, origin: Vector2, direction: Vector2, angle_d
 
 func get_active_bullet_count() -> int:
 	return _player_pool.active_count + _enemy_pool.active_count
-
-func is_screen_clear() -> bool:
-	return _registered_enemies.is_empty() and _enemy_pool.active_count == 0

@@ -6,35 +6,36 @@
 script = ExtResource("1_plqrs")
 
 [node name="Panel" type="ColorRect" parent="." unique_id=101237651]
-offset_top = 260.0
-offset_right = 640.0
-offset_bottom = 350.0
+offset_left = 40.0
+offset_top = 288.0
+offset_right = 600.0
+offset_bottom = 344.0
 mouse_filter = 2
 color = Color(0.04, 0.05, 0.1, 0.9)
 
 [node name="Portrait" type="ColorRect" parent="Panel" unique_id=1180777483]
 layout_mode = 0
-offset_left = 12.0
-offset_top = 12.0
-offset_right = 68.0
-offset_bottom = 68.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 52.0
+offset_bottom = 52.0
 mouse_filter = 2
 
 [node name="SpeakerLabel" type="Label" parent="Panel" unique_id=1111111014]
 layout_mode = 0
-offset_left = 80.0
-offset_top = 10.0
-offset_right = 620.0
-offset_bottom = 28.0
-theme_override_font_sizes/font_size = 13
+offset_left = 60.0
+offset_top = 4.0
+offset_right = 552.0
+offset_bottom = 18.0
+theme_override_font_sizes/font_size = 11
 text = "Speaker"
 
 [node name="TextLabel" type="Label" parent="Panel" unique_id=1495621868]
 layout_mode = 0
-offset_left = 80.0
-offset_top = 30.0
-offset_right = 620.0
-offset_bottom = 82.0
-theme_override_font_sizes/font_size = 12
+offset_left = 60.0
+offset_top = 20.0
+offset_right = 552.0
+offset_bottom = 52.0
+theme_override_font_sizes/font_size = 10
 text = "Dialogue text"
 autowrap_mode = 3

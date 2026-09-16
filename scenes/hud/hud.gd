@@ -9,6 +9,8 @@ extends CanvasLayer
 @onready var _squad_label: Label = $HUDRoot/RightPanel/SquadLabel
 @onready var _ordnance_label: Label = $HUDRoot/LeftPanel/OrdnanceLabel
 @onready var _tech_label: Label = $HUDRoot/LeftPanel/TechLabel
+@onready var _score_label: Label = $HUDRoot/LeftPanel/ScoreLabel
+@onready var _chain_label: Label = $HUDRoot/LeftPanel/ChainLabel
 
 var _game_state: Node = null
 
@@ -27,8 +29,12 @@ func bind_player(player: Node) -> void:
 	_game_state = get_node("/root/GameState")
 	_game_state.life_lost.connect(_on_life_lost)
 	_game_state.tech_changed.connect(_on_tech_changed)
+	_game_state.score_changed.connect(_on_score_changed)
+	_game_state.kill_chain_changed.connect(_on_kill_chain_changed)
 	_lives_label.text = "Lives: %d" % _game_state.lives_remaining
 	_tech_label.text = "Tech: %d" % _game_state.mission_tech
+	_score_label.text = "Score: %d" % _game_state.score
+	_chain_label.text = "Chain: x%d" % _game_state.kill_chain
 
 func _on_shield_changed(current: float, max_value: float) -> void:
 	_shield_bar.max_value = max_value
@@ -61,3 +67,9 @@ func _on_life_lost(lives_remaining: int) -> void:
 
 func _on_tech_changed(current: int) -> void:
 	_tech_label.text = "Tech: %d" % current
+
+func _on_score_changed(current: int) -> void:
+	_score_label.text = "Score: %d" % current
+
+func _on_kill_chain_changed(multiplier: int) -> void:
+	_chain_label.text = "Chain: x%d" % multiplier

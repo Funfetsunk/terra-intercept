@@ -18,3 +18,7 @@ func take_damage(amount: float) -> bool:
 		if _current_pattern != null:
 			_rng.seed = _current_pattern.rng_seed
 	return was_kill
+
+func _die() -> void:
+	super._die()
+	get_node("/root/GameState").complete_mission()

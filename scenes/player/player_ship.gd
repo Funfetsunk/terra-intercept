@@ -149,6 +149,7 @@ func _process_fire(delta: float) -> void:
 func take_hit(damage: float) -> void:
 	if _is_invincible():
 		return
+	_game_state.break_chain()
 	if shield_current > 0.0:
 		shield_current = max(0.0, shield_current - damage)
 		_shield_recharge_timer = data.shield_recharge_delay

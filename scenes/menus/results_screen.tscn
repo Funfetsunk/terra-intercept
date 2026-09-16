@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://c1kn0qwfulc1c"]
+
+[ext_resource type="Script" uid="uid://bj2ever8ip4q0" path="res://scenes/menus/results_screen.gd" id="1_cppup"]
+
+[node name="ResultsScreen" type="Control" unique_id=1594880899]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 360.0
+script = ExtResource("1_cppup")
+
+[node name="Backdrop" type="ColorRect" parent="." unique_id=1123388612]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+mouse_filter = 2
+color = Color(0.04, 0.05, 0.1, 1)
+
+[node name="TitleLabel" type="Label" parent="." unique_id=992348054]
+layout_mode = 0
+offset_top = 24.0
+offset_right = 640.0
+offset_bottom = 60.0
+text = "Mission Complete"
+horizontal_alignment = 1
+
+[node name="ResultsLabel" type="Label" parent="." unique_id=119960425]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 80.0
+offset_right = 420.0
+offset_bottom = 300.0
+text = "Score: 0"
+horizontal_alignment = 1
+
+[node name="ContinueButton" type="Button" parent="." unique_id=1449946164]
+layout_mode = 0
+offset_left = 270.0
+offset_top = 330.0
+offset_right = 370.0
+offset_bottom = 356.0
+text = "Continue"

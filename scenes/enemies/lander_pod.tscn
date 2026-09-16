@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://csyyh0yeb3u8t"]
+
+[ext_resource type="Script" uid="uid://ca133bydqrwd" path="res://scripts/enemies/lander_pod.gd" id="1_7trrj"]
+[ext_resource type="Resource" path="res://data/enemies/lander_pod_data.tres" id="2_632sa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jgvt8"]
+
+[node name="LanderPod" type="Node2D" unique_id=2076714820]
+script = ExtResource("1_7trrj")
+data = ExtResource("2_632sa")
+
+[node name="Sprite" type="ColorRect" parent="." unique_id=430328937]
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+mouse_filter = 2
+color = Color(0.4, 0.4, 0.42, 1)
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1224992950]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1650181556]
+shape = SubResource("CircleShape2D_jgvt8")

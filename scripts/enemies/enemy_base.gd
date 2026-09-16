@@ -77,8 +77,8 @@ func _die() -> void:
 	get_node("/root/GameState").register_kill(data.score_value)
 	if data.alien_tech_drop > 0:
 		var drop: Node2D = ALIEN_TECH_DROP_SCENE.instantiate()
+		drop.position = get_parent().to_local(global_position)
 		get_parent().call_deferred("add_child", drop)
-		drop.global_position = global_position
 		(drop as AlienTechDrop).amount = data.alien_tech_drop
 	queue_free()
 

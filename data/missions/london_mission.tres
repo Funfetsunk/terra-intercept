@@ -17,12 +17,33 @@
 [ext_resource type="Resource" uid="uid://d2kthtxp5ip1e" path="res://data/missions/london_spawn_tutorial_swarmer_01.tres" id="12"]
 [ext_resource type="Script" uid="uid://dlbnckac0upbn" path="res://scripts/resources/tutorial_beat.gd" id="12_gauyo"]
 [ext_resource type="Resource" uid="uid://cacrdpq700m2u" path="res://data/missions/london_spawn_tutorial_drone_03.tres" id="13"]
+[ext_resource type="Resource" path="res://data/missions/london_thames_spawn_01_drone.tres" id="14"]
+[ext_resource type="Resource" path="res://data/missions/london_thames_spawn_02_drone.tres" id="15"]
+[ext_resource type="Resource" path="res://data/missions/london_thames_spawn_03_swarmer.tres" id="16"]
+[ext_resource type="Resource" path="res://data/missions/london_thames_spawn_04_pickup_weapon.tres" id="17"]
+[ext_resource type="Resource" path="res://data/missions/london_thames_spawn_05_lander_pod.tres" id="18"]
+[ext_resource type="Resource" path="res://data/missions/london_thames_spawn_06_drone.tres" id="19"]
+[ext_resource type="Resource" path="res://data/missions/london_thames_spawn_07_swarmer.tres" id="20"]
+[ext_resource type="Resource" path="res://data/missions/london_thames_spawn_08_drone.tres" id="21"]
+[ext_resource type="Resource" path="res://data/missions/london_thames_spawn_09_pickup_hull.tres" id="22"]
+[ext_resource type="Resource" path="res://data/missions/london_thames_spawn_10_lander_pod.tres" id="23"]
+[ext_resource type="Resource" path="res://data/missions/london_thames_spawn_11_swarmer.tres" id="24"]
+[ext_resource type="Resource" path="res://data/missions/london_thames_spawn_12_drone.tres" id="25"]
+[ext_resource type="Resource" path="res://data/missions/london_thames_spawn_13_drone.tres" id="26"]
+[ext_resource type="Resource" path="res://data/missions/london_thames_spawn_14_pickup_special.tres" id="27"]
+[ext_resource type="Resource" path="res://data/missions/london_thames_spawn_15_lander_pod.tres" id="28"]
+[ext_resource type="Resource" path="res://data/missions/london_thames_spawn_16_swarmer.tres" id="29"]
+[ext_resource type="Resource" path="res://data/missions/london_thames_spawn_17_swarmer.tres" id="30"]
+[ext_resource type="Resource" path="res://data/missions/london_thames_spawn_18_drone.tres" id="31"]
+[ext_resource type="Resource" path="res://data/missions/london_thames_spawn_19_pickup_weapon.tres" id="32"]
+[ext_resource type="Resource" path="res://data/missions/london_thames_spawn_20_drone.tres" id="33"]
+[ext_resource type="Resource" path="res://data/missions/london_thames_spawn_21_swarmer.tres" id="34"]
 
 [resource]
 script = ExtResource("1")
 mission_name = "London"
 background_scroll_speed = 40.0
-spawn_entries = Array[ExtResource("7_xwqmn")]([ExtResource("10"), ExtResource("11"), ExtResource("12"), ExtResource("13")])
+spawn_entries = Array[ExtResource("7_xwqmn")]([ExtResource("10"), ExtResource("11"), ExtResource("12"), ExtResource("13"), ExtResource("14"), ExtResource("15"), ExtResource("16"), ExtResource("17"), ExtResource("18"), ExtResource("19"), ExtResource("20"), ExtResource("21"), ExtResource("22"), ExtResource("23"), ExtResource("24"), ExtResource("25"), ExtResource("26"), ExtResource("27"), ExtResource("28"), ExtResource("29"), ExtResource("30"), ExtResource("31"), ExtResource("32"), ExtResource("33"), ExtResource("34")])
 section_markers = Array[ExtResource("3_76mkl")]([ExtResource("2"), ExtResource("3"), ExtResource("4")])
 tutorial_beats = Array[ExtResource("12_gauyo")]([ExtResource("5"), ExtResource("6"), ExtResource("7"), ExtResource("8"), ExtResource("9")])
 squad_radio_text_format = "%s here. Cycle squad with Q/E (or LB/RB), then fire with right click (or RT)."

@@ -15,7 +15,7 @@ signal squad_selection_changed(ship: ShipData)
 signal ordnance_ammo_changed(current: int)
 
 @export var data: ShipData
-@export var playfield_rect: Rect2 = Rect2(12, 12, 616, 336)
+@export var playfield_rect: Rect2 = Rect2(152, 12, 336, 336)
 
 var shield_current: float = 0.0
 var hull_current: float = 0.0

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c4un3d088trd6"]
+
+[ext_resource type="Script" uid="uid://dx6rqjtlpo0lo" path="res://scripts/autoload/playfield.gd" id="1_xrkgv"]
+
+[node name="Playfield" type="Node" unique_id=717251996]
+script = ExtResource("1_xrkgv")

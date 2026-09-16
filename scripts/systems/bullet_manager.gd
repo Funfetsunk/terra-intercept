@@ -70,7 +70,7 @@ func _physics_process(delta: float) -> void:
 	queue_redraw()
 
 func _step_pool(pool: BulletPool, delta: float, time_scale: float) -> void:
-	var bounds: Rect2 = get_viewport_rect().grow(despawn_margin)
+	var bounds: Rect2 = get_node("/root/Playfield").rect.grow(despawn_margin)
 	var i: int = 0
 	while i < pool.active_count:
 		pool.positions[i] += pool.velocities[i] * delta * time_scale

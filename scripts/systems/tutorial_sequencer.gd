@@ -101,13 +101,15 @@ func _spawn_pickup_beat_items() -> void:
 	var pickup: Pickup = weapon_pickup_scene.instantiate() as Pickup
 	pickup.never_despawn = true
 	pickup.highlighted = true
+	var pickup_world: Vector2 = (_player.global_position + pickup_spawn_offset).clamp(rect.position, rect.end)
+	pickup.position = get_parent().to_local(pickup_world)
 	get_parent().call_deferred("add_child", pickup)
-	pickup.global_position = (_player.global_position + pickup_spawn_offset).clamp(rect.position, rect.end)
 	var tech: AlienTechDrop = alien_tech_drop_scene.instantiate() as AlienTechDrop
 	tech.never_despawn = true
 	tech.highlighted = true
+	var tech_world: Vector2 = (_player.global_position + tech_spawn_offset).clamp(rect.position, rect.end)
+	tech.position = get_parent().to_local(tech_world)
 	get_parent().call_deferred("add_child", tech)
-	tech.global_position = (_player.global_position + tech_spawn_offset).clamp(rect.position, rect.end)
 
 func _beat_condition_met(beat: TutorialBeat) -> bool:
 	match beat.action:

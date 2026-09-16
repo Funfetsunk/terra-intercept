@@ -12,12 +12,27 @@ offset_right = 640.0
 offset_bottom = 360.0
 mouse_filter = 2
 
+[node name="LeftPanelBg" type="ColorRect" parent="HUDRoot" unique_id=1650917556]
+layout_mode = 0
+offset_right = 140.0
+offset_bottom = 360.0
+mouse_filter = 2
+color = Color(0.05, 0.06, 0.09, 1)
+
+[node name="RightPanelBg" type="ColorRect" parent="HUDRoot" unique_id=57213141]
+layout_mode = 0
+offset_left = 500.0
+offset_right = 640.0
+offset_bottom = 360.0
+mouse_filter = 2
+color = Color(0.05, 0.06, 0.09, 1)
+
 [node name="LeftPanel" type="VBoxContainer" parent="HUDRoot" unique_id=2079910361]
 layout_mode = 0
-offset_left = 6.0
-offset_top = 6.0
-offset_right = 156.0
-offset_bottom = 96.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 132.0
+offset_bottom = 300.0
 
 [node name="LivesLabel" type="Label" parent="HUDRoot/LeftPanel" unique_id=1862482661]
 layout_mode = 2
@@ -56,10 +71,10 @@ text = "Chain: x1"
 
 [node name="RightPanel" type="VBoxContainer" parent="HUDRoot" unique_id=83778539]
 layout_mode = 0
-offset_left = 484.0
-offset_top = 6.0
-offset_right = 634.0
-offset_bottom = 46.0
+offset_left = 508.0
+offset_top = 8.0
+offset_right = 632.0
+offset_bottom = 100.0
 
 [node name="SpecialChargesLabel" type="Label" parent="HUDRoot/RightPanel" unique_id=650194307]
 layout_mode = 2

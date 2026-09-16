@@ -25,29 +25,6 @@ radius = 2.0
 [node name="London" type="Node2D" unique_id=705097]
 script = ExtResource("1_tl1kh")
 
-[node name="PlayerShip" type="Node2D" parent="." unique_id=1276083379 instance=ExtResource("2_g5f8b")]
-position = Vector2(320, 300)
-script = ExtResource("3_7ymlr")
-data = ExtResource("4_j7qax")
-
-[node name="Sprite" type="ColorRect" parent="PlayerShip" unique_id=668240328]
-offset_left = -12.0
-offset_top = -12.0
-offset_right = 12.0
-offset_bottom = 12.0
-mouse_filter = 2
-color = Color(0.3, 0.8, 0.3, 1)
-
-[node name="Hitbox" type="Area2D" parent="PlayerShip" unique_id=1478547012]
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerShip/Hitbox" unique_id=1161019146]
-shape = SubResource("CircleShape2D_kjavq")
-
-[node name="SpecialVFX" type="Node2D" parent="PlayerShip" unique_id=1062415370]
-visible = false
-script = ExtResource("5_e2wpw")
-
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1725720245 instance=ExtResource("6_8v1gb")]
 script = ExtResource("7_k1bt5")
 
@@ -159,58 +136,84 @@ theme_override_font_sizes/font_size = 10
 text = "Dialogue text"
 autowrap_mode = 3
 
-[node name="Background" type="Node2D" parent="." unique_id=455193155]
-z_index = -10
-script = ExtResource("10_0fxbs")
-mission = ExtResource("11_vng0p")
-
-[node name="FarLayer" type="Node2D" parent="Background" unique_id=2071353270 instance=ExtResource("12_gk56g")]
-script = ExtResource("13_xsjdc")
-scroll_speed_multiplier = 0.5
-panel_a_color = Color(0.02, 0.025, 0.05, 1)
-panel_b_color = Color(0.03, 0.035, 0.07, 1)
-
-[node name="PanelA" type="ColorRect" parent="Background/FarLayer" unique_id=397745998]
-offset_right = 640.0
-offset_bottom = 360.0
-mouse_filter = 2
-color = Color(0.04, 0.05, 0.1, 1)
-
-[node name="PanelB" type="ColorRect" parent="Background/FarLayer" unique_id=1781704554]
-offset_top = -360.0
-offset_right = 640.0
-mouse_filter = 2
-color = Color(0.06, 0.07, 0.13, 1)
-
-[node name="NearLayer" type="Node2D" parent="Background" unique_id=899699578 instance=ExtResource("12_gk56g")]
-script = ExtResource("13_xsjdc")
-
-[node name="PanelA" type="ColorRect" parent="Background/NearLayer" unique_id=988462596]
-offset_right = 640.0
-offset_bottom = 360.0
-mouse_filter = 2
-color = Color(0.04, 0.05, 0.1, 1)
-
-[node name="PanelB" type="ColorRect" parent="Background/NearLayer" unique_id=968992538]
-offset_top = -360.0
-offset_right = 640.0
-mouse_filter = 2
-color = Color(0.06, 0.07, 0.13, 1)
-
-[node name="EnemySpawner" type="Node" parent="." unique_id=1415624087]
-script = ExtResource("14_08gnv")
-mission = ExtResource("11_vng0p")
-
 [node name="DialogueController" type="Node" parent="." unique_id=1061489573]
 script = ExtResource("15_hpj1l")
 mission = ExtResource("11_vng0p")
 dialogue_box_path = NodePath("../DialogueBox")
 
-[node name="TutorialSequencer" type="Node" parent="." unique_id=2131576647]
+[node name="PlayfieldRoot" type="Node2D" parent="." unique_id=370220181]
+position = Vector2(140, 0)
+
+[node name="PlayerShip" type="Node2D" parent="PlayfieldRoot" unique_id=1276083379 instance=ExtResource("2_g5f8b")]
+position = Vector2(180, 300)
+script = ExtResource("3_7ymlr")
+data = ExtResource("4_j7qax")
+
+[node name="Sprite" type="ColorRect" parent="PlayfieldRoot/PlayerShip" unique_id=668240328]
+offset_left = -12.0
+offset_top = -12.0
+offset_right = 12.0
+offset_bottom = 12.0
+mouse_filter = 2
+color = Color(0.3, 0.8, 0.3, 1)
+
+[node name="Hitbox" type="Area2D" parent="PlayfieldRoot/PlayerShip" unique_id=1478547012]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayfieldRoot/PlayerShip/Hitbox" unique_id=1161019146]
+shape = SubResource("CircleShape2D_kjavq")
+
+[node name="SpecialVFX" type="Node2D" parent="PlayfieldRoot/PlayerShip" unique_id=1062415370]
+visible = false
+script = ExtResource("5_e2wpw")
+
+[node name="Background" type="Node2D" parent="PlayfieldRoot" unique_id=455193155]
+z_index = -10
+script = ExtResource("10_0fxbs")
+mission = ExtResource("11_vng0p")
+
+[node name="FarLayer" type="Node2D" parent="PlayfieldRoot/Background" unique_id=2071353270 instance=ExtResource("12_gk56g")]
+script = ExtResource("13_xsjdc")
+scroll_speed_multiplier = 0.5
+panel_a_color = Color(0.02, 0.025, 0.05, 1)
+panel_b_color = Color(0.03, 0.035, 0.07, 1)
+
+[node name="PanelA" type="ColorRect" parent="PlayfieldRoot/Background/FarLayer" unique_id=397745998]
+offset_right = 640.0
+offset_bottom = 360.0
+mouse_filter = 2
+color = Color(0.04, 0.05, 0.1, 1)
+
+[node name="PanelB" type="ColorRect" parent="PlayfieldRoot/Background/FarLayer" unique_id=1781704554]
+offset_top = -360.0
+offset_right = 640.0
+mouse_filter = 2
+color = Color(0.06, 0.07, 0.13, 1)
+
+[node name="NearLayer" type="Node2D" parent="PlayfieldRoot/Background" unique_id=899699578 instance=ExtResource("12_gk56g")]
+script = ExtResource("13_xsjdc")
+
+[node name="PanelA" type="ColorRect" parent="PlayfieldRoot/Background/NearLayer" unique_id=988462596]
+offset_right = 640.0
+offset_bottom = 360.0
+mouse_filter = 2
+color = Color(0.04, 0.05, 0.1, 1)
+
+[node name="PanelB" type="ColorRect" parent="PlayfieldRoot/Background/NearLayer" unique_id=968992538]
+offset_top = -360.0
+offset_right = 640.0
+mouse_filter = 2
+color = Color(0.06, 0.07, 0.13, 1)
+
+[node name="EnemySpawner" type="Node" parent="PlayfieldRoot" unique_id=1415624087]
+script = ExtResource("14_08gnv")
+mission = ExtResource("11_vng0p")
+
+[node name="TutorialSequencer" type="Node" parent="PlayfieldRoot" unique_id=2131576647]
 process_mode = 3
 script = ExtResource("16_g5f8b")
 mission = ExtResource("11_vng0p")
 player_path = NodePath("../PlayerShip")
-dialogue_box_path = NodePath("../DialogueBox")
+dialogue_box_path = NodePath("../../DialogueBox")
 weapon_pickup_scene = ExtResource("17_j7qax")
 alien_tech_drop_scene = ExtResource("18_e2wpw")

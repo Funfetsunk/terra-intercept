@@ -22,29 +22,6 @@ radius = 2.0
 [node name="TestRange" type="Node2D" unique_id=1311692602]
 script = ExtResource("1_kk330")
 
-[node name="PlayerShip" type="Node2D" parent="." unique_id=1276083379 instance=ExtResource("2_nj8yn")]
-position = Vector2(320, 300)
-script = ExtResource("3_eq62o")
-data = ExtResource("4_oxpsd")
-
-[node name="Sprite" type="ColorRect" parent="PlayerShip" unique_id=668240328]
-offset_left = -12.0
-offset_top = -12.0
-offset_right = 12.0
-offset_bottom = 12.0
-mouse_filter = 2
-color = Color(0.3, 0.8, 0.3, 1)
-
-[node name="Hitbox" type="Area2D" parent="PlayerShip" unique_id=1478547012]
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerShip/Hitbox" unique_id=1161019146]
-shape = SubResource("CircleShape2D_kjavq")
-
-[node name="SpecialVFX" type="Node2D" parent="PlayerShip" unique_id=1062415370]
-visible = false
-script = ExtResource("5_pdebw")
-
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1725720245 instance=ExtResource("6_l6eno")]
 script = ExtResource("7_mr2on")
 
@@ -156,49 +133,75 @@ theme_override_font_sizes/font_size = 10
 text = "Dialogue text"
 autowrap_mode = 3
 
-[node name="EnemySpawner" type="Node" parent="." unique_id=876114463]
-script = ExtResource("10_ospck")
+[node name="DialogueController" type="Node" parent="." unique_id=1105281894]
+script = ExtResource("15_a2tfc")
 mission = ExtResource("11_corhf")
+dialogue_box_path = NodePath("../DialogueBox")
 
-[node name="Background" type="Node2D" parent="." unique_id=1671133722]
+[node name="PlayfieldRoot" type="Node2D" parent="." unique_id=11672910]
+position = Vector2(140, 0)
+
+[node name="PlayerShip" type="Node2D" parent="PlayfieldRoot" unique_id=1276083379 instance=ExtResource("2_nj8yn")]
+position = Vector2(180, 300)
+script = ExtResource("3_eq62o")
+data = ExtResource("4_oxpsd")
+
+[node name="Sprite" type="ColorRect" parent="PlayfieldRoot/PlayerShip" unique_id=668240328]
+offset_left = -12.0
+offset_top = -12.0
+offset_right = 12.0
+offset_bottom = 12.0
+mouse_filter = 2
+color = Color(0.3, 0.8, 0.3, 1)
+
+[node name="Hitbox" type="Area2D" parent="PlayfieldRoot/PlayerShip" unique_id=1478547012]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayfieldRoot/PlayerShip/Hitbox" unique_id=1161019146]
+shape = SubResource("CircleShape2D_kjavq")
+
+[node name="SpecialVFX" type="Node2D" parent="PlayfieldRoot/PlayerShip" unique_id=1062415370]
+visible = false
+script = ExtResource("5_pdebw")
+
+[node name="Background" type="Node2D" parent="PlayfieldRoot" unique_id=1671133722]
 z_index = -10
 script = ExtResource("12_irn3u")
 mission = ExtResource("11_corhf")
 
-[node name="FarLayer" type="Node2D" parent="Background" unique_id=2071353270 instance=ExtResource("13_3vjr3")]
+[node name="FarLayer" type="Node2D" parent="PlayfieldRoot/Background" unique_id=2071353270 instance=ExtResource("13_3vjr3")]
 script = ExtResource("14_vu5jp")
 scroll_speed_multiplier = 0.5
 panel_a_color = Color(0.02, 0.025, 0.05, 1)
 panel_b_color = Color(0.03, 0.035, 0.07, 1)
 
-[node name="PanelA" type="ColorRect" parent="Background/FarLayer" unique_id=397745998]
+[node name="PanelA" type="ColorRect" parent="PlayfieldRoot/Background/FarLayer" unique_id=397745998]
 offset_right = 640.0
 offset_bottom = 360.0
 mouse_filter = 2
 color = Color(0.04, 0.05, 0.1, 1)
 
-[node name="PanelB" type="ColorRect" parent="Background/FarLayer" unique_id=1781704554]
+[node name="PanelB" type="ColorRect" parent="PlayfieldRoot/Background/FarLayer" unique_id=1781704554]
 offset_top = -360.0
 offset_right = 640.0
 mouse_filter = 2
 color = Color(0.06, 0.07, 0.13, 1)
 
-[node name="NearLayer" type="Node2D" parent="Background" unique_id=1113152482 instance=ExtResource("13_3vjr3")]
+[node name="NearLayer" type="Node2D" parent="PlayfieldRoot/Background" unique_id=1113152482 instance=ExtResource("13_3vjr3")]
 script = ExtResource("14_vu5jp")
 
-[node name="PanelA" type="ColorRect" parent="Background/NearLayer" unique_id=889876748]
+[node name="PanelA" type="ColorRect" parent="PlayfieldRoot/Background/NearLayer" unique_id=889876748]
 offset_right = 640.0
 offset_bottom = 360.0
 mouse_filter = 2
 color = Color(0.04, 0.05, 0.1, 1)
 
-[node name="PanelB" type="ColorRect" parent="Background/NearLayer" unique_id=490229765]
+[node name="PanelB" type="ColorRect" parent="PlayfieldRoot/Background/NearLayer" unique_id=490229765]
 offset_top = -360.0
 offset_right = 640.0
 mouse_filter = 2
 color = Color(0.06, 0.07, 0.13, 1)
 
-[node name="DialogueController" type="Node" parent="." unique_id=1105281894]
-script = ExtResource("15_a2tfc")
+[node name="EnemySpawner" type="Node" parent="PlayfieldRoot" unique_id=876114463]
+script = ExtResource("10_ospck")
 mission = ExtResource("11_corhf")
-dialogue_box_path = NodePath("../DialogueBox")

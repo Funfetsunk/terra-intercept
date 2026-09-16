@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var _player: Node = $PlayerShip
+@onready var _player: Node = $PlayfieldRoot/PlayerShip
 @onready var _hud: CanvasLayer = $HUD
 
 func _ready() -> void:

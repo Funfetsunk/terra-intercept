@@ -30,5 +30,6 @@ func _spawn(entry: SpawnEntry) -> void:
 			enemy.data = entry.data_override
 		if entry.pattern_override != null:
 			enemy.pattern_override = entry.pattern_override
+	var world_position: Vector2 = get_node("/root/Playfield").relative_to_world(entry.spawn_position_relative)
+	instance.position = get_parent().to_local(world_position)
 	get_parent().call_deferred("add_child", instance)
-	instance.global_position = entry.spawn_position

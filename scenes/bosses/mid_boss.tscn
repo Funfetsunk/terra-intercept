@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://8an6xs20iikn"]
 
-[ext_resource type="Script" uid="uid://blx0exha146r7" path="res://scenes/bosses/boss.gd" id="1_rdia2"]
+[ext_resource type="Script" uid="uid://blx0exha146r7" path="res://scenes/bosses/mid_boss.gd" id="1_rdia2"]
 [ext_resource type="Resource" path="res://data/enemies/boss_data.tres" id="2_buxl7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tsxae"]
 radius = 32.0
 
-[node name="Boss" type="Node2D" unique_id=1719301672]
+[node name="MidBoss" type="Node2D" unique_id=1719301672]
 script = ExtResource("1_rdia2")
 data = ExtResource("2_buxl7")
 

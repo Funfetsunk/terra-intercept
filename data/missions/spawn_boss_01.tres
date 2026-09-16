@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="SpawnEntry" format=3 uid="uid://45pghtj55kjf"]
 
 [ext_resource type="Script" uid="uid://c33ljo8b85nep" path="res://scripts/resources/spawn_entry.gd" id="1"]
-[ext_resource type="PackedScene" uid="uid://8an6xs20iikn" path="res://scenes/bosses/boss.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://8an6xs20iikn" path="res://scenes/bosses/mid_boss.tscn" id="2"]
 
 [resource]
 script = ExtResource("1")

@@ -25,6 +25,8 @@ signal mission_completed(results: Dictionary)
 @export var grade_c_score: int = 3000
 
 var restart_section: String = ""
+var tutorial_active: bool = false
+var tutorial_completed: bool = false
 var lives_remaining: int = 0
 var current_weapon_level: int = 1
 var ordnance_ammo: int = 0

@@ -6,6 +6,8 @@ class_name MissionData
 @export var spawn_entries: Array[SpawnEntry] = []
 @export var dialogue_events: Array[DialogueEntry] = []
 @export var section_markers: Array[MissionSectionMarker] = []
+@export var tutorial_beats: Array[TutorialBeat] = []
+@export var squad_radio_text_format: String = "%s here. Special charged — try me out, pilot."
 
 func get_section_start_time(section: String) -> float:
 	if section.is_empty():

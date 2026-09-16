@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="1"]
+[ext_resource type="Resource" path="res://data/patterns/drone_pattern_tutorial.tres" id="2"]
+
+[resource]
+script = ExtResource("1")
+enemy_name = "Drone (Tutorial)"
+move_speed = 20.0
+hull_max = 2.0
+hitbox_radius = 8.0
+pattern = ExtResource("2")
+score_value = 100
+alien_tech_drop = 1

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="BulletPatternData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/bullet_pattern_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+pattern_name = "Drone Aimed Shot (Tutorial)"
+burst_size = 1
+angle_spread_degrees = 0.0
+burst_interval = 2.5
+rotation_per_burst_degrees = 0.0
+aim_at_player = true
+fixed_angle_degrees = 90.0
+jitter_degrees = 0.0
+rng_seed = 1
+bullet_speed = 70.0
+bullet_radius = 3.0
+bullet_color = Color(1, 0.4, 0.4, 1)
+bullet_damage = 1.0
+bullet_lifetime = 4.0

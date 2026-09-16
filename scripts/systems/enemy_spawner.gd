@@ -24,7 +24,11 @@ func _spawn(entry: SpawnEntry) -> void:
 	if entry.scene == null:
 		return
 	var instance: Node2D = entry.scene.instantiate()
-	if entry.pattern_override != null and instance is EnemyBase:
-		(instance as EnemyBase).pattern_override = entry.pattern_override
+	if instance is EnemyBase:
+		var enemy: EnemyBase = instance as EnemyBase
+		if entry.data_override != null:
+			enemy.data = entry.data_override
+		if entry.pattern_override != null:
+			enemy.pattern_override = entry.pattern_override
 	get_parent().call_deferred("add_child", instance)
 	instance.global_position = entry.spawn_position

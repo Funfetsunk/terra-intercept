@@ -6,8 +6,11 @@ signal hull_depleted
 signal focus_changed(current: float, max_value: float)
 signal special_charges_changed(current: int, max_value: int)
 signal special_progress_changed(progress: float)
-signal special_fired
+signal special_fired(ship: ShipData)
 signal respawned
+signal weapon_fired
+signal focus_used
+signal ordnance_fired
 signal squad_selection_changed(ship: ShipData)
 signal ordnance_ammo_changed(current: int)
 
@@ -89,6 +92,8 @@ func _process_movement(delta: float) -> void:
 func _process_focus(delta: float) -> void:
 	var held: bool = Input.is_action_pressed("p1_focus")
 	if held and _focus_meter > 0.0:
+		if not _is_focused:
+			focus_used.emit()
 		_is_focused = true
 		_focus_meter = max(0.0, _focus_meter - data.focus_drain_rate * delta)
 		_focus_refill_wait_timer = data.focus_refill_delay
@@ -145,6 +150,7 @@ func _process_fire(delta: float) -> void:
 		var stream_dir: Vector2 = Vector2(cos(rad), sin(rad))
 		_bullets.spawn_player_bullet(global_position, stream_dir, data.bullet_speed, data.bullet_radius, data.bullet_color, 2.0, data.bullet_damage)
 	_fire_cooldown = 1.0 / data.fire_rate
+	weapon_fired.emit()
 
 func take_hit(damage: float) -> void:
 	if _is_invincible():
@@ -155,7 +161,8 @@ func take_hit(damage: float) -> void:
 		_shield_recharge_timer = data.shield_recharge_delay
 		shield_changed.emit(shield_current, data.shield_max)
 	else:
-		hull_current = max(0.0, hull_current - damage)
+		var hull_floor: float = 1.0 if _game_state.tutorial_active else 0.0
+		hull_current = max(hull_floor, hull_current - damage)
 		_hull_invincible_timer = data.hull_hit_invincibility_duration
 		hull_changed.emit(hull_current, data.hull_max)
 		if hull_current <= 0.0:
@@ -176,6 +183,12 @@ func respawn() -> void:
 
 func repair_hull(amount: float) -> void:
 	hull_current = min(data.hull_max, hull_current + amount)
+	hull_changed.emit(hull_current, data.hull_max)
+
+func restore_full() -> void:
+	shield_current = data.shield_max
+	hull_current = data.hull_max
+	shield_changed.emit(shield_current, data.shield_max)
 	hull_changed.emit(hull_current, data.hull_max)
 
 func grant_special_charge(amount: int) -> void:
@@ -205,7 +218,7 @@ func _try_fire_special() -> void:
 	var armed: ShipData = _squad[_squad_index]
 	_deploy_special(armed)
 	_special_invincible_timer = armed.special_duration
-	special_fired.emit()
+	special_fired.emit(armed)
 
 func _deploy_special(armed: ShipData) -> void:
 	match armed.special_shape:
@@ -238,9 +251,13 @@ func _try_fire_ordnance() -> void:
 	ordnance_ammo_changed.emit(_game_state.ordnance_ammo)
 	_bullets.spawn_player_bullet(global_position, _last_move_dir, ordnance.bullet_speed, ordnance.bullet_radius, ordnance.bullet_color, 3.0, ordnance.bullet_damage)
 	_ordnance_cooldown = ordnance.fire_cooldown
+	ordnance_fired.emit()
 
 func get_armed_squad_ship() -> ShipData:
 	return _squad[_squad_index] if not _squad.is_empty() else null
+
+func get_squad() -> Array[ShipData]:
+	return _squad
 
 func get_hitbox_radius() -> float:
 	return data.normal_hitbox_radius

@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://cktltf2ympqjm" path="res://scenes/levels/background_layer.gd" id="13_xsjdc"]
 [ext_resource type="Script" uid="uid://bgoiagdeo8ki4" path="res://scripts/systems/enemy_spawner.gd" id="14_08gnv"]
 [ext_resource type="Script" uid="uid://b1vqxoh2qfcwi" path="res://scripts/systems/dialogue_controller.gd" id="15_hpj1l"]
+[ext_resource type="Script" uid="uid://c22u4wcieqmm2" path="res://scripts/systems/tutorial_sequencer.gd" id="16_g5f8b"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kjavq"]
 radius = 2.0
@@ -201,4 +202,10 @@ mission = ExtResource("11_vng0p")
 [node name="DialogueController" type="Node" parent="." unique_id=1061489573]
 script = ExtResource("15_hpj1l")
 mission = ExtResource("11_vng0p")
+dialogue_box_path = NodePath("../DialogueBox")
+
+[node name="TutorialSequencer" type="Node" parent="." unique_id=2131576647]
+script = ExtResource("16_g5f8b")
+mission = ExtResource("11_vng0p")
+player_path = NodePath("../PlayerShip")
 dialogue_box_path = NodePath("../DialogueBox")

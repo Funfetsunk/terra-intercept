@@ -11,17 +11,20 @@ var _active_entry: DialogueEntry = null
 var _active_timer: float = 0.0
 
 var _dialogue_box: Node = null
+var _game_state: Node = null
 
 func _ready() -> void:
 	_dialogue_box = get_node(dialogue_box_path)
+	_game_state = get_node("/root/GameState")
 	_entries = mission.dialogue_events.duplicate()
 	_entries.sort_custom(func(a: DialogueEntry, b: DialogueEntry) -> bool: return a.trigger_time < b.trigger_time)
-	var game_state: Node = get_node("/root/GameState")
-	_elapsed = mission.get_section_start_time(game_state.restart_section)
+	_elapsed = mission.get_section_start_time(_game_state.restart_section)
 	while _next_index < _entries.size() and _entries[_next_index].trigger_time < _elapsed:
 		_next_index += 1
 
 func _physics_process(delta: float) -> void:
+	if _game_state.tutorial_active:
+		return
 	_elapsed += delta
 	while _next_index < _entries.size() and _entries[_next_index].trigger_time <= _elapsed:
 		_queue.append(_entries[_next_index])

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TutorialBeat" format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/tutorial_beat.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+speaker_name = "Commander"
+portrait_color = Color(0.9, 0.6, 0.2, 1)
+text = "A for ordnance, pilot. Use it wisely, you don't have much."
+duration = 4.0
+action = 4

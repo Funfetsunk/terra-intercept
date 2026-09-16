@@ -1,25 +1,28 @@
-[gd_resource type="Resource" script_class="MissionData" load_steps=13 format=3]
+[gd_resource type="Resource" script_class="MissionData" format=3 uid="uid://c2wfa0cb0tqh"]
 
-[ext_resource type="Script" path="res://scripts/resources/mission_data.gd" id="1"]
+[ext_resource type="Script" uid="uid://cnhxdpsth8r8w" path="res://scripts/resources/mission_data.gd" id="1"]
+[ext_resource type="Script" uid="uid://cfm1tvmus3d7n" path="res://scripts/resources/dialogue_entry.gd" id="1_sxasd"]
 [ext_resource type="Resource" path="res://data/missions/london_section_tutorial.tres" id="2"]
-[ext_resource type="Resource" path="res://data/missions/london_section_thames_run.tres" id="3"]
+[ext_resource type="Resource" uid="uid://brxxdk8lb0kig" path="res://data/missions/london_section_thames_run.tres" id="3"]
+[ext_resource type="Script" uid="uid://c03u7v4p7yrx6" path="res://scripts/resources/mission_section_marker.gd" id="3_76mkl"]
 [ext_resource type="Resource" path="res://data/missions/london_section_boss.tres" id="4"]
 [ext_resource type="Resource" path="res://data/missions/london_tutorial_beat_movement.tres" id="5"]
 [ext_resource type="Resource" path="res://data/missions/london_tutorial_beat_firing.tres" id="6"]
 [ext_resource type="Resource" path="res://data/missions/london_tutorial_beat_pickup_and_tech.tres" id="7"]
+[ext_resource type="Script" uid="uid://c33ljo8b85nep" path="res://scripts/resources/spawn_entry.gd" id="7_xwqmn"]
 [ext_resource type="Resource" path="res://data/missions/london_tutorial_beat_focus.tres" id="8"]
 [ext_resource type="Resource" path="res://data/missions/london_tutorial_beat_ordnance.tres" id="9"]
-[ext_resource type="Resource" path="res://data/missions/london_spawn_tutorial_drone_01.tres" id="10"]
-[ext_resource type="Resource" path="res://data/missions/london_spawn_tutorial_drone_02.tres" id="11"]
-[ext_resource type="Resource" path="res://data/missions/london_spawn_tutorial_swarmer_01.tres" id="12"]
-[ext_resource type="Resource" path="res://data/missions/london_spawn_tutorial_drone_03.tres" id="13"]
+[ext_resource type="Resource" uid="uid://54uglks535qe" path="res://data/missions/london_spawn_tutorial_drone_01.tres" id="10"]
+[ext_resource type="Resource" uid="uid://cbhicwwyvbciy" path="res://data/missions/london_spawn_tutorial_drone_02.tres" id="11"]
+[ext_resource type="Resource" uid="uid://d2kthtxp5ip1e" path="res://data/missions/london_spawn_tutorial_swarmer_01.tres" id="12"]
+[ext_resource type="Script" uid="uid://dlbnckac0upbn" path="res://scripts/resources/tutorial_beat.gd" id="12_gauyo"]
+[ext_resource type="Resource" uid="uid://cacrdpq700m2u" path="res://data/missions/london_spawn_tutorial_drone_03.tres" id="13"]
 
 [resource]
 script = ExtResource("1")
 mission_name = "London"
 background_scroll_speed = 40.0
-spawn_entries = Array[Resource]([ExtResource("10"), ExtResource("11"), ExtResource("12"), ExtResource("13")])
-dialogue_events = Array[Resource]([])
-section_markers = Array[Resource]([ExtResource("2"), ExtResource("3"), ExtResource("4")])
-tutorial_beats = Array[Resource]([ExtResource("5"), ExtResource("6"), ExtResource("7"), ExtResource("8"), ExtResource("9")])
-squad_radio_text_format = "%s here. Special charged — try me out, pilot."
+spawn_entries = Array[ExtResource("7_xwqmn")]([ExtResource("10"), ExtResource("11"), ExtResource("12"), ExtResource("13")])
+section_markers = Array[ExtResource("3_76mkl")]([ExtResource("2"), ExtResource("3"), ExtResource("4")])
+tutorial_beats = Array[ExtResource("12_gauyo")]([ExtResource("5"), ExtResource("6"), ExtResource("7"), ExtResource("8"), ExtResource("9")])
+squad_radio_text_format = "%s here. Cycle squad with Q/E (or LB/RB), then fire with right click (or RT)."

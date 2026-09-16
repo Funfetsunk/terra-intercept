@@ -3,8 +3,8 @@ class_name BackgroundLayer
 
 @export var scroll_speed_multiplier: float = 1.0
 @export var panel_height: float = 360.0
-@export var panel_a_color: Color = Color(0.04, 0.05, 0.1, 1.0)
-@export var panel_b_color: Color = Color(0.06, 0.07, 0.13, 1.0)
+@export var panel_a_color: Color = Color(0.1, 0.04, 0.14, 1.0)
+@export var panel_b_color: Color = Color(0.13, 0.06, 0.18, 1.0)
 
 var base_speed: float = 0.0
 

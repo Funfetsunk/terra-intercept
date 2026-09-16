@@ -17,7 +17,7 @@ layout_mode = 0
 offset_right = 140.0
 offset_bottom = 360.0
 mouse_filter = 2
-color = Color(0.05, 0.06, 0.09, 1)
+color = Color(0.08, 0.08, 0.08, 1)
 
 [node name="RightPanelBg" type="ColorRect" parent="HUDRoot" unique_id=57213141]
 layout_mode = 0
@@ -25,7 +25,7 @@ offset_left = 500.0
 offset_right = 640.0
 offset_bottom = 360.0
 mouse_filter = 2
-color = Color(0.05, 0.06, 0.09, 1)
+color = Color(0.08, 0.08, 0.08, 1)
 
 [node name="LeftPanel" type="VBoxContainer" parent="HUDRoot" unique_id=2079910361]
 layout_mode = 0

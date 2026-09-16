@@ -172,8 +172,8 @@ mission = ExtResource("11_corhf")
 [node name="FarLayer" type="Node2D" parent="PlayfieldRoot/Background" unique_id=2071353270 instance=ExtResource("13_3vjr3")]
 script = ExtResource("14_vu5jp")
 scroll_speed_multiplier = 0.5
-panel_a_color = Color(0.02, 0.025, 0.05, 1)
-panel_b_color = Color(0.03, 0.035, 0.07, 1)
+panel_a_color = Color(0.06, 0.02, 0.09, 1)
+panel_b_color = Color(0.08, 0.03, 0.11, 1)
 
 [node name="PanelA" type="ColorRect" parent="PlayfieldRoot/Background/FarLayer" unique_id=397745998]
 offset_right = 640.0

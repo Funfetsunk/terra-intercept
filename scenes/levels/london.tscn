@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bdjsxy2elcbrc" path="res://scenes/hud/dialogue_box.tscn" id="8_gj5h3"]
 [ext_resource type="Script" uid="uid://70dhy7y8fstm" path="res://scenes/hud/dialogue_box.gd" id="9_xtlt0"]
 [ext_resource type="Script" uid="uid://c6cns2cik14l2" path="res://scenes/levels/scrolling_background.gd" id="10_0fxbs"]
-[ext_resource type="Resource" path="res://data/missions/london_mission.tres" id="11_vng0p"]
+[ext_resource type="Resource" uid="uid://c2wfa0cb0tqh" path="res://data/missions/london_mission.tres" id="11_vng0p"]
 [ext_resource type="PackedScene" uid="uid://ort4tmjdo7j" path="res://scenes/levels/background_layer.tscn" id="12_gk56g"]
 [ext_resource type="Script" uid="uid://cktltf2ympqjm" path="res://scenes/levels/background_layer.gd" id="13_xsjdc"]
 [ext_resource type="Script" uid="uid://bgoiagdeo8ki4" path="res://scripts/systems/enemy_spawner.gd" id="14_08gnv"]
@@ -175,8 +175,8 @@ mission = ExtResource("11_vng0p")
 [node name="FarLayer" type="Node2D" parent="PlayfieldRoot/Background" unique_id=2071353270 instance=ExtResource("12_gk56g")]
 script = ExtResource("13_xsjdc")
 scroll_speed_multiplier = 0.5
-panel_a_color = Color(0.02, 0.025, 0.05, 1)
-panel_b_color = Color(0.03, 0.035, 0.07, 1)
+panel_a_color = Color(0.06, 0.02, 0.09, 1)
+panel_b_color = Color(0.08, 0.03, 0.11, 1)
 
 [node name="PanelA" type="ColorRect" parent="PlayfieldRoot/Background/FarLayer" unique_id=397745998]
 offset_right = 640.0

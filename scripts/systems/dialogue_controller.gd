@@ -16,6 +16,10 @@ func _ready() -> void:
 	_dialogue_box = get_node(dialogue_box_path)
 	_entries = mission.dialogue_events.duplicate()
 	_entries.sort_custom(func(a: DialogueEntry, b: DialogueEntry) -> bool: return a.trigger_time < b.trigger_time)
+	var game_state: Node = get_node("/root/GameState")
+	_elapsed = mission.get_section_start_time(game_state.restart_section)
+	while _next_index < _entries.size() and _entries[_next_index].trigger_time < _elapsed:
+		_next_index += 1
 
 func _physics_process(delta: float) -> void:
 	_elapsed += delta

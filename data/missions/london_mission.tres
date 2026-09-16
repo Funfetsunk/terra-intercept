@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MissionData" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/mission_data.gd" id="1"]
+[ext_resource type="Resource" path="res://data/missions/london_section_tutorial.tres" id="2"]
+[ext_resource type="Resource" path="res://data/missions/london_section_thames_run.tres" id="3"]
+[ext_resource type="Resource" path="res://data/missions/london_section_boss.tres" id="4"]
+
+[resource]
+script = ExtResource("1")
+mission_name = "London"
+background_scroll_speed = 40.0
+spawn_entries = Array[Resource]([])
+dialogue_events = Array[Resource]([])
+section_markers = Array[Resource]([ExtResource("2"), ExtResource("3"), ExtResource("4")])

@@ -29,5 +29,4 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _on_ship_chosen(ship: ShipData) -> void:
 	_game_state.selected_ship = ship
-	# TODO(milestone 2b task 1): London mission scene doesn't exist yet.
 	get_tree().change_scene_to_file("res://scenes/levels/london.tscn")

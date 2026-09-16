@@ -9,6 +9,10 @@ var _next_index: int = 0
 func _ready() -> void:
 	_spawn_entries = mission.spawn_entries.duplicate()
 	_spawn_entries.sort_custom(func(a: SpawnEntry, b: SpawnEntry) -> bool: return a.spawn_time < b.spawn_time)
+	var game_state: Node = get_node("/root/GameState")
+	_elapsed = mission.get_section_start_time(game_state.restart_section)
+	while _next_index < _spawn_entries.size() and _spawn_entries[_next_index].spawn_time < _elapsed:
+		_next_index += 1
 
 func _physics_process(delta: float) -> void:
 	_elapsed += delta

@@ -24,6 +24,7 @@ signal mission_completed(results: Dictionary)
 @export var grade_b_score: int = 5000
 @export var grade_c_score: int = 3000
 
+var restart_section: String = ""
 var lives_remaining: int = 0
 var current_weapon_level: int = 1
 var ordnance_ammo: int = 0
@@ -38,6 +39,7 @@ func _ready() -> void:
 	lives_remaining = starting_lives
 
 func start_new_run() -> void:
+	restart_section = ""
 	lives_remaining = starting_lives
 	current_weapon_level = 1
 	ordnance_ammo = ordnance.starting_ammo if ordnance != null else 0

@@ -32,6 +32,7 @@ func _ready() -> void:
 	_bullets = get_node("/root/BulletManager")
 	_game_state = get_node("/root/GameState")
 	_game_state.tutorial_active = true
+	_player.grant_special_charge(_player.data.special_charge_max)
 	_player.weapon_fired.connect(func() -> void: _fired_since_beat = true)
 	_player.focus_used.connect(func() -> void: _focus_used_since_beat = true)
 	_player.ordnance_fired.connect(func() -> void: _ordnance_fired_since_beat = true)

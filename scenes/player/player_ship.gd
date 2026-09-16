@@ -213,8 +213,9 @@ func on_damage_dealt(damage: float, was_kill: bool) -> void:
 func _try_fire_special() -> void:
 	if special_charges <= 0 or _squad.is_empty():
 		return
-	special_charges -= 1
-	special_charges_changed.emit(special_charges, data.special_charge_max)
+	if not _game_state.tutorial_active:
+		special_charges -= 1
+		special_charges_changed.emit(special_charges, data.special_charge_max)
 	var armed: ShipData = _squad[_squad_index]
 	_deploy_special(armed)
 	_special_invincible_timer = armed.special_duration

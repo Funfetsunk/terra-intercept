@@ -1,6 +1,6 @@
 extends EnemyBase
 
-@export var drift_speed: float = 50.0
+@export var drift_speed: float = 18.0
 @export var screen_exit_margin: float = 20.0
 
 var _drift_dir: float = 1.0

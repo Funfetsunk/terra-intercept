@@ -6,6 +6,7 @@
 script = ExtResource("1")
 ship_name = "Interceptor"
 pilot_name = "Dash"
+radio_intro = "Dash, inbound. Watch this."
 ship_color = Color(0.9, 0.3, 0.2, 1)
 traits_description = "Fast, fragile"
 move_speed = 170.0

@@ -6,6 +6,7 @@
 script = ExtResource("1")
 ship_name = "Guardian"
 pilot_name = "Max"
+radio_intro = "Max on station. I've got you."
 ship_color = Color(0.3, 0.8, 0.3, 1)
 traits_description = "Slower, big shield"
 move_speed = 110.0

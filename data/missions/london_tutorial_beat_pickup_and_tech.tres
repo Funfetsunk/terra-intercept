@@ -6,6 +6,6 @@
 script = ExtResource("1")
 speaker_name = "Commander Steel"
 portrait_color = Color(0.9, 0.6, 0.2, 1)
-text = "Fly through a weapon pickup, and don't leave alien tech behind."
+text = "Grab that weapon crate. And don't you dare leave alien tech sitting on the table."
 duration = 4.0
 action = 2

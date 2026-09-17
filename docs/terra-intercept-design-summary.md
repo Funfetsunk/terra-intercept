@@ -58,15 +58,14 @@
 
 | Ship | Pilot | Traits | Special |
 |---|---|---|---|
-| Interceptor | Hotshot | Fast, fragile | Vertical line across the full playfield, about 40px thick |
-| Striker | Technician (tuned its weapons) | High power | Cone reaching about half the screen |
-| Guardian | Veteran | Slower, big shield | Circle about 120px across |
-| Vanguard | Leader | All-rounder | Horizontal line across the full playfield, about 40px thick |
+| Interceptor | Dash | Fast, fragile | Vertical line across the full playfield, about 40px thick |
+| Striker | Bucky | High power | Cone reaching about half the screen |
+| Guardian | Max | Slower, big shield | Circle about 120px across |
+| Vanguard | Tammy | All-rounder | Horizontal line across the full playfield, about 40px thick |
 
 - **Weapons:** Each ship keeps its own signature weapon, powered up from level 1 to 5 by mid-mission pickups.
 - **Ordnance:** A single slot holding missiles, a homing swarm or mines, with about 5 shots maximum. Pickups either top up the ammo or swap the ordnance type.
-- **Commander:** A gruff, older ex-pilot who gives the briefings.
-- **Names:** Still to be chosen by you and your wife.
+- **Commander:** Steel, a gruff, older ex-pilot who gives the briefings.
 
 ## Pickups, upgrades and saving
 

@@ -6,6 +6,6 @@
 script = ExtResource("1")
 speaker_name = "Commander Steel"
 portrait_color = Color(0.9, 0.6, 0.2, 1)
-text = "Aim with the right stick, or mouse and left click. Open fire."
+text = "Right stick to aim, or mouse and left click. Give them a taste."
 duration = 4.0
 action = 1

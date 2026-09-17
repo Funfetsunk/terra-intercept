@@ -144,7 +144,7 @@ func _process_squad() -> void:
 		var beat: TutorialBeat = TutorialBeat.new()
 		beat.speaker_name = _current_squad_ship.pilot_name
 		beat.portrait_color = _current_squad_ship.ship_color
-		beat.text = mission.squad_radio_text_format % _current_squad_ship.ship_name
+		beat.text = "%s %s" % [_current_squad_ship.radio_intro, mission.squad_radio_text_format]
 		beat.action = TutorialBeat.Action.SPECIAL
 		_beat_active = true
 		get_tree().paused = true

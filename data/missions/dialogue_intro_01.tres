@@ -7,5 +7,5 @@ script = ExtResource("1")
 trigger_time = 2.0
 speaker_name = "Commander Steel"
 portrait_color = Color(0.9, 0.6, 0.2, 1)
-text = "Command here. Systems nominal, pilot. Watch the skies."
+text = "Steel here. Systems check clean. Eyes up — we've got company inbound."
 duration = 4.0

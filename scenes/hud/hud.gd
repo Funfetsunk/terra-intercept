@@ -60,7 +60,7 @@ func _on_special_progress_changed(progress: float) -> void:
 	_special_progress_bar.value = progress
 
 func _on_squad_selection_changed(ship: ShipData) -> void:
-	_squad_label.text = "Squad: %s" % ship.ship_name
+	_squad_label.text = "Squad: %s" % ship.pilot_name
 
 func _on_special_fired(_ship: ShipData) -> void:
 	_squad_label.modulate = special_fire_flash_color

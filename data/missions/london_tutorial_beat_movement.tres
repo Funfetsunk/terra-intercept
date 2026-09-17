@@ -6,6 +6,6 @@
 script = ExtResource("1")
 speaker_name = "Commander Steel"
 portrait_color = Color(0.9, 0.6, 0.2, 1)
-text = "Pilot, get that ship moving. Left stick or WASD."
+text = "Stop admiring the paint job. Get her moving — left stick, or WASD."
 duration = 4.0
 action = 0

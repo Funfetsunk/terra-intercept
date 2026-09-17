@@ -20,7 +20,7 @@ func _process_movement(delta: float) -> void:
 		_unfold_timer -= delta
 		if _unfold_timer <= 0.0:
 			_state = _State.ACTIVE
-			$Sprite.color = active_color
+			$Sprite.modulate = active_color
 
 func _process_pattern(delta: float) -> void:
 	if _state != _State.ACTIVE:

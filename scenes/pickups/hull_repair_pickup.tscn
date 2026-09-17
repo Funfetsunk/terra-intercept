@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dxne1w5pg4r4k" path="res://scenes/pickups/pickup.gd" id="1_21xqg"]
 [ext_resource type="Resource" path="res://data/pickups/hull_repair_pickup.tres" id="2_3q8xg"]
+[ext_resource type="Texture2D" uid="uid://dnacrb5hlmjib" path="res://art/sprites/placeholder/atlas/pickup_cross_blue.tres" id="3_3q8xg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mgc3l"]
 
@@ -9,17 +10,13 @@
 script = ExtResource("1_21xqg")
 data = ExtResource("2_3q8xg")
 
-[node name="Sprite" type="ColorRect" parent="." unique_id=1951388330]
-offset_left = -5.0
-offset_top = -5.0
-offset_right = 5.0
-offset_bottom = 5.0
-mouse_filter = 2
-color = Color(0.4, 1, 0.4, 1)
-
 [node name="Hitbox" type="Area2D" parent="." unique_id=184160553]
 collision_layer = 16
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=878644625]
 shape = SubResource("CircleShape2D_mgc3l")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1499149921]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_3q8xg")

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bt14cegymgsre" path="res://scenes/enemies/spinner.gd" id="1_ri1m3"]
 [ext_resource type="Resource" path="res://data/enemies/spinner_data.tres" id="2_3ywtc"]
+[ext_resource type="Texture2D" uid="uid://dpnmvm8khdxv3" path="res://art/sprites/placeholder/atlas/enemy_mech_b.tres" id="3_3ywtc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bv7vm"]
 radius = 9.0
@@ -10,17 +11,14 @@ radius = 9.0
 script = ExtResource("1_ri1m3")
 data = ExtResource("2_3ywtc")
 
-[node name="Sprite" type="ColorRect" parent="." unique_id=160682957]
-offset_left = -9.0
-offset_top = -9.0
-offset_right = 9.0
-offset_bottom = 9.0
-mouse_filter = 2
-color = Color(0.7, 0.2, 0.9, 1)
-
 [node name="Hitbox" type="Area2D" parent="." unique_id=440482796]
 collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=769391360]
 shape = SubResource("CircleShape2D_bv7vm")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1464519095]
+modulate = Color(0.85, 0.6, 1, 1)
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("3_3ywtc")

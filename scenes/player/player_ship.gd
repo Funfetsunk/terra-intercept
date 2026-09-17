@@ -18,6 +18,12 @@ signal ordnance_ammo_changed(current: int)
 @export var shield_hit_dim_color: Color = Color(0.45, 0.45, 0.45, 1.0)
 @export var shield_hit_dim_duration: float = 0.15
 @export var hull_hit_flash_duration: float = 0.1
+@export var bank_frame_full_left: Texture2D
+@export var bank_frame_slight_left: Texture2D
+@export var bank_frame_neutral: Texture2D
+@export var bank_frame_slight_right: Texture2D
+@export var bank_frame_full_right: Texture2D
+@export var bank_input_threshold: float = 0.3
 
 var shield_current: float = 0.0
 var hull_current: float = 0.0
@@ -48,7 +54,6 @@ var _active_special: ShipData = null
 func _ready() -> void:
 	if _game_state.selected_ship != null:
 		data = _game_state.selected_ship
-	$Sprite.color = data.ship_color
 	_spawn_origin = global_position
 	shield_current = data.shield_max
 	hull_current = data.hull_max
@@ -94,6 +99,19 @@ func _process_movement(delta: float) -> void:
 	var bounds: Rect2 = _playfield.rect
 	global_position.x = clamp(global_position.x, bounds.position.x, bounds.end.x)
 	global_position.y = clamp(global_position.y, bounds.position.y, bounds.end.y)
+	_update_bank_frame(move_vec.x)
+
+func _update_bank_frame(x_input: float) -> void:
+	if x_input <= -bank_input_threshold * 2.0:
+		$Sprite.texture = bank_frame_full_left
+	elif x_input <= -bank_input_threshold:
+		$Sprite.texture = bank_frame_slight_left
+	elif x_input >= bank_input_threshold * 2.0:
+		$Sprite.texture = bank_frame_full_right
+	elif x_input >= bank_input_threshold:
+		$Sprite.texture = bank_frame_slight_right
+	else:
+		$Sprite.texture = bank_frame_neutral
 
 func _process_focus(delta: float) -> void:
 	var held: bool = Input.is_action_pressed("p1_focus")
@@ -154,7 +172,7 @@ func _process_fire(delta: float) -> void:
 		var offset_deg: float = data.weapon_stream_spread_degrees * (float(i) - float(stream_count - 1) / 2.0)
 		var rad: float = base_angle + deg_to_rad(offset_deg)
 		var stream_dir: Vector2 = Vector2(cos(rad), sin(rad))
-		_bullets.spawn_player_bullet(global_position, stream_dir, data.bullet_speed, data.bullet_radius, data.bullet_color, 2.0, data.bullet_damage)
+		_bullets.spawn_player_bullet(global_position, stream_dir, data.bullet_speed, data.bullet_radius, data.bullet_color, 2.0, data.bullet_damage, data.bullet_texture)
 	_fire_cooldown = 1.0 / data.fire_rate
 	weapon_fired.emit()
 
@@ -183,8 +201,8 @@ func _flash_shield_hit() -> void:
 	create_tween().tween_property($Sprite, "modulate", Color.WHITE, shield_hit_dim_duration)
 
 func _flash_hull_hit() -> void:
-	$Sprite.color = Color.WHITE
-	create_tween().tween_property($Sprite, "color", data.ship_color, hull_hit_flash_duration)
+	$Sprite.modulate = Color(3.0, 3.0, 3.0, 1.0)
+	create_tween().tween_property($Sprite, "modulate", Color.WHITE, hull_hit_flash_duration)
 
 func _is_invincible() -> bool:
 	return _hull_invincible_timer > 0.0 or _respawn_invincible_timer > 0.0 or _special_invincible_timer > 0.0

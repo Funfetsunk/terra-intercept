@@ -41,6 +41,7 @@ enum SpecialShape { VERTICAL_LINE, CONE, CIRCLE, HORIZONTAL_LINE }
 @export var bullet_speed: float = 260.0
 @export var bullet_radius: float = 3.0
 @export var bullet_color: Color = Color(0.4, 0.9, 1.0)
+@export var bullet_texture: Texture2D
 @export var bullet_damage: float = 1.0
 @export var weapon_pattern: BulletPatternData
 @export var weapon_stream_spread_degrees: float = 8.0

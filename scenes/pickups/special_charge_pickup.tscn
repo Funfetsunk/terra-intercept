@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dxne1w5pg4r4k" path="res://scenes/pickups/pickup.gd" id="1_i0qd8"]
 [ext_resource type="Resource" path="res://data/pickups/special_charge_pickup.tres" id="2_x1sjr"]
+[ext_resource type="Texture2D" uid="uid://c6cgblitjky21" path="res://art/sprites/placeholder/atlas/pickup_purple_shard.tres" id="3_x1sjr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a0j52"]
 
@@ -9,17 +10,13 @@
 script = ExtResource("1_i0qd8")
 data = ExtResource("2_x1sjr")
 
-[node name="Sprite" type="ColorRect" parent="." unique_id=490099383]
-offset_left = -5.0
-offset_top = -5.0
-offset_right = 5.0
-offset_bottom = 5.0
-mouse_filter = 2
-color = Color(0.9, 0.3, 0.9, 1)
-
 [node name="Hitbox" type="Area2D" parent="." unique_id=682232428]
 collision_layer = 16
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1189608611]
 shape = SubResource("CircleShape2D_a0j52")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1843724217]
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("3_x1sjr")

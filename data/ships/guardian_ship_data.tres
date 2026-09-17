@@ -1,17 +1,17 @@
 [gd_resource type="Resource" script_class="ShipData" format=3 uid="uid://b3c6554j4do4e"]
 
 [ext_resource type="Script" uid="uid://boquiv061idvy" path="res://scripts/resources/ship_data.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://trmgal1ykn3w" path="res://art/sprites/placeholder/atlas/bullet_pill_blue.tres" id="1_yhuam"]
 
 [resource]
 script = ExtResource("1")
 ship_name = "Guardian"
 pilot_name = "Max"
-radio_intro = "Max on station. I've got you."
 ship_color = Color(0.3, 0.8, 0.3, 1)
 traits_description = "Slower, big shield"
+radio_intro = "Max on station. I've got you."
 move_speed = 110.0
 shield_max = 10.0
 shield_recharge_rate = 2.5
 hull_max = 4.0
-special_shape = 2
-special_radius = 60.0
+bullet_texture = ExtResource("1_yhuam")

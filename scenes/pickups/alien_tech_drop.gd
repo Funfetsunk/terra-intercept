@@ -15,9 +15,11 @@ class_name AlienTechDrop
 var _bullets: Node = null
 var _collected: bool = false
 var _pulse_elapsed: float = 0.0
+var _base_sprite_scale: Vector2 = Vector2.ONE
 
 func _ready() -> void:
 	_bullets = get_node("/root/BulletManager")
+	_base_sprite_scale = $Sprite.scale
 
 func _physics_process(delta: float) -> void:
 	if _collected:
@@ -25,7 +27,7 @@ func _physics_process(delta: float) -> void:
 	if highlighted:
 		_pulse_elapsed += delta
 		var scale_factor: float = 1.0 + sin(_pulse_elapsed * highlight_pulse_speed) * highlight_pulse_scale
-		$Sprite.scale = Vector2(scale_factor, scale_factor)
+		$Sprite.scale = _base_sprite_scale * scale_factor
 	var player: Node2D = _bullets.get_registered_player()
 	if player != null and global_position.distance_to(player.global_position) <= magnet_radius:
 		global_position = global_position.move_toward(player.global_position, magnet_speed * delta)

@@ -62,7 +62,7 @@ func _fire_burst(pattern: BulletPatternData) -> void:
 			angle_deg += _rng.randf_range(-pattern.jitter_degrees, pattern.jitter_degrees)
 		var rad: float = deg_to_rad(angle_deg)
 		var dir: Vector2 = Vector2(cos(rad), sin(rad))
-		_bullets.spawn_enemy_bullet(global_position, dir, pattern.bullet_speed, pattern.bullet_radius, pattern.bullet_color, pattern.bullet_lifetime, pattern.bullet_damage)
+		_bullets.spawn_enemy_bullet(global_position, dir, pattern.bullet_speed, pattern.bullet_radius, pattern.bullet_color, pattern.bullet_lifetime, pattern.bullet_damage, pattern.bullet_texture)
 	_burst_index += 1
 
 func take_damage(amount: float) -> bool:

@@ -1,18 +1,21 @@
 [gd_scene format=3 uid="uid://ort4tmjdo7j"]
 
 [ext_resource type="Script" uid="uid://cktltf2ympqjm" path="res://scenes/levels/background_layer.gd" id="1_7axw6"]
+[ext_resource type="Texture2D" uid="uid://6yjeh7a63xjh" path="res://art/sprites/placeholder/background.png" id="2_p8kqg"]
 
 [node name="BackgroundLayer" type="Node2D" unique_id=2071353270]
 script = ExtResource("1_7axw6")
 
-[node name="PanelA" type="ColorRect" parent="." unique_id=397745998]
+[node name="PanelA" type="TextureRect" parent="." unique_id=1157060007]
 offset_right = 360.0
 offset_bottom = 360.0
 mouse_filter = 2
-color = Color(0.04, 0.05, 0.1, 1)
+texture = ExtResource("2_p8kqg")
+stretch_mode = 1
 
-[node name="PanelB" type="ColorRect" parent="." unique_id=1781704554]
+[node name="PanelB" type="TextureRect" parent="." unique_id=1894372746]
 offset_top = -360.0
 offset_right = 360.0
 mouse_filter = 2
-color = Color(0.06, 0.07, 0.13, 1)
+texture = ExtResource("2_p8kqg")
+stretch_mode = 1

@@ -14,6 +14,7 @@ class BulletPool:
 	var colors: PackedColorArray = PackedColorArray()
 	var lifetimes: PackedFloat32Array = PackedFloat32Array()
 	var damages: PackedFloat32Array = PackedFloat32Array()
+	var textures: Array[Texture2D] = []
 	var active_count: int = 0
 	var capacity: int = 0
 
@@ -25,9 +26,10 @@ class BulletPool:
 		colors.resize(cap)
 		lifetimes.resize(cap)
 		damages.resize(cap)
+		textures.resize(cap)
 		active_count = 0
 
-	func spawn(pos: Vector2, vel: Vector2, radius: float, color: Color, lifetime: float, damage: float) -> bool:
+	func spawn(pos: Vector2, vel: Vector2, radius: float, color: Color, lifetime: float, damage: float, texture: Texture2D) -> bool:
 		if active_count >= capacity:
 			return false
 		var i: int = active_count
@@ -37,6 +39,7 @@ class BulletPool:
 		colors[i] = color
 		lifetimes[i] = lifetime
 		damages[i] = damage
+		textures[i] = texture
 		active_count += 1
 		return true
 
@@ -48,8 +51,8 @@ class BulletPool:
 		colors[i] = colors[last]
 		lifetimes[i] = lifetimes[last]
 		damages[i] = damages[last]
+		textures[i] = textures[last]
 		active_count = last
-
 var _player_pool: BulletPool = BulletPool.new()
 var _enemy_pool: BulletPool = BulletPool.new()
 
@@ -149,13 +152,17 @@ func _check_player_bullets_vs_enemies() -> void:
 
 func _draw() -> void:
 	for i in range(_player_pool.active_count):
-		_draw_bullet_square(_player_pool.positions[i], _player_pool.radii[i], _player_pool.colors[i])
+		_draw_bullet(_player_pool.positions[i], _player_pool.radii[i], _player_pool.colors[i], _player_pool.textures[i])
 	for i in range(_enemy_pool.active_count):
-		_draw_bullet_square(_enemy_pool.positions[i], _enemy_pool.radii[i], _enemy_pool.colors[i])
+		_draw_bullet(_enemy_pool.positions[i], _enemy_pool.radii[i], _enemy_pool.colors[i], _enemy_pool.textures[i])
 
-func _draw_bullet_square(pos: Vector2, radius: float, color: Color) -> void:
+func _draw_bullet(pos: Vector2, radius: float, color: Color, texture: Texture2D) -> void:
 	var half: float = radius
-	draw_rect(Rect2(pos.x - half, pos.y - half, half * 2.0, half * 2.0), color, true)
+	var rect: Rect2 = Rect2(pos.x - half, pos.y - half, half * 2.0, half * 2.0)
+	if texture != null:
+		draw_texture_rect(texture, rect, false, color)
+	else:
+		draw_rect(rect, color, true)
 
 func register_player(player: Node2D, hitbox_radius: float) -> void:
 	_registered_player = player
@@ -182,12 +189,12 @@ func get_player_position() -> Vector2:
 func get_registered_player() -> Node2D:
 	return _registered_player
 
-func spawn_player_bullet(pos: Vector2, direction: Vector2, speed: float, radius: float, color: Color, lifetime: float, damage: float) -> void:
-	if not _player_pool.spawn(pos, direction.normalized() * speed, radius, color, lifetime, damage):
+func spawn_player_bullet(pos: Vector2, direction: Vector2, speed: float, radius: float, color: Color, lifetime: float, damage: float, texture: Texture2D = null) -> void:
+	if not _player_pool.spawn(pos, direction.normalized() * speed, radius, color, lifetime, damage, texture):
 		bullet_pool_exhausted.emit(true)
 
-func spawn_enemy_bullet(pos: Vector2, direction: Vector2, speed: float, radius: float, color: Color, lifetime: float, damage: float) -> void:
-	if not _enemy_pool.spawn(pos, direction.normalized() * speed, radius, color, lifetime, damage):
+func spawn_enemy_bullet(pos: Vector2, direction: Vector2, speed: float, radius: float, color: Color, lifetime: float, damage: float, texture: Texture2D = null) -> void:
+	if not _enemy_pool.spawn(pos, direction.normalized() * speed, radius, color, lifetime, damage, texture):
 		bullet_pool_exhausted.emit(false)
 
 func clear_enemy_bullets_in_circle(center: Vector2, radius: float) -> void:

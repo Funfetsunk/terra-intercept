@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b7oa2k2dr8s8b" path="res://scenes/enemies/drone.gd" id="1_y3ws1"]
 [ext_resource type="Resource" path="res://data/enemies/drone_data.tres" id="2_dyfay"]
+[ext_resource type="Texture2D" uid="uid://1m22hov5fd1a" path="res://art/sprites/placeholder/atlas/enemy_arrow_red.tres" id="3_dyfay"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xgp3v"]
 radius = 8.0
@@ -10,17 +11,12 @@ radius = 8.0
 script = ExtResource("1_y3ws1")
 data = ExtResource("2_dyfay")
 
-[node name="Sprite" type="ColorRect" parent="." unique_id=1197201755]
-offset_left = -8.0
-offset_top = -8.0
-offset_right = 8.0
-offset_bottom = 8.0
-mouse_filter = 2
-color = Color(0.9, 0.2, 0.2, 1)
-
 [node name="Hitbox" type="Area2D" parent="." unique_id=827291806]
 collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=137391378]
 shape = SubResource("CircleShape2D_xgp3v")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1511113990]
+texture = ExtResource("3_dyfay")

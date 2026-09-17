@@ -3,16 +3,16 @@ class_name BackgroundLayer
 
 @export var scroll_speed_multiplier: float = 1.0
 @export var panel_height: float = 360.0
-@export var panel_a_color: Color = Color(0.1, 0.04, 0.14, 1.0)
-@export var panel_b_color: Color = Color(0.13, 0.06, 0.18, 1.0)
+@export var panel_a_color: Color = Color(1.0, 1.0, 1.0, 1.0)
+@export var panel_b_color: Color = Color(0.82, 0.82, 0.92, 1.0)
 
 var base_speed: float = 0.0
 
 @onready var _panels: Array[Control] = [$PanelA, $PanelB]
 
 func _ready() -> void:
-	$PanelA.color = panel_a_color
-	$PanelB.color = panel_b_color
+	$PanelA.modulate = panel_a_color
+	$PanelB.modulate = panel_b_color
 
 func _physics_process(delta: float) -> void:
 	var speed: float = base_speed * scroll_speed_multiplier

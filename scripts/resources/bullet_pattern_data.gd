@@ -13,5 +13,6 @@ class_name BulletPatternData
 @export var bullet_speed: float = 120.0
 @export var bullet_radius: float = 3.0
 @export var bullet_color: Color = Color(1.0, 0.3, 0.3)
+@export var bullet_texture: Texture2D
 @export var bullet_damage: float = 1.0
 @export var bullet_lifetime: float = 4.0

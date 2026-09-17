@@ -1,17 +1,18 @@
-[gd_resource type="Resource" script_class="ShipData" format=3]
+[gd_resource type="Resource" script_class="ShipData" format=3 uid="uid://mr4a3f1p7odg"]
 
 [ext_resource type="Script" uid="uid://boquiv061idvy" path="res://scripts/resources/ship_data.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://trmgal1ykn3w" path="res://art/sprites/placeholder/atlas/bullet_pill_blue.tres" id="1_vqla0"]
 
 [resource]
 script = ExtResource("1")
 ship_name = "Interceptor"
 pilot_name = "Dash"
-radio_intro = "Dash, inbound. Watch this."
 ship_color = Color(0.9, 0.3, 0.2, 1)
 traits_description = "Fast, fragile"
+radio_intro = "Dash, inbound. Watch this."
 move_speed = 170.0
 shield_max = 4.0
 hull_max = 2.0
 bullet_speed = 320.0
+bullet_texture = ExtResource("1_vqla0")
 special_shape = 0
-special_line_thickness = 40.0

@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="BulletPatternData" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="BulletPatternData" format=3 uid="uid://cm5bixu0lsjq1"]
 
-[ext_resource type="Script" path="res://scripts/resources/bullet_pattern_data.gd" id="1"]
+[ext_resource type="Script" uid="uid://skm1jc2p0sdk" path="res://scripts/resources/bullet_pattern_data.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://b7bdkjjeum1gn" path="res://art/sprites/placeholder/atlas/bullet_pill_red.tres" id="1_v4alg"]
 
 [resource]
 script = ExtResource("1")
@@ -8,13 +9,8 @@ pattern_name = "Swarmer Tight Burst"
 burst_size = 5
 angle_spread_degrees = 55.0
 burst_interval = 1.2
-rotation_per_burst_degrees = 0.0
-aim_at_player = true
-fixed_angle_degrees = 90.0
 jitter_degrees = 2.0
 rng_seed = 5
 bullet_speed = 130.0
-bullet_radius = 3.0
 bullet_color = Color(1, 0.7, 0.2, 1)
-bullet_damage = 1.0
-bullet_lifetime = 4.0
+bullet_texture = ExtResource("1_v4alg")

@@ -20,6 +20,13 @@ func _physics_process(delta: float) -> void:
 		_spawn(_spawn_entries[_next_index])
 		_next_index += 1
 
+func jump_to_time(target_time: float) -> void:
+	if target_time <= _elapsed:
+		return
+	_elapsed = target_time
+	while _next_index < _spawn_entries.size() and _spawn_entries[_next_index].spawn_time < _elapsed:
+		_next_index += 1
+
 func _spawn(entry: SpawnEntry) -> void:
 	if entry.scene == null:
 		return

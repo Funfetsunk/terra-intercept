@@ -3,6 +3,7 @@ extends Node
 @export var mission: MissionData
 @export var player_path: NodePath
 @export var dialogue_box_path: NodePath
+@export var enemy_spawner_path: NodePath
 @export var movement_threshold: float = 24.0
 @export var weapon_pickup_scene: PackedScene
 @export var alien_tech_drop_scene: PackedScene
@@ -13,6 +14,7 @@ enum _Phase { BEATS, SQUAD, DONE }
 
 var _player: Node = null
 var _dialogue_box: Node = null
+var _enemy_spawner: Node = null
 var _bullets: Node = null
 var _game_state: Node = null
 
@@ -34,6 +36,7 @@ var _special_fired_ships: Array[ShipData] = []
 func _ready() -> void:
 	_player = get_node(player_path)
 	_dialogue_box = get_node(dialogue_box_path)
+	_enemy_spawner = get_node(enemy_spawner_path)
 	_bullets = get_node("/root/BulletManager")
 	_game_state = get_node("/root/GameState")
 	if not _game_state.restart_section.is_empty():
@@ -160,6 +163,7 @@ func _finish_tutorial() -> void:
 	_player.restore_full()
 	_game_state.tutorial_active = false
 	_game_state.tutorial_completed = true
+	_enemy_spawner.jump_to_time(mission.get_section_start_time("thames_run"))
 
 func _on_special_fired(ship: ShipData) -> void:
 	if not _special_fired_ships.has(ship):

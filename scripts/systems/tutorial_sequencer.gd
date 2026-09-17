@@ -103,7 +103,7 @@ func _process_pickup_beat() -> void:
 		get_tree().paused = false
 
 func _spawn_pickup_beat_items() -> void:
-	var rect: Rect2 = _player.playfield_rect
+	var rect: Rect2 = get_node("/root/Playfield").rect
 	var pickup: Pickup = weapon_pickup_scene.instantiate() as Pickup
 	pickup.never_despawn = true
 	pickup.highlighted = true

@@ -4,7 +4,8 @@
 
 [resource]
 script = ExtResource("1")
-pattern_name = "Drone Aimed Shot"
+pattern_name = "Drone Straight Shot"
 burst_interval = 0.8
+aim_at_player = false
 bullet_speed = 110.0
 bullet_color = Color(1, 0.4, 0.4, 1)

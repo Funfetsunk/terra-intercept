@@ -5,7 +5,7 @@
 [ext_resource type="Resource" path="res://data/missions/london_section_tutorial.tres" id="2"]
 [ext_resource type="Resource" uid="uid://brxxdk8lb0kig" path="res://data/missions/london_section_thames_run.tres" id="3"]
 [ext_resource type="Script" uid="uid://c03u7v4p7yrx6" path="res://scripts/resources/mission_section_marker.gd" id="3_76mkl"]
-[ext_resource type="Resource" path="res://data/missions/london_section_boss.tres" id="4"]
+[ext_resource type="Resource" uid="uid://dk10fmr685coj" path="res://data/missions/london_section_boss.tres" id="4"]
 [ext_resource type="Resource" path="res://data/missions/london_tutorial_beat_movement.tres" id="5"]
 [ext_resource type="Resource" path="res://data/missions/london_tutorial_beat_firing.tres" id="6"]
 [ext_resource type="Resource" path="res://data/missions/london_tutorial_beat_pickup_and_tech.tres" id="7"]
@@ -359,7 +359,9 @@
 [ext_resource type="Resource" path="res://data/missions/london_swarm_158_0.tres" id="353"]
 [ext_resource type="Resource" path="res://data/missions/london_swarm_158_1.tres" id="354"]
 [ext_resource type="Resource" path="res://data/missions/london_swarm_159_0.tres" id="355"]
+[ext_resource type="AudioStream" uid="uid://q65udjkd5wn" path="res://audio/music/stage1.ogg" id="355_hveb7"]
 [ext_resource type="Resource" path="res://data/missions/london_boss_spawn.tres" id="356"]
+[ext_resource type="AudioStream" uid="uid://wr7jr3a0tvns" path="res://audio/music/tutorial.ogg" id="362_kegs6"]
 
 [resource]
 script = ExtResource("1")
@@ -369,3 +371,5 @@ spawn_entries = Array[ExtResource("7_xwqmn")]([ExtResource("10"), ExtResource("1
 section_markers = Array[ExtResource("3_76mkl")]([ExtResource("2"), ExtResource("3"), ExtResource("4")])
 tutorial_beats = Array[ExtResource("12_gauyo")]([ExtResource("5"), ExtResource("6"), ExtResource("7"), ExtResource("8"), ExtResource("9")])
 squad_radio_text_format = "Cycle squad with Q/E (or LB/RB), then fire the special with right click (or RT)."
+tutorial_music = ExtResource("362_kegs6")
+stage_music = ExtResource("355_hveb7")

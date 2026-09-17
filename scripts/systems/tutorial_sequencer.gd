@@ -17,6 +17,7 @@ var _dialogue_box: Node = null
 var _enemy_spawner: Node = null
 var _bullets: Node = null
 var _game_state: Node = null
+var _audio: Node = null
 
 var _phase: _Phase = _Phase.BEATS
 var _beat_index: int = 0
@@ -39,11 +40,14 @@ func _ready() -> void:
 	_enemy_spawner = get_node(enemy_spawner_path)
 	_bullets = get_node("/root/BulletManager")
 	_game_state = get_node("/root/GameState")
+	_audio = get_node("/root/AudioManager")
 	if not _game_state.restart_section.is_empty():
 		_phase = _Phase.DONE
 		_game_state.tutorial_active = false
+		_audio.play_music(mission.stage_music)
 		return
 	_game_state.tutorial_active = true
+	_audio.play_music(mission.tutorial_music)
 	_player.process_mode = Node.PROCESS_MODE_ALWAYS
 	_bullets.process_mode = Node.PROCESS_MODE_ALWAYS
 	_player.grant_special_charge(_player.data.special_charge_max)
@@ -163,6 +167,7 @@ func _finish_tutorial() -> void:
 	_bullets.process_mode = Node.PROCESS_MODE_INHERIT
 	_player.restore_full()
 	_game_state.tutorial_active = false
+	_audio.play_music(mission.stage_music)
 	_game_state.tutorial_completed = true
 	_enemy_spawner.jump_to_time(mission.get_section_start_time("thames_run"))
 

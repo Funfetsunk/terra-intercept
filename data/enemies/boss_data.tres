@@ -1,12 +1,16 @@
 [gd_resource type="Resource" script_class="BossData" format=3 uid="uid://b7uvyakunp7ek"]
 
 [ext_resource type="Script" uid="uid://mfqvklciutsc" path="res://scripts/resources/boss_data.gd" id="1"]
+[ext_resource type="AudioStream" uid="uid://xweoxwdo0mpr" path="res://audio/music/mid_boss.ogg" id="1_jq2dx"]
 [ext_resource type="Resource" path="res://data/patterns/boss_pattern_phase1.tres" id="2"]
+[ext_resource type="AudioStream" uid="uid://cy8m8buhn168n" path="res://audio/music/mid_boss_phase2.ogg" id="2_7y3d2"]
 [ext_resource type="Resource" path="res://data/patterns/boss_pattern_phase2.tres" id="3"]
 
 [resource]
 script = ExtResource("1")
 phase_2_pattern = ExtResource("3")
+music = ExtResource("1_jq2dx")
+music_phase2 = ExtResource("2_7y3d2")
 enemy_name = "Sentinel"
 move_speed = 20.0
 hull_max = 60.0

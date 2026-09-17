@@ -8,6 +8,8 @@ class_name MissionData
 @export var section_markers: Array[MissionSectionMarker] = []
 @export var tutorial_beats: Array[TutorialBeat] = []
 @export var squad_radio_text_format: String = "%s here. Special charged — try me out, pilot."
+@export var tutorial_music: AudioStream
+@export var stage_music: AudioStream
 
 func get_section_start_time(section: String) -> float:
 	if section.is_empty():

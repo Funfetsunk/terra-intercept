@@ -41,6 +41,7 @@ func _ready() -> void:
 	_game_state = get_node("/root/GameState")
 	if not _game_state.restart_section.is_empty():
 		_phase = _Phase.DONE
+		_game_state.tutorial_active = false
 		return
 	_game_state.tutorial_active = true
 	_player.process_mode = Node.PROCESS_MODE_ALWAYS

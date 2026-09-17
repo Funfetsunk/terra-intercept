@@ -38,6 +38,7 @@ var _focus_refill_wait_timer: float = 0.0
 var _is_focused: bool = false
 var _last_move_dir: Vector2 = Vector2.UP
 var _ordnance_cooldown: float = 0.0
+var _active_special: ShipData = null
 
 @onready var _bullets: Node = get_node("/root/BulletManager")
 @onready var _game_state: Node = get_node("/root/GameState")
@@ -72,6 +73,7 @@ func _physics_process(delta: float) -> void:
 	_process_focus(delta)
 	_process_movement(delta)
 	_process_timers(delta)
+	_process_special()
 	_process_shield_recharge(delta)
 	_process_fire(delta)
 	if Input.is_action_just_pressed("p1_special"):
@@ -233,30 +235,49 @@ func _try_fire_special() -> void:
 		special_charges -= 1
 		special_charges_changed.emit(special_charges, data.special_charge_max)
 	var armed: ShipData = _squad[_squad_index]
-	_deploy_special(armed)
+	_active_special = armed
 	_special_invincible_timer = armed.special_duration
+	_start_special_vfx(armed)
+	_apply_special_effect(armed)
 	special_fired.emit(armed)
 
-func _deploy_special(armed: ShipData) -> void:
+func _process_special() -> void:
+	if _active_special == null:
+		return
+	if _special_invincible_timer <= 0.0:
+		_active_special = null
+		return
+	_apply_special_effect(_active_special)
+
+func _start_special_vfx(armed: ShipData) -> void:
+	match armed.special_shape:
+		ShipData.SpecialShape.CIRCLE:
+			_special_vfx.play_circle(armed.special_radius, armed.special_duration)
+		ShipData.SpecialShape.VERTICAL_LINE:
+			var world_rect: Rect2 = Rect2(global_position.x - armed.special_line_thickness * 0.5, _playfield.rect.position.y, armed.special_line_thickness, _playfield.rect.size.y)
+			_special_vfx.play_rect(Rect2(world_rect.position - global_position, world_rect.size), armed.special_duration)
+		ShipData.SpecialShape.HORIZONTAL_LINE:
+			var world_rect: Rect2 = Rect2(_playfield.rect.position.x, global_position.y - armed.special_line_thickness * 0.5, _playfield.rect.size.x, armed.special_line_thickness)
+			_special_vfx.play_rect(Rect2(world_rect.position - global_position, world_rect.size), armed.special_duration)
+		ShipData.SpecialShape.CONE:
+			_special_vfx.play_cone(Vector2.UP, armed.special_cone_angle_degrees, armed.special_cone_range, armed.special_duration)
+
+func _apply_special_effect(armed: ShipData) -> void:
 	match armed.special_shape:
 		ShipData.SpecialShape.CIRCLE:
 			_bullets.clear_enemy_bullets_in_circle(global_position, armed.special_radius)
 			_bullets.damage_enemies_in_circle(global_position, armed.special_radius, armed.special_damage)
-			_special_vfx.play_circle(armed.special_radius, armed.special_duration)
 		ShipData.SpecialShape.VERTICAL_LINE:
 			var world_rect: Rect2 = Rect2(global_position.x - armed.special_line_thickness * 0.5, _playfield.rect.position.y, armed.special_line_thickness, _playfield.rect.size.y)
 			_bullets.clear_enemy_bullets_in_rect(world_rect)
 			_bullets.damage_enemies_in_rect(world_rect, armed.special_damage)
-			_special_vfx.play_rect(Rect2(world_rect.position - global_position, world_rect.size), armed.special_duration)
 		ShipData.SpecialShape.HORIZONTAL_LINE:
 			var world_rect: Rect2 = Rect2(_playfield.rect.position.x, global_position.y - armed.special_line_thickness * 0.5, _playfield.rect.size.x, armed.special_line_thickness)
 			_bullets.clear_enemy_bullets_in_rect(world_rect)
 			_bullets.damage_enemies_in_rect(world_rect, armed.special_damage)
-			_special_vfx.play_rect(Rect2(world_rect.position - global_position, world_rect.size), armed.special_duration)
 		ShipData.SpecialShape.CONE:
 			_bullets.clear_enemy_bullets_in_cone(global_position, Vector2.UP, armed.special_cone_angle_degrees, armed.special_cone_range)
 			_bullets.damage_enemies_in_cone(global_position, Vector2.UP, armed.special_cone_angle_degrees, armed.special_cone_range, armed.special_damage)
-			_special_vfx.play_cone(Vector2.UP, armed.special_cone_angle_degrees, armed.special_cone_range, armed.special_duration)
 
 func _try_fire_ordnance() -> void:
 	if _ordnance_cooldown > 0.0 or _game_state.ordnance_ammo <= 0:

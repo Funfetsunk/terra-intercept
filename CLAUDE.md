@@ -8,32 +8,15 @@ Terra Intercept is a 2D pixel-art vertical-scrolling bullet hell with twin-stick
 
 Milestone 1 (vertical slice) is complete (tag `vertical-slice`).
 Milestone 2a (core systems) is complete (tag `milestone-2a`).
+Milestone 2b (London, mission 1) is complete (tag `milestone-2b`).
 
-**Now: Milestone 2b, London (mission 1).**
-Build it entirely from the 2a systems: timeline `.tres`, backgrounds, pickups, dialogue. If something can't be done with those systems, stop and ask rather than hard-coding around them. Use placeholder art, but keep sprite sizes true to the design so real art drops straight in.
+All of 2b landed: the lives/reentrancy bug fix, the playfield-bounds fix, the test range, the three-section London mission (tutorial/Thames run/boss) with marker-based restarts, the non-lethal tutorial, skip-tutorial, the Thames run with drone/swarmer/lander pod, the reusable mid-boss, the unique two-phase Tower Bridge boss, the title→ship select→London→results→title flow, and the music hooks (tutorial/stage/mid-boss/boss with a phase-2 switch, on placeholder synthesized tracks).
 
-**Priority before any more London content:**
-- **A. Lives bug.** Respawn's bullet-clear must never change the bullet pool while a collision loop is iterating over it (defer it). When lives reach 0, go straight to the restart/hangar prompt and stop processing hits. Lives can never go negative. Commit this on its own.
-- **B. Screen layout** (see "Screen layout" below). Existing London spawns, backgrounds and patterns must be converted to fit the playfield.
+Two mechanics were added beyond the original 2b task list, approved mid-session, not yet reflected in `docs/design-summary.md` — flag to reconcile there:
+- **Contact damage.** Colliding with an enemy ship now also damages the player (`EnemyData.contact_damage`, default 1.0, 0.5s cooldown), routed through the same `take_hit()` as bullets. Enemies take no damage from the collision.
+- **Specials persist for their full duration.** A squad special used to clear bullets/damage enemies once, at cast time. It now re-applies every physics frame for `special_duration`, tracking the player's current position (same as the VFX already did) rather than a frozen cast-time position. This is a real damage-output increase against anything that stays inside the shape, not just a visual fix.
 
-Build in this order, one task at a time, committed separately. Mark each task **[done]** when it's finished and committed.
-
-0. **Retire the vertical slice.** Convert the slice level into a developer-only test range (`scenes/levels/test_range.tscn`) using the 2a systems. Remove it from all game menu flow. Delete slice-only code that the 2a systems replaced. Check whether the slice boss can be reused as the task-5 mid-boss. List anything you plan to delete and wait for approval before deleting it.
-1. **Mission structure.** A London mission `.tres` split into three sections: tutorial, Thames run, boss. Section boundaries are markers in the timeline, so restarts can begin from a marker.
-2. **Tutorial section (non-lethal).**
-   - Hits still drain shields and hull, but the hull can't drop below 1.
-   - Commander prompts appear only when no threats are on screen, in this order: movement → aiming/firing → collecting a power-up and alien tech → focus mode → ordnance.
-   - Squad-mates then radio in, and the player uses each available special once.
-   - Enemies are light and slow, and each teaching beat waits until the player has done the action.
-   - When the section ends, shields and hull are silently restored to full.
-3. **Skip tutorial.** If the player has finished the tutorial and later dies in the mission, the restart prompt offers "Skip tutorial," which restarts from the Thames marker.
-4. **Thames run.** A scrolling flight up the river, gentle difficulty (this is the opening mission). Introduce the drone, swarmer and lander pod (pods land on rooftops and embankments). Include pickups and alien tech drops. About 3–4 minutes after the tutorial.
-5. **Mid-boss.** One of the reusable mid-bosses, built so it can be recoloured and reused in later missions.
-6. **Tower Bridge boss.** A unique boss attacking Tower Bridge, with 2 phases and learnable, fixed patterns. It ends with the results screen.
-7. **Mission flow.** Title → ship select → London → results → back to title. (The hangar and map come in milestone 3.)
-8. **Audio hooks.** Tutorial music during the tutorial, a stage theme for the Thames run, mid-boss and boss music with a phase change. Use placeholder audio files if the tracks aren't ready.
-
-**Dialogue:** pilot and commander names aren't decided yet. Use placeholders (`COMMANDER`, `INTERCEPTOR PILOT`, and so on), kept in the dialogue `.tres` files so they're easy to replace.
+**Dialogue:** pilot names are Dash (Interceptor), Bucky (Striker), Max (Guardian), Tammy (Vanguard). The commander is Steel. Kept in `ShipData.pilot_name`/`radio_intro` and the dialogue `.tres` files, not hard-coded — swap them there if the names change.
 
 **Coming later, do not build yet:** milestone 2c (London art pass, swapping in real art), milestone 3 (hangar, upgrade list, save slots, world map), then the remaining missions.
 
@@ -79,6 +62,12 @@ These apply to placeholders too.
 | Bosses | 128–200 |
 | Bullets | 4–8 |
 
+## Fonts
+
+- **Default font:** Press Start 2P (`art/fonts/PressStart2P-Regular.ttf`, SIL OFL 1.1 — license file kept alongside it), wired project-wide via `themes/main_theme.tres` (`gui/theme/custom`). Antialiasing, hinting and subpixel positioning are disabled on import for a crisp pixel look — keep new pixel fonts imported the same way.
+- **Default size:** 8px, the font's native pixel grid. 16px was too wide for the ~140px HUD side panels. The dialogue box overrides to 9 (speaker) / 8 (text).
+- To swap in a different pixel font later, replace the `.ttf` and re-point `default_font` on `themes/main_theme.tres`.
+
 ## Project settings
 
 These are already set. If any need checking or changing, use `get_project_settings` or `set_project_setting`.
@@ -97,9 +86,10 @@ res://
   art/
     source/          # .aseprite working files
     sprites/         # exported PNGs
+    fonts/           # pixel fonts (Press Start 2P placeholder, OFL licensed)
   audio/
-    music/           # OGG files with loop points
-    sfx/             # jsfxr / ChipTone exports
+    music/           # OGG files with loop points (currently placeholder synthesized loops)
+    sfx/             # jsfxr / ChipTone exports (none yet)
   data/              # .tres Resources: ships/, enemies/, patterns/, upgrades/, missions/, dialogue/
   scenes/
     player/  enemies/  bosses/  bullets/  pickups/  specials/
@@ -108,6 +98,7 @@ res://
     autoload/        # global singletons
     resources/       # custom Resource class definitions
     systems/         # bullet manager, spawner, playfield helper, scoring, etc.
+  themes/            # global Theme resources (default font/size)
   docs/
     design-summary.md
 ```
@@ -154,7 +145,7 @@ These are added as each one becomes needed, not all at once:
 
 - `GameState`: current run, lives, map position, selected ship
 - `SaveManager`: 3 slots, saving only after a completed mission
-- `AudioManager`: music sections and loops, sound effects, Sound Test unlocks
+- `AudioManager` **(music implemented)**: `scripts/autoload/audio_manager.tscn`, one `AudioStreamPlayer` set to `PROCESS_MODE_ALWAYS` (music must keep playing through tutorial-beat pauses). Tracks are data-driven — `MissionData.tutorial_music`/`stage_music`, `BossData.music`/`music_phase2` — never hard-coded paths. Sound effects and Sound Test unlocks still to come.
 - `Settings`: CRT filter, screen shake, remapping, high-contrast bullets, difficulty
 
 ## Using Godot MCP Pro

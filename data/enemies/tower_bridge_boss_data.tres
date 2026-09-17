@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="BossData" format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/boss_data.gd" id="1"]
+[ext_resource type="Resource" path="res://data/patterns/tower_bridge_phase1.tres" id="2"]
+[ext_resource type="Resource" path="res://data/patterns/tower_bridge_phase2.tres" id="3"]
+
+[resource]
+script = ExtResource("1")
+phase_2_hp_threshold = 0.5
+phase_2_pattern = ExtResource("3")
+sprite_size = 160.0
+sprite_color = Color(0.25, 0.3, 0.4, 1)
+enemy_name = "Tower Bridge Sentinel"
+move_speed = 20.0
+hull_max = 150.0
+hitbox_radius = 48.0
+pattern = ExtResource("2")
+score_value = 8000
+alien_tech_drop = 20

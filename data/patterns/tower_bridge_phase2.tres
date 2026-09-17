@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="BulletPatternData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/bullet_pattern_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+pattern_name = "Tower Bridge Phase 2 Fan"
+burst_size = 7
+angle_spread_degrees = 70.0
+burst_interval = 0.7
+rotation_per_burst_degrees = 15.0
+aim_at_player = true
+fixed_angle_degrees = 90.0
+jitter_degrees = 0.0
+rng_seed = 21
+bullet_speed = 140.0
+bullet_radius = 4.0
+bullet_color = Color(1, 0.1, 0.1, 1)
+bullet_damage = 1.5
+bullet_lifetime = 5.0

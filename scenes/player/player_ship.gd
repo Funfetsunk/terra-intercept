@@ -15,7 +15,6 @@ signal squad_selection_changed(ship: ShipData)
 signal ordnance_ammo_changed(current: int)
 
 @export var data: ShipData
-@export var playfield_rect: Rect2 = Rect2(152, 12, 336, 336)
 
 var shield_current: float = 0.0
 var hull_current: float = 0.0
@@ -39,6 +38,7 @@ var _ordnance_cooldown: float = 0.0
 
 @onready var _bullets: Node = get_node("/root/BulletManager")
 @onready var _game_state: Node = get_node("/root/GameState")
+@onready var _playfield: Node = get_node("/root/Playfield")
 @onready var _special_vfx: Node2D = $SpecialVFX
 
 func _ready() -> void:
@@ -86,8 +86,9 @@ func _process_movement(delta: float) -> void:
 	var move_vec: Vector2 = Input.get_vector("p1_move_left", "p1_move_right", "p1_move_up", "p1_move_down")
 	_last_move_dir = move_vec.normalized() if move_vec != Vector2.ZERO else Vector2.UP
 	global_position += move_vec * data.move_speed * delta
-	global_position.x = clamp(global_position.x, playfield_rect.position.x, playfield_rect.end.x)
-	global_position.y = clamp(global_position.y, playfield_rect.position.y, playfield_rect.end.y)
+	var bounds: Rect2 = _playfield.rect
+	global_position.x = clamp(global_position.x, bounds.position.x, bounds.end.x)
+	global_position.y = clamp(global_position.y, bounds.position.y, bounds.end.y)
 
 func _process_focus(delta: float) -> void:
 	var held: bool = Input.is_action_pressed("p1_focus")
@@ -230,12 +231,12 @@ func _deploy_special(armed: ShipData) -> void:
 			_bullets.damage_enemies_in_circle(global_position, armed.special_radius, armed.special_damage)
 			_special_vfx.play_circle(armed.special_radius, armed.special_duration)
 		ShipData.SpecialShape.VERTICAL_LINE:
-			var world_rect: Rect2 = Rect2(global_position.x - armed.special_line_thickness * 0.5, playfield_rect.position.y, armed.special_line_thickness, playfield_rect.size.y)
+			var world_rect: Rect2 = Rect2(global_position.x - armed.special_line_thickness * 0.5, _playfield.rect.position.y, armed.special_line_thickness, _playfield.rect.size.y)
 			_bullets.clear_enemy_bullets_in_rect(world_rect)
 			_bullets.damage_enemies_in_rect(world_rect, armed.special_damage)
 			_special_vfx.play_rect(Rect2(world_rect.position - global_position, world_rect.size), armed.special_duration)
 		ShipData.SpecialShape.HORIZONTAL_LINE:
-			var world_rect: Rect2 = Rect2(playfield_rect.position.x, global_position.y - armed.special_line_thickness * 0.5, playfield_rect.size.x, armed.special_line_thickness)
+			var world_rect: Rect2 = Rect2(_playfield.rect.position.x, global_position.y - armed.special_line_thickness * 0.5, _playfield.rect.size.x, armed.special_line_thickness)
 			_bullets.clear_enemy_bullets_in_rect(world_rect)
 			_bullets.damage_enemies_in_rect(world_rect, armed.special_damage)
 			_special_vfx.play_rect(Rect2(world_rect.position - global_position, world_rect.size), armed.special_duration)

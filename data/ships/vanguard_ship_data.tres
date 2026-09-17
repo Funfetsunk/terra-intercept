@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1")
 ship_name = "Vanguard"
-pilot_name = "Leader"
+pilot_name = "Tammy"
 ship_color = Color(0.3, 0.5, 0.9, 1)
 traits_description = "All-rounder"
 move_speed = 130.0

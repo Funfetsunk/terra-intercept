@@ -45,7 +45,7 @@
   | RT | Launch the selected squad-mate's special |
   | A | Fire ordnance in the direction you're moving (straight up if the left stick is idle) |
 
-- **Health:** Shields absorb hits and recharge after a few seconds without being hit. Once they're gone, hits damage the hull, which never recharges except through mid-mission repair pickups. Every hull hit gives about 1 second of invincibility; shield hits don't.
+- **Health:** Shields absorb hits and recharge after a few seconds without being hit. Once they're gone, hits damage the hull, which never recharges except through mid-mission repair pickups. Every hull hit gives about 1 second of invincibility; shield hits don't. Colliding with an enemy ship deals a hit the same way a bullet does (shield first, then hull), on a short cooldown so standing on an enemy doesn't rack up damage every frame. The enemy takes no damage from the collision.
 - **Lives:** 3 per mission. When the hull breaks, you respawn in place with full shield and hull, brief invincibility, and a small area around you cleared of bullets. You also drop one weapon level.
 - **Game over:** Losing all 3 lives offers a choice: restart the mission, or return to the hangar.
 
@@ -54,7 +54,7 @@
 - **Choosing a ship:** You pick one of four at the start and keep it for the whole game.
 - **Squad specials:** The other three ships become your specials. Each one flies in, performs its move and flies out.
 - **Special meter:** It holds up to 3 charges and fills mainly from damage dealt, with a small bonus for kills. Taking hits doesn't fill it.
-- **What a special does:** It clears every bullet inside its shape and damages every enemy inside it. The player is invincible while it plays out.
+- **What a special does:** Its shape clears bullets and damages enemies for the special's whole duration, not just the instant it's cast — anything that stays inside it, or enters it later, keeps taking the effect, and the shape tracks the player's position for as long as it's active. The player is invincible while it plays out.
 
 | Ship | Pilot | Traits | Special |
 |---|---|---|---|

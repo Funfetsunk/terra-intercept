@@ -12,7 +12,7 @@ Milestone 2b (London, mission 1) is complete (tag `milestone-2b`).
 
 All of 2b landed: the lives/reentrancy bug fix, the playfield-bounds fix, the test range, the three-section London mission (tutorial/Thames run/boss) with marker-based restarts, the non-lethal tutorial, skip-tutorial, the Thames run with drone/swarmer/lander pod, the reusable mid-boss, the unique two-phase Tower Bridge boss, the title→ship select→London→results→title flow, and the music hooks (tutorial/stage/mid-boss/boss with a phase-2 switch, on placeholder synthesized tracks).
 
-Two mechanics were added beyond the original 2b task list, approved mid-session, not yet reflected in `docs/design-summary.md` — flag to reconcile there:
+Two mechanics were added beyond the original 2b task list, approved mid-session, now reflected in `docs/design-summary.md`'s Health and Squad specials sections too:
 - **Contact damage.** Colliding with an enemy ship now also damages the player (`EnemyData.contact_damage`, default 1.0, 0.5s cooldown), routed through the same `take_hit()` as bullets. Enemies take no damage from the collision.
 - **Specials persist for their full duration.** A squad special used to clear bullets/damage enemies once, at cast time. It now re-applies every physics frame for `special_duration`, tracking the player's current position (same as the VFX already did) rather than a frozen cast-time position. This is a real damage-output increase against anything that stays inside the shape, not just a visual fix.
 

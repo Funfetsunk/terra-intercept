@@ -6,5 +6,5 @@
 [resource]
 script = ExtResource("1")
 scene = ExtResource("2")
-spawn_time = 266.0
+spawn_time = 180.0
 spawn_position_relative = Vector2(0.5, -0.1667)

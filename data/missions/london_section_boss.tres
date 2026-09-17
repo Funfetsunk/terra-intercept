@@ -5,4 +5,4 @@
 [resource]
 script = ExtResource("1")
 section_name = "boss"
-start_time = 270.0
+start_time = 265.0

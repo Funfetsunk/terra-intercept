@@ -97,6 +97,8 @@ func _check_enemy_bullets_vs_player() -> void:
 		if dist <= _enemy_pool.radii[i] + player_r:
 			var damage: float = _enemy_pool.damages[i]
 			_enemy_pool.kill(i)
+			if _registered_player == null:
+				return
 			if _registered_player.has_method("take_hit"):
 				_registered_player.take_hit(damage)
 		else:

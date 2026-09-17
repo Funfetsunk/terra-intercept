@@ -84,3 +84,6 @@ func _die() -> void:
 
 func get_hitbox_radius() -> float:
 	return data.hitbox_radius
+
+func get_contact_damage() -> float:
+	return data.contact_damage

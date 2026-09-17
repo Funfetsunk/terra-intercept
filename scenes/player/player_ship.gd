@@ -15,6 +15,9 @@ signal squad_selection_changed(ship: ShipData)
 signal ordnance_ammo_changed(current: int)
 
 @export var data: ShipData
+@export var shield_hit_dim_color: Color = Color(0.45, 0.45, 0.45, 1.0)
+@export var shield_hit_dim_duration: float = 0.15
+@export var hull_hit_flash_duration: float = 0.1
 
 var shield_current: float = 0.0
 var hull_current: float = 0.0
@@ -163,13 +166,23 @@ func take_hit(damage: float) -> void:
 		shield_current = max(0.0, shield_current - damage)
 		_shield_recharge_timer = data.shield_recharge_delay
 		shield_changed.emit(shield_current, data.shield_max)
+		_flash_shield_hit()
 	else:
 		var hull_floor: float = 1.0 if _game_state.tutorial_active else 0.0
 		hull_current = max(hull_floor, hull_current - damage)
 		_hull_invincible_timer = data.hull_hit_invincibility_duration
 		hull_changed.emit(hull_current, data.hull_max)
+		_flash_hull_hit()
 		if hull_current <= 0.0:
 			hull_depleted.emit()
+
+func _flash_shield_hit() -> void:
+	$Sprite.modulate = shield_hit_dim_color
+	create_tween().tween_property($Sprite, "modulate", Color.WHITE, shield_hit_dim_duration)
+
+func _flash_hull_hit() -> void:
+	$Sprite.color = Color.WHITE
+	create_tween().tween_property($Sprite, "color", data.ship_color, hull_hit_flash_duration)
 
 func _is_invincible() -> bool:
 	return _hull_invincible_timer > 0.0 or _respawn_invincible_timer > 0.0 or _special_invincible_timer > 0.0

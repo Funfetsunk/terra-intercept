@@ -3,6 +3,7 @@ extends Node2D
 @export var max_player_bullets: int = 1024
 @export var max_enemy_bullets: int = 4096
 @export var despawn_margin: float = 40.0
+@export var contact_damage_cooldown: float = 0.5
 
 signal bullet_pool_exhausted(is_player: bool)
 
@@ -56,6 +57,7 @@ var _registered_player: Node2D = null
 var _registered_player_hitbox_radius: float = 0.0
 var _registered_enemies: Array[Node2D] = []
 var _enemy_bullet_time_scale: float = 1.0
+var _contact_cooldown: float = 0.0
 
 func _ready() -> void:
 	_player_pool.setup(max_player_bullets)
@@ -66,6 +68,7 @@ func _physics_process(delta: float) -> void:
 	if not get_tree().paused:
 		_step_pool(_enemy_pool, delta, _enemy_bullet_time_scale)
 		_check_enemy_bullets_vs_player()
+		_check_enemy_ships_vs_player(delta)
 	_check_player_bullets_vs_enemies()
 	queue_redraw()
 
@@ -98,6 +101,23 @@ func _check_enemy_bullets_vs_player() -> void:
 				_registered_player.take_hit(damage)
 		else:
 			i += 1
+
+func _check_enemy_ships_vs_player(delta: float) -> void:
+	_contact_cooldown = max(0.0, _contact_cooldown - delta)
+	if _contact_cooldown > 0.0 or _registered_player == null:
+		return
+	var player_pos: Vector2 = _registered_player.global_position
+	var player_r: float = _registered_player_hitbox_radius
+	for e: Node2D in _registered_enemies:
+		if e == null or not is_instance_valid(e):
+			continue
+		if not e.has_method("get_hitbox_radius") or not e.has_method("get_contact_damage"):
+			continue
+		if e.global_position.distance_to(player_pos) <= e.get_hitbox_radius() + player_r:
+			if _registered_player.has_method("take_hit"):
+				_registered_player.take_hit(e.get_contact_damage())
+			_contact_cooldown = contact_damage_cooldown
+			return
 
 func _check_player_bullets_vs_enemies() -> void:
 	if _registered_enemies.is_empty():

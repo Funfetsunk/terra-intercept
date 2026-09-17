@@ -43,6 +43,9 @@ enabled=PackedStringArray("res://addons/godot_mcp/plugin.cfg")
 theme/default_font_antialiasing=0
 theme/default_font_hinting=2
 theme/default_font_subpixel_positioning=0
+theme/custom="res://themes/main_theme.tres"
+theme/custom_font="res://art/fonts/PressStart2P-Regular.ttf"
+theme/default_font_size=8
 
 [input]
 

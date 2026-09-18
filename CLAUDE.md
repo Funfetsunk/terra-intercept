@@ -23,7 +23,7 @@ Build in this order, one task at a time, committed separately. Mark each **[done
 5. **Hangar screen. [done]** Spend alien tech on the available upgrades, show what's locked and why ("unlocks at column 3"), and handle the refund rule from task 4. Reachable from the map, and after a game over.
 6. **World map. [done]** 6 columns in two lanes, with a lane choice after columns 1, 3 and 5, converging on mission 7. Show completed, available and locked missions. Cleared missions can be replayed for tech. The map position is saved.
 7. **Story screens. [done]** Pre- and post-mission briefings using the existing portrait-and-text-box system, driven by dialogue `.tres` files. Mission-specific briefings, plus the column-4 midgame reveal, which must work on every route.
-8. **Full flow.** Title → slot select → ship select (new run only) → map → briefing → mission → results → post-briefing → hangar → map. Game over offers restart or hangar, with the refund rule applied.
+8. **Full flow. [done]** Title → slot select → ship select (new run only) → map → briefing → mission → results → post-briefing → hangar → map. Game over offers restart or hangar, with the refund rule applied. Landed as a byproduct of tasks 2, 5, 6 and 7 building the chain incrementally -- verified as its own pass with a full live playthrough (including forcing a game over) rather than built fresh.
 9. **Settings.** The `Settings` autoload and an options screen: CRT filter, screen shake, button remapping, high-contrast bullets, difficulty (Easy/Normal). Settings save separately from run saves.
 
 **Not yet:** sound effects and the Sound Test, missions 2–13, co-op. Ask before starting any of these.

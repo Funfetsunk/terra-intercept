@@ -29,6 +29,11 @@ func begin_new_run(slot: int, ship: ShipData) -> void:
 	_game_state.selected_ship = ship
 	_game_state.restart_section = ""
 	_game_state.tutorial_completed = false
+	_game_state.current_column = 1
+	_game_state.current_lane = ""
+	_game_state.completed_missions = [] as Array[String]
+	_game_state.banked_tech = 0
+	_game_state.upgrades_owned = {}
 
 func continue_slot(slot: int) -> SaveData:
 	var data: SaveData = load_slot(slot)
@@ -41,6 +46,11 @@ func continue_slot(slot: int) -> SaveData:
 		if ship.ship_name == data.ship_name:
 			_game_state.selected_ship = ship
 			break
+	_game_state.current_column = data.map_column
+	_game_state.current_lane = data.map_lane
+	_game_state.completed_missions = data.completed_missions.duplicate()
+	_game_state.banked_tech = data.banked_tech
+	_game_state.upgrades_owned = data.upgrades_owned.duplicate()
 	return data
 
 func delete_slot(slot: int) -> void:
@@ -59,12 +69,14 @@ func _on_mission_completed(results: Dictionary) -> void:
 	if data == null:
 		data = SaveData.new()
 	data.ship_name = _game_state.selected_ship.ship_name if _game_state.selected_ship != null else data.ship_name
-	data.banked_tech += results.get("tech", 0)
+	data.map_column = _game_state.current_column
+	data.map_lane = _game_state.current_lane
+	data.completed_missions = _game_state.completed_missions.duplicate()
+	data.banked_tech = _game_state.banked_tech
+	data.upgrades_owned = _game_state.upgrades_owned.duplicate()
 	data.last_saved_unix_time = int(Time.get_unix_time_from_system())
 	var mission_name: String = _game_state.current_mission_name
 	if not mission_name.is_empty():
-		if not data.completed_missions.has(mission_name):
-			data.completed_missions.append(mission_name)
 		data.mission_results[mission_name] = results
 		_record_high_score(data, mission_name, results.get("total_score", 0))
 	ResourceSaver.save(data, slot_path(current_slot))

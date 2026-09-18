@@ -22,10 +22,10 @@ BulletManager="*res://scripts/autoload/bullet_manager.tscn"
 GameState="*res://scripts/autoload/game_state.tscn"
 Playfield="*res://scripts/autoload/playfield.tscn"
 AudioManager="*res://scripts/autoload/audio_manager.tscn"
+SaveManager="*res://scripts/autoload/save_manager.tscn"
 MCPScreenshot="*res://addons/godot_mcp/mcp_screenshot_service.gd"
 MCPInputService="*res://addons/godot_mcp/mcp_input_service.gd"
 MCPGameInspector="*res://addons/godot_mcp/mcp_game_inspector_service.gd"
-SaveManager="*res://scripts/autoload/save_manager.tscn"
 
 [display]
 

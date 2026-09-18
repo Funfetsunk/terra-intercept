@@ -25,6 +25,12 @@ signal mission_completed(results: Dictionary)
 @export var grade_c_score: int = 3000
 
 var current_mission_name: String = ""
+var current_column: int = 1
+var current_lane: String = ""
+var completed_missions: Array[String] = []
+var banked_tech: int = 0
+var upgrades_owned: Dictionary = {}
+var difficulty: String = "Normal"
 var restart_section: String = ""
 var tutorial_active: bool = false
 var tutorial_completed: bool = false
@@ -113,6 +119,9 @@ func complete_mission() -> void:
 		"total_score": total_score,
 		"grade": _compute_grade(total_score),
 	}
+	banked_tech += mission_tech
+	if not current_mission_name.is_empty() and not completed_missions.has(current_mission_name):
+		completed_missions.append(current_mission_name)
 	mission_completed.emit(last_mission_results)
 
 func _compute_grade(total_score: int) -> String:

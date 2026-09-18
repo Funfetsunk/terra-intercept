@@ -37,6 +37,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func _build_nodes() -> void:
 	for child: Node in _node_container.get_children():
 		child.queue_free()
+	var frontier_button: MapNodeButton = null
 	for map_node: MapNodeData in _game_state.all_map_nodes:
 		var is_completed: bool = _game_state.completed_missions.has(map_node.id)
 		var is_frontier: bool = map_node.column == _game_state.current_column and (map_node.lane.is_empty() or map_node.lane == _game_state.current_lane)
@@ -52,6 +53,10 @@ func _build_nodes() -> void:
 		button.position = Vector2(COLUMN_X[map_node.column], y)
 		button.setup(map_node, "%s\n(%s)" % [map_node.display_name, state_text], is_enabled)
 		button.activated.connect(_on_node_activated)
+		if is_frontier:
+			frontier_button = button
+	if frontier_button != null and not _game_state.pending_lane_choice:
+		frontier_button.grab_focus()
 
 func _on_node_activated(node_data: Resource) -> void:
 	var map_node: MapNodeData = node_data as MapNodeData

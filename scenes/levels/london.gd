@@ -5,6 +5,7 @@ extends Node2D
 
 func _ready() -> void:
 	var game_state: Node = get_node("/root/GameState")
+	game_state.current_mission_name = "London"
 	game_state.start_new_run()
 	game_state.mission_completed.connect(_on_mission_completed)
 	game_state.game_over_triggered.connect(_on_game_over)

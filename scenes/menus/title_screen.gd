@@ -15,4 +15,4 @@ func _unhandled_input(event: InputEvent) -> void:
 			(focused as Button).pressed.emit()
 
 func _on_start() -> void:
-	get_tree().change_scene_to_file("res://scenes/menus/ship_select.tscn")
+	get_tree().change_scene_to_file("res://scenes/menus/slot_select.tscn")

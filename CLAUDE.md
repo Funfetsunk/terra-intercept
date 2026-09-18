@@ -17,7 +17,7 @@ Milestone 3 builds the frame around the mission that already works: saves, the h
 Build in this order, one task at a time, committed separately. Mark each **[done]** when finished and committed.
 
 1. **Art pipeline. [done]** Set up the import path for real art before any lands: folder convention, sprite-sheet format, and an import preset with nearest filtering and no mipmaps. Verify it with one real asset end to end (import → animation → in-game). Record what you set up in this file under "Rolling art pass".
-2. **SaveManager and save slots.** 3 slots. A save holds: selected ship, map position, banked alien tech, upgrades owned, the purchase ledger (see task 4), mission results and high scores. Saving happens **only** on mission completion. Add a slot-select screen with create, continue and delete.
+2. **SaveManager and save slots. [done]** 3 slots. A save holds: selected ship, map position, banked alien tech, upgrades owned, the purchase ledger (see task 4), mission results and high scores. Saving happens **only** on mission completion. Add a slot-select screen with create, continue and delete.
 3. **Run state.** Extend `GameState` to hold everything a run needs so the hangar and map can read it: current column, lane, completed missions, tech, upgrades, and difficulty.
 4. **Upgrades.** Upgrade definitions in `.tres`: id, name, description, cost, the stat it changes, its maximum level, and the map column that unlocks it. Apply them to player stats at mission start. Keep a **purchase ledger** of what was bought since the last completed mission, so a return to the hangar after a game over refunds exactly those purchases and nothing earlier.
 5. **Hangar screen.** Spend alien tech on the available upgrades, show what's locked and why ("unlocks at column 3"), and handle the refund rule from task 4. Reachable from the map, and after a game over.
@@ -65,7 +65,8 @@ Swap-in checklist, updated as art lands (all still placeholder unless marked):
 
 Context for anything built from here on.
 
-- **London** runs end to end: a three-section mission (tutorial / Thames run / boss) with marker-based restarts, the non-lethal tutorial, skip-tutorial, drone / swarmer / lander pod, a reusable mid-boss, the two-phase Tower Bridge boss, and the title → ship select → London → results → title flow.
+- **London** runs end to end: a three-section mission (tutorial / Thames run / boss) with marker-based restarts, the non-lethal tutorial, skip-tutorial, drone / swarmer / lander pod, a reusable mid-boss, the two-phase Tower Bridge boss, and the title → slot select → ship select (new run only) → London → results → title flow.
+- **Saves:** `SaveManager` autoload, 3 slots at `user://saves/slot_N.tres`, holding a `SaveData` resource (`scripts/resources/save_data.gd`). Written only from `GameState.mission_completed` — Create/Continue never touch disk. Slot identity keys off `ShipData.ship_name` (no dedicated ship id exists) and mission results/high scores key off `GameState.current_mission_name` (set per-level, e.g. `"London"` in `london.gd`). Map position, upgrades and purchase ledger fields exist in the schema now but are inert until tasks 3–6 populate them.
 - **Contact damage:** colliding with an enemy damages the player (`EnemyData.contact_damage`, default 1.0, 0.5s cooldown), through the same `take_hit()` as bullets. Enemies take no damage from it.
 - **Specials persist for their full duration:** the shape re-applies every physics frame for `special_duration` and tracks the player's position, rather than firing once at cast time.
 - **Pilots:** Dash (Interceptor), Bucky (Striker), Max (Guardian), Tammy (Vanguard). Commander: Steel. Held in `ShipData.pilot_name` / `radio_intro` and the dialogue `.tres` files, never hard-coded.
@@ -197,7 +198,7 @@ Every action has a player prefix so that local co-op works later. Only P1 is bou
 
 - `GameState` **(exists)**: current run, lives, selected ship — extended in milestone 3 with map position, tech, upgrades and the purchase ledger.
 - `AudioManager` **(music implemented)**: `scripts/autoload/audio_manager.tscn`, one `AudioStreamPlayer` set to `PROCESS_MODE_ALWAYS` (music must keep playing through tutorial-beat pauses). Tracks are data-driven — `MissionData.tutorial_music` / `stage_music`, `BossData.music` / `music_phase2` — never hard-coded paths. Sound effects and Sound Test unlocks still to come.
-- `SaveManager` **(milestone 3, task 2)**: 3 slots, saving only after a completed mission.
+- `SaveManager` **(implemented)**: `scripts/autoload/save_manager.tscn`, 3 slots, saving only after a completed mission.
 - `Settings` **(milestone 3, task 9)**: CRT filter, screen shake, remapping, high-contrast bullets, difficulty. Saved separately from run saves.
 
 ## Using Godot MCP Pro

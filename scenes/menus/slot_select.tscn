@@ -1,0 +1,127 @@
+[gd_scene format=3 uid="uid://bidhbytbnsxe2"]
+
+[ext_resource type="Script" uid="uid://bna24lfs5xjy6" path="res://scenes/menus/slot_select.gd" id="1_yygds"]
+
+[node name="SlotSelect" type="Control" unique_id=219242702]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 360.0
+script = ExtResource("1_yygds")
+
+[node name="Backdrop" type="ColorRect" parent="." unique_id=1157846295]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+mouse_filter = 2
+color = Color(0.04, 0.05, 0.1, 1)
+
+[node name="TitleLabel" type="Label" parent="." unique_id=679993247]
+layout_mode = 0
+offset_top = 24.0
+offset_right = 640.0
+offset_bottom = 60.0
+text = "Select Save Slot"
+horizontal_alignment = 1
+
+[node name="SlotList" type="VBoxContainer" parent="." unique_id=849688420]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 90.0
+offset_right = 560.0
+offset_bottom = 330.0
+theme_override_constants/separation = 14
+
+[node name="Slot1Row" type="HBoxContainer" parent="SlotList" unique_id=1881765647]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="InfoLabel" type="Label" parent="SlotList/Slot1Row" unique_id=860297605]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Slot 1: Empty"
+
+[node name="ActionButton" type="Button" parent="SlotList/Slot1Row" unique_id=856468396]
+layout_mode = 2
+text = "Create"
+
+[node name="DeleteButton" type="Button" parent="SlotList/Slot1Row" unique_id=122607728]
+visible = false
+layout_mode = 2
+text = "Delete"
+
+[node name="Slot2Row" type="HBoxContainer" parent="SlotList" unique_id=249287876]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="InfoLabel" type="Label" parent="SlotList/Slot2Row" unique_id=1495973071]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Slot 2: Empty"
+
+[node name="ActionButton" type="Button" parent="SlotList/Slot2Row" unique_id=407450131]
+layout_mode = 2
+text = "Create"
+
+[node name="DeleteButton" type="Button" parent="SlotList/Slot2Row" unique_id=719813129]
+visible = false
+layout_mode = 2
+text = "Delete"
+
+[node name="Slot3Row" type="HBoxContainer" parent="SlotList" unique_id=1150044237]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="InfoLabel" type="Label" parent="SlotList/Slot3Row" unique_id=1768324322]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Slot 3: Empty"
+
+[node name="ActionButton" type="Button" parent="SlotList/Slot3Row" unique_id=133339407]
+layout_mode = 2
+text = "Create"
+
+[node name="DeleteButton" type="Button" parent="SlotList/Slot3Row" unique_id=736420545]
+visible = false
+layout_mode = 2
+text = "Delete"
+
+[node name="ConfirmOverlay" type="Control" parent="." unique_id=1811571446]
+visible = false
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 360.0
+
+[node name="ConfirmBackdrop" type="ColorRect" parent="ConfirmOverlay" unique_id=1869256589]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+color = Color(0, 0, 0, 0.7)
+
+[node name="ConfirmLabel" type="Label" parent="ConfirmOverlay" unique_id=392790866]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 140.0
+offset_right = 520.0
+offset_bottom = 180.0
+text = "Delete this slot? This can't be undone."
+horizontal_alignment = 1
+
+[node name="ConfirmButtons" type="HBoxContainer" parent="ConfirmOverlay" unique_id=1065738009]
+layout_mode = 0
+offset_left = 260.0
+offset_top = 200.0
+offset_right = 380.0
+offset_bottom = 230.0
+theme_override_constants/separation = 12
+
+[node name="ConfirmYesButton" type="Button" parent="ConfirmOverlay/ConfirmButtons" unique_id=2120811431]
+layout_mode = 2
+text = "Delete"
+
+[node name="ConfirmNoButton" type="Button" parent="ConfirmOverlay/ConfirmButtons" unique_id=370392534]
+layout_mode = 2
+text = "Cancel"

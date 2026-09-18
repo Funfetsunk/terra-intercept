@@ -1,6 +1,6 @@
 extends Control
 
-@onready var _game_state: Node = get_node("/root/GameState")
+@onready var _save_manager: Node = get_node("/root/SaveManager")
 
 func _ready() -> void:
 	var entries: Array[ShipSelectEntry] = []
@@ -28,7 +28,5 @@ func _unhandled_input(event: InputEvent) -> void:
 			(focused as ShipSelectEntry).activate()
 
 func _on_ship_chosen(ship: ShipData) -> void:
-	_game_state.selected_ship = ship
-	_game_state.restart_section = ""
-	_game_state.tutorial_completed = false
+	_save_manager.begin_new_run(_save_manager.current_slot, ship)
 	get_tree().change_scene_to_file("res://scenes/levels/london.tscn")

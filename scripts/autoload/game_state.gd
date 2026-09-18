@@ -24,6 +24,7 @@ signal mission_completed(results: Dictionary)
 @export var grade_b_score: int = 5000
 @export var grade_c_score: int = 3000
 
+var current_mission_name: String = ""
 var restart_section: String = ""
 var tutorial_active: bool = false
 var tutorial_completed: bool = false

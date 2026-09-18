@@ -12,6 +12,7 @@ enum SpecialShape { VERTICAL_LINE, CONE, CIRCLE, HORIZONTAL_LINE }
 
 @export_group("Movement")
 @export var move_speed: float = 90.0
+@export var move_acceleration: float = 1400.0
 
 @export_group("Hitbox")
 @export var normal_hitbox_radius: float = 2.0

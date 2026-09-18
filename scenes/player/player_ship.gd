@@ -33,6 +33,7 @@ var _squad: Array[ShipData] = []
 var _squad_index: int = 0
 
 var _spawn_origin: Vector2 = Vector2.ZERO
+var _velocity: Vector2 = Vector2.ZERO
 var _shield_recharge_timer: float = 0.0
 var _hull_invincible_timer: float = 0.0
 var _respawn_invincible_timer: float = 0.0
@@ -107,8 +108,14 @@ func _physics_process(delta: float) -> void:
 func _process_movement(delta: float) -> void:
 	var move_vec: Vector2 = Input.get_vector("p1_move_left", "p1_move_right", "p1_move_up", "p1_move_down")
 	_last_move_dir = move_vec.normalized() if move_vec != Vector2.ZERO else Vector2.UP
-	global_position += move_vec * data.move_speed * delta
+	var target_velocity: Vector2 = move_vec * data.move_speed
+	_velocity = _velocity.move_toward(target_velocity, data.move_acceleration * delta)
+	global_position += _velocity * delta
 	var bounds: Rect2 = _playfield.rect
+	if global_position.x < bounds.position.x or global_position.x > bounds.end.x:
+		_velocity.x = 0.0
+	if global_position.y < bounds.position.y or global_position.y > bounds.end.y:
+		_velocity.y = 0.0
 	global_position.x = clamp(global_position.x, bounds.position.x, bounds.end.x)
 	global_position.y = clamp(global_position.y, bounds.position.y, bounds.end.y)
 	_update_bank_frame(move_vec.x)
@@ -223,6 +230,7 @@ func _is_invincible() -> bool:
 
 func respawn() -> void:
 	global_position = _spawn_origin
+	_velocity = Vector2.ZERO
 	shield_current = data.shield_max
 	hull_current = data.hull_max
 	_respawn_invincible_timer = data.respawn_invincibility_duration

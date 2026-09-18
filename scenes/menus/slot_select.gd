@@ -1,7 +1,7 @@
 extends Control
 
 const SHIP_SELECT_SCENE: String = "res://scenes/menus/ship_select.tscn"
-const LONDON_SCENE: String = "res://scenes/levels/london.tscn"
+const MAP_SCENE: String = "res://scenes/menus/map_screen.tscn"
 
 @onready var _save_manager: Node = get_node("/root/SaveManager")
 @onready var _rows: Array[HBoxContainer] = [$SlotList/Slot1Row, $SlotList/Slot2Row, $SlotList/Slot3Row]
@@ -50,7 +50,7 @@ func _refresh_row(slot: int) -> void:
 func _on_action_pressed(slot: int) -> void:
 	if _save_manager.slot_exists(slot):
 		_save_manager.continue_slot(slot)
-		get_tree().change_scene_to_file(LONDON_SCENE)
+		get_tree().change_scene_to_file(MAP_SCENE)
 	else:
 		_save_manager.current_slot = slot
 		get_tree().change_scene_to_file(SHIP_SELECT_SCENE)

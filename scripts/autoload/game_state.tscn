@@ -9,9 +9,22 @@
 [ext_resource type="Resource" path="res://data/upgrades/more_hull.tres" id="7_more_hull"]
 [ext_resource type="Resource" path="res://data/upgrades/stronger_shields.tres" id="8_stronger_shields"]
 [ext_resource type="Resource" path="res://data/upgrades/special_meter_rate.tres" id="9_special_meter_rate"]
+[ext_resource type="Resource" path="res://data/map/col1_london.tres" id="10_map_col1"]
+[ext_resource type="Resource" path="res://data/map/col2_north_fjords.tres" id="11_map_col2n"]
+[ext_resource type="Resource" path="res://data/map/col2_south_paris.tres" id="12_map_col2s"]
+[ext_resource type="Resource" path="res://data/map/col3_north_siberia.tres" id="13_map_col3n"]
+[ext_resource type="Resource" path="res://data/map/col3_south_cairo.tres" id="14_map_col3s"]
+[ext_resource type="Resource" path="res://data/map/col4_north_great_wall.tres" id="15_map_col4n"]
+[ext_resource type="Resource" path="res://data/map/col4_south_himalayas.tres" id="16_map_col4s"]
+[ext_resource type="Resource" path="res://data/map/col5_north_tokyo.tres" id="17_map_col5n"]
+[ext_resource type="Resource" path="res://data/map/col5_south_sydney.tres" id="18_map_col5s"]
+[ext_resource type="Resource" path="res://data/map/col6_north_grand_canyon.tres" id="19_map_col6n"]
+[ext_resource type="Resource" path="res://data/map/col6_south_rio.tres" id="20_map_col6s"]
+[ext_resource type="Resource" path="res://data/map/col7_orbital.tres" id="21_map_col7"]
 
 [node name="GameState" type="Node" unique_id=1245739816]
 script = ExtResource("1_kkv1x")
 ship_roster = Array[Resource]([ExtResource("2_interceptor"), ExtResource("3_striker"), ExtResource("4_guardian"), ExtResource("5_vanguard")])
 all_upgrades = Array[Resource]([ExtResource("7_more_hull"), ExtResource("8_stronger_shields"), ExtResource("9_special_meter_rate")])
+all_map_nodes = Array[Resource]([ExtResource("10_map_col1"), ExtResource("11_map_col2n"), ExtResource("12_map_col2s"), ExtResource("13_map_col3n"), ExtResource("14_map_col3s"), ExtResource("15_map_col4n"), ExtResource("16_map_col4s"), ExtResource("17_map_col5n"), ExtResource("18_map_col5s"), ExtResource("19_map_col6n"), ExtResource("20_map_col6s"), ExtResource("21_map_col7")])
 ordnance = ExtResource("6_ordnance")

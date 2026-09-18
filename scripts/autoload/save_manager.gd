@@ -31,6 +31,7 @@ func begin_new_run(slot: int, ship: ShipData) -> void:
 	_game_state.tutorial_completed = false
 	_game_state.current_column = 1
 	_game_state.current_lane = ""
+	_game_state.pending_lane_choice = false
 	_game_state.completed_missions = [] as Array[String]
 	_game_state.banked_tech = 0
 	_game_state.upgrades_owned = {}
@@ -49,6 +50,7 @@ func continue_slot(slot: int) -> SaveData:
 			break
 	_game_state.current_column = data.map_column
 	_game_state.current_lane = data.map_lane
+	_game_state.pending_lane_choice = data.pending_lane_choice
 	_game_state.completed_missions = data.completed_missions.duplicate()
 	_game_state.banked_tech = data.banked_tech
 	_game_state.upgrades_owned = data.upgrades_owned.duplicate()
@@ -73,6 +75,7 @@ func _on_mission_completed(results: Dictionary) -> void:
 	data.ship_name = _game_state.selected_ship.ship_name if _game_state.selected_ship != null else data.ship_name
 	data.map_column = _game_state.current_column
 	data.map_lane = _game_state.current_lane
+	data.pending_lane_choice = _game_state.pending_lane_choice
 	data.completed_missions = _game_state.completed_missions.duplicate()
 	data.banked_tech = _game_state.banked_tech
 	data.upgrades_owned = _game_state.upgrades_owned.duplicate()

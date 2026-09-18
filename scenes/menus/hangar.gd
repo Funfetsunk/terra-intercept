@@ -1,6 +1,6 @@
 extends Control
 
-const TITLE_SCENE: String = "res://scenes/menus/title_screen.tscn"
+const MAP_SCENE: String = "res://scenes/menus/map_screen.tscn"
 const UPGRADE_ROW_SCENE: PackedScene = preload("res://scenes/menus/upgrade_row.tscn")
 
 @onready var _game_state: Node = get_node("/root/GameState")
@@ -38,4 +38,4 @@ func _on_any_purchased() -> void:
 		row.refresh()
 
 func _on_back() -> void:
-	get_tree().change_scene_to_file(TITLE_SCENE)
+	get_tree().change_scene_to_file(MAP_SCENE)

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MapNodeData" format=3 uid="uid://04klj432nxf0"]
+
+[ext_resource type="Script" uid="uid://n2636wdimn86" path="res://scripts/resources/map_node_data.gd" id="1_6lalg"]
+
+[resource]
+script = ExtResource("1_6lalg")
+id = "col2_south"
+display_name = "Paris"
+column = 2
+lane = "south"

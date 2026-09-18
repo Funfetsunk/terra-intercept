@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MapNodeData" format=3 uid="uid://blwqsgmc0dfuc"]
+
+[ext_resource type="Script" uid="uid://n2636wdimn86" path="res://scripts/resources/map_node_data.gd" id="1_e7r2w"]
+
+[resource]
+script = ExtResource("1_e7r2w")
+id = "col4_north"
+display_name = "Great Wall of China"
+column = 4
+lane = "north"

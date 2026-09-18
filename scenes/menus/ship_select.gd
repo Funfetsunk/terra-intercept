@@ -29,4 +29,4 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _on_ship_chosen(ship: ShipData) -> void:
 	_save_manager.begin_new_run(_save_manager.current_slot, ship)
-	get_tree().change_scene_to_file("res://scenes/levels/london.tscn")
+	get_tree().change_scene_to_file("res://scenes/menus/map_screen.tscn")

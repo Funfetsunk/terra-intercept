@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://gqyeapa2t6jq"]
+
+[ext_resource type="Script" uid="uid://h12vnl0fp5m6" path="res://scenes/menus/map_node_button.gd" id="1_le21q"]
+
+[node name="MapNodeButton" type="Button" unique_id=1241645293]
+custom_minimum_size = Vector2(96, 48)
+autowrap_mode = 3
+script = ExtResource("1_le21q")

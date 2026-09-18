@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MapNodeData" format=3 uid="uid://ea120mf6twe"]
+
+[ext_resource type="Script" uid="uid://n2636wdimn86" path="res://scripts/resources/map_node_data.gd" id="1_ffagb"]
+
+[resource]
+script = ExtResource("1_ffagb")
+id = "col3_north"
+display_name = "Siberian Ice"
+column = 3
+lane = "north"

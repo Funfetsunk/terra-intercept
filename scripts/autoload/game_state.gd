@@ -14,6 +14,7 @@ signal mission_completed(results: Dictionary)
 @export var selected_ship: ShipData
 @export var ship_roster: Array[ShipData] = []
 @export var all_upgrades: Array[Resource] = []
+@export var all_map_nodes: Array[Resource] = []
 @export var ordnance: OrdnanceData
 @export var chain_multiplier_max: int = 5
 @export var completion_bonus: int = 1000
@@ -32,6 +33,8 @@ var completed_missions: Array[String] = []
 var banked_tech: int = 0
 var upgrades_owned: Dictionary = {}
 var purchase_ledger: Array[Dictionary] = []
+var pending_lane_choice: bool = false
+var is_replay: bool = false
 var difficulty: String = "Normal"
 var restart_section: String = ""
 var tutorial_active: bool = false
@@ -125,7 +128,17 @@ func complete_mission() -> void:
 	if not current_mission_name.is_empty() and not completed_missions.has(current_mission_name):
 		completed_missions.append(current_mission_name)
 	purchase_ledger.clear()
+	if not is_replay:
+		var cleared_column: int = current_column
+		current_column += 1
+		if cleared_column == 1 or cleared_column == 3 or cleared_column == 5:
+			pending_lane_choice = true
+	is_replay = false
 	mission_completed.emit(last_mission_results)
+
+func choose_lane(lane: String) -> void:
+	current_lane = lane
+	pending_lane_choice = false
 
 func find_upgrade(id: String) -> UpgradeData:
 	for upgrade: UpgradeData in all_upgrades:

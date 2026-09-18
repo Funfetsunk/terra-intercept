@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://cv72sqyp82hog"]
+
+[ext_resource type="Script" uid="uid://cr1ef3paxdd2i" path="res://scenes/menus/map_screen.gd" id="1_jt0h1"]
+
+[node name="MapScreen" type="Control" unique_id=1241235078]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 360.0
+script = ExtResource("1_jt0h1")
+
+[node name="Backdrop" type="ColorRect" parent="." unique_id=1644297102]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+mouse_filter = 2
+color = Color(0.04, 0.05, 0.1, 1)
+
+[node name="TitleLabel" type="Label" parent="." unique_id=1574717772]
+layout_mode = 0
+offset_top = 10.0
+offset_right = 640.0
+offset_bottom = 28.0
+text = "World Map"
+horizontal_alignment = 1
+
+[node name="TechLabel" type="Label" parent="." unique_id=1318667816]
+layout_mode = 0
+offset_left = 500.0
+offset_top = 10.0
+offset_right = 630.0
+offset_bottom = 24.0
+text = "Tech: 0"
+horizontal_alignment = 2
+
+[node name="NodeContainer" type="Control" parent="." unique_id=125587247]
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 360.0
+
+[node name="LaneChoiceOverlay" type="Control" parent="." unique_id=900400254]
+visible = false
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 360.0
+
+[node name="Backdrop2" type="ColorRect" parent="LaneChoiceOverlay" unique_id=705053551]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+color = Color(0, 0, 0, 0.8)
+
+[node name="PromptLabel" type="Label" parent="LaneChoiceOverlay" unique_id=800903493]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 150.0
+offset_right = 520.0
+offset_bottom = 180.0
+text = "Choose your route"
+horizontal_alignment = 1
+
+[node name="ChoiceButtons" type="HBoxContainer" parent="LaneChoiceOverlay" unique_id=687000819]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 190.0
+offset_right = 400.0
+offset_bottom = 220.0
+theme_override_constants/separation = 20
+
+[node name="NorthButton" type="Button" parent="LaneChoiceOverlay/ChoiceButtons" unique_id=2126417965]
+layout_mode = 2
+text = "North"
+
+[node name="SouthButton" type="Button" parent="LaneChoiceOverlay/ChoiceButtons" unique_id=312634932]
+layout_mode = 2
+text = "South"
+
+[node name="ComingSoonOverlay" type="Control" parent="." unique_id=16807174]
+visible = false
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 360.0
+
+[node name="Backdrop3" type="ColorRect" parent="ComingSoonOverlay" unique_id=247054890]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+color = Color(0, 0, 0, 0.8)
+
+[node name="MessageLabel" type="Label" parent="ComingSoonOverlay" unique_id=1138139466]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 150.0
+offset_right = 470.0
+offset_bottom = 180.0
+text = "Coming soon."
+horizontal_alignment = 1
+
+[node name="OkButton" type="Button" parent="ComingSoonOverlay" unique_id=1041261147]
+layout_mode = 0
+offset_left = 270.0
+offset_top = 190.0
+offset_right = 370.0
+offset_bottom = 218.0
+text = "OK"

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bt14cegymgsre" path="res://scenes/enemies/spinner.gd" id="1_ri1m3"]
 [ext_resource type="Resource" path="res://data/enemies/spinner_data.tres" id="2_3ywtc"]
-[ext_resource type="Texture2D" uid="uid://dpnmvm8khdxv3" path="res://art/sprites/placeholder/atlas/enemy_mech_b.tres" id="3_3ywtc"]
+[ext_resource type="Texture2D" uid="uid://dpnmvm8khdxv3" path="res://art/placeholder/shumped-asset-pack/atlas/enemy_mech_b.tres" id="3_3ywtc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bv7vm"]
 radius = 9.0

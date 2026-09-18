@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c80pw5bvot3ny" path="res://scenes/enemies/swarmer.gd" id="1_u711w"]
 [ext_resource type="Resource" path="res://data/enemies/swarmer_data.tres" id="2_big0i"]
-[ext_resource type="Texture2D" uid="uid://1m22hov5fd1a" path="res://art/sprites/placeholder/atlas/enemy_arrow_red.tres" id="3_big0i"]
+[ext_resource type="Texture2D" uid="uid://1m22hov5fd1a" path="res://art/placeholder/shumped-asset-pack/atlas/enemy_arrow_red.tres" id="3_big0i"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8lfaa"]
 radius = 7.0

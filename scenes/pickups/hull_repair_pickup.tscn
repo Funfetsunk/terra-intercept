@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dxne1w5pg4r4k" path="res://scenes/pickups/pickup.gd" id="1_21xqg"]
 [ext_resource type="Resource" path="res://data/pickups/hull_repair_pickup.tres" id="2_3q8xg"]
-[ext_resource type="Texture2D" uid="uid://dnacrb5hlmjib" path="res://art/sprites/placeholder/atlas/pickup_cross_blue.tres" id="3_3q8xg"]
+[ext_resource type="Texture2D" uid="uid://dnacrb5hlmjib" path="res://art/placeholder/shumped-asset-pack/atlas/pickup_cross_blue.tres" id="3_3q8xg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mgc3l"]
 

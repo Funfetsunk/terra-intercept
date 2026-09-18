@@ -2,25 +2,74 @@
 
 Terra Intercept is a 2D pixel-art vertical-scrolling bullet hell with twin-stick controls, built in Godot. It's a hobby project with a 90s arcade feel.
 
-**The full design lives in `docs/design-summary.md`. Read it before building any gameplay feature.** Don't invent design decisions. If something isn't covered there or is unclear, ask before implementing.
+**The full design lives in `docs/design-summary.md`. Read it before building any gameplay feature.** Art dimensions live in `docs/art-specs.md`. Don't invent design decisions. If something isn't covered there or is unclear, ask before implementing.
 
 ## Current milestone
 
-Milestone 1 (vertical slice) is complete (tag `vertical-slice`).
-Milestone 2a (core systems) is complete (tag `milestone-2a`).
-Milestone 2b (London, mission 1) is complete (tag `milestone-2b`).
+Milestone 1 (vertical slice) — complete (tag `vertical-slice`).
+Milestone 2a (core systems) — complete (tag `milestone-2a`).
+Milestone 2b (London, mission 1) — complete (tag `milestone-2b`).
 
-All of 2b landed: the lives/reentrancy bug fix, the playfield-bounds fix, the test range, the three-section London mission (tutorial/Thames run/boss) with marker-based restarts, the non-lethal tutorial, skip-tutorial, the Thames run with drone/swarmer/lander pod, the reusable mid-boss, the unique two-phase Tower Bridge boss, the title→ship select→London→results→title flow, and the music hooks (tutorial/stage/mid-boss/boss with a phase-2 switch, on placeholder synthesized tracks).
+**Now: Milestone 3 (campaign structure), with the 2c art pass running alongside it.**
 
-Two mechanics were added beyond the original 2b task list, approved mid-session, now reflected in `docs/design-summary.md`'s Health and Squad specials sections too:
-- **Contact damage.** Colliding with an enemy ship now also damages the player (`EnemyData.contact_damage`, default 1.0, 0.5s cooldown), routed through the same `take_hit()` as bullets. Enemies take no damage from the collision.
-- **Specials persist for their full duration.** A squad special used to clear bullets/damage enemies once, at cast time. It now re-applies every physics frame for `special_duration`, tracking the player's current position (same as the VFX already did) rather than a frozen cast-time position. This is a real damage-output increase against anything that stays inside the shape, not just a visual fix.
+Milestone 3 builds the frame around the mission that already works: saves, the hangar, upgrades, the world map and the story screens. Real art arrives piece by piece while this happens, so 2c is no longer a separate milestone — it's a rolling task list (see "Rolling art pass" below).
 
-**Dialogue:** pilot names are Dash (Interceptor), Bucky (Striker), Max (Guardian), Tammy (Vanguard). The commander is Steel. Kept in `ShipData.pilot_name`/`radio_intro` and the dialogue `.tres` files, not hard-coded — swap them there if the names change.
+Build in this order, one task at a time, committed separately. Mark each **[done]** when finished and committed.
 
-**Coming later, do not build yet:** milestone 2c (London art pass, swapping in real art), milestone 3 (hangar, upgrade list, save slots, world map), then the remaining missions.
+1. **Art pipeline. [done]** Set up the import path for real art before any lands: folder convention, sprite-sheet format, and an import preset with nearest filtering and no mipmaps. Verify it with one real asset end to end (import → animation → in-game). Record what you set up in this file under "Rolling art pass".
+2. **SaveManager and save slots.** 3 slots. A save holds: selected ship, map position, banked alien tech, upgrades owned, the purchase ledger (see task 4), mission results and high scores. Saving happens **only** on mission completion. Add a slot-select screen with create, continue and delete.
+3. **Run state.** Extend `GameState` to hold everything a run needs so the hangar and map can read it: current column, lane, completed missions, tech, upgrades, and difficulty.
+4. **Upgrades.** Upgrade definitions in `.tres`: id, name, description, cost, the stat it changes, its maximum level, and the map column that unlocks it. Apply them to player stats at mission start. Keep a **purchase ledger** of what was bought since the last completed mission, so a return to the hangar after a game over refunds exactly those purchases and nothing earlier.
+5. **Hangar screen.** Spend alien tech on the available upgrades, show what's locked and why ("unlocks at column 3"), and handle the refund rule from task 4. Reachable from the map, and after a game over.
+6. **World map.** 6 columns in two lanes, with a lane choice after columns 1, 3 and 5, converging on mission 7. Show completed, available and locked missions. Cleared missions can be replayed for tech. The map position is saved.
+7. **Story screens.** Pre- and post-mission briefings using the existing portrait-and-text-box system, driven by dialogue `.tres` files. Mission-specific briefings, plus the column-4 midgame reveal, which must work on every route.
+8. **Full flow.** Title → slot select → ship select (new run only) → map → briefing → mission → results → post-briefing → hangar → map. Game over offers restart or hangar, with the refund rule applied.
+9. **Settings.** The `Settings` autoload and an options screen: CRT filter, screen shake, button remapping, high-contrast bullets, difficulty (Easy/Normal). Settings save separately from run saves.
+
+**Not yet:** sound effects and the Sound Test, missions 2–13, co-op. Ask before starting any of these.
 
 Every milestone must run at a steady 60fps on the retro laptop (i7-1165G7 / Iris Xe).
+
+## Rolling art pass (former milestone 2c)
+
+Real art arrives piece by piece while milestone 3 is being built.
+
+- **Never interrupt the current task** to swap art in. Finish the task, commit, then do the art swap as its own small task and commit.
+- **Follow `docs/art-specs.md`** for every size. If an incoming asset doesn't match the spec, say so and ask rather than rescaling: pixel art must never be scaled by fractions.
+- **Hitboxes and collision shapes don't change** when art is swapped in. A bigger sprite doesn't mean a bigger hitbox.
+- **Palette:** the fixed 32–48 colour palette, with bullet colours reserved and never used in backgrounds.
+- **Placeholder art from asset packs** lives in `art/placeholder/<pack-name>/`, each folder with a note on its source and licence. It never mixes with the real art in `art/sprites/`.
+
+**Pipeline setup (task 1, done):**
+- `rendering/textures/canvas_textures/default_texture_filter` confirmed at Nearest project-wide (was already correct).
+- `importer_defaults/texture` preset added: no mipmaps, lossless compress, no 3D VRAM compress — locks in correct settings for future imports instead of relying on Godot's stock defaults holding.
+- The SHMUPED placeholder pack moved from `art/sprites/placeholder/` to `art/placeholder/shumped-asset-pack/`, with a source/licence note, to match the folder convention.
+- **Animation convention for real art:** `AnimatedSprite2D` + a `SpriteFrames` resource, built from a grid-sliced sheet (uniform frame size, per `docs/art-specs.md`), not hand-written per-frame `AtlasTexture` `.tres` files. Proved mechanically (sheet → frames → animated node, playing) in a throwaway scene, then removed — no real asset was available yet to run the full import → animation → in-game proof, so that step is still owed once the first real asset lands.
+- The existing placeholder player-ship animation (5 separate `AtlasTexture` resources cycled by script, from the 2025-09-17 commit) was left as-is — out of scope for task 1, and changing it would be an art-swap task of its own.
+
+Swap-in checklist, updated as art lands (all still placeholder unless marked):
+
+- [ ] Player ships (4) with banking frames
+- [ ] Bullets and ordnance
+- [ ] Enemies: drone, swarmer, lander pod
+- [ ] Mid-boss
+- [ ] Tower Bridge boss
+- [ ] Thames and London backgrounds
+- [ ] Pickups and alien tech
+- [ ] Explosions and special effects
+- [ ] Portraits: Dash, Bucky, Max, Tammy, Steel
+- [ ] HUD panel frames and icons
+- [ ] Menu, hangar and map screens
+
+## What already exists
+
+Context for anything built from here on.
+
+- **London** runs end to end: a three-section mission (tutorial / Thames run / boss) with marker-based restarts, the non-lethal tutorial, skip-tutorial, drone / swarmer / lander pod, a reusable mid-boss, the two-phase Tower Bridge boss, and the title → ship select → London → results → title flow.
+- **Contact damage:** colliding with an enemy damages the player (`EnemyData.contact_damage`, default 1.0, 0.5s cooldown), through the same `take_hit()` as bullets. Enemies take no damage from it.
+- **Specials persist for their full duration:** the shape re-applies every physics frame for `special_duration` and tracks the player's position, rather than firing once at cast time.
+- **Pilots:** Dash (Interceptor), Bucky (Striker), Max (Guardian), Tammy (Vanguard). Commander: Steel. Held in `ShipData.pilot_name` / `radio_intro` and the dialogue `.tres` files, never hard-coded.
+- **Music:** placeholder synthesised loops, wired through `MissionData.tutorial_music` / `stage_music` and `BossData.music` / `music_phase2`.
 
 ## Hard rules
 
@@ -47,11 +96,12 @@ These are not negotiable.
 - **Spawn positions** in timeline `.tres` files are stored as relative values (0–1).
 - **HUD:** a `CanvasLayer` above the playfield, with **opaque** side panels so gameplay overdraw at the edges is hidden. The panels hold the pilot portrait, shield and hull, special charges and selected squad-mate, focus meter, ordnance and ammo, score and multiplier, and lives.
 - **Dialogue:** the portrait sits in a side panel and the text runs along the bottom of the playfield.
+- **Menus, hangar and map** use the full 640×360 screen, not the playfield.
 - **Test range:** uses the same layout.
 
 ## Sprite sizes
 
-These apply to placeholders too.
+Full detail is in `docs/art-specs.md`. The essentials, which apply to placeholders too:
 
 | Object | Size |
 |---|---|
@@ -61,10 +111,12 @@ These apply to placeholders too.
 | Mid-bosses | about 64 |
 | Bosses | 128–200 |
 | Bullets | 4–8 |
+| Portraits | 64×64 |
+| Pickups | 12×12 |
 
 ## Fonts
 
-- **Default font:** Press Start 2P (`art/fonts/PressStart2P-Regular.ttf`, SIL OFL 1.1 — license file kept alongside it), wired project-wide via `themes/main_theme.tres` (`gui/theme/custom`). Antialiasing, hinting and subpixel positioning are disabled on import for a crisp pixel look — keep new pixel fonts imported the same way.
+- **Default font:** Press Start 2P (`art/fonts/PressStart2P-Regular.ttf`, SIL OFL 1.1 — licence file kept alongside it), wired project-wide via `themes/main_theme.tres` (`gui/theme/custom`). Antialiasing, hinting and subpixel positioning are disabled on import for a crisp pixel look — keep new pixel fonts imported the same way.
 - **Default size:** 8px, the font's native pixel grid. 16px was too wide for the ~140px HUD side panels. The dialogue box overrides to 9 (speaker) / 8 (text).
 - To swap in a different pixel font later, replace the `.ttf` and re-point `default_font` on `themes/main_theme.tres`.
 
@@ -85,8 +137,9 @@ res://
   addons/            # Godot MCP Pro plugin and other editor plugins (ask before adding any)
   art/
     source/          # .aseprite working files
-    sprites/         # exported PNGs
-    fonts/           # pixel fonts (Press Start 2P placeholder, OFL licensed)
+    sprites/         # exported PNGs (real art)
+    placeholder/     # asset-pack placeholders, one folder per pack + source/licence note
+    fonts/           # pixel fonts (Press Start 2P, OFL licensed)
   audio/
     music/           # OGG files with loop points (currently placeholder synthesized loops)
     sfx/             # jsfxr / ChipTone exports (none yet)
@@ -101,6 +154,7 @@ res://
   themes/            # global Theme resources (default font/size)
   docs/
     design-summary.md
+    art-specs.md
 ```
 
 Scripts that belong to a specific scene sit next to that scene. `scripts/` is for shared code only.
@@ -128,7 +182,7 @@ Every action has a player prefix so that local co-op works later. Only P1 is bou
 | ordnance | A | Space |
 | pause | Start | Esc |
 
-**Always code against actions, never against specific keys or buttons.** Player code must accept a player index; never hard-code "player 1".
+**Always code against actions, never against specific keys or buttons.** Player code must accept a player index; never hard-code "player 1". Menus, the hangar and the map must be fully usable with the pad alone, as well as with keyboard and mouse.
 
 ## Collision layers
 
@@ -139,14 +193,12 @@ Every action has a player prefix so that local co-op works later. Only P1 is bou
 5. pickups
 6. specials (the area-of-effect shapes)
 
-## Planned autoloads
+## Autoloads
 
-These are added as each one becomes needed, not all at once:
-
-- `GameState`: current run, lives, map position, selected ship
-- `SaveManager`: 3 slots, saving only after a completed mission
-- `AudioManager` **(music implemented)**: `scripts/autoload/audio_manager.tscn`, one `AudioStreamPlayer` set to `PROCESS_MODE_ALWAYS` (music must keep playing through tutorial-beat pauses). Tracks are data-driven — `MissionData.tutorial_music`/`stage_music`, `BossData.music`/`music_phase2` — never hard-coded paths. Sound effects and Sound Test unlocks still to come.
-- `Settings`: CRT filter, screen shake, remapping, high-contrast bullets, difficulty
+- `GameState` **(exists)**: current run, lives, selected ship — extended in milestone 3 with map position, tech, upgrades and the purchase ledger.
+- `AudioManager` **(music implemented)**: `scripts/autoload/audio_manager.tscn`, one `AudioStreamPlayer` set to `PROCESS_MODE_ALWAYS` (music must keep playing through tutorial-beat pauses). Tracks are data-driven — `MissionData.tutorial_music` / `stage_music`, `BossData.music` / `music_phase2` — never hard-coded paths. Sound effects and Sound Test unlocks still to come.
+- `SaveManager` **(milestone 3, task 2)**: 3 slots, saving only after a completed mission.
+- `Settings` **(milestone 3, task 9)**: CRT filter, screen shake, remapping, high-contrast bullets, difficulty. Saved separately from run saves.
 
 ## Using Godot MCP Pro
 
@@ -158,6 +210,7 @@ The Godot editor is open and connected through Godot MCP Pro. Use its tools in p
 - **Project settings and input actions:** use `set_project_setting` and `set_input_action`. **Never edit `project.godot` directly**, because the editor overwrites it.
 - **Keep the editor and disk in sync.** Change scenes and resources through the editor tools, not by editing .tscn/.tres files directly. Always call `save_scene` after scene changes. If a file had to be edited on disk, call `reload_project` afterwards.
 - **Testing gameplay:** `play_scene`, then drive input with **`simulate_action` using the `p1_` action names** (not raw keys), then check the result with `get_game_screenshot`, `capture_frames` or `monitor_properties`, then `stop_scene`. Never leave a game window running. For the bullet manager, use `run_stress_test` and `get_performance_monitors` to check the 60fps target.
+- **Testing menus and saves:** use `find_ui_elements`, `click_button_by_text` and `assert_node_state`. Save/load must be tested by writing a save, restarting the game and checking the values survived — not just by reading them back in the same session.
 - **After script changes:** run `validate_script`. If a new script doesn't take effect, run `reload_project`.
 - **Checking for errors:** use `get_editor_errors` and `get_output_log`.
 - **Pitfalls:**
@@ -175,10 +228,12 @@ The Godot editor is open and connected through Godot MCP Pro. Use its tools in p
 - **Plan first.** For anything larger than a small fix, propose a plan and wait for approval before building.
 - **Do the work in the editor** through Godot MCP Pro wherever possible: create scenes, add nodes, set properties.
 - **Before calling a task done,** run the project through MCP, read the output and error log, and fix any errors or warnings. Take a screenshot when the change is visual.
+- **Don't break London.** It's the reference mission. After any change to shared systems (player, HUD, GameState, flow), play London far enough to confirm it still works.
+- **Save-data changes:** when the save format changes, either migrate old saves or bump a version number and say clearly that old saves will be reset.
 - **If you hit a blocker,** stop and report it with options rather than working around a hard rule.
 - **Report bugs you notice** that are outside the current task, and don't fix them without approval.
 - **Keep changes small and focused.** One feature per commit, with a clear message (`Add focus meter to player`).
-- **At the end of a session,** when asked, update the "Current milestone" section: mark finished tasks **[done]** and note where work stopped.
+- **At the end of a session,** when asked, update the "Current milestone" and "Rolling art pass" sections: mark finished tasks **[done]** and note where work stopped.
 - **Git:**
   - Commit to the local repo.
   - The remote is GitHub.
@@ -187,7 +242,7 @@ The Godot editor is open and connected through Godot MCP Pro. Use its tools in p
   - Ask before force-pushing or rewriting history.
 - **Ask first** before adding plugins or addons, changing any hard rule or project setting, or making a design decision the summary doesn't cover.
 - **Explain as you go.** The developer knows programming but is still learning Godot, so briefly explain Godot-specific choices (why a node type, why a signal) when you make them.
-- **Placeholders:** use `ColorRect` or simple shapes until real art arrives, sized to the "Sprite sizes" table.
+- **Placeholders:** use `ColorRect`, simple shapes, or the asset-pack placeholders until real art arrives, sized to `docs/art-specs.md`.
 
 ## Performance notes
 

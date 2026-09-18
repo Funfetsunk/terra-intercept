@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dxne1w5pg4r4k" path="res://scenes/pickups/pickup.gd" id="1_i0qd8"]
 [ext_resource type="Resource" path="res://data/pickups/special_charge_pickup.tres" id="2_x1sjr"]
-[ext_resource type="Texture2D" uid="uid://c6cgblitjky21" path="res://art/sprites/placeholder/atlas/pickup_purple_shard.tres" id="3_x1sjr"]
+[ext_resource type="Texture2D" uid="uid://c6cgblitjky21" path="res://art/placeholder/shumped-asset-pack/atlas/pickup_purple_shard.tres" id="3_x1sjr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a0j52"]
 

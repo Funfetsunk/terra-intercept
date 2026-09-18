@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcnid7yadrp4j"
-path="res://.godot/imported/shumped_asset.png-a310a2b0d00e946c4cf12acad8a64424.ctex"
+uid="uid://6yjeh7a63xjh"
+path="res://.godot/imported/background.png-bb7413d324ed00c6a69eb775ef54d3c5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/sprites/placeholder/shumped_asset.png"
-dest_files=["res://.godot/imported/shumped_asset.png-a310a2b0d00e946c4cf12acad8a64424.ctex"]
+source_file="res://art/placeholder/shumped-asset-pack/background.png"
+dest_files=["res://.godot/imported/background.png-bb7413d324ed00c6a69eb775ef54d3c5.ctex"]
 
 [params]
 

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="BulletPatternData" format=3 uid="uid://c8imhx73hf84r"]
 
 [ext_resource type="Script" uid="uid://skm1jc2p0sdk" path="res://scripts/resources/bullet_pattern_data.gd" id="1"]
-[ext_resource type="Texture2D" uid="uid://b7bdkjjeum1gn" path="res://art/sprites/placeholder/atlas/bullet_pill_red.tres" id="1_1e5r8"]
+[ext_resource type="Texture2D" uid="uid://b7bdkjjeum1gn" path="res://art/placeholder/shumped-asset-pack/atlas/bullet_pill_red.tres" id="1_1e5r8"]
 
 [resource]
 script = ExtResource("1")

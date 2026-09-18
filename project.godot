@@ -48,6 +48,15 @@ theme/custom="res://themes/main_theme.tres"
 theme/custom_font="res://art/fonts/PressStart2P-Regular.ttf"
 theme/default_font_size=8
 
+[importer_defaults]
+
+texture={
+"compress/high_quality": false,
+"compress/mode": 0.0,
+"detect_3d/compress_to": 0.0,
+"mipmaps/generate": false
+}
+
 [input]
 
 p1_move_left={

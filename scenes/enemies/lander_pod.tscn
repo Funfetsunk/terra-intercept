@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ca133bydqrwd" path="res://scripts/enemies/lander_pod.gd" id="1_7trrj"]
 [ext_resource type="Resource" path="res://data/enemies/lander_pod_data.tres" id="2_632sa"]
-[ext_resource type="Texture2D" uid="uid://66nmj1453de8" path="res://art/sprites/placeholder/atlas/enemy_mech_a.tres" id="3_632sa"]
+[ext_resource type="Texture2D" uid="uid://66nmj1453de8" path="res://art/placeholder/shumped-asset-pack/atlas/enemy_mech_a.tres" id="3_632sa"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jgvt8"]
 

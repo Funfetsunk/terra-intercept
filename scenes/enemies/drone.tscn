@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b7oa2k2dr8s8b" path="res://scenes/enemies/drone.gd" id="1_y3ws1"]
 [ext_resource type="Resource" path="res://data/enemies/drone_data.tres" id="2_dyfay"]
-[ext_resource type="Texture2D" uid="uid://1m22hov5fd1a" path="res://art/sprites/placeholder/atlas/enemy_arrow_red.tres" id="3_dyfay"]
+[ext_resource type="Texture2D" uid="uid://1m22hov5fd1a" path="res://art/placeholder/shumped-asset-pack/atlas/enemy_arrow_red.tres" id="3_dyfay"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xgp3v"]
 radius = 8.0

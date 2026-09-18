@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d3f6kv8rj0pgl"]
 
 [ext_resource type="Script" uid="uid://d36js08l20tkh" path="res://scenes/pickups/alien_tech_drop.gd" id="1_6o80t"]
-[ext_resource type="Texture2D" uid="uid://doqb6pp27d8ft" path="res://art/sprites/placeholder/atlas/pickup_gold_blob.tres" id="2_ykfff"]
+[ext_resource type="Texture2D" uid="uid://doqb6pp27d8ft" path="res://art/placeholder/shumped-asset-pack/atlas/pickup_gold_blob.tres" id="2_ykfff"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ykfff"]
 

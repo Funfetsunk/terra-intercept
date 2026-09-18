@@ -3,11 +3,11 @@
 [ext_resource type="Script" uid="uid://brvoh5s303sqb" path="res://scenes/player/player_ship.gd" id="1_dr6dc"]
 [ext_resource type="Resource" uid="uid://b3c6554j4do4e" path="res://data/ships/guardian_ship_data.tres" id="2_ykp3x"]
 [ext_resource type="Script" uid="uid://b5jrllxqn3mcp" path="res://scenes/specials/squad_special_vfx.gd" id="3_dr6dc"]
-[ext_resource type="Texture2D" uid="uid://44seuu2pqehq" path="res://art/sprites/placeholder/atlas/player_bank_full_left.tres" id="3_w6tu8"]
-[ext_resource type="Texture2D" uid="uid://c5kteiqrouwkq" path="res://art/sprites/placeholder/atlas/player_bank_slight_left.tres" id="4_jovkm"]
-[ext_resource type="Texture2D" uid="uid://ky2mtiyslm76" path="res://art/sprites/placeholder/atlas/player_bank_neutral.tres" id="4_ykp3x"]
-[ext_resource type="Texture2D" uid="uid://bb7udpta5lhe2" path="res://art/sprites/placeholder/atlas/player_bank_slight_right.tres" id="6_com77"]
-[ext_resource type="Texture2D" uid="uid://cno2limuing7l" path="res://art/sprites/placeholder/atlas/player_bank_full_right.tres" id="7_i4pg4"]
+[ext_resource type="Texture2D" path="res://art/placeholder/shumped-asset-pack/atlas/player_bank_full_left.tres" id="3_w6tu8"]
+[ext_resource type="Texture2D" path="res://art/placeholder/shumped-asset-pack/atlas/player_bank_slight_left.tres" id="4_jovkm"]
+[ext_resource type="Texture2D" path="res://art/placeholder/shumped-asset-pack/atlas/player_bank_neutral.tres" id="4_ykp3x"]
+[ext_resource type="Texture2D" path="res://art/placeholder/shumped-asset-pack/atlas/player_bank_slight_right.tres" id="6_com77"]
+[ext_resource type="Texture2D" path="res://art/placeholder/shumped-asset-pack/atlas/player_bank_full_right.tres" id="7_i4pg4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kjavq"]
 radius = 2.0

@@ -61,11 +61,15 @@ func _on_delete_pressed(slot: int) -> void:
 	_confirm_yes.grab_focus()
 
 func _on_confirm_yes() -> void:
-	_save_manager.delete_slot(_pending_delete_slot)
-	_refresh_row(_pending_delete_slot)
+	var slot: int = _pending_delete_slot
+	_save_manager.delete_slot(slot)
+	_refresh_row(slot)
 	_pending_delete_slot = -1
 	_confirm_overlay.visible = false
+	_rows[slot].get_node("ActionButton").grab_focus()
 
 func _on_confirm_no() -> void:
+	var slot: int = _pending_delete_slot
 	_pending_delete_slot = -1
 	_confirm_overlay.visible = false
+	_rows[slot].get_node("DeleteButton").grab_focus()

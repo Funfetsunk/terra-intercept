@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://degin7d1138e3"]
+
+[ext_resource type="Script" uid="uid://c8crmgwvrcdjf" path="res://scenes/menus/options_screen.gd" id="1_5fqpr"]
+
+[node name="OptionsScreen" type="Control" unique_id=596202109]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 360.0
+script = ExtResource("1_5fqpr")
+
+[node name="Backdrop" type="ColorRect" parent="." unique_id=1794037978]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+mouse_filter = 2
+color = Color(0.04, 0.05, 0.1, 1)
+
+[node name="TitleLabel" type="Label" parent="." unique_id=198706995]
+layout_mode = 0
+offset_top = 10.0
+offset_right = 640.0
+offset_bottom = 28.0
+text = "Options"
+horizontal_alignment = 1
+
+[node name="CrtButton" type="Button" parent="." unique_id=739298033]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 300.0
+offset_bottom = 62.0
+text = "CRT Filter: Off"
+
+[node name="ShakeButton" type="Button" parent="." unique_id=136602940]
+layout_mode = 0
+offset_left = 340.0
+offset_top = 40.0
+offset_right = 600.0
+offset_bottom = 62.0
+text = "Screen Shake: On"
+
+[node name="ContrastButton" type="Button" parent="." unique_id=1257675232]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 68.0
+offset_right = 300.0
+offset_bottom = 90.0
+text = "High-Contrast Bullets: Off"
+
+[node name="DifficultyButton" type="Button" parent="." unique_id=1930924724]
+layout_mode = 0
+offset_left = 340.0
+offset_top = 68.0
+offset_right = 600.0
+offset_bottom = 90.0
+text = "Difficulty: Normal"
+
+[node name="RemapList" type="VBoxContainer" parent="." unique_id=1302403231]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 104.0
+offset_right = 600.0
+offset_bottom = 300.0
+theme_override_constants/separation = 6
+
+[node name="BackButton" type="Button" parent="." unique_id=1789867629]
+layout_mode = 0
+offset_left = 270.0
+offset_top = 320.0
+offset_right = 370.0
+offset_bottom = 348.0
+text = "Back"

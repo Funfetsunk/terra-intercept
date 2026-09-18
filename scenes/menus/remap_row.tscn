@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bjmjqu5bw7yn2"]
+
+[ext_resource type="Script" uid="uid://bfqn56yccjypl" path="res://scenes/menus/remap_row.gd" id="1_t0nj4"]
+
+[node name="RemapRow" type="Button" unique_id=1524785750]
+custom_minimum_size = Vector2(560, 26)
+script = ExtResource("1_t0nj4")

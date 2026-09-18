@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cj33vj4mtnwud"]
+
+[ext_resource type="Script" uid="uid://qq355b4frkng" path="res://scripts/autoload/settings.gd" id="1_p8ewt"]
+[ext_resource type="Shader" uid="uid://dxsenlnqrlc1q" path="res://shaders/crt_filter.gdshader" id="2_kw4hi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kiyex"]
+shader = ExtResource("2_kw4hi")
+shader_parameter/scanline_strength = 0.25
+shader_parameter/vignette_strength = 0.35
+
+[node name="Settings" type="Node" unique_id=1096803374]
+script = ExtResource("1_p8ewt")
+
+[node name="CrtOverlay" type="CanvasLayer" parent="." unique_id=96549535]
+layer = 100
+visible = false
+
+[node name="CrtRect" type="ColorRect" parent="CrtOverlay" unique_id=144457490]
+material = SubResource("ShaderMaterial_kiyex")
+offset_right = 640.0
+offset_bottom = 360.0
+mouse_filter = 2

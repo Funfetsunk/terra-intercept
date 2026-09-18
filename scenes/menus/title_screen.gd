@@ -1,9 +1,11 @@
 extends Control
 
 @onready var _start_button: Button = $StartButton
+@onready var _options_button: Button = $OptionsButton
 
 func _ready() -> void:
 	_start_button.pressed.connect(_on_start)
+	_options_button.pressed.connect(_on_options)
 	_start_button.grab_focus()
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -16,3 +18,6 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _on_start() -> void:
 	get_tree().change_scene_to_file("res://scenes/menus/slot_select.tscn")
+
+func _on_options() -> void:
+	get_tree().change_scene_to_file("res://scenes/menus/options_screen.tscn")

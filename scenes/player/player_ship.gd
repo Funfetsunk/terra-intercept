@@ -49,6 +49,7 @@ var _active_special: ShipData = null
 @onready var _bullets: Node = get_node("/root/BulletManager")
 @onready var _game_state: Node = get_node("/root/GameState")
 @onready var _playfield: Node = get_node("/root/Playfield")
+@onready var _settings: Node = get_node("/root/Settings")
 @onready var _special_vfx: Node2D = $SpecialVFX
 
 func _ready() -> void:
@@ -131,7 +132,7 @@ func _process_focus(delta: float) -> void:
 			focus_used.emit()
 		_is_focused = true
 		_focus_meter = max(0.0, _focus_meter - data.focus_drain_rate * delta)
-		_focus_refill_wait_timer = data.focus_refill_delay
+		_focus_refill_wait_timer = data.focus_refill_delay * _settings.focus_refill_delay_multiplier()
 	else:
 		_is_focused = false
 		if _focus_refill_wait_timer > 0.0:
@@ -155,7 +156,7 @@ func _process_shield_recharge(delta: float) -> void:
 	if _shield_recharge_timer > 0.0:
 		_shield_recharge_timer -= delta
 	elif shield_current < data.shield_max:
-		shield_current = min(data.shield_max, shield_current + data.shield_recharge_rate * delta)
+		shield_current = min(data.shield_max, shield_current + data.shield_recharge_rate * _settings.shield_recharge_multiplier() * delta)
 		shield_changed.emit(shield_current, data.shield_max)
 
 func _get_fire_input() -> Dictionary:
@@ -193,17 +194,19 @@ func take_hit(damage: float) -> void:
 	if _is_invincible():
 		return
 	_game_state.break_chain()
+	var scaled_damage: float = damage * _settings.damage_taken_multiplier()
 	if shield_current > 0.0:
-		shield_current = max(0.0, shield_current - damage)
+		shield_current = max(0.0, shield_current - scaled_damage)
 		_shield_recharge_timer = data.shield_recharge_delay
 		shield_changed.emit(shield_current, data.shield_max)
 		_flash_shield_hit()
 	else:
 		var hull_floor: float = 1.0 if _game_state.tutorial_active else 0.0
-		hull_current = max(hull_floor, hull_current - damage)
+		hull_current = max(hull_floor, hull_current - scaled_damage)
 		_hull_invincible_timer = data.hull_hit_invincibility_duration
 		hull_changed.emit(hull_current, data.hull_max)
 		_flash_hull_hit()
+		get_tree().call_group("playfield_root", "shake")
 		if hull_current <= 0.0:
 			hull_depleted.emit()
 

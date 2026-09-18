@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c7sovab0incl6"]
 
-[ext_resource type="Script" path="res://scenes/menus/title_screen.gd" id="1"]
+[ext_resource type="Script" uid="uid://b6i45t5y2bnj5" path="res://scenes/menus/title_screen.gd" id="1"]
 
 [node name="TitleScreen" type="Control" unique_id=1585069366]
 layout_mode = 3
@@ -33,3 +33,12 @@ offset_right = 370.0
 offset_bottom = 280.0
 theme_override_font_sizes/font_size = 13
 text = "Start"
+
+[node name="OptionsButton" type="Button" parent="." unique_id=1021073087]
+layout_mode = 0
+offset_left = 260.0
+offset_top = 290.0
+offset_right = 380.0
+offset_bottom = 318.0
+theme_override_font_sizes/font_size = 11
+text = "Options"

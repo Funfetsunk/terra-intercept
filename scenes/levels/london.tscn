@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bigiku81dil1k" path="res://scenes/levels/london.gd" id="1_tl1kh"]
 [ext_resource type="PackedScene" uid="uid://bveh1trv7wuqf" path="res://scenes/player/player_ship.tscn" id="2_g5f8b"]
 [ext_resource type="PackedScene" uid="uid://c1woeggvkgk0f" path="res://scenes/hud/hud.tscn" id="6_8v1gb"]
+[ext_resource type="Script" uid="uid://bjif1hmet7sgc" path="res://scripts/systems/playfield_shake.gd" id="6_y27mh"]
 [ext_resource type="PackedScene" uid="uid://bdjsxy2elcbrc" path="res://scenes/hud/dialogue_box.tscn" id="8_gj5h3"]
 [ext_resource type="Script" uid="uid://c6cns2cik14l2" path="res://scenes/levels/scrolling_background.gd" id="10_0fxbs"]
 [ext_resource type="Resource" uid="uid://c2wfa0cb0tqh" path="res://data/missions/london_mission.tres" id="11_vng0p"]
@@ -27,6 +28,7 @@ dialogue_box_path = NodePath("../DialogueBox")
 
 [node name="PlayfieldRoot" type="Node2D" parent="." unique_id=370220181]
 position = Vector2(140, 0)
+script = ExtResource("6_y27mh")
 
 [node name="PlayerShip" parent="PlayfieldRoot" unique_id=1276083379 instance=ExtResource("2_g5f8b")]
 position = Vector2(180, 300)

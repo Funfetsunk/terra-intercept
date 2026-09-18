@@ -65,6 +65,7 @@ func start_new_run() -> void:
 	mission_tech = 0
 	score = 0
 	kill_chain = 1
+	difficulty = get_node("/root/Settings").difficulty
 
 func register_player(player: Node) -> void:
 	_player = player

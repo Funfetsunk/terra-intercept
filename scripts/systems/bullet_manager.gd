@@ -151,14 +151,17 @@ func _check_player_bullets_vs_enemies() -> void:
 			i += 1
 
 func _draw() -> void:
+	var high_contrast: bool = get_node("/root/Settings").high_contrast_bullets
 	for i in range(_player_pool.active_count):
-		_draw_bullet(_player_pool.positions[i], _player_pool.radii[i], _player_pool.colors[i], _player_pool.textures[i])
+		_draw_bullet(_player_pool.positions[i], _player_pool.radii[i], _player_pool.colors[i], _player_pool.textures[i], high_contrast)
 	for i in range(_enemy_pool.active_count):
-		_draw_bullet(_enemy_pool.positions[i], _enemy_pool.radii[i], _enemy_pool.colors[i], _enemy_pool.textures[i])
+		_draw_bullet(_enemy_pool.positions[i], _enemy_pool.radii[i], _enemy_pool.colors[i], _enemy_pool.textures[i], high_contrast)
 
-func _draw_bullet(pos: Vector2, radius: float, color: Color, texture: Texture2D) -> void:
+func _draw_bullet(pos: Vector2, radius: float, color: Color, texture: Texture2D, high_contrast: bool) -> void:
 	var half: float = radius
 	var rect: Rect2 = Rect2(pos.x - half, pos.y - half, half * 2.0, half * 2.0)
+	if high_contrast:
+		draw_rect(rect.grow(1.0), Color.BLACK, true)
 	if texture != null:
 		draw_texture_rect(texture, rect, false, color)
 	else:

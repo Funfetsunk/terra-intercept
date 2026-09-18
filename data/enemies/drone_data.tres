@@ -1,14 +1,11 @@
-[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3]
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://u1jqni3hviq8"]
 
-[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="1"]
-[ext_resource type="Resource" path="res://data/patterns/drone_pattern.tres" id="2"]
+[ext_resource type="Script" uid="uid://bxbax4x8ptrvy" path="res://scripts/resources/enemy_data.gd" id="1"]
+[ext_resource type="Resource" uid="uid://dq3h8qiemfwkf" path="res://data/patterns/drone_pattern.tres" id="2"]
 
 [resource]
 script = ExtResource("1")
 enemy_name = "Drone"
-move_speed = 40.0
-hull_max = 2.0
-hitbox_radius = 8.0
+move_speed = 43.0
 pattern = ExtResource("2")
-score_value = 100
 alien_tech_drop = 1

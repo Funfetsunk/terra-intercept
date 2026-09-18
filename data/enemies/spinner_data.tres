@@ -1,12 +1,12 @@
-[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3]
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://y81rvxuy4co7"]
 
-[ext_resource type="Script" path="res://scripts/resources/enemy_data.gd" id="1"]
+[ext_resource type="Script" uid="uid://bxbax4x8ptrvy" path="res://scripts/resources/enemy_data.gd" id="1"]
 [ext_resource type="Resource" path="res://data/patterns/spinner_pattern.tres" id="2"]
 
 [resource]
 script = ExtResource("1")
 enemy_name = "Spinner"
-move_speed = 30.0
+move_speed = 32.0
 hull_max = 4.0
 hitbox_radius = 9.0
 pattern = ExtResource("2")

@@ -10,6 +10,6 @@ pilot_name = "Tammy"
 ship_color = Color(0.3, 0.5, 0.9, 1)
 traits_description = "All-rounder"
 radio_intro = "Tammy, standing by. Just say when."
-move_speed = 130.0
+move_speed = 139.0
 bullet_texture = ExtResource("1_r1l1u")
 special_shape = 3

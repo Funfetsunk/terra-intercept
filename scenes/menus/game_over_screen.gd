@@ -1,16 +1,19 @@
 extends Control
 
 const MISSION_SCENE_PATH: String = "res://scenes/levels/london.tscn"
+const HANGAR_SCENE_PATH: String = "res://scenes/menus/hangar.tscn"
 
 @onready var _restart_button: Button = $ButtonList/RestartButton
 @onready var _skip_tutorial_button: Button = $ButtonList/SkipTutorialButton
 @onready var _quit_button: Button = $ButtonList/QuitButton
+@onready var _hangar_button: Button = $ButtonList/HangarButton
 @onready var _game_state: Node = get_node("/root/GameState")
 
 func _ready() -> void:
 	_restart_button.pressed.connect(_on_restart)
 	_skip_tutorial_button.pressed.connect(_on_skip_tutorial)
 	_quit_button.pressed.connect(_on_quit)
+	_hangar_button.pressed.connect(_on_hangar)
 	_skip_tutorial_button.visible = _game_state.tutorial_completed
 	_restart_button.grab_focus()
 
@@ -32,3 +35,7 @@ func _on_skip_tutorial() -> void:
 
 func _on_quit() -> void:
 	get_tree().change_scene_to_file("res://scenes/menus/title_screen.tscn")
+
+func _on_hangar() -> void:
+	_game_state.refund_ledger()
+	get_tree().change_scene_to_file(HANGAR_SCENE_PATH)

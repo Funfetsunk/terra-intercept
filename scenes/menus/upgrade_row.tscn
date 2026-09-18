@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://ck7j5u1h6s1s7"]
+
+[ext_resource type="Script" uid="uid://tviuewvo4daa" path="res://scenes/menus/upgrade_row.gd" id="1_v3ejo"]
+
+[node name="UpgradeRow" type="HBoxContainer" unique_id=874269573]
+custom_minimum_size = Vector2(0, 50)
+theme_override_constants/separation = 12
+script = ExtResource("1_v3ejo")
+
+[node name="InfoLabel" type="Label" parent="." unique_id=1735889118]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Upgrade name (Lv 0/3) — description — Cost 0"
+autowrap_mode = 3
+
+[node name="ActionButton" type="Button" parent="." unique_id=1847970737]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+text = "Buy"

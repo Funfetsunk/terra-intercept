@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://cod47ds53qfyq"]
+
+[ext_resource type="Script" uid="uid://bja24xqcf8ljk" path="res://scenes/menus/hangar.gd" id="1_0w6j8"]
+
+[node name="Hangar" type="Control" unique_id=11048898]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 360.0
+script = ExtResource("1_0w6j8")
+
+[node name="Backdrop" type="ColorRect" parent="." unique_id=720550161]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+mouse_filter = 2
+color = Color(0.04, 0.05, 0.1, 1)
+
+[node name="TitleLabel" type="Label" parent="." unique_id=2055134690]
+layout_mode = 0
+offset_top = 16.0
+offset_right = 640.0
+offset_bottom = 40.0
+text = "Hangar"
+horizontal_alignment = 1
+
+[node name="TechLabel" type="Label" parent="." unique_id=1982210627]
+layout_mode = 0
+offset_top = 44.0
+offset_right = 640.0
+offset_bottom = 58.0
+text = "Tech: 0"
+horizontal_alignment = 1
+
+[node name="UpgradeList" type="VBoxContainer" parent="." unique_id=209540095]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 80.0
+offset_right = 580.0
+offset_bottom = 300.0
+theme_override_constants/separation = 10
+
+[node name="BackButton" type="Button" parent="." unique_id=1239208107]
+layout_mode = 0
+offset_left = 270.0
+offset_top = 320.0
+offset_right = 370.0
+offset_bottom = 348.0
+text = "Back"

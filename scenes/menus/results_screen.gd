@@ -19,4 +19,4 @@ func _unhandled_input(event: InputEvent) -> void:
 		_on_continue()
 
 func _on_continue() -> void:
-	get_tree().change_scene_to_file("res://scenes/menus/title_screen.tscn")
+	get_tree().change_scene_to_file("res://scenes/menus/hangar.tscn")

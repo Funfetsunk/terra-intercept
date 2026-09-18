@@ -43,3 +43,7 @@ text = "Skip Tutorial"
 [node name="QuitButton" type="Button" parent="ButtonList" unique_id=1996368015]
 layout_mode = 2
 text = "Quit to Title"
+
+[node name="HangarButton" type="Button" parent="ButtonList" unique_id=25601131]
+layout_mode = 2
+text = "Hangar"

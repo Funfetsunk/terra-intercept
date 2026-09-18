@@ -6,3 +6,4 @@ class_name MapNodeData
 @export var column: int = 1
 @export var lane: String = ""
 @export var mission_scene_path: String = ""
+@export var mission_data: MissionData = null

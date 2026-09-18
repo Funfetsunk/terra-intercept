@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://dk8mxb6uba077"]
+
+[ext_resource type="Script" uid="uid://b3472spx6ggtr" path="res://scenes/menus/briefing_screen.gd" id="1_3w5rx"]
+
+[node name="BriefingScreen" type="Control" unique_id=1411676457]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 360.0
+script = ExtResource("1_3w5rx")
+
+[node name="Backdrop" type="ColorRect" parent="." unique_id=976799558]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+mouse_filter = 2
+color = Color(0.04, 0.05, 0.1, 1)
+
+[node name="PortraitBox" type="ColorRect" parent="." unique_id=2094347324]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 110.0
+offset_right = 124.0
+offset_bottom = 174.0
+
+[node name="SpeakerLabel" type="Label" parent="." unique_id=2014377701]
+layout_mode = 0
+offset_left = 140.0
+offset_top = 112.0
+offset_right = 560.0
+offset_bottom = 128.0
+theme_override_font_sizes/font_size = 9
+text = "Speaker"
+
+[node name="TextLabel" type="Label" parent="." unique_id=624861071]
+layout_mode = 0
+offset_left = 140.0
+offset_top = 132.0
+offset_right = 560.0
+offset_bottom = 220.0
+text = "Briefing text"
+autowrap_mode = 3
+
+[node name="ContinueButton" type="Button" parent="." unique_id=2044265464]
+layout_mode = 0
+offset_left = 260.0
+offset_top = 300.0
+offset_right = 380.0
+offset_bottom = 328.0
+text = "Continue"

@@ -362,6 +362,11 @@
 [ext_resource type="AudioStream" uid="uid://q65udjkd5wn" path="res://audio/music/stage1.ogg" id="355_hveb7"]
 [ext_resource type="Resource" path="res://data/missions/london_boss_spawn.tres" id="356"]
 [ext_resource type="AudioStream" uid="uid://wr7jr3a0tvns" path="res://audio/music/tutorial.ogg" id="362_kegs6"]
+[ext_resource type="Resource" path="res://data/missions/london_pre_briefing_1.tres" id="363_pre1"]
+[ext_resource type="Resource" path="res://data/missions/london_pre_briefing_2.tres" id="364_pre2"]
+[ext_resource type="Resource" path="res://data/missions/london_pre_briefing_3.tres" id="365_pre3"]
+[ext_resource type="Resource" path="res://data/missions/london_post_briefing_1.tres" id="366_post1"]
+[ext_resource type="Resource" path="res://data/missions/london_post_briefing_2.tres" id="367_post2"]
 
 [resource]
 script = ExtResource("1")
@@ -373,3 +378,5 @@ tutorial_beats = Array[ExtResource("12_gauyo")]([ExtResource("5"), ExtResource("
 squad_radio_text_format = "Cycle squad with Q/E (or LB/RB), then fire the special with right click (or RT)."
 tutorial_music = ExtResource("362_kegs6")
 stage_music = ExtResource("355_hveb7")
+pre_briefing_lines = Array[Resource]([ExtResource("363_pre1"), ExtResource("364_pre2"), ExtResource("365_pre3")])
+post_briefing_lines = Array[Resource]([ExtResource("366_post1"), ExtResource("367_post2")])

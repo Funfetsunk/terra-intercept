@@ -10,6 +10,8 @@ class_name MissionData
 @export var squad_radio_text_format: String = "%s here. Special charged — try me out, pilot."
 @export var tutorial_music: AudioStream
 @export var stage_music: AudioStream
+@export var pre_briefing_lines: Array[Resource] = []
+@export var post_briefing_lines: Array[Resource] = []
 
 func get_section_start_time(section: String) -> float:
 	if section.is_empty():

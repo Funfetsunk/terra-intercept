@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="BriefingLine" format=3 uid="uid://bbycd5eo6ncv0"]
+
+[ext_resource type="Script" uid="uid://djsculn7twyp2" path="res://scripts/resources/briefing_line.gd" id="1_1lbxk"]
+
+[resource]
+script = ExtResource("1_1lbxk")
+speaker_name = "Steel"
+portrait_color = Color(0.85, 0.65, 0.25, 1)
+text = "That frequency we pulled off the alien tech? It destabilises their mineral. Completely."

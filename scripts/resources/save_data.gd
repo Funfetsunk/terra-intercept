@@ -6,6 +6,7 @@ class_name SaveData
 @export var map_column: int = 1
 @export var map_lane: String = ""
 @export var pending_lane_choice: bool = false
+@export var midgame_reveal_shown: bool = false
 @export var completed_missions: Array[String] = []
 @export var banked_tech: int = 0
 @export var upgrades_owned: Dictionary = {}

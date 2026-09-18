@@ -15,6 +15,7 @@ signal mission_completed(results: Dictionary)
 @export var ship_roster: Array[ShipData] = []
 @export var all_upgrades: Array[Resource] = []
 @export var all_map_nodes: Array[Resource] = []
+@export var midgame_reveal_lines: Array[Resource] = []
 @export var ordnance: OrdnanceData
 @export var chain_multiplier_max: int = 5
 @export var completion_bonus: int = 1000
@@ -35,6 +36,9 @@ var upgrades_owned: Dictionary = {}
 var purchase_ledger: Array[Dictionary] = []
 var pending_lane_choice: bool = false
 var is_replay: bool = false
+var midgame_reveal_shown: bool = false
+var pending_briefing_lines: Array[Resource] = []
+var pending_briefing_next_scene: String = ""
 var difficulty: String = "Normal"
 var restart_section: String = ""
 var tutorial_active: bool = false
@@ -139,6 +143,12 @@ func complete_mission() -> void:
 func choose_lane(lane: String) -> void:
 	current_lane = lane
 	pending_lane_choice = false
+
+func find_map_node(id: String) -> MapNodeData:
+	for map_node: MapNodeData in all_map_nodes:
+		if map_node.id == id:
+			return map_node
+	return null
 
 func find_upgrade(id: String) -> UpgradeData:
 	for upgrade: UpgradeData in all_upgrades:

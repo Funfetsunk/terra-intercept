@@ -68,7 +68,18 @@ func _on_node_activated(node_data: Resource) -> void:
 		return
 	_game_state.is_replay = _game_state.completed_missions.has(map_node.id) and not (map_node.column == _game_state.current_column and (map_node.lane.is_empty() or map_node.lane == _game_state.current_lane))
 	_game_state.current_mission_name = map_node.id
-	get_tree().change_scene_to_file(map_node.mission_scene_path)
+	var lines: Array[Resource] = []
+	if map_node.column == 4 and not _game_state.midgame_reveal_shown:
+		lines.append_array(_game_state.midgame_reveal_lines)
+		_game_state.midgame_reveal_shown = true
+	if map_node.mission_data != null:
+		lines.append_array(map_node.mission_data.pre_briefing_lines)
+	if lines.is_empty():
+		get_tree().change_scene_to_file(map_node.mission_scene_path)
+		return
+	_game_state.pending_briefing_lines = lines
+	_game_state.pending_briefing_next_scene = map_node.mission_scene_path
+	get_tree().change_scene_to_file("res://scenes/menus/briefing_screen.tscn")
 
 func _on_coming_soon_dismissed() -> void:
 	_coming_soon_overlay.visible = false

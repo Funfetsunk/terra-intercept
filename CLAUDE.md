@@ -9,8 +9,9 @@ Terra Intercept is a 2D pixel-art vertical-scrolling bullet hell with twin-stick
 Milestone 1 (vertical slice) — complete (tag `vertical-slice`).
 Milestone 2a (core systems) — complete (tag `milestone-2a`).
 Milestone 2b (London, mission 1) — complete (tag `milestone-2b`).
+Milestone 3 (campaign structure) — complete. All 9 tasks below done. No git tag cut yet — say the word if you want one.
 
-**Now: Milestone 3 (campaign structure), with the 2c art pass running alongside it.**
+**Now: tuning London's difficulty feel**, plus whatever the 2c art pass still needs (see "Rolling art pass" below).
 
 Milestone 3 builds the frame around the mission that already works: saves, the hangar, upgrades, the world map and the story screens. Real art arrives piece by piece while this happens, so 2c is no longer a separate milestone — it's a rolling task list (see "Rolling art pass" below).
 

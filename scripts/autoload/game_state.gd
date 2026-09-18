@@ -13,6 +13,7 @@ signal mission_completed(results: Dictionary)
 @export var max_weapon_level: int = 5
 @export var selected_ship: ShipData
 @export var ship_roster: Array[ShipData] = []
+@export var all_upgrades: Array[Resource] = []
 @export var ordnance: OrdnanceData
 @export var chain_multiplier_max: int = 5
 @export var completion_bonus: int = 1000
@@ -30,6 +31,7 @@ var current_lane: String = ""
 var completed_missions: Array[String] = []
 var banked_tech: int = 0
 var upgrades_owned: Dictionary = {}
+var purchase_ledger: Array[Dictionary] = []
 var difficulty: String = "Normal"
 var restart_section: String = ""
 var tutorial_active: bool = false
@@ -122,7 +124,42 @@ func complete_mission() -> void:
 	banked_tech += mission_tech
 	if not current_mission_name.is_empty() and not completed_missions.has(current_mission_name):
 		completed_missions.append(current_mission_name)
+	purchase_ledger.clear()
 	mission_completed.emit(last_mission_results)
+
+func find_upgrade(id: String) -> UpgradeData:
+	for upgrade: UpgradeData in all_upgrades:
+		if upgrade.id == id:
+			return upgrade
+	return null
+
+func purchase_upgrade(id: String) -> bool:
+	var upgrade: UpgradeData = find_upgrade(id)
+	if upgrade == null:
+		return false
+	if upgrade.unlock_column > current_column:
+		return false
+	var owned_level: int = upgrades_owned.get(id, 0)
+	if owned_level >= upgrade.max_level:
+		return false
+	if banked_tech < upgrade.cost:
+		return false
+	banked_tech -= upgrade.cost
+	upgrades_owned[id] = owned_level + 1
+	purchase_ledger.append({"id": id, "cost": upgrade.cost})
+	return true
+
+func refund_ledger() -> void:
+	for i in range(purchase_ledger.size() - 1, -1, -1):
+		var entry: Dictionary = purchase_ledger[i]
+		var id: String = entry["id"]
+		banked_tech += int(entry["cost"])
+		var owned_level: int = upgrades_owned.get(id, 0) - 1
+		if owned_level <= 0:
+			upgrades_owned.erase(id)
+		else:
+			upgrades_owned[id] = owned_level
+	purchase_ledger.clear()
 
 func _compute_grade(total_score: int) -> String:
 	if total_score >= grade_s_score:

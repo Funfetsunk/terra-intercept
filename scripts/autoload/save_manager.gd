@@ -34,6 +34,7 @@ func begin_new_run(slot: int, ship: ShipData) -> void:
 	_game_state.completed_missions = [] as Array[String]
 	_game_state.banked_tech = 0
 	_game_state.upgrades_owned = {}
+	_game_state.purchase_ledger = [] as Array[Dictionary]
 
 func continue_slot(slot: int) -> SaveData:
 	var data: SaveData = load_slot(slot)
@@ -51,6 +52,7 @@ func continue_slot(slot: int) -> SaveData:
 	_game_state.completed_missions = data.completed_missions.duplicate()
 	_game_state.banked_tech = data.banked_tech
 	_game_state.upgrades_owned = data.upgrades_owned.duplicate()
+	_game_state.purchase_ledger = data.purchase_ledger.duplicate()
 	return data
 
 func delete_slot(slot: int) -> void:
@@ -74,6 +76,7 @@ func _on_mission_completed(results: Dictionary) -> void:
 	data.completed_missions = _game_state.completed_missions.duplicate()
 	data.banked_tech = _game_state.banked_tech
 	data.upgrades_owned = _game_state.upgrades_owned.duplicate()
+	data.purchase_ledger = _game_state.purchase_ledger.duplicate()
 	data.last_saved_unix_time = int(Time.get_unix_time_from_system())
 	var mission_name: String = _game_state.current_mission_name
 	if not mission_name.is_empty():

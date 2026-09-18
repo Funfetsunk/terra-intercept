@@ -54,6 +54,11 @@ var _active_special: ShipData = null
 func _ready() -> void:
 	if _game_state.selected_ship != null:
 		data = _game_state.selected_ship
+	_squad = _game_state.ship_roster.filter(func(s: ShipData) -> bool: return s != data)
+	if _squad.is_empty():
+		_squad = [data]
+	data = data.duplicate()
+	_apply_upgrades()
 	_spawn_origin = global_position
 	shield_current = data.shield_max
 	hull_current = data.hull_max
@@ -66,10 +71,16 @@ func _ready() -> void:
 	special_charges_changed.emit(special_charges, data.special_charge_max)
 	special_progress_changed.emit(_special_progress)
 	ordnance_ammo_changed.emit(_game_state.ordnance_ammo)
-	_squad = _game_state.ship_roster.filter(func(s: ShipData) -> bool: return s != data)
-	if _squad.is_empty():
-		_squad = [data]
 	squad_selection_changed.emit(_squad[_squad_index])
+
+func _apply_upgrades() -> void:
+	for id: String in _game_state.upgrades_owned.keys():
+		var level: int = _game_state.upgrades_owned[id]
+		var upgrade: UpgradeData = _game_state.find_upgrade(id)
+		if upgrade == null or upgrade.stat_name.is_empty():
+			continue
+		var current_value: float = data.get(upgrade.stat_name)
+		data.set(upgrade.stat_name, current_value + upgrade.value_per_level * level)
 
 func _exit_tree() -> void:
 	_bullets.unregister_player()

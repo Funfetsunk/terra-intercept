@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://c28nf0r125pyw"]
+
+[ext_resource type="Script" uid="uid://bsd2c4vqvxcyc" path="res://scripts/resources/upgrade_data.gd" id="1_bmubo"]
+
+[resource]
+script = ExtResource("1_bmubo")
+id = "special_meter_rate"
+upgrade_name = "Special Meter Rate"
+description = "Charges the special meter faster from damage dealt."
+cost = 30
+stat_name = "special_charge_per_damage"
+value_per_level = 0.01
+max_level = 3
+unlock_column = 2

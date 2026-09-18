@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://ctp80w1forxtg"]
+
+[ext_resource type="Script" uid="uid://bsd2c4vqvxcyc" path="res://scripts/resources/upgrade_data.gd" id="1_q0mrb"]
+
+[resource]
+script = ExtResource("1_q0mrb")
+id = "stronger_shields"
+upgrade_name = "Stronger Shields"
+description = "Adds one point of maximum shield."
+cost = 20
+stat_name = "shield_max"
+value_per_level = 1.0
+max_level = 3

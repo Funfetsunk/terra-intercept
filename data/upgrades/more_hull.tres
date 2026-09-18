@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://ctramuajawwt1"]
+
+[ext_resource type="Script" uid="uid://bsd2c4vqvxcyc" path="res://scripts/resources/upgrade_data.gd" id="1_xeave"]
+
+[resource]
+script = ExtResource("1_xeave")
+id = "more_hull"
+upgrade_name = "More Hull"
+description = "Adds one point of maximum hull."
+cost = 20
+stat_name = "hull_max"
+value_per_level = 1.0
+max_level = 3

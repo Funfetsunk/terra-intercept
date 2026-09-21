@@ -89,9 +89,12 @@ func load_settings() -> void:
 	high_contrast_bullets = config.get_value("display", "high_contrast_bullets", high_contrast_bullets)
 	difficulty = config.get_value("gameplay", "difficulty", difficulty)
 	for action: String in REMAPPABLE_ACTIONS:
-		var event: InputEvent = config.get_value("bindings", action, null)
-		if event != null:
-			InputMap.action_erase_events(action)
+		var stored: Variant = config.get_value("bindings", action, null)
+		if stored == null:
+			continue
+		var events: Array = stored if stored is Array else [stored]
+		InputMap.action_erase_events(action)
+		for event: InputEvent in events:
 			InputMap.action_add_event(action, event)
 
 func save_settings() -> void:
@@ -103,5 +106,5 @@ func save_settings() -> void:
 	for action: String in REMAPPABLE_ACTIONS:
 		var events: Array = InputMap.action_get_events(action)
 		if not events.is_empty():
-			config.set_value("bindings", action, events[0])
+			config.set_value("bindings", action, events)
 	config.save(SETTINGS_PATH)

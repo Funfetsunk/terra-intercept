@@ -11,9 +11,17 @@ layout_mode = 0
 mouse_filter = 2
 
 [node name="Swatch" type="ColorRect" parent="VBoxContainer" unique_id=1237554311]
-custom_minimum_size = Vector2(48, 48)
+custom_minimum_size = Vector2(72, 72)
 layout_mode = 2
 mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="Art" type="TextureRect" parent="VBoxContainer/Swatch" unique_id=24328964]
+texture_filter = 1
+custom_minimum_size = Vector2(72, 72)
+layout_mode = 0
+offset_right = 72.0
+offset_bottom = 72.0
 
 [node name="NameLabel" type="Label" parent="VBoxContainer" unique_id=1890638275]
 layout_mode = 2

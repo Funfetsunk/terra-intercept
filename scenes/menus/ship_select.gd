@@ -9,6 +9,15 @@ func _ready() -> void:
 			var entry: ShipSelectEntry = child as ShipSelectEntry
 			entry.ship_chosen.connect(_on_ship_chosen)
 			entries.append(entry)
+	var max_speed: float = 0.0
+	var max_shield: float = 0.0
+	var max_hull: float = 0.0
+	for entry: ShipSelectEntry in entries:
+		max_speed = max(max_speed, entry.ship.move_speed)
+		max_shield = max(max_shield, entry.ship.shield_max)
+		max_hull = max(max_hull, entry.ship.hull_max)
+	for entry: ShipSelectEntry in entries:
+		entry.set_stat_ratios(entry.ship.move_speed / max_speed, entry.ship.shield_max / max_shield, entry.ship.hull_max / max_hull)
 	for i in range(entries.size()):
 		var prev_entry: ShipSelectEntry = entries[wrapi(i - 1, 0, entries.size())]
 		var next_entry: ShipSelectEntry = entries[wrapi(i + 1, 0, entries.size())]

@@ -30,5 +30,87 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="TraitsLabel" type="Label" parent="VBoxContainer" unique_id=936772512]
+custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
 autowrap_mode = 3
+
+[node name="StatsRow" type="HBoxContainer" parent="VBoxContainer" unique_id=1259779762]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/StatsRow" unique_id=305534337]
+texture_filter = 1
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="StatBars" type="VBoxContainer" parent="VBoxContainer/StatsRow" unique_id=1195336417]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="SpeedRow" type="HBoxContainer" parent="VBoxContainer/StatsRow/StatBars" unique_id=33683628]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/StatsRow/StatBars/SpeedRow" unique_id=1243655596]
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+text = "SPD"
+
+[node name="Track" type="ColorRect" parent="VBoxContainer/StatsRow/StatBars/SpeedRow" unique_id=1887929081]
+custom_minimum_size = Vector2(40, 4)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+color = Color(0.2, 0.2, 0.25, 1)
+
+[node name="Fill" type="ColorRect" parent="VBoxContainer/StatsRow/StatBars/SpeedRow/Track" unique_id=539979678]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 4.0
+color = Color(0.4, 0.9, 1, 1)
+
+[node name="ShieldRow" type="HBoxContainer" parent="VBoxContainer/StatsRow/StatBars" unique_id=1366329633]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/StatsRow/StatBars/ShieldRow" unique_id=224362957]
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+text = "SHD"
+
+[node name="Track" type="ColorRect" parent="VBoxContainer/StatsRow/StatBars/ShieldRow" unique_id=1238089177]
+custom_minimum_size = Vector2(40, 4)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+color = Color(0.2, 0.2, 0.25, 1)
+
+[node name="Fill" type="ColorRect" parent="VBoxContainer/StatsRow/StatBars/ShieldRow/Track" unique_id=350061664]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 4.0
+color = Color(0.4, 0.9, 1, 1)
+
+[node name="HullRow" type="HBoxContainer" parent="VBoxContainer/StatsRow/StatBars" unique_id=1148706737]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/StatsRow/StatBars/HullRow" unique_id=1544834069]
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+text = "HUL"
+
+[node name="Track" type="ColorRect" parent="VBoxContainer/StatsRow/StatBars/HullRow" unique_id=346078697]
+custom_minimum_size = Vector2(40, 4)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+color = Color(0.2, 0.2, 0.25, 1)
+
+[node name="Fill" type="ColorRect" parent="VBoxContainer/StatsRow/StatBars/HullRow/Track" unique_id=131050542]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 4.0
+color = Color(0.4, 0.9, 1, 1)

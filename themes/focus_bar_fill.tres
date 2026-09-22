@@ -1,0 +1,7 @@
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://gg2p88acogtg"]
+
+[ext_resource type="Texture2D" uid="uid://d28p42k42jvdy" path="res://art/sprites/hud/focus_bar_tile.png" id="1_f8ump"]
+
+[resource]
+texture = ExtResource("1_f8ump")
+axis_stretch_horizontal = 1

@@ -4,6 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://dtiaoh8g43jgs" path="res://art/sprites/hud/panel_left.png" id="2_0bx4p"]
 [ext_resource type="StyleBox" uid="uid://bkryhsaneg3gp" path="res://themes/shield_bar_fill.tres" id="2_c45xl"]
 [ext_resource type="StyleBox" uid="uid://bnowvdk3w53iw" path="res://themes/hull_bar_fill.tres" id="3_0bx4p"]
+[ext_resource type="Texture2D" uid="uid://swc5vwv6ptqs" path="res://art/sprites/hud/panel_right.png" id="5_mgtrf"]
+[ext_resource type="StyleBox" uid="uid://gg2p88acogtg" path="res://themes/focus_bar_fill.tres" id="5_n56i7"]
+[ext_resource type="Texture2D" uid="uid://ju07r8s6ydj6" path="res://art/sprites/hud/player_lives.png" id="6_mq0y1"]
 
 [node name="HUD" type="CanvasLayer" unique_id=1725720245]
 script = ExtResource("1_48c2t")
@@ -49,6 +52,43 @@ offset_bottom = 68.0
 theme_override_styles/fill = ExtResource("3_0bx4p")
 show_percentage = false
 
+[node name="FocusBar" type="ProgressBar" parent="HUDRoot/LeftPanelBg" unique_id=2050544513]
+custom_minimum_size = Vector2(65, 10)
+layout_mode = 0
+offset_left = 46.0
+offset_top = 87.0
+offset_right = 111.0
+offset_bottom = 97.0
+theme_override_styles/fill = ExtResource("5_n56i7")
+show_percentage = false
+
+[node name="LifeBadge1" type="TextureRect" parent="HUDRoot/LeftPanelBg" unique_id=1414212193]
+texture_filter = 1
+layout_mode = 0
+offset_left = 15.0
+offset_top = 112.0
+offset_right = 51.0
+offset_bottom = 141.0
+texture = ExtResource("6_mq0y1")
+
+[node name="LifeBadge2" type="TextureRect" parent="HUDRoot/LeftPanelBg" unique_id=1990140494]
+texture_filter = 1
+layout_mode = 0
+offset_left = 52.0
+offset_top = 112.0
+offset_right = 88.0
+offset_bottom = 141.0
+texture = ExtResource("6_mq0y1")
+
+[node name="LifeBadge3" type="TextureRect" parent="HUDRoot/LeftPanelBg" unique_id=748545060]
+texture_filter = 1
+layout_mode = 0
+offset_left = 89.0
+offset_top = 112.0
+offset_right = 125.0
+offset_bottom = 141.0
+texture = ExtResource("6_mq0y1")
+
 [node name="RightPanelBg" type="ColorRect" parent="HUDRoot" unique_id=57213141]
 layout_mode = 0
 offset_left = 500.0
@@ -57,21 +97,24 @@ offset_bottom = 360.0
 mouse_filter = 2
 color = Color(0.08, 0.08, 0.08, 1)
 
+[node name="Art" type="TextureRect" parent="HUDRoot/RightPanelBg" unique_id=1258334733]
+texture_filter = 1
+layout_mode = 0
+offset_right = 140.0
+offset_bottom = 360.0
+texture = ExtResource("5_mgtrf")
+
 [node name="LeftPanel" type="VBoxContainer" parent="HUDRoot" unique_id=2079910361]
 layout_mode = 0
 offset_left = 8.0
-offset_top = 76.0
+offset_top = 148.0
 offset_right = 132.0
-offset_bottom = 368.0
+offset_bottom = 440.0
 
 [node name="LivesLabel" type="Label" parent="HUDRoot/LeftPanel" unique_id=1862482661]
+visible = false
 layout_mode = 2
 text = "Lives: 3"
-
-[node name="FocusBar" type="ProgressBar" parent="HUDRoot/LeftPanel" unique_id=2050544513]
-custom_minimum_size = Vector2(120, 12)
-layout_mode = 2
-show_percentage = false
 
 [node name="OrdnanceLabel" type="Label" parent="HUDRoot/LeftPanel" unique_id=2060462217]
 layout_mode = 2

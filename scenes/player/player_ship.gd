@@ -33,6 +33,7 @@ var _squad: Array[ShipData] = []
 var _squad_index: int = 0
 
 var _spawn_origin: Vector2 = Vector2.ZERO
+var _sprite_half_extents: Vector2 = Vector2.ZERO
 var _velocity: Vector2 = Vector2.ZERO
 var _shield_recharge_timer: float = 0.0
 var _hull_invincible_timer: float = 0.0
@@ -68,6 +69,8 @@ func _ready() -> void:
 		bank_frame_slight_right = data.icon_sprite
 		bank_frame_full_right = data.icon_sprite
 		$Sprite.texture = data.icon_sprite
+	if $Sprite.texture != null:
+		_sprite_half_extents = $Sprite.texture.get_size() * 0.5
 	_spawn_origin = global_position
 	shield_current = data.shield_max
 	hull_current = data.hull_max
@@ -119,12 +122,16 @@ func _process_movement(delta: float) -> void:
 	_velocity = _velocity.move_toward(target_velocity, data.move_acceleration * delta)
 	global_position += _velocity * delta
 	var bounds: Rect2 = _playfield.rect
-	if global_position.x < bounds.position.x or global_position.x > bounds.end.x:
+	var min_x: float = bounds.position.x + _sprite_half_extents.x
+	var max_x: float = bounds.end.x - _sprite_half_extents.x
+	var min_y: float = bounds.position.y + _sprite_half_extents.y
+	var max_y: float = bounds.end.y - _sprite_half_extents.y
+	if global_position.x < min_x or global_position.x > max_x:
 		_velocity.x = 0.0
-	if global_position.y < bounds.position.y or global_position.y > bounds.end.y:
+	if global_position.y < min_y or global_position.y > max_y:
 		_velocity.y = 0.0
-	global_position.x = clamp(global_position.x, bounds.position.x, bounds.end.x)
-	global_position.y = clamp(global_position.y, bounds.position.y, bounds.end.y)
+	global_position.x = clamp(global_position.x, min_x, max_x)
+	global_position.y = clamp(global_position.y, min_y, max_y)
 	_update_bank_frame(move_vec.x)
 
 func _update_bank_frame(x_input: float) -> void:

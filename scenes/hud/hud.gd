@@ -6,7 +6,12 @@ extends CanvasLayer
 @onready var _lives_label: Label = $HUDRoot/LeftPanel/LivesLabel
 @onready var _shield_bar: ProgressBar = $HUDRoot/LeftPanelBg/ShieldBar
 @onready var _hull_bar: ProgressBar = $HUDRoot/LeftPanelBg/HullBar
-@onready var _focus_bar: ProgressBar = $HUDRoot/LeftPanel/FocusBar
+@onready var _focus_bar: ProgressBar = $HUDRoot/LeftPanelBg/FocusBar
+@onready var _life_badges: Array[TextureRect] = [
+	$HUDRoot/LeftPanelBg/LifeBadge1,
+	$HUDRoot/LeftPanelBg/LifeBadge2,
+	$HUDRoot/LeftPanelBg/LifeBadge3,
+]
 @onready var _special_label: Label = $HUDRoot/RightPanel/SpecialChargesLabel
 @onready var _special_progress_bar: ProgressBar = $HUDRoot/RightPanel/SpecialProgressBar
 @onready var _squad_label: Label = $HUDRoot/RightPanel/SquadLabel
@@ -41,6 +46,7 @@ func bind_player(player: Node) -> void:
 	_game_state.score_changed.connect(_on_score_changed)
 	_game_state.kill_chain_changed.connect(_on_kill_chain_changed)
 	_lives_label.text = "Lives: %d" % _game_state.lives_remaining
+	_update_life_badges(_game_state.lives_remaining)
 	_tech_label.text = "Tech: %d" % _game_state.mission_tech
 	_score_label.text = "Score: %d" % _game_state.score
 	_chain_label.text = "Chain: x%d" % _game_state.kill_chain
@@ -77,6 +83,11 @@ func _on_ordnance_ammo_changed(current: int) -> void:
 
 func _on_life_lost(lives_remaining: int) -> void:
 	_lives_label.text = "Lives: %d" % lives_remaining
+	_update_life_badges(lives_remaining)
+
+func _update_life_badges(lives_remaining: int) -> void:
+	for i in range(_life_badges.size()):
+		_life_badges[i].visible = i < lives_remaining
 
 func _on_tech_changed(current: int) -> void:
 	_tech_label.text = "Tech: %d" % current

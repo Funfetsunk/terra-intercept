@@ -4,8 +4,8 @@ extends CanvasLayer
 @export var special_fire_flash_duration: float = 0.4
 
 @onready var _lives_label: Label = $HUDRoot/LeftPanel/LivesLabel
-@onready var _shield_bar: ProgressBar = $HUDRoot/LeftPanel/ShieldBar
-@onready var _hull_bar: ProgressBar = $HUDRoot/LeftPanel/HullBar
+@onready var _shield_bar: ProgressBar = $HUDRoot/LeftPanelBg/ShieldBar
+@onready var _hull_bar: ProgressBar = $HUDRoot/LeftPanelBg/HullBar
 @onready var _focus_bar: ProgressBar = $HUDRoot/LeftPanel/FocusBar
 @onready var _special_label: Label = $HUDRoot/RightPanel/SpecialChargesLabel
 @onready var _special_progress_bar: ProgressBar = $HUDRoot/RightPanel/SpecialProgressBar
@@ -30,8 +30,12 @@ func bind_player(player: Node) -> void:
 		var armed: ShipData = player.get_armed_squad_ship()
 		if armed != null:
 			_on_squad_selection_changed(armed)
+	_on_shield_changed(player.shield_current, player.data.shield_max)
+	_on_hull_changed(player.hull_current, player.data.hull_max)
+	_on_focus_changed(player.get_focus_meter(), player.data.focus_meter_max)
 	_on_special_changed(player.special_charges, player.data.special_charge_max)
 	_game_state = get_node("/root/GameState")
+	_on_ordnance_ammo_changed(_game_state.ordnance_ammo)
 	_game_state.life_lost.connect(_on_life_lost)
 	_game_state.tech_changed.connect(_on_tech_changed)
 	_game_state.score_changed.connect(_on_score_changed)

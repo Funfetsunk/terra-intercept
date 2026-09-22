@@ -1,0 +1,7 @@
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://bkryhsaneg3gp"]
+
+[ext_resource type="Texture2D" uid="uid://crimcb708ym5t" path="res://art/sprites/hud/shield_bar_tile.png" id="1_a23mu"]
+
+[resource]
+texture = ExtResource("1_a23mu")
+axis_stretch_horizontal = 1

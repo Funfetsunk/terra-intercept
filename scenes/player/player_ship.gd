@@ -346,3 +346,6 @@ func get_squad() -> Array[ShipData]:
 
 func get_hitbox_radius() -> float:
 	return data.normal_hitbox_radius
+
+func get_focus_meter() -> float:
+	return _focus_meter

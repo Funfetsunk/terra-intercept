@@ -61,6 +61,13 @@ func _ready() -> void:
 		_squad = [data]
 	data = data.duplicate()
 	_apply_upgrades()
+	if data.icon_sprite != null:
+		bank_frame_full_left = data.icon_sprite
+		bank_frame_slight_left = data.icon_sprite
+		bank_frame_neutral = data.icon_sprite
+		bank_frame_slight_right = data.icon_sprite
+		bank_frame_full_right = data.icon_sprite
+		$Sprite.texture = data.icon_sprite
 	_spawn_origin = global_position
 	shield_current = data.shield_max
 	hull_current = data.hull_max

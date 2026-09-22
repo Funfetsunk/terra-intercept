@@ -121,12 +121,11 @@ Give each pickup a 2–4 frame shimmer or rotation.
 |---|---|
 | Side panel frames (left and right) | 140×360 each |
 | Pilot portraits (Dash, Bucky, Max, Tammy) and commander (Steel) | 64×64, with 3–4 expressions each (neutral, determined, hurt, happy) |
-| Shield and hull segments | 8×8 per segment, or a bar of about 100×8 |
+| Shield / hull / focus bar tile | 5×10 (4px opaque art + a 1px fully-transparent trailing column). Tiled by the engine to fill a 65×10 track (13 tiles), the same convention for all three bars. |
 | Special charge icon | 12×12 |
 | Squad-mate selector icons | 16×16 per ship |
 | Ordnance type icons | 12×12 |
-| Lives icon | 12×12 |
-| Focus meter | A bar of about 100×6 |
+| Life badge | 36×29, one badge per life. Shown side by side with a 1px gap (37px pitch); the rightmost is removed first as lives are lost. |
 
 ## Menus and screens
 

@@ -15,6 +15,7 @@ radio_intro = "Bucky here. Guns hot, say the word."
 select_art = ExtResource("3_f0uc6")
 icon_sprite = ExtResource("2_o7vsq")
 move_speed = 134.0
+move_acceleration = 2000.0
 fire_rate = 12.0
 bullet_speed = 280.0
 bullet_texture = ExtResource("1_vph8y")

@@ -15,6 +15,7 @@ radio_intro = "Dash, inbound. Watch this."
 select_art = ExtResource("3_6oecn")
 icon_sprite = ExtResource("2_i5tud")
 move_speed = 182.0
+move_acceleration = 2000.0
 shield_max = 4.0
 hull_max = 2.0
 bullet_speed = 320.0

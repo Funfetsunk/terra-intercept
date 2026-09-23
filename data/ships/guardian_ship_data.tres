@@ -15,6 +15,7 @@ radio_intro = "Max on station. I've got you."
 select_art = ExtResource("3_ruij8")
 icon_sprite = ExtResource("2_f36ja")
 move_speed = 118.0
+move_acceleration = 2000.0
 shield_max = 10.0
 shield_recharge_rate = 2.5
 hull_max = 4.0

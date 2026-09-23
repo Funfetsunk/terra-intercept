@@ -15,5 +15,6 @@ radio_intro = "Tammy, standing by. Just say when."
 select_art = ExtResource("3_qi20r")
 icon_sprite = ExtResource("2_3hb8c")
 move_speed = 139.0
+move_acceleration = 2000.0
 bullet_texture = ExtResource("1_r1l1u")
 special_shape = 3

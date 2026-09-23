@@ -1,11 +1,11 @@
-[gd_resource type="Resource" script_class="TutorialBeat" format=3]
+[gd_resource type="Resource" script_class="TutorialBeat" format=3 uid="uid://cn5psmgdjv5v1"]
 
-[ext_resource type="Script" path="res://scripts/resources/tutorial_beat.gd" id="1"]
+[ext_resource type="Script" uid="uid://dlbnckac0upbn" path="res://scripts/resources/tutorial_beat.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://b0hj6cdj2nm4c" path="res://art/sprites/portraits/steel_neutral.png" id="1_wc6lm"]
 
 [resource]
 script = ExtResource("1")
 speaker_name = "Commander Steel"
 portrait_color = Color(0.9, 0.6, 0.2, 1)
+portrait = ExtResource("1_wc6lm")
 text = "Stop admiring the paint job. Get her moving — left stick, or WASD."
-duration = 4.0
-action = 0

@@ -1,9 +1,11 @@
 [gd_resource type="Resource" script_class="BriefingLine" format=3 uid="uid://bn1cnu3lgyj80"]
 
 [ext_resource type="Script" uid="uid://djsculn7twyp2" path="res://scripts/resources/briefing_line.gd" id="1_aca5n"]
+[ext_resource type="Texture2D" uid="uid://cfki4eoix83gv" path="res://art/sprites/portraits/steel_determined.png" id="1_xl6n5"]
 
 [resource]
 script = ExtResource("1_aca5n")
 speaker_name = "Steel"
 portrait_color = Color(0.85, 0.65, 0.25, 1)
+portrait = ExtResource("1_xl6n5")
 text = "Listen up. London's under attack -- first contact, first response. You're it."

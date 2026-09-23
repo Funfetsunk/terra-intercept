@@ -23,6 +23,12 @@ offset_top = 110.0
 offset_right = 124.0
 offset_bottom = 174.0
 
+[node name="Art" type="TextureRect" parent="PortraitBox" unique_id=489676673]
+texture_filter = 1
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+
 [node name="SpeakerLabel" type="Label" parent="." unique_id=2014377701]
 layout_mode = 0
 offset_left = 140.0

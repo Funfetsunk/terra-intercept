@@ -3,4 +3,5 @@ class_name BriefingLine
 
 @export var speaker_name: String = ""
 @export var portrait_color: Color = Color.WHITE
+@export var portrait: Texture2D
 @export var text: String = ""

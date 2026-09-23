@@ -7,7 +7,7 @@ script = ExtResource("1_plqrs")
 
 [node name="Panel" type="ColorRect" parent="." unique_id=101237651]
 offset_left = 40.0
-offset_top = 288.0
+offset_top = 264.0
 offset_right = 600.0
 offset_bottom = 344.0
 mouse_filter = 2
@@ -17,25 +17,31 @@ color = Color(0.04, 0.05, 0.1, 0.9)
 layout_mode = 0
 offset_left = 8.0
 offset_top = 8.0
-offset_right = 52.0
-offset_bottom = 52.0
+offset_right = 72.0
+offset_bottom = 72.0
 mouse_filter = 2
+
+[node name="Art" type="TextureRect" parent="Panel/Portrait" unique_id=1692477620]
+texture_filter = 1
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
 
 [node name="SpeakerLabel" type="Label" parent="Panel" unique_id=1111111014]
 layout_mode = 0
-offset_left = 60.0
-offset_top = 4.0
+offset_left = 80.0
+offset_top = 8.0
 offset_right = 552.0
-offset_bottom = 18.0
+offset_bottom = 22.0
 theme_override_font_sizes/font_size = 9
 text = "Speaker"
 
 [node name="TextLabel" type="Label" parent="Panel" unique_id=1495621868]
 layout_mode = 0
-offset_left = 60.0
-offset_top = 20.0
+offset_left = 80.0
+offset_top = 24.0
 offset_right = 552.0
-offset_bottom = 52.0
+offset_bottom = 72.0
 theme_override_font_sizes/font_size = 8
 text = "Dialogue text"
 autowrap_mode = 3

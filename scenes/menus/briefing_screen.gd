@@ -2,6 +2,7 @@ extends Control
 
 @onready var _game_state: Node = get_node("/root/GameState")
 @onready var _portrait_box: ColorRect = $PortraitBox
+@onready var _portrait_art: TextureRect = $PortraitBox/Art
 @onready var _speaker_label: Label = $SpeakerLabel
 @onready var _text_label: Label = $TextLabel
 @onready var _continue_button: Button = $ContinueButton
@@ -30,6 +31,7 @@ func _show_line(index: int) -> void:
 	_index = index
 	var line: BriefingLine = _lines[index]
 	_portrait_box.color = line.portrait_color
+	_portrait_art.texture = line.portrait
 	_speaker_label.text = line.speaker_name
 	_text_label.text = line.text
 	_continue_button.text = "Continue" if index < _lines.size() - 1 else "Go"

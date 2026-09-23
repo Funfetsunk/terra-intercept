@@ -1,11 +1,12 @@
-[gd_resource type="Resource" script_class="DialogueEntry" format=3]
+[gd_resource type="Resource" script_class="DialogueEntry" format=3 uid="uid://cnalm3yujhs8m"]
 
-[ext_resource type="Script" path="res://scripts/resources/dialogue_entry.gd" id="1"]
+[ext_resource type="Script" uid="uid://cfm1tvmus3d7n" path="res://scripts/resources/dialogue_entry.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://b0hj6cdj2nm4c" path="res://art/sprites/portraits/steel_neutral.png" id="1_lj0v4"]
 
 [resource]
 script = ExtResource("1")
 trigger_time = 2.0
 speaker_name = "Commander Steel"
 portrait_color = Color(0.9, 0.6, 0.2, 1)
+portrait = ExtResource("1_lj0v4")
 text = "Steel here. Systems check clean. Eyes up — we've got company inbound."
-duration = 4.0

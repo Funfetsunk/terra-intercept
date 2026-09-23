@@ -1,11 +1,12 @@
-[gd_resource type="Resource" script_class="TutorialBeat" format=3]
+[gd_resource type="Resource" script_class="TutorialBeat" format=3 uid="uid://dp1obpv3cc8t6"]
 
-[ext_resource type="Script" path="res://scripts/resources/tutorial_beat.gd" id="1"]
+[ext_resource type="Script" uid="uid://dlbnckac0upbn" path="res://scripts/resources/tutorial_beat.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://cfki4eoix83gv" path="res://art/sprites/portraits/steel_determined.png" id="1_2wkfp"]
 
 [resource]
 script = ExtResource("1")
+action = 4
 speaker_name = "Commander Steel"
 portrait_color = Color(0.9, 0.6, 0.2, 1)
+portrait = ExtResource("1_2wkfp")
 text = "Ordnance is on A. Five shots up here, no refills. Make them count."
-duration = 4.0
-action = 4

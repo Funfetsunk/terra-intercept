@@ -11,6 +11,7 @@ enum SpecialShape { VERTICAL_LINE, CONE, CIRCLE, HORIZONTAL_LINE }
 @export var radio_intro: String = ""
 @export var select_art: Texture2D
 @export var icon_sprite: Texture2D
+@export var portrait: Texture2D
 
 @export_group("Movement")
 @export var move_speed: float = 90.0

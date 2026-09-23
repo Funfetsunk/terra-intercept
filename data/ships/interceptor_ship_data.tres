@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://trmgal1ykn3w" path="res://art/placeholder/shumped-asset-pack/atlas/bullet_pill_blue.tres" id="1_vqla0"]
 [ext_resource type="Texture2D" uid="uid://cc6rlnxudu58f" path="res://art/sprites/player_ships/interceptor.png" id="2_i5tud"]
 [ext_resource type="Texture2D" uid="uid://b4uppgorx7u4h" path="res://art/sprites/ship_select/interceptor_select.png" id="3_6oecn"]
+[ext_resource type="Texture2D" uid="uid://cfuvtaribrk6b" path="res://art/sprites/portraits/dash_determined.png" id="3_ndvsn"]
 
 [resource]
 script = ExtResource("1")
@@ -14,6 +15,7 @@ traits_description = "Fast, fragile"
 radio_intro = "Dash, inbound. Watch this."
 select_art = ExtResource("3_6oecn")
 icon_sprite = ExtResource("2_i5tud")
+portrait = ExtResource("3_ndvsn")
 move_speed = 182.0
 move_acceleration = 2000.0
 shield_max = 4.0

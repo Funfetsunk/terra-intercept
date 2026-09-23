@@ -12,7 +12,7 @@ Keep everything within the fixed 32–48 colour palette, and never use the reser
 | Playfield (gameplay) | 360×360 | x 140–500 |
 | Left HUD panel | 140×360 | x 0–140 |
 | Right HUD panel | 140×360 | x 500–640 |
-| Dialogue text box | 360×48 | bottom of the playfield |
+| Dialogue text box | 560×80 | bottom of the screen, spanning from inside the left HUD panel to inside the right HUD panel (not confined to the playfield width) |
 
 The font is Press Start 2P on an **8px grid**, and speaker names in dialogue use 9px. Any text drawn into art (logos aside) should respect that scale.
 
@@ -124,8 +124,8 @@ Give each pickup a 2–4 frame shimmer or rotation.
 | Shield / hull / focus bar tile | 5×10 (4px opaque art + a 1px fully-transparent trailing column). Tiled by the engine to fill a 65×10 track (13 tiles), the same convention for all three bars. |
 | Special charge icon | 12×12 |
 | Squad-mate selector icons | 16×16 per ship |
-| Ordnance type icons | 12×12 |
-| Life badge | 36×29, one badge per life. Shown side by side with a 1px gap (37px pitch); the rightmost is removed first as lives are lost. |
+| Ordnance ammo badge | 36×29. Built as a fixed 2×3 grid (6 slots, one per max ammo) rather than the type-icon concept originally sketched here — a badge is shown or hidden per remaining shot, not per ordnance type. |
+| Lives digit | 23×40. Built as a single-digit numeral display (one sprite sheet, `ui_0`–`ui_9`) rather than the life-badge-per-life concept originally sketched here — one digit texture is swapped to match the current lives count. |
 
 ## Menus and screens
 

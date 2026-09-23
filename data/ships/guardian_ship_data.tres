@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://boquiv061idvy" path="res://scripts/resources/ship_data.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://trmgal1ykn3w" path="res://art/placeholder/shumped-asset-pack/atlas/bullet_pill_blue.tres" id="1_yhuam"]
 [ext_resource type="Texture2D" uid="uid://b6lyksp0jrikm" path="res://art/sprites/player_ships/guardian.png" id="2_f36ja"]
+[ext_resource type="Texture2D" uid="uid://birhtc3lgp5pg" path="res://art/sprites/portraits/max_neutral.png" id="3_a55y1"]
 [ext_resource type="Texture2D" uid="uid://bun7c7pv50deb" path="res://art/sprites/ship_select/guardian_select.png" id="3_ruij8"]
 
 [resource]
@@ -14,6 +15,7 @@ traits_description = "Slower, big shield"
 radio_intro = "Max on station. I've got you."
 select_art = ExtResource("3_ruij8")
 icon_sprite = ExtResource("2_f36ja")
+portrait = ExtResource("3_a55y1")
 move_speed = 118.0
 move_acceleration = 2000.0
 shield_max = 10.0

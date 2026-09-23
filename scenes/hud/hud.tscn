@@ -3,13 +3,24 @@
 [ext_resource type="Script" uid="uid://d0v1ssq1rlq0w" path="res://scenes/hud/hud.gd" id="1_48c2t"]
 [ext_resource type="Texture2D" uid="uid://dtiaoh8g43jgs" path="res://art/sprites/hud/panel_left.png" id="2_0bx4p"]
 [ext_resource type="StyleBox" uid="uid://bkryhsaneg3gp" path="res://themes/shield_bar_fill.tres" id="2_c45xl"]
+[ext_resource type="Texture2D" uid="uid://xywwuoawtkff" path="res://art/sprites/hud/ui_0.png" id="2_nsgyl"]
 [ext_resource type="StyleBox" uid="uid://bnowvdk3w53iw" path="res://themes/hull_bar_fill.tres" id="3_0bx4p"]
+[ext_resource type="Texture2D" uid="uid://dau4smuwhjxth" path="res://art/sprites/hud/ui_1.png" id="3_jjjd2"]
+[ext_resource type="Texture2D" uid="uid://d0padkxhtyymo" path="res://art/sprites/hud/ui_2.png" id="4_8vblv"]
+[ext_resource type="Texture2D" uid="uid://c1375tlcisrfw" path="res://art/sprites/hud/ui_3.png" id="5_ccb21"]
 [ext_resource type="Texture2D" uid="uid://swc5vwv6ptqs" path="res://art/sprites/hud/panel_right.png" id="5_mgtrf"]
 [ext_resource type="StyleBox" uid="uid://gg2p88acogtg" path="res://themes/focus_bar_fill.tres" id="5_n56i7"]
-[ext_resource type="Texture2D" uid="uid://ju07r8s6ydj6" path="res://art/sprites/hud/player_lives.png" id="6_mq0y1"]
+[ext_resource type="Texture2D" uid="uid://c8700dx21ljde" path="res://art/sprites/hud/player_ordinance.png" id="6_n56i7"]
+[ext_resource type="Texture2D" uid="uid://balhi00ayces2" path="res://art/sprites/hud/ui_4.png" id="6_udak2"]
+[ext_resource type="Texture2D" uid="uid://d2leqpf167uel" path="res://art/sprites/hud/ui_5.png" id="7_7pnlf"]
+[ext_resource type="Texture2D" uid="uid://d37bdwof6mqj7" path="res://art/sprites/hud/ui_6.png" id="8_a0exy"]
+[ext_resource type="Texture2D" uid="uid://bcbxcmtyat7dr" path="res://art/sprites/hud/ui_7.png" id="9_bluaa"]
+[ext_resource type="Texture2D" uid="uid://b35ljanheyv0t" path="res://art/sprites/hud/ui_8.png" id="10_bbrgr"]
+[ext_resource type="Texture2D" uid="uid://b01rvtuse4jua" path="res://art/sprites/hud/ui_9.png" id="11_3fmw6"]
 
 [node name="HUD" type="CanvasLayer" unique_id=1725720245]
 script = ExtResource("1_48c2t")
+digit_textures = Array[Texture2D]([ExtResource("2_nsgyl"), ExtResource("3_jjjd2"), ExtResource("4_8vblv"), ExtResource("5_ccb21"), ExtResource("6_udak2"), ExtResource("7_7pnlf"), ExtResource("8_a0exy"), ExtResource("9_bluaa"), ExtResource("10_bbrgr"), ExtResource("11_3fmw6")])
 
 [node name="HUDRoot" type="Control" parent="." unique_id=1802526821]
 layout_mode = 3
@@ -62,32 +73,67 @@ offset_bottom = 97.0
 theme_override_styles/fill = ExtResource("5_n56i7")
 show_percentage = false
 
-[node name="LifeBadge1" type="TextureRect" parent="HUDRoot/LeftPanelBg" unique_id=1414212193]
+[node name="OrdnanceBadgeR1Left" type="TextureRect" parent="HUDRoot/LeftPanelBg" unique_id=924294176]
 texture_filter = 1
 layout_mode = 0
 offset_left = 15.0
 offset_top = 112.0
 offset_right = 51.0
 offset_bottom = 141.0
-texture = ExtResource("6_mq0y1")
+texture = ExtResource("6_n56i7")
 
-[node name="LifeBadge2" type="TextureRect" parent="HUDRoot/LeftPanelBg" unique_id=1990140494]
+[node name="OrdnanceBadgeR1Mid" type="TextureRect" parent="HUDRoot/LeftPanelBg" unique_id=418025604]
 texture_filter = 1
 layout_mode = 0
 offset_left = 52.0
 offset_top = 112.0
 offset_right = 88.0
 offset_bottom = 141.0
-texture = ExtResource("6_mq0y1")
+texture = ExtResource("6_n56i7")
 
-[node name="LifeBadge3" type="TextureRect" parent="HUDRoot/LeftPanelBg" unique_id=748545060]
+[node name="OrdnanceBadgeR1Right" type="TextureRect" parent="HUDRoot/LeftPanelBg" unique_id=2004703702]
 texture_filter = 1
 layout_mode = 0
 offset_left = 89.0
 offset_top = 112.0
 offset_right = 125.0
 offset_bottom = 141.0
-texture = ExtResource("6_mq0y1")
+texture = ExtResource("6_n56i7")
+
+[node name="OrdnanceBadgeR2Left" type="TextureRect" parent="HUDRoot/LeftPanelBg" unique_id=311664719]
+texture_filter = 1
+layout_mode = 0
+offset_left = 15.0
+offset_top = 142.0
+offset_right = 51.0
+offset_bottom = 171.0
+texture = ExtResource("6_n56i7")
+
+[node name="OrdnanceBadgeR2Mid" type="TextureRect" parent="HUDRoot/LeftPanelBg" unique_id=1342668645]
+texture_filter = 1
+layout_mode = 0
+offset_left = 52.0
+offset_top = 142.0
+offset_right = 88.0
+offset_bottom = 171.0
+texture = ExtResource("6_n56i7")
+
+[node name="OrdnanceBadgeR2Right" type="TextureRect" parent="HUDRoot/LeftPanelBg" unique_id=1099957097]
+texture_filter = 1
+layout_mode = 0
+offset_left = 89.0
+offset_top = 142.0
+offset_right = 125.0
+offset_bottom = 171.0
+texture = ExtResource("6_n56i7")
+
+[node name="LivesDigit" type="TextureRect" parent="HUDRoot/LeftPanelBg" unique_id=1784164466]
+texture_filter = 1
+layout_mode = 0
+offset_left = 59.0
+offset_top = 241.0
+offset_right = 82.0
+offset_bottom = 281.0
 
 [node name="RightPanelBg" type="ColorRect" parent="HUDRoot" unique_id=57213141]
 layout_mode = 0
@@ -107,9 +153,9 @@ texture = ExtResource("5_mgtrf")
 [node name="LeftPanel" type="VBoxContainer" parent="HUDRoot" unique_id=2079910361]
 layout_mode = 0
 offset_left = 8.0
-offset_top = 148.0
+offset_top = 180.0
 offset_right = 132.0
-offset_bottom = 440.0
+offset_bottom = 236.0
 
 [node name="LivesLabel" type="Label" parent="HUDRoot/LeftPanel" unique_id=1862482661]
 visible = false
@@ -117,6 +163,7 @@ layout_mode = 2
 text = "Lives: 3"
 
 [node name="OrdnanceLabel" type="Label" parent="HUDRoot/LeftPanel" unique_id=2060462217]
+visible = false
 layout_mode = 2
 text = "Ordnance: 5/5"
 

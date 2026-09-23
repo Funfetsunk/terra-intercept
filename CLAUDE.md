@@ -38,7 +38,7 @@ Real art arrives piece by piece while milestone 3 is being built.
 - **Never interrupt the current task** to swap art in. Finish the task, commit, then do the art swap as its own small task and commit.
 - **Follow `docs/art-specs.md`** for every size. If an incoming asset doesn't match the spec, say so and ask rather than rescaling: pixel art must never be scaled by fractions.
 - **Hitboxes and collision shapes don't change** when art is swapped in. A bigger sprite doesn't mean a bigger hitbox.
-- **Palette:** the fixed 32–48 colour palette, with bullet colours reserved and never used in backgrounds. Enforced in practice: a submitted title-screen background (`art/sprites/title/title_background.png`) was smooth-shaded/anti-aliased painted art, clearly outside the palette and off the project's flat pixel-art look — flagged rather than silently accepted, wired in only as an uncommitted live preview on request, and left out of every commit pending a pixel-art redo at the same path/name.
+- **Palette:** the fixed 32–48 colour palette, with bullet colours reserved and never used in backgrounds. Enforced in practice: a submitted title-screen background (`art/sprites/title/title_background.png`) was smooth-shaded/anti-aliased painted art, clearly outside the palette and off the project's flat pixel-art look — flagged rather than silently accepted, wired in as a live preview, and held out of commits for a session. Committed on request as a temporary placeholder (2026-09-23) so it's not just a local file — it still needs a pixel-art redo at the same path/name before art-pass sign-off.
 - **Placeholder art from asset packs** lives in `art/placeholder/<pack-name>/`, each folder with a note on its source and licence. It never mixes with the real art in `art/sprites/`.
 
 **Pipeline setup (task 1, done):**
@@ -60,7 +60,7 @@ Swap-in checklist, updated as art lands (all still placeholder unless marked):
 - [ ] Explosions and special effects
 - [ ] Portraits: Dash, Bucky, Max, Tammy, Steel
 - [ ] HUD panel frames and icons — **in progress:** left panel (`panel_left.png`), shield/hull/focus bars, and the life badges are real art and fully wired. Right panel (`panel_right.png`) is real-sized but still blank placeholder content.
-- [ ] Menu, hangar and map screens — **in progress:** ship-select screen has real art (72×72 select art, 24×24 icon, stat bars) for all four ships. Title screen background art exists (`art/sprites/title/`) but is rejected pending a pixel-art redo — see the palette note below. Hangar, map, results and other menu backgrounds are still placeholder.
+- [ ] Menu, hangar and map screens — **in progress:** ship-select screen has real art (72×72 select art, 24×24 icon, stat bars) for all four ships. Title screen background art (`art/sprites/title/`) is committed as a temporary placeholder — off-palette, pending a pixel-art redo at the same path/name — see the palette note below. Hangar, map, results and other menu backgrounds are still placeholder.
 
 ## What already exists
 

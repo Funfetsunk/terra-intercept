@@ -2,15 +2,22 @@ extends CanvasLayer
 
 @export var special_fire_flash_color: Color = Color(1.0, 1.0, 0.3, 1.0)
 @export var special_fire_flash_duration: float = 0.4
+@export var digit_textures: Array[Texture2D] = []
+@export var lives_digit_box_center_x: float = 69.5
+@export var lives_digit_box_top: float = 241.0
 
 @onready var _lives_label: Label = $HUDRoot/LeftPanel/LivesLabel
+@onready var _lives_digit: TextureRect = $HUDRoot/LeftPanelBg/LivesDigit
 @onready var _shield_bar: ProgressBar = $HUDRoot/LeftPanelBg/ShieldBar
 @onready var _hull_bar: ProgressBar = $HUDRoot/LeftPanelBg/HullBar
 @onready var _focus_bar: ProgressBar = $HUDRoot/LeftPanelBg/FocusBar
-@onready var _life_badges: Array[TextureRect] = [
-	$HUDRoot/LeftPanelBg/LifeBadge1,
-	$HUDRoot/LeftPanelBg/LifeBadge2,
-	$HUDRoot/LeftPanelBg/LifeBadge3,
+@onready var _ordnance_badges: Array[TextureRect] = [
+	$HUDRoot/LeftPanelBg/OrdnanceBadgeR1Left,
+	$HUDRoot/LeftPanelBg/OrdnanceBadgeR1Mid,
+	$HUDRoot/LeftPanelBg/OrdnanceBadgeR1Right,
+	$HUDRoot/LeftPanelBg/OrdnanceBadgeR2Left,
+	$HUDRoot/LeftPanelBg/OrdnanceBadgeR2Mid,
+	$HUDRoot/LeftPanelBg/OrdnanceBadgeR2Right,
 ]
 @onready var _special_label: Label = $HUDRoot/RightPanel/SpecialChargesLabel
 @onready var _special_progress_bar: ProgressBar = $HUDRoot/RightPanel/SpecialProgressBar
@@ -46,7 +53,7 @@ func bind_player(player: Node) -> void:
 	_game_state.score_changed.connect(_on_score_changed)
 	_game_state.kill_chain_changed.connect(_on_kill_chain_changed)
 	_lives_label.text = "Lives: %d" % _game_state.lives_remaining
-	_update_life_badges(_game_state.lives_remaining)
+	_update_lives_digit(_game_state.lives_remaining)
 	_tech_label.text = "Tech: %d" % _game_state.mission_tech
 	_score_label.text = "Score: %d" % _game_state.score
 	_chain_label.text = "Chain: x%d" % _game_state.kill_chain
@@ -80,14 +87,25 @@ func _on_ordnance_ammo_changed(current: int) -> void:
 	var game_state: Node = get_node("/root/GameState")
 	var max_ammo: int = game_state.ordnance.starting_ammo if game_state.ordnance != null else 0
 	_ordnance_label.text = "Ordnance: %d/%d" % [current, max_ammo]
+	_update_ordnance_badges(current)
+
+func _update_ordnance_badges(current: int) -> void:
+	for i in range(_ordnance_badges.size()):
+		_ordnance_badges[i].visible = i < current
 
 func _on_life_lost(lives_remaining: int) -> void:
 	_lives_label.text = "Lives: %d" % lives_remaining
-	_update_life_badges(lives_remaining)
+	_update_lives_digit(lives_remaining)
 
-func _update_life_badges(lives_remaining: int) -> void:
-	for i in range(_life_badges.size()):
-		_life_badges[i].visible = i < lives_remaining
+func _update_lives_digit(lives_remaining: int) -> void:
+	var digit_index: int = clampi(lives_remaining, 0, digit_textures.size() - 1)
+	var texture: Texture2D = digit_textures[digit_index]
+	_lives_digit.texture = texture
+	if texture == null:
+		return
+	var texture_size: Vector2 = texture.get_size()
+	_lives_digit.size = texture_size
+	_lives_digit.position = Vector2(lives_digit_box_center_x - texture_size.x * 0.5, lives_digit_box_top)
 
 func _on_tech_changed(current: int) -> void:
 	_tech_label.text = "Tech: %d" % current

@@ -108,7 +108,7 @@ offset_bottom = 360.0
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 360.0
-color = Color(0, 0, 0, 0.7)
+color = Color(0.18039216, 0.13333334, 0.18431373, 0.7)
 
 [node name="ConfirmLabel" type="Label" parent="ConfirmOverlay" unique_id=392790866]
 layout_mode = 0

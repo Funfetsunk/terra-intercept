@@ -36,7 +36,7 @@ layout_mode = 0
 offset_right = 140.0
 offset_bottom = 360.0
 mouse_filter = 2
-color = Color(0.08, 0.08, 0.08, 1)
+color = Color(0.18039216, 0.13333334, 0.18431373, 1)
 
 [node name="Art" type="TextureRect" parent="HUDRoot/LeftPanelBg" unique_id=94134045]
 texture_filter = 1
@@ -143,7 +143,7 @@ offset_left = 500.0
 offset_right = 640.0
 offset_bottom = 360.0
 mouse_filter = 2
-color = Color(0.08, 0.08, 0.08, 1)
+color = Color(0.18039216, 0.13333334, 0.18431373, 1)
 
 [node name="Art" type="TextureRect" parent="HUDRoot/RightPanelBg" unique_id=1258334733]
 texture_filter = 1

@@ -65,7 +65,7 @@ offset_bottom = 360.0
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 360.0
-color = Color(0, 0, 0, 0.8)
+color = Color(0.18039216, 0.13333334, 0.18431373, 0.8)
 
 [node name="PromptLabel" type="Label" parent="LaneChoiceOverlay" unique_id=800903493]
 layout_mode = 0
@@ -102,7 +102,7 @@ offset_bottom = 360.0
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 360.0
-color = Color(0, 0, 0, 0.8)
+color = Color(0.18039216, 0.13333334, 0.18431373, 0.8)
 
 [node name="MessageLabel" type="Label" parent="ComingSoonOverlay" unique_id=1138139466]
 layout_mode = 0

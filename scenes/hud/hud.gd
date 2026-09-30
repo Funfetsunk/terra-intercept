@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@export var special_fire_flash_color: Color = Color(1.0, 1.0, 0.3, 1.0)
+@export var special_fire_flash_color: Color = Color("f9c22b")
 @export var special_fire_flash_duration: float = 0.4
 @export var digit_textures: Array[Texture2D] = []
 @export var lives_digit_box_center_x: float = 69.5

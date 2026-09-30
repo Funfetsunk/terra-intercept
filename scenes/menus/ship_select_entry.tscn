@@ -63,13 +63,13 @@ custom_minimum_size = Vector2(40, 4)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
-color = Color(0.2, 0.2, 0.25, 1)
+color = Color(0.24313726, 0.20784314, 0.27450982, 1)
 
 [node name="Fill" type="ColorRect" parent="VBoxContainer/StatsRow/StatBars/SpeedRow/Track" unique_id=539979678]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 4.0
-color = Color(0.4, 0.9, 1, 1)
+color = Color(0.56078434, 0.827451, 1, 1)
 
 [node name="ShieldRow" type="HBoxContainer" parent="VBoxContainer/StatsRow/StatBars" unique_id=1366329633]
 layout_mode = 2
@@ -85,13 +85,13 @@ custom_minimum_size = Vector2(40, 4)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
-color = Color(0.2, 0.2, 0.25, 1)
+color = Color(0.24313726, 0.20784314, 0.27450982, 1)
 
 [node name="Fill" type="ColorRect" parent="VBoxContainer/StatsRow/StatBars/ShieldRow/Track" unique_id=350061664]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 4.0
-color = Color(0.4, 0.9, 1, 1)
+color = Color(0.56078434, 0.827451, 1, 1)
 
 [node name="HullRow" type="HBoxContainer" parent="VBoxContainer/StatsRow/StatBars" unique_id=1148706737]
 layout_mode = 2
@@ -107,10 +107,10 @@ custom_minimum_size = Vector2(40, 4)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
-color = Color(0.2, 0.2, 0.25, 1)
+color = Color(0.24313726, 0.20784314, 0.27450982, 1)
 
 [node name="Fill" type="ColorRect" parent="VBoxContainer/StatsRow/StatBars/HullRow/Track" unique_id=131050542]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 4.0
-color = Color(0.4, 0.9, 1, 1)
+color = Color(0.56078434, 0.827451, 1, 1)

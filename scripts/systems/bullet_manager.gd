@@ -4,6 +4,8 @@ extends Node2D
 @export var max_enemy_bullets: int = 4096
 @export var despawn_margin: float = 40.0
 @export var contact_damage_cooldown: float = 0.5
+## Colour of the high-contrast outline behind enemy bullets (palette darkest).
+@export var high_contrast_outline_color: Color = Color("2e222f")
 
 signal bullet_pool_exhausted(is_player: bool)
 
@@ -153,7 +155,8 @@ func _check_player_bullets_vs_enemies() -> void:
 func _draw() -> void:
 	var high_contrast: bool = get_node("/root/Settings").high_contrast_bullets
 	for i in range(_player_pool.active_count):
-		_draw_bullet(_player_pool.positions[i], _player_pool.radii[i], _player_pool.colors[i], _player_pool.textures[i], high_contrast)
+		# The high-contrast outline is for reading threats, so it only goes behind enemy bullets.
+		_draw_bullet(_player_pool.positions[i], _player_pool.radii[i], _player_pool.colors[i], _player_pool.textures[i], false)
 	for i in range(_enemy_pool.active_count):
 		_draw_bullet(_enemy_pool.positions[i], _enemy_pool.radii[i], _enemy_pool.colors[i], _enemy_pool.textures[i], high_contrast)
 
@@ -164,13 +167,13 @@ func _draw_bullet(pos: Vector2, radius: float, color: Color, texture: Texture2D,
 		var size: Vector2 = texture.get_size()
 		var top_left: Vector2 = (pos - size * 0.5).round()
 		if high_contrast:
-			draw_circle(top_left + size * 0.5, maxf(size.x, size.y) * 0.5 + 1.0, Color.BLACK)
+			draw_circle(top_left + size * 0.5, maxf(size.x, size.y) * 0.5 + 1.0, high_contrast_outline_color)
 		draw_texture(texture, top_left, color)
 		return
 	var half: float = radius
 	var rect: Rect2 = Rect2(pos.x - half, pos.y - half, half * 2.0, half * 2.0)
 	if high_contrast:
-		draw_rect(rect.grow(1.0), Color.BLACK, true)
+		draw_rect(rect.grow(1.0), high_contrast_outline_color, true)
 	draw_rect(rect, color, true)
 
 func register_player(player: Node2D, hitbox_radius: float) -> void:

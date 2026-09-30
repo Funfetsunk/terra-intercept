@@ -23,10 +23,10 @@
 
 ## Presentation
 
-- **Art:** Pure 2D pixel art in a 90s arcade style, with angled drawing so landmarks read well from above.
-- **Screen layout:** A playfield of about 360×360 in the centre, with HUD panels either side showing the pilot portrait, shield and hull, special charges, focus meter, ordnance and score.
+- **Art:** Pure 2D pixel art in a 90s arcade style, with angled drawing so landmarks read well from above. The aliens have violet armour and glowing green cores, and human craft are greys with red, blue and gold accents. Full style rules are in `docs/art-specs.md`.
+- **Screen layout:** A playfield of about 360×360 in the centre, with HUD panels either side. The left panel shows shield, hull, focus, ordnance, score and lives. The right panel shows the special meter and charges, and the armed squad-mate.
 - **Sprite sizes:** Player ships about 24×24, small enemies 16–24, mid-bosses about 64, bosses 128–200, bullets 4–8.
-- **Palette:** Fixed: Resurrect 64 (64 colours, `art/palette/resurrect-64.hex`). The bright bullet colours are reserved and never used in backgrounds.
+- **Palette:** Fixed: Resurrect 64 (64 colours, `art/palette/resurrect-64.hex`), with no exceptions, portraits included. The bright bullet colours (pink `f04f78`, cyan `30e1b9`, pale yellow `fbff86`) are reserved and never used in backgrounds.
 - **Options:** CRT scanline filter, screen-shake setting, button remapping, high-contrast bullet outlines, and a numbered Sound Test (tracks unlock once heard, all sound effects available from the start, with track names and a "composed by" credit).
 - **Language:** English only.
 - **Credits:** Everyone who contributed is named.

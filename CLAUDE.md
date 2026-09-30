@@ -11,13 +11,15 @@ Milestone 2a (core systems) — complete (tag `milestone-2a`).
 Milestone 2b (London, mission 1) — complete (tag `milestone-2b`).
 Milestone 3 (campaign structure) — complete. All 9 tasks below done. No git tag cut yet — say the word if you want one.
 
-**Now: tuning London's difficulty feel**, plus whatever the 2c art pass still needs (see "Rolling art pass" below).
+**Art pass: complete** (2026-09-30). All of London, the HUD, the menus and the map have real on-palette art (see "Art" below).
 
-Milestone 3 builds the frame around the mission that already works: saves, the hangar, upgrades, the world map and the story screens. Real art arrives piece by piece while this happens, so 2c is no longer a separate milestone — it's a rolling task list (see "Rolling art pass" below).
+**Now: tuning London's difficulty feel.**
+
+Milestone 3 built the frame around the mission that already works: saves, the hangar, upgrades, the world map and the story screens.
 
 Build in this order, one task at a time, committed separately. Mark each **[done]** when finished and committed.
 
-1. **Art pipeline. [done]** Set up the import path for real art before any lands: folder convention, sprite-sheet format, and an import preset with nearest filtering and no mipmaps. Verify it with one real asset end to end (import → animation → in-game). Record what you set up in this file under "Rolling art pass".
+1. **Art pipeline. [done]** Set up the import path for real art before any lands: folder convention, sprite-sheet format, and an import preset with nearest filtering and no mipmaps. Verify it with one real asset end to end (import → animation → in-game). Recorded under "Art" below.
 2. **SaveManager and save slots. [done]** 3 slots. A save holds: selected ship, map position, banked alien tech, upgrades owned, the purchase ledger (see task 4), mission results and high scores. Saving happens **only** on mission completion. Add a slot-select screen with create, continue and delete.
 3. **Run state. [done]** Extend `GameState` to hold everything a run needs so the hangar and map can read it: current column, lane, completed missions, tech, upgrades, and difficulty.
 4. **Upgrades. [done]** Upgrade definitions in `.tres`: id, name, description, cost, the stat it changes, its maximum level, and the map column that unlocks it. Apply them to player stats at mission start. Keep a **purchase ledger** of what was bought since the last completed mission, so a return to the hangar after a game over refunds exactly those purchases and nothing earlier.
@@ -31,50 +33,27 @@ Build in this order, one task at a time, committed separately. Mark each **[done
 
 Every milestone must run at a steady 60fps on the retro laptop (i7-1165G7 / Iris Xe).
 
-## Rolling art pass (former milestone 2c)
+## Art
 
-Real art arrives piece by piece while milestone 3 is being built.
+The full art spec, including what is built, sizes, palette, reserved colours and style rules, lives in `docs/art-specs.md`. Read it before making or placing any art. Claude owns art direction (since 2026-09-30) and keeps everything consistent with that doc.
 
-- **Never interrupt the current task** to swap art in. Finish the task, commit, then do the art swap as its own small task and commit.
-- **Follow `docs/art-specs.md`** for every size. If an incoming asset doesn't match the spec, say so and ask rather than rescaling: pixel art must never be scaled by fractions.
-- **Hitboxes and collision shapes don't change** when art is swapped in. A bigger sprite doesn't mean a bigger hitbox.
-- **Palette:** Resurrect 64 by Kerrie Lake (Lospec), all 64 colours, stored at `art/palette/resurrect-64.hex` (one hex colour per line, no `#`). `art/palette/resurrect-64.png` is the same palette as an 8×8 swatch, used as a forced-palette input for PixelLab. Resurrect 64 replaced the original 32–48 colour plan on 2026-09-30. Every sprite uses only these colours: no anti-aliasing, no semi-transparent pixels, no off-palette tints. Textured bullets and pickups therefore use a white `bullet_color`, since modulating palette art pushes it off-palette.
-- **Reserved bullet colours:** pink `f04f78`, cyan `30e1b9` and pale yellow `fbff86`. These never appear in backgrounds. Enemy bullets are pink or cyan orbs, and player shots are yellow diamonds.
-- **Art direction** (owned by Claude since 2026-09-30):
-  - Aliens have violet armour (`45293f`/`6b3e75`/`905ea9`/`a884f3`) with green glowing cores (`165a4c`…`91db69`). Phase-2 or enraged states turn the cores red and orange.
-  - Human craft are greys with red, blue and gold accents.
-  - Backgrounds are darkened and desaturated so gameplay reads on top of them.
-  - UI uses the grey-rim, orange-trim frame (`art/sprites/ui/ui_frame*.png`).
-  - Explosions use the palette fire ramp and fade to smoke.
-- **How art gets made:** PixelLab output is never committed raw. It's remapped onto the palette first, and small items (bullets, pickups, explosions, UI frames, bank frames, the logo) are drawn procedurally in palette so they stay consistent. The remap and drawing scripts live in the session scratchpad, not the repo. Before committing art, run `python tools/check_palette.py` (all of `art/sprites/`, or pass file paths). It must report 0 failures: no off-palette pixels and no semi-transparent pixels. Nothing in a live scene references `art/placeholder/` any more.
-- **Portraits and ship-select art** were hand-tuned onto the palette on 2026-09-30, at the developer's request to keep the palette strict.
-  - Warm skin and hair tones were mapped by lightness onto one warm ramp: `2e222f` `45293f` `6e2727` `7a3045` `9e4539` `cd683d` `e6904e` `fca790` `fdcbb0`.
-  - Each character has a lightness offset, so their skin tones keep the same relative depth: Dash 0, Tammy +2, Bucky -4, Max -10, Steel -12.
-  - Near-black hair and armour are lifted slightly so braids and armour plates keep their detail.
-  - Everything else uses a hue-guarded nearest match.
-  - Side effect: brown hair now reads chestnut or auburn, since the palette has no neutral mid-brown.
-  - Dialogue and briefing portraits now sit on a palette backdrop (`portrait_backdrop_color`, `3e3546`). The old `portrait_color` swatch only shows for lines with no portrait art.
-- **Placeholder art from asset packs** lives in `art/placeholder/<pack-name>/`, each folder with a note on its source and licence. It never mixes with the real art in `art/sprites/`.
+**Rules:**
+- **Palette:** Resurrect 64 only (`art/palette/resurrect-64.hex`; `resurrect-64.png` is the same as an 8×8 swatch for tools). No anti-aliasing, no semi-transparent pixels, and no `modulate` tints on art. Textured bullets and pickups use a white `bullet_color` for this reason, and hit flashes use the `silhouette_flash` shader. Before committing art, run `python tools/check_palette.py`; it must report 0 failures.
+- **Reserved bullet colours:** pink `f04f78`, cyan `30e1b9`, pale yellow `fbff86`. They never appear in backgrounds.
+- **No fractional scaling:** every `Sprite2D`/`TextureRect` stays at scale 1, and effects never pulse in scale. If an incoming asset doesn't match `docs/art-specs.md`, ask instead of rescaling.
+- **Text:** Press Start 2P at 8, 16 or 32px only. Other sizes break the pixel grid. Speaker names are 8px gold, not a larger size.
+- **Hitboxes and collision shapes never change** when art changes. Collision radii live in data.
+- **Art changes are their own tasks.** Never interrupt the current task to swap art in: finish, commit, then do the art as its own commit.
+- **Placeholder art** from asset packs lives in `art/placeholder/<pack-name>/` with a source/licence note. Nothing in a live scene references it now. New missions may use it until their art is made.
 
-**Pipeline setup (task 1, done):**
-- `rendering/textures/canvas_textures/default_texture_filter` confirmed at Nearest project-wide (was already correct).
-- `importer_defaults/texture` preset added: no mipmaps, lossless compress, no 3D VRAM compress — locks in correct settings for future imports instead of relying on Godot's stock defaults holding.
-- The SHMUPED placeholder pack moved from `art/sprites/placeholder/` to `art/placeholder/shumped-asset-pack/`, with a source/licence note, to match the folder convention.
-- **Animation convention for real art:** `AnimatedSprite2D` + a `SpriteFrames` resource, built from a grid-sliced sheet (uniform frame size, per `docs/art-specs.md`), not hand-written per-frame `AtlasTexture` `.tres` files. Proved mechanically (sheet → frames → animated node, playing) in a throwaway scene, then removed — no real asset was available yet to run the full import → animation → in-game proof, so that step is still owed once the first real asset lands.
-- The existing placeholder player-ship animation (5 separate `AtlasTexture` resources cycled by script, from the 2025-09-17 commit) was left as-is — out of scope for task 1, and changing it would be an art-swap task of its own.
+**How art gets made:** PixelLab (MCP) output is never committed raw. It's remapped onto the palette, by hand-mapping colours where a nearest-colour match looks wrong. Small items (bullets, pickups, explosions, effects, UI frames, bank frames, icons, the logo) are drawn procedurally in palette so they stay consistent. The remap and drawing scripts are session scratch, not repo code. Portraits and ship-select art were hand-tuned (per-character skin offsets, see `docs/art-specs.md`) rather than regenerated, to keep the developer's commissioned art.
 
-Swap-in checklist, updated as art lands:
-
-- [x] Player ships (4) with banking frames: `*_bank.png` (120×24, 5 frames) via `ShipData.bank_sheet`, plus engine flames (`engine_flame.png`) at `ShipData.engine_flame_offsets`. The frames are derived from each ship's 24×24 art: the lowered wing is foreshortened and shaded, and the right-bank frames mirror the left.
-- [x] Bullets and ordnance (`art/sprites/bullets/`). The bullet manager draws textures at their native size on whole pixels.
-- [x] Enemies: drone, swarmer, lander pod and spinner (`art/sprites/enemies/`, `AnimatedSprite2D` + `SpriteFrames`). The spinner spins through exact 90° rotations and isn't used in London yet.
-- [x] Mid-boss and Tower Bridge boss (`art/sprites/bosses/`, phase1 and phase2 animations). The Tower Bridge boss locks the ground scroll once it arrives.
-- [x] Thames and London backgrounds: two seamless 360×360 tiles (`art/sprites/backgrounds/london/`), plus a dithered smoke layer (`smoke.png`) on London's NearLayer at 1.4× scroll. BackgroundLayer places panels on whole pixels. The test range uses a palette starfield (`art/sprites/backgrounds/space/`).
-- [x] Pickups and alien tech (`art/sprites/pickups/`)
-- [x] Explosions and special effects: explosions in 3 sizes and the respawn bullet-clear ring (`scenes/effects/`), a large explosion when the player's hull breaks, and squad specials drawn in code as palette energy bands.
-- [x] Portraits: Dash, Bucky, Max, Tammy, Steel (on-palette, hand-tuned). Most expressions are still unused, and there's no expression-switching logic.
-- [x] HUD panel frames and icons: both panels are full. The right panel has a special meter, 3 charge sockets and a SQUAD box with the armed squad-mate's icon and name. The focus socket has a clock icon.
-- [x] Menu, hangar and map screens: the title has a pixel logo (`art/sprites/title/logo.png`) and a palette-remapped background. Menus share `art/sprites/ui/menu_background.png`, and buttons and dialogue use the UI frame theme. The world map has a tactical-map background, 16×16 node icons (completed, available blinking, locked) and route lines (`MapRoutes`). Hangar upgrades show 16×16 icons (`UpgradeData.icon`). Ship-select art is hand-tuned onto the palette.
+**Engine conventions for art:**
+- Animated art is an `AnimatedSprite2D` plus a `SpriteFrames` resource sliced from a uniform-grid sheet. One-shot effects are small scenes in `scenes/effects/` that free themselves (`explosion.gd`).
+- Placeholder→art swaps keep the old `ColorRect` as a sizing wrapper, with a child `TextureRect` named "Art". A `ColorRect` can't be retyped in place.
+- Menu buttons, dialogue and panels are styled by `themes/main_theme.tres` (`button_*.tres` 9-slice StyleBoxTextures) and `themes/panel_frame.tres`.
+- `BackgroundLayer` takes its art from `panel_a_texture` / `panel_b_texture` exports, because property overrides on an instanced scene's child nodes don't persist. It places panels on whole pixels.
+- The pipeline import preset (`importer_defaults/texture`) is no mipmaps and lossless, and the default texture filter is Nearest.
 
 ## What already exists
 
@@ -97,7 +76,7 @@ Context for anything built from here on.
 - **`edit_resource` on a `Texture2D`-typed property silently writes a raw path string instead of an `ExtResource` reference** if the target PNG hasn't been through `reload_project` yet (brand-new file, no `.import` sibling at call time) — the call reports success and even echoes back what looks like the new value, but the `.tres` on disk gets `portrait = "res://path/to/file.png"` (a String) instead of `portrait = ExtResource("id")`, which breaks the typed field. Re-running `edit_resource` after `reload_project` doesn't fix an already-broken property either — it just re-writes the same bad string, since the resource is already cached in the broken state. The fix is `execute_editor_script` with `ResourceLoader.load(path, "", ResourceLoader.CACHE_MODE_REPLACE)` for both the target resource and the texture, assign, then `ResourceSaver.save()` (needs `allow_unsafe_editor_io: true`). Always `reload_project` *before* the first `edit_resource` call on a texture that was just dropped into the project, not after.
 - **`execute_editor_script`'s injected code can't declare a nested `func`** (it already runs inside a `run()` wrapper) — use a `var x := func(...):` lambda and `.call(...)` instead.
 - **`load()` inside `execute_editor_script` can return a stale `ResourceCache` copy** of a `.tres` that's already been loaded once this editor session (e.g. a mission file read repeatedly during earlier playtesting) — editing the file on disk afterward doesn't invalidate that cache entry, so a `load()` from an editor script can show old data even though the real game (a fresh process via `play_scene`) reads the current file correctly. Use `ResourceLoader.load(path, "", ResourceLoader.CACHE_MODE_REPLACE)` to force a fresh read when verifying an edit from `execute_editor_script`, or just verify through an actual `play_scene` run instead.
-- **Story screens** (`scenes/menus/briefing_screen.tscn`/`.gd`): a separate system from the in-mission `DialogueEntry`/`DialogueController` (time-triggered, mission-embedded) — `BriefingLine` (`speaker_name`, `portrait_color`, `text`) is a player-advanced sequence for full-screen pre/post-mission briefings. `MissionData.pre_briefing_lines`/`post_briefing_lines` hold the content; `MapNodeData.mission_data` links a map node to its `MissionData` so the map can pull pre-briefing content before launching, and `GameState.find_map_node()` lets the results screen pull post-briefing content after. Data crosses the `change_scene_to_file` boundary via two transient `GameState` fields (`pending_briefing_lines`, `pending_briefing_next_scene`) set right before the scene change — briefing_screen reads them in `_ready()` and clears them on exit. A mission with no briefing content skips the screen entirely (empty array short-circuits straight to the target scene). The column-4 midgame reveal (`GameState.midgame_reveal_shown`, persisted; `midgame_reveal_lines`) is checked and prepended in the map screen's activation handler, column-agnostic so it fires on whichever lane reaches column 4 first — verified via direct `GameState`/method-call manipulation the same way task 6's lane-choice logic was, since no column-4 mission exists yet to click through for real.
+- **Story screens** (`scenes/menus/briefing_screen.tscn`/`.gd`): a separate system from the in-mission `DialogueEntry`/`DialogueController` (time-triggered, mission-embedded) — `BriefingLine` (`speaker_name`, `portrait`, `portrait_color`, `text`) is a player-advanced sequence for full-screen pre/post-mission briefings. `MissionData.pre_briefing_lines`/`post_briefing_lines` hold the content; `MapNodeData.mission_data` links a map node to its `MissionData` so the map can pull pre-briefing content before launching, and `GameState.find_map_node()` lets the results screen pull post-briefing content after. Data crosses the `change_scene_to_file` boundary via two transient `GameState` fields (`pending_briefing_lines`, `pending_briefing_next_scene`) set right before the scene change — briefing_screen reads them in `_ready()` and clears them on exit. A mission with no briefing content skips the screen entirely (empty array short-circuits straight to the target scene). The column-4 midgame reveal (`GameState.midgame_reveal_shown`, persisted; `midgame_reveal_lines`) is checked and prepended in the map screen's activation handler, column-agnostic so it fires on whichever lane reaches column 4 first — verified via direct `GameState`/method-call manipulation the same way task 6's lane-choice logic was, since no column-4 mission exists yet to click through for real.
 - **Settings** (`scripts/autoload/settings.gd`/`.tscn`): CRT filter (`shaders/crt_filter.gdshader`, a scanline + vignette `canvas_item` shader on a `ColorRect` living inside `settings.tscn` itself — since autoloads persist across every scene change, this gives a global overlay without touching every individual scene), screen shake (`scripts/systems/playfield_shake.gd` attached to London's `PlayfieldRoot`, triggered via `get_tree().call_group("playfield_root", "shake")` from `player_ship.gd`'s hull-hit branch — decoupled so any future level's `PlayfieldRoot` just needs the same script attached, no hard node-path coupling), high-contrast bullets (an outline pass in `bullet_manager.gd`'s `_draw_bullet`), and difficulty (three multipliers — `damage_taken_multiplier()`, `shield_recharge_multiplier()`, `focus_refill_delay_multiplier()` — applied in `player_ship.gd`; `GameState.difficulty` mirrors `Settings.difficulty` in `start_new_run()`, called every mission entry). Remapping is scoped to the six button-like actions (not `move`/`aim`, which are stick/mouse-bound); `Settings.REMAPPABLE_ACTIONS` names them, `remap_action()`/`reset_action()` mutate `InputMap` directly. Saved to `user://settings.cfg` via `ConfigFile`, separate from `SaveManager`'s per-slot saves.
 - **An autoload can't safely `@onready`-cache another autoload declared later in `project.godot`'s `[autoload]` list** — each autoload's `_ready()` runs fully before the next one is even added to the tree, so a `get_node("/root/X")` resolved during an *earlier* autoload's `@onready` fails if `X` loads later. Hit this with `BulletManager` (declared first) trying to cache `Settings` (declared last, matching its documented position) — fixed by calling `get_node("/root/Settings")` fresh inside `_draw()` instead of caching it, which is safe since `_draw()` only ever runs long after every autoload exists. A scene-tree node (not itself an autoload) caching a `Settings` reference via `@onready` is always safe regardless of autoload order, since scenes only load after all autoloads are fully initialized.
 - **This project's existing key bindings in `project.godot` set `keycode`, not `physical_keycode`** (`InputEventKey.physical_keycode` is `0` on all of them) — reading `.physical_keycode` alone to display a binding (e.g. for a remap UI) silently returns an empty string for every pre-authored binding, even though it correctly picks up a *freshly captured* live key press (those always populate `physical_keycode`). Check `physical_keycode` first, fall back to `keycode` if it's `0`.
@@ -113,9 +92,10 @@ Context for anything built from here on.
 - **HUD shield/hull/focus bars are real art, tiled by the engine, not custom-drawn.** Each is a stock `ProgressBar` whose "fill" style is a `StyleBoxTexture` (`themes/shield_bar_fill.tres`, `hull_bar_fill.tres`, `focus_bar_fill.tres`) pointed at a 5×10 tile with `axis_stretch_horizontal = STRETCH_TILE`. The 1px gap between repeated tiles is baked into the tile art itself (column 4 of the 5 is fully transparent) rather than handled in code — no custom drawing, no gap-spacing logic. All three bars had to move out of the `LeftPanel` `VBoxContainer` into `LeftPanelBg` (a plain `ColorRect`) since a `Container` continuously re-asserts its children's position/size, making pixel-exact art-matched placement impossible while a node stays inside one; their exact coordinates (shield 46,29 / hull 46,58 / focus 46,87, all 65×10 for a 13-tile track) came from pixel-scanning a reference mockup (`art/reference/panel_left_ref.png`) against the panel art rather than guessing. The remaining `LeftPanel` labels (now just Ordnance/Tech/Score/Chain, `LivesLabel` hidden — see below) were repositioned lower each time a bar left the container so they stop overlapping.
 - **Lives are a single digit, not badges.** The original 3-badge `player_lives.png` design was replaced with a numeric display: `ui_0.png`–`ui_9.png` (23×40 each, one full digit sheet) assigned to `HUD.digit_textures`, and `HUD._update_lives_digit()` swaps `LivesDigit`'s texture to match `lives_remaining` (clamped to the sheet's range) and re-centers it at `lives_digit_box_center_x`/`lives_digit_box_top`. Called from both the bind-order-fix initial sync and `_on_life_lost`. `LivesLabel`'s text is still hidden (`visible = false`), not deleted, for the same reason as before.
 - **Ordnance is shown as a 6-badge grid, not a count label.** `OrdnanceBadgeR1Left/Mid/Right` and `OrdnanceBadgeR2Left/Mid/Right` (36×29 each, `player_ordinance.png`) sit in a fixed 2×3 grid in `LeftPanelBg`; `HUD._update_ordnance_badges()` shows badge *i* only while `i < current`, called from `_on_ordnance_ammo_changed`. `OrdnanceData.starting_ammo` is 6 (raised from 5) specifically to fill the grid evenly — changing it away from a multiple of 3 will leave a visibly uneven last row. The `LeftPanel` `VBoxContainer` (Tech/Score/Chain labels) originally started right on top of this badge grid; it now sits at y 180–236, below the badges and above the lives digit.
+- **HUD right panel:** the special meter (`SpecialBar`, blue `special_bar_fill.tres`), three `SpecialCharge` icons shown per charge held, and a SQUAD box with the armed squad-mate's `icon_sprite` and pilot name (`SquadIcon` / `SquadName`). The old `RightPanel` text labels are hidden but still updated. The left panel's Tech/Score/Chain labels use dark `2e222f` text on the light panel.
 - **HUD panel backgrounds** (`panel_left.png`, `panel_right.png`, both 140×360) use the same non-destructive swap pattern as ship-select art: the original `LeftPanelBg`/`RightPanelBg` `ColorRect`s stay in the tree as transparent sizing wrappers, with a child `TextureRect` ("Art") added for the actual image, since a `ColorRect` can't be retyped into a `TextureRect` in place.
 - **Ship movement has real momentum, not instant velocity.** `player_ship.gd:_process_movement()` smooths `_velocity` toward the stick's `move_speed`-scaled target with `move_toward(target, move_acceleration * delta)`, rather than setting velocity directly. `move_acceleration` is `2000.0` on all four ships (`data/ships/*.tres`, overriding `ShipData`'s `500.0` default) — the 500 default gave a 0.3–0.4s ramp to top speed that read as heavy/unresponsive; 2000 reaches top speed in ~0.05–0.1s. Deceleration uses the same value, so it's symmetric.
-- **Portrait art:** two different wiring patterns depending on how a character speaks. `DialogueEntry` (covers `TutorialBeat`, which extends it) and `BriefingLine` each gained a `portrait: Texture2D` field alongside the existing `portrait_color`; a line's author picks whichever of a character's expressions fits that line, the same way `text` is authored per line — there's no expression-enum or runtime selection logic. Steel has 4 expressions (`art/sprites/portraits/steel_*.png`) hand-assigned across all 11 of his static `.tres` lines (intro dialogue, 3 pre-briefing, 5 tutorial beats, 2 post-briefing) by tone; `steel_hurt` is imported but unused — no damage-reaction line exists yet. The four ship pilots (Dash/Bucky/Max/Tammy) only ever speak once each, in the tutorial's dynamically-built squad-radio beat (`tutorial_sequencer.gd:_process_squad()`), which is built from `ShipData` at runtime rather than a static `.tres` — so instead of per-line fields, `ShipData` gained a single `portrait: Texture2D` (same pattern as `select_art`/`icon_sprite`), and `_process_squad()` copies `_current_squad_ship.portrait` onto the beat it builds. Each pilot has 3 unused expressions in reserve. The in-mission dialogue bar (`dialogue_box.tscn`) had to grow from 56px to 80px tall, and its portrait slot from 44×44 to 64×64, to fit the art at native size without fractional scaling (forbidden by the art-pass rules); the full-screen briefing's `PortraitBox` (`briefing_screen.tscn`) was already exactly 64×64. Both use the non-destructive `ColorRect`-wrapper-plus-child-`TextureRect`("Art") pattern.
+- **Portrait art:** two different wiring patterns depending on how a character speaks. `DialogueEntry` (covers `TutorialBeat`, which extends it) and `BriefingLine` each gained a `portrait: Texture2D` field alongside the existing `portrait_color`; a line's author picks whichever of a character's expressions fits that line, the same way `text` is authored per line — there's no expression-enum or runtime selection logic. Steel has 4 expressions (`art/sprites/portraits/steel_*.png`) hand-assigned across all 11 of his static `.tres` lines (intro dialogue, 3 pre-briefing, 5 tutorial beats, 2 post-briefing) by tone; `steel_hurt` is imported but unused — no damage-reaction line exists yet. The four ship pilots (Dash/Bucky/Max/Tammy) only ever speak once each, in the tutorial's dynamically-built squad-radio beat (`tutorial_sequencer.gd:_process_squad()`), which is built from `ShipData` at runtime rather than a static `.tres` — so instead of per-line fields, `ShipData` gained a single `portrait: Texture2D` (same pattern as `select_art`/`icon_sprite`), and `_process_squad()` copies `_current_squad_ship.portrait` onto the beat it builds. Each pilot has 3 unused expressions in reserve. The in-mission dialogue bar (`dialogue_box.tscn`) had to grow from 56px to 80px tall, and its portrait slot from 44×44 to 64×64, to fit the art at native size without fractional scaling (forbidden by the art-pass rules); the full-screen briefing's `PortraitBox` (`briefing_screen.tscn`) was already exactly 64×64. Both use the non-destructive `ColorRect`-wrapper-plus-child-`TextureRect`("Art") pattern. Real portraits sit on a palette backdrop (`portrait_backdrop_color`, `3e3546`) on both screens. The per-line `portrait_color` only shows when a line has no portrait texture.
 
 ## Hard rules
 
@@ -147,7 +127,7 @@ These are not negotiable.
 
 ## Sprite sizes
 
-Full detail is in `docs/art-specs.md`. The essentials, which apply to placeholders too:
+Full detail is in `docs/art-specs.md`. The essentials:
 
 | Object | Size |
 |---|---|
@@ -156,14 +136,15 @@ Full detail is in `docs/art-specs.md`. The essentials, which apply to placeholde
 | Small enemies | 16–24 |
 | Mid-bosses | about 64 |
 | Bosses | 128–200 |
-| Bullets | 4–8 |
+| Bullets | 6×6 (player and enemy), 8×8 (boss) |
 | Portraits | 64×64 |
-| Pickups | 12×12 |
+| Pickups | 12×12 (alien tech 6×6 / 8×8) |
+| Explosions | 16 / 32 / 64 |
 
 ## Fonts
 
 - **Default font:** Press Start 2P (`art/fonts/PressStart2P-Regular.ttf`, SIL OFL 1.1 — licence file kept alongside it), wired project-wide via `themes/main_theme.tres` (`gui/theme/custom`). Antialiasing, hinting and subpixel positioning are disabled on import for a crisp pixel look — keep new pixel fonts imported the same way.
-- **Default size:** 8px, the font's native pixel grid. 16px was too wide for the ~140px HUD side panels. The dialogue box overrides to 9 (speaker) / 8 (text).
+- **Sizes:** 8px (the font's native pixel grid) by default. Use 16px for screen titles and main-menu buttons, and 32px for single big characters. Only multiples of 8 stay crisp. Speaker names in the dialogue box and briefings are 8px gold. Labels over busy art get a 2px `2e222f` outline.
 - To swap in a different pixel font later, replace the `.ttf` and re-point `default_font` on `themes/main_theme.tres`.
 
 ## Project settings
@@ -186,7 +167,8 @@ res://
     sprites/         # exported PNGs (real art)
     placeholder/     # asset-pack placeholders, one folder per pack + source/licence note
     fonts/           # pixel fonts (Press Start 2P, OFL licensed)
-    palette/         # the game palette (resurrect-64.hex)
+    palette/         # the game palette (resurrect-64.hex, plus a .png swatch)
+    reference/       # layout reference mockups (not shipped art)
   audio/
     music/           # OGG files with loop points (currently placeholder synthesized loops)
     sfx/             # jsfxr / ChipTone exports (none yet)
@@ -198,7 +180,8 @@ res://
     autoload/        # global singletons
     resources/       # custom Resource class definitions
     systems/         # bullet manager, spawner, playfield helper, scoring, etc.
-  themes/            # global Theme resources (default font/size)
+  themes/            # global Theme resources: font, button/panel frame styles, bar fills
+  shaders/           # crt_filter, silhouette_flash (palette-true hit flash)
   tools/             # dev scripts outside Godot (.gdignore): check_palette.py
   docs/
     design-summary.md
@@ -281,7 +264,7 @@ The Godot editor is open and connected through Godot MCP Pro. Use its tools in p
 - **If you hit a blocker,** stop and report it with options rather than working around a hard rule.
 - **Report bugs you notice** that are outside the current task, and don't fix them without approval.
 - **Keep changes small and focused.** One feature per commit, with a clear message (`Add focus meter to player`).
-- **At the end of a session,** when asked, update the "Current milestone" and "Rolling art pass" sections: mark finished tasks **[done]** and note where work stopped.
+- **At the end of a session,** when asked, update the "Current milestone" and "Art" sections (and `docs/art-specs.md` if art changed): mark finished tasks **[done]** and note where work stopped.
 - **Git:**
   - Commit to the local repo.
   - The remote is GitHub.
@@ -290,7 +273,7 @@ The Godot editor is open and connected through Godot MCP Pro. Use its tools in p
   - Ask before force-pushing or rewriting history.
 - **Ask first** before adding plugins or addons, changing any hard rule or project setting, or making a design decision the summary doesn't cover.
 - **Explain as you go.** The developer knows programming but is still learning Godot, so briefly explain Godot-specific choices (why a node type, why a signal) when you make them.
-- **Placeholders:** use `ColorRect`, simple shapes, or the asset-pack placeholders until real art arrives, sized to `docs/art-specs.md`.
+- **Placeholders:** for new content without art yet, use `ColorRect`, simple shapes or the asset-pack placeholders, sized to `docs/art-specs.md`. Keep placeholder colours on the palette too.
 
 ## Performance notes
 

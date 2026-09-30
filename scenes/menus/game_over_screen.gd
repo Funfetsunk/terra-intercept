@@ -1,6 +1,5 @@
 extends Control
 
-const MISSION_SCENE_PATH: String = "res://scenes/levels/london.tscn"
 const HANGAR_SCENE_PATH: String = "res://scenes/menus/hangar.tscn"
 
 @onready var _restart_button: Button = $ButtonList/RestartButton
@@ -14,7 +13,7 @@ func _ready() -> void:
 	_skip_tutorial_button.pressed.connect(_on_skip_tutorial)
 	_quit_button.pressed.connect(_on_quit)
 	_hangar_button.pressed.connect(_on_hangar)
-	_skip_tutorial_button.visible = _game_state.tutorial_completed
+	_skip_tutorial_button.visible = _game_state.current_level_has_tutorial and _game_state.tutorial_completed
 	_restart_button.grab_focus()
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -27,11 +26,11 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _on_restart() -> void:
 	_game_state.restart_section = ""
-	get_tree().change_scene_to_file(MISSION_SCENE_PATH)
+	get_tree().change_scene_to_file(_game_state.current_level_path)
 
 func _on_skip_tutorial() -> void:
 	_game_state.restart_section = "thames_run"
-	get_tree().change_scene_to_file(MISSION_SCENE_PATH)
+	get_tree().change_scene_to_file(_game_state.current_level_path)
 
 func _on_quit() -> void:
 	get_tree().change_scene_to_file("res://scenes/menus/title_screen.tscn")

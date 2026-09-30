@@ -41,6 +41,10 @@ var pending_briefing_lines: Array[Resource] = []
 var pending_briefing_next_scene: String = ""
 var difficulty: String = "Normal"
 var restart_section: String = ""
+## The level currently being played, set by mission_level.gd, so game over and
+## the pause menu can restart the right mission.
+var current_level_path: String = "res://scenes/levels/london.tscn"
+var current_level_has_tutorial: bool = true
 var tutorial_active: bool = false
 var tutorial_completed: bool = false
 var is_game_over: bool = false

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cxfwvjlxfs8sp"]
 
-[ext_resource type="Script" uid="uid://bed8o18cnmeis" path="res://scenes/bosses/tower_bridge_boss.gd" id="1_hstvv"]
+[ext_resource type="Script" uid="uid://bed8o18cnmeis" path="res://scenes/bosses/stage_boss.gd" id="1_hstvv"]
 [ext_resource type="Resource" uid="uid://d0wgdnevym0ug" path="res://data/enemies/tower_bridge_boss_data.tres" id="2_me6t6"]
 [ext_resource type="SpriteFrames" uid="uid://yd58d0kma11t" path="res://art/sprites/bosses/tower_bridge_boss_frames.tres" id="3_524yy"]
 

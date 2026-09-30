@@ -9,6 +9,7 @@ radius = 9.0
 
 [node name="Spinner" type="Node2D" unique_id=809012489]
 script = ExtResource("1_ri1m3")
+hover_duration = 7.0
 data = ExtResource("2_3ywtc")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=440482796]

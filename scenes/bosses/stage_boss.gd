@@ -1,8 +1,13 @@
 extends EnemyBase
 
+## Final boss of an Earth mission: moves into place, optionally locks the ground
+## scroll so it reads as standing on the terrain, runs two phases (each with an
+## optional secondary pattern) and completes the mission when destroyed.
+
 @export var hover_y: float = 70.0
-## The bridge stands on the river, so while it moves into place the ground scrolls
-## at the bridge's own speed, then stops once it arrives (presentation only).
+## Bosses that stand on the terrain (a bridge, a siphon in the river) lock the
+## ground: while moving into place the ground scrolls at the boss's own speed,
+## then stops once it arrives (presentation only).
 @export var lock_background_scroll: bool = true
 
 var _phase2_active: bool = false

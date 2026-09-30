@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bxqbg0b61dcva"]
 
-[ext_resource type="Script" uid="uid://bigiku81dil1k" path="res://scenes/levels/london.gd" id="1_tl1kh"]
+[ext_resource type="Script" path="res://scenes/levels/mission_level.gd" id="1_8v1gb"]
 [ext_resource type="PackedScene" uid="uid://bveh1trv7wuqf" path="res://scenes/player/player_ship.tscn" id="2_g5f8b"]
 [ext_resource type="PackedScene" uid="uid://c1woeggvkgk0f" path="res://scenes/hud/hud.tscn" id="6_8v1gb"]
 [ext_resource type="Script" uid="uid://bjif1hmet7sgc" path="res://scripts/systems/playfield_shake.gd" id="6_y27mh"]
@@ -22,7 +22,9 @@
 [ext_resource type="Script" uid="uid://ba58el5p4e8wy" path="res://scenes/hud/pause_menu.gd" id="20_k1bt5"]
 
 [node name="London" type="Node2D" unique_id=705097]
-script = ExtResource("1_tl1kh")
+script = ExtResource("1_8v1gb")
+mission_id = "London"
+has_tutorial = true
 
 [node name="HUD" parent="." unique_id=1725720245 instance=ExtResource("6_8v1gb")]
 

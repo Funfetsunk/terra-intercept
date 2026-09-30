@@ -3,11 +3,17 @@
 [ext_resource type="Script" uid="uid://brvoh5s303sqb" path="res://scenes/player/player_ship.gd" id="1_dr6dc"]
 [ext_resource type="Resource" uid="uid://b3c6554j4do4e" path="res://data/ships/guardian_ship_data.tres" id="2_ykp3x"]
 [ext_resource type="Script" uid="uid://b5jrllxqn3mcp" path="res://scenes/specials/squad_special_vfx.gd" id="3_dr6dc"]
+[ext_resource type="Shader" uid="uid://0usujw4f4hj7" path="res://shaders/silhouette_flash.gdshader" id="5_kjavq"]
 [ext_resource type="SpriteFrames" uid="uid://cyyur8pm0lixu" path="res://art/sprites/player_ships/engine_flame_frames.tres" id="9_jovkm"]
 [ext_resource type="Texture2D" uid="uid://cc6rlnxudu58f" path="res://art/sprites/player_ships/interceptor.png" id="10_com77"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kjavq"]
 radius = 2.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_usbmo"]
+shader = ExtResource("5_kjavq")
+shader_parameter/flashing = false
+shader_parameter/flash_color = Color(1, 1, 1, 1)
 
 [node name="PlayerShip" type="Node2D" unique_id=1276083379]
 script = ExtResource("1_dr6dc")
@@ -36,4 +42,5 @@ animation = &"burn"
 autoplay = "burn"
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1504199181]
+material = SubResource("ShaderMaterial_usbmo")
 texture = ExtResource("10_com77")

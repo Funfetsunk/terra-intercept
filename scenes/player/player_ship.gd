@@ -15,8 +15,10 @@ signal squad_selection_changed(ship: ShipData)
 signal ordnance_ammo_changed(current: int)
 
 @export var data: ShipData
-@export var shield_hit_dim_color: Color = Color(0.45, 0.45, 0.45, 1.0)
-@export var shield_hit_dim_duration: float = 0.15
+## Hit flashes draw the ship as a flat palette silhouette (silhouette_flash shader).
+@export var shield_hit_flash_color: Color = Color("8fd3ff")
+@export var shield_hit_flash_duration: float = 0.1
+@export var hull_hit_flash_color: Color = Color("ffffff")
 @export var hull_hit_flash_duration: float = 0.1
 @export var bank_frame_full_left: Texture2D
 @export var bank_frame_slight_left: Texture2D
@@ -38,6 +40,7 @@ var _squad_index: int = 0
 
 var _spawn_origin: Vector2 = Vector2.ZERO
 var _sprite_half_extents: Vector2 = Vector2.ZERO
+var _flash_serial: int = 0
 var _velocity: Vector2 = Vector2.ZERO
 var _shield_recharge_timer: float = 0.0
 var _hull_invincible_timer: float = 0.0
@@ -252,12 +255,22 @@ func take_hit(damage: float) -> void:
 			hull_depleted.emit()
 
 func _flash_shield_hit() -> void:
-	$Sprite.modulate = shield_hit_dim_color
-	create_tween().tween_property($Sprite, "modulate", Color.WHITE, shield_hit_dim_duration)
+	_flash(shield_hit_flash_color, shield_hit_flash_duration)
 
 func _flash_hull_hit() -> void:
-	$Sprite.modulate = Color(3.0, 3.0, 3.0, 1.0)
-	create_tween().tween_property($Sprite, "modulate", Color.WHITE, hull_hit_flash_duration)
+	_flash(hull_hit_flash_color, hull_hit_flash_duration)
+
+func _flash(color: Color, duration: float) -> void:
+	var mat: ShaderMaterial = $Sprite.material as ShaderMaterial
+	if mat == null:
+		return
+	mat.set_shader_parameter("flash_color", color)
+	mat.set_shader_parameter("flashing", true)
+	_flash_serial += 1
+	var serial: int = _flash_serial
+	await get_tree().create_timer(duration, false).timeout
+	if serial == _flash_serial:
+		mat.set_shader_parameter("flashing", false)
 
 func _is_invincible() -> bool:
 	return _hull_invincible_timer > 0.0 or _respawn_invincible_timer > 0.0 or _special_invincible_timer > 0.0

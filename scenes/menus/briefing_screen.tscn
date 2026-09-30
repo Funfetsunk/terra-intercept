@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dk8mxb6uba077"]
 
 [ext_resource type="Script" uid="uid://b3472spx6ggtr" path="res://scenes/menus/briefing_screen.gd" id="1_3w5rx"]
+[ext_resource type="StyleBox" uid="uid://bh6ph7hdr1hrx" path="res://themes/panel_frame.tres" id="2_ofi8n"]
 
 [node name="BriefingScreen" type="Control" unique_id=1411676457]
 layout_mode = 3
@@ -14,7 +15,16 @@ layout_mode = 0
 offset_right = 640.0
 offset_bottom = 360.0
 mouse_filter = 2
-color = Color(0.04, 0.05, 0.1, 1)
+color = Color(0.18039216, 0.13333334, 0.18431373, 1)
+
+[node name="Frame" type="Panel" parent="." unique_id=2047696289]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 98.0
+offset_right = 572.0
+offset_bottom = 234.0
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("2_ofi8n")
 
 [node name="PortraitBox" type="ColorRect" parent="." unique_id=2094347324]
 layout_mode = 0

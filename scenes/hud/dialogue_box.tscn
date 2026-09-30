@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bdjsxy2elcbrc"]
 
 [ext_resource type="Script" uid="uid://70dhy7y8fstm" path="res://scenes/hud/dialogue_box.gd" id="1_plqrs"]
+[ext_resource type="StyleBox" uid="uid://bh6ph7hdr1hrx" path="res://themes/panel_frame.tres" id="2_n6nmq"]
 
 [node name="DialogueBox" type="CanvasLayer" unique_id=647446749]
 script = ExtResource("1_plqrs")
@@ -11,7 +12,14 @@ offset_top = 264.0
 offset_right = 600.0
 offset_bottom = 344.0
 mouse_filter = 2
-color = Color(0.04, 0.05, 0.1, 0.9)
+color = Color(0, 0, 0, 0)
+
+[node name="Frame" type="Panel" parent="Panel" unique_id=1715561882]
+layout_mode = 0
+offset_right = 560.0
+offset_bottom = 80.0
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("2_n6nmq")
 
 [node name="Portrait" type="ColorRect" parent="Panel" unique_id=1180777483]
 layout_mode = 0

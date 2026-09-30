@@ -1,7 +1,23 @@
 [gd_resource type="Theme" format=3 uid="uid://bl0eemw2ubngy"]
 
+[ext_resource type="StyleBox" uid="uid://ijiw1t3xyyyd" path="res://themes/button_disabled.tres" id="1_7ceur"]
 [ext_resource type="FontFile" uid="uid://cwygflo0pts0m" path="res://art/fonts/PressStart2P-Regular.ttf" id="1_rjgu6"]
+[ext_resource type="StyleBox" uid="uid://dsy3kw5apphpr" path="res://themes/button_focus.tres" id="2_uobgu"]
+[ext_resource type="StyleBox" uid="uid://cokuymg7jh55l" path="res://themes/button_hover.tres" id="3_puucq"]
+[ext_resource type="StyleBox" uid="uid://btou2nl8wauhk" path="res://themes/button_normal.tres" id="4_1mjdo"]
+[ext_resource type="StyleBox" uid="uid://ch5eai0xle7ey" path="res://themes/button_pressed.tres" id="5_s5e0q"]
 
 [resource]
 default_font = ExtResource("1_rjgu6")
 default_font_size = 8
+Button/colors/font_color = Color(0.78039217, 0.8627451, 0.8156863, 1)
+Button/colors/font_disabled_color = Color(0.49803922, 0.4392157, 0.5411765, 1)
+Button/colors/font_focus_color = Color(0.9764706, 0.7607843, 0.16862746, 1)
+Button/colors/font_hover_color = Color(0.9764706, 0.7607843, 0.16862746, 1)
+Button/colors/font_hover_pressed_color = Color(0.9843137, 0.7254902, 0.32941177, 1)
+Button/colors/font_pressed_color = Color(0.9843137, 0.7254902, 0.32941177, 1)
+Button/styles/disabled = ExtResource("1_7ceur")
+Button/styles/focus = ExtResource("2_uobgu")
+Button/styles/hover = ExtResource("3_puucq")
+Button/styles/normal = ExtResource("4_1mjdo")
+Button/styles/pressed = ExtResource("5_s5e0q")

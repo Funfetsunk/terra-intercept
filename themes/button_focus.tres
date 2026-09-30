@@ -1,0 +1,16 @@
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://dsy3kw5apphpr"]
+
+[ext_resource type="Texture2D" uid="uid://cgp0vtst6yjn7" path="res://art/sprites/ui/ui_frame_focus.png" id="1_ghufh"]
+
+[resource]
+content_margin_left = 4.0
+content_margin_top = 3.0
+content_margin_right = 4.0
+content_margin_bottom = 3.0
+texture = ExtResource("1_ghufh")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1

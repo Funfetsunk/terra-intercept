@@ -14,6 +14,8 @@ enum SpecialShape { VERTICAL_LINE, CONE, CIRCLE, HORIZONTAL_LINE }
 ## In-flight banking sheet: 5 frames of 24x24 in a row (full left, slight left,
 ## level, slight right, full right). Falls back to icon_sprite when unset.
 @export var bank_sheet: Texture2D
+## Where engine flames sit, relative to the ship's centre (one entry per engine, max 2).
+@export var engine_flame_offsets: Array[Vector2] = [Vector2(0, 13)]
 @export var portrait: Texture2D
 
 @export_group("Movement")

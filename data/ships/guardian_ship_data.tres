@@ -17,6 +17,7 @@ radio_intro = "Max on station. I've got you."
 select_art = ExtResource("3_ruij8")
 icon_sprite = ExtResource("2_f36ja")
 bank_sheet = ExtResource("1_56sw8")
+engine_flame_offsets = Array[Vector2]([Vector2(-3, 13), Vector2(3, 13)])
 portrait = ExtResource("3_a55y1")
 move_speed = 118.0
 move_acceleration = 2000.0

@@ -85,6 +85,7 @@ func _ready() -> void:
 		$Sprite.texture = data.icon_sprite
 	if $Sprite.texture != null:
 		_sprite_half_extents = $Sprite.texture.get_size() * 0.5
+	_place_engine_flames()
 	_spawn_origin = global_position
 	shield_current = data.shield_max
 	hull_current = data.hull_max
@@ -355,7 +356,7 @@ func _try_fire_ordnance() -> void:
 		return
 	_game_state.ordnance_ammo -= 1
 	ordnance_ammo_changed.emit(_game_state.ordnance_ammo)
-	_bullets.spawn_player_bullet(global_position, _last_move_dir, ordnance.bullet_speed, ordnance.bullet_radius, ordnance.bullet_color, 3.0, ordnance.bullet_damage)
+	_bullets.spawn_player_bullet(global_position, _last_move_dir, ordnance.bullet_speed, ordnance.bullet_radius, ordnance.bullet_color, 3.0, ordnance.bullet_damage, ordnance.bullet_texture)
 	_ordnance_cooldown = ordnance.fire_cooldown
 	ordnance_fired.emit()
 
@@ -370,3 +371,11 @@ func get_hitbox_radius() -> float:
 
 func get_focus_meter() -> float:
 	return _focus_meter
+
+func _place_engine_flames() -> void:
+	var flames: Array[AnimatedSprite2D] = [$EngineFlame1, $EngineFlame2]
+	for i in range(flames.size()):
+		var has_engine: bool = i < data.engine_flame_offsets.size()
+		flames[i].visible = has_engine
+		if has_engine:
+			flames[i].position = data.engine_flame_offsets[i].round()

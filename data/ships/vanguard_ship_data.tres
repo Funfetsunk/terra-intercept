@@ -17,6 +17,7 @@ radio_intro = "Tammy, standing by. Just say when."
 select_art = ExtResource("3_qi20r")
 icon_sprite = ExtResource("2_3hb8c")
 bank_sheet = ExtResource("1_dtbx6")
+engine_flame_offsets = Array[Vector2]([Vector2(-3, 13), Vector2(3, 13)])
 portrait = ExtResource("3_spr0v")
 move_speed = 139.0
 move_acceleration = 2000.0

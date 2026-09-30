@@ -7,4 +7,6 @@ class_name OrdnanceData
 @export var bullet_speed: float = 200.0
 @export var bullet_radius: float = 5.0
 @export var bullet_color: Color = Color(1.0, 0.6, 0.1)
+## Sprite drawn at native size; leave empty for a plain coloured square.
+@export var bullet_texture: Texture2D
 @export var bullet_damage: float = 3.0

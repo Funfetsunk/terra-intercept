@@ -13,7 +13,9 @@ Milestone 3 (campaign structure) — complete. All 9 tasks below done. No git ta
 
 **Art pass: complete** (2026-09-30). All of London, the HUD, the menus and the map have real on-palette art (see "Art" below).
 
-**Now: tuning London's difficulty feel.**
+**London: complete** (tag `london-complete`, 2026-09-30). Difficulty tuned after playtesting, and pause menu, crosshair and HUD readouts are in. The developer playtested on the retro laptop with no noticeable slowdown; an exact 60fps figure hasn't been measured (a debug FPS counter is an option if later missions get busier). Sound effects and the Sound Test wait until the developer has the sounds ready, and the music tracks are still placeholders.
+
+**Now: mission 2** (column 2: Norwegian Fjords, north lane; Paris, south lane). Plan it with the developer before building. The design summary doesn't yet define either mission's twist or boss.
 
 Milestone 3 built the frame around the mission that already works: saves, the hangar, upgrades, the world map and the story screens.
 
@@ -29,7 +31,7 @@ Build in this order, one task at a time, committed separately. Mark each **[done
 8. **Full flow. [done]** Title → slot select → ship select (new run only) → map → briefing → mission → results → post-briefing → hangar → map. Game over offers restart or hangar, with the refund rule applied. Landed as a byproduct of tasks 2, 5, 6 and 7 building the chain incrementally -- verified as its own pass with a full live playthrough (including forcing a game over) rather than built fresh.
 9. **Settings. [done]** The `Settings` autoload and an options screen: CRT filter, screen shake, button remapping, high-contrast bullets, difficulty (Easy/Normal). Settings save separately from run saves.
 
-**Not yet:** sound effects and the Sound Test, missions 2–13, co-op. Ask before starting any of these.
+**Not yet:** sound effects and the Sound Test (the developer will provide the sounds), missions 3–13, co-op. Ask before starting any of these.
 
 Every milestone must run at a steady 60fps on the retro laptop (i7-1165G7 / Iris Xe).
 

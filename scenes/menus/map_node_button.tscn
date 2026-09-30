@@ -1,8 +1,30 @@
 [gd_scene format=3 uid="uid://gqyeapa2t6jq"]
 
 [ext_resource type="Script" uid="uid://h12vnl0fp5m6" path="res://scenes/menus/map_node_button.gd" id="1_le21q"]
+[ext_resource type="StyleBox" uid="uid://ch5eai0xle7ey" path="res://themes/button_pressed.tres" id="1_moggx"]
+[ext_resource type="StyleBox" uid="uid://dsy3kw5apphpr" path="res://themes/button_focus.tres" id="2_c0e54"]
+[ext_resource type="Texture2D" uid="uid://c6iu5pc832q24" path="res://art/sprites/ui/map/map_node_locked.png" id="4_cc6dq"]
+[ext_resource type="Texture2D" uid="uid://c7nq7l6gupp7b" path="res://art/sprites/ui/map/map_node_available.png" id="5_jv6u5"]
+[ext_resource type="Texture2D" uid="uid://cturjjge3r5rt" path="res://art/sprites/ui/map/map_node_completed.png" id="6_3i8g7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w0ndy"]
 
 [node name="MapNodeButton" type="Button" unique_id=1241645293]
-custom_minimum_size = Vector2(96, 48)
+custom_minimum_size = Vector2(80, 40)
+offset_right = 80.0
+offset_bottom = 40.0
+theme_override_colors/font_outline_color = Color(0.18039216, 0.13333334, 0.18431373, 1)
+theme_override_constants/outline_size = 2
+theme_override_constants/h_separation = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_w0ndy")
+theme_override_styles/pressed = ExtResource("1_moggx")
+theme_override_styles/hover = ExtResource("2_c0e54")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_w0ndy")
+theme_override_styles/focus = ExtResource("2_c0e54")
 autowrap_mode = 3
+icon_alignment = 1
+vertical_icon_alignment = 0
 script = ExtResource("1_le21q")
+icon_locked = ExtResource("4_cc6dq")
+icon_available_sheet = ExtResource("5_jv6u5")
+icon_completed = ExtResource("6_3i8g7")

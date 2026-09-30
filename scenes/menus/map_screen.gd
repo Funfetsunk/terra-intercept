@@ -2,14 +2,18 @@ extends Control
 
 const MAP_NODE_BUTTON_SCENE: PackedScene = preload("res://scenes/menus/map_node_button.tscn")
 
-const COLUMN_X: Dictionary = {1: 40, 2: 120, 3: 200, 4: 280, 5: 360, 6: 440, 7: 540}
-const NORTH_Y: float = 90.0
-const SOUTH_Y: float = 230.0
-const CENTER_Y: float = 160.0
+## Centre x of each column's node, and the lane rows' centre y (whole pixels).
+const COLUMN_X: Dictionary = {1: 56, 2: 144, 3: 232, 4: 320, 5: 408, 6: 496, 7: 584}
+const NORTH_Y: float = 118.0
+const SOUTH_Y: float = 248.0
+const CENTER_Y: float = 183.0
+## Height of a node's icon centre within its button (content margin + half a 16px icon).
+const ROUTE_ANCHOR_Y: float = 11.0
 
 @onready var _game_state: Node = get_node("/root/GameState")
 @onready var _tech_label: Label = $TechLabel
 @onready var _node_container: Control = $NodeContainer
+@onready var _routes: MapRoutes = $Routes
 @onready var _lane_choice_overlay: Control = $LaneChoiceOverlay
 @onready var _north_button: Button = $LaneChoiceOverlay/ChoiceButtons/NorthButton
 @onready var _south_button: Button = $LaneChoiceOverlay/ChoiceButtons/SouthButton
@@ -40,11 +44,12 @@ func _build_nodes() -> void:
 	for child: Node in _node_container.get_children():
 		child.queue_free()
 	_frontier_button = null
+	var centers: Dictionary = {}
+	var states: Dictionary = {}
 	for map_node: MapNodeData in _game_state.all_map_nodes:
 		var is_completed: bool = _game_state.completed_missions.has(map_node.id)
 		var is_frontier: bool = map_node.column == _game_state.current_column and (map_node.lane.is_empty() or map_node.lane == _game_state.current_lane)
-		var is_enabled: bool = is_completed or is_frontier
-		var state_text: String = "Completed" if is_completed else ("Available" if is_frontier else "Locked")
+		var state: MapNodeButton.State = MapNodeButton.State.COMPLETED if is_completed else (MapNodeButton.State.AVAILABLE if is_frontier else MapNodeButton.State.LOCKED)
 		var button: MapNodeButton = MAP_NODE_BUTTON_SCENE.instantiate()
 		_node_container.add_child(button)
 		var y: float = CENTER_Y
@@ -52,11 +57,15 @@ func _build_nodes() -> void:
 			y = NORTH_Y
 		elif map_node.lane == "south":
 			y = SOUTH_Y
-		button.position = Vector2(COLUMN_X[map_node.column], y)
-		button.setup(map_node, "%s\n(%s)" % [map_node.display_name, state_text], is_enabled)
+		button.setup(map_node, map_node.display_name, state)
+		button.position = (Vector2(COLUMN_X[map_node.column], y) - button.size * 0.5).round()
+		# Routes join the node icons, which sit at the top centre of each button.
+		centers[map_node.id] = button.position + Vector2(button.size.x * 0.5, ROUTE_ANCHOR_Y)
+		states[map_node.id] = state
 		button.activated.connect(_on_node_activated)
 		if is_frontier:
 			_frontier_button = button
+	_routes.show_routes(_game_state.all_map_nodes, centers, states)
 	if _frontier_button != null and not _game_state.pending_lane_choice:
 		_frontier_button.grab_focus()
 

@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://cv72sqyp82hog"]
 
 [ext_resource type="Script" uid="uid://cr1ef3paxdd2i" path="res://scenes/menus/map_screen.gd" id="1_jt0h1"]
-[ext_resource type="Texture2D" uid="uid://i768lh5kdmul" path="res://art/sprites/ui/menu_background.png" id="2_sjxgi"]
+[ext_resource type="Texture2D" uid="uid://bpxmu2ojxahm4" path="res://art/sprites/ui/map/map_background.png" id="2_ttqi3"]
+[ext_resource type="Script" uid="uid://dbw7wrufouwf5" path="res://scenes/menus/map_routes.gd" id="3_ttqi3"]
 
 [node name="MapScreen" type="Control" unique_id=1241235078]
 layout_mode = 3
@@ -23,7 +24,7 @@ layout_mode = 0
 offset_right = 640.0
 offset_bottom = 360.0
 mouse_filter = 2
-texture = ExtResource("2_sjxgi")
+texture = ExtResource("2_ttqi3")
 
 [node name="TitleLabel" type="Label" parent="." unique_id=1574717772]
 layout_mode = 0
@@ -41,6 +42,13 @@ offset_right = 630.0
 offset_bottom = 24.0
 text = "Tech: 0"
 horizontal_alignment = 2
+
+[node name="Routes" type="Control" parent="." unique_id=1311914033]
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 360.0
+mouse_filter = 2
+script = ExtResource("3_ttqi3")
 
 [node name="NodeContainer" type="Control" parent="." unique_id=125587247]
 anchors_preset = 0

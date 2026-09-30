@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://ci0m4dfh7cg55"]
+
+[ext_resource type="Script" uid="uid://ba58el5p4e8wy" path="res://scenes/hud/pause_menu.gd" id="1_qp6lq"]
+[ext_resource type="StyleBox" uid="uid://bh6ph7hdr1hrx" path="res://themes/panel_frame.tres" id="2_5h01g"]
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=366232786]
+layer = 15
+script = ExtResource("1_qp6lq")
+
+[node name="Root" type="Control" parent="." unique_id=739521019]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 360.0
+
+[node name="Dim" type="ColorRect" parent="Root" unique_id=1078303508]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+mouse_filter = 2
+color = Color(0.18039216, 0.13333334, 0.18431373, 0.75)
+
+[node name="Frame" type="Panel" parent="Root" unique_id=1287046177]
+layout_mode = 0
+offset_left = 210.0
+offset_top = 92.0
+offset_right = 430.0
+offset_bottom = 268.0
+theme_override_styles/panel = ExtResource("2_5h01g")
+
+[node name="Title" type="Label" parent="Root/Frame" unique_id=1835197411]
+layout_mode = 0
+offset_top = 14.0
+offset_right = 220.0
+offset_bottom = 30.0
+theme_override_colors/font_color = Color(0.9764706, 0.7607843, 0.16862746, 1)
+theme_override_colors/font_outline_color = Color(0.18039216, 0.13333334, 0.18431373, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 16
+text = "PAUSED"
+horizontal_alignment = 1
+
+[node name="Buttons" type="VBoxContainer" parent="Root/Frame" unique_id=1919894703]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 44.0
+offset_right = 200.0
+offset_bottom = 162.0
+theme_override_constants/separation = 6
+
+[node name="ResumeButton" type="Button" parent="Root/Frame/Buttons" unique_id=1627432608]
+custom_minimum_size = Vector2(180, 24)
+layout_mode = 2
+text = "Resume"
+
+[node name="OptionsButton" type="Button" parent="Root/Frame/Buttons" unique_id=1697753760]
+custom_minimum_size = Vector2(180, 24)
+layout_mode = 2
+text = "Options"
+
+[node name="RestartButton" type="Button" parent="Root/Frame/Buttons" unique_id=1433788328]
+custom_minimum_size = Vector2(180, 24)
+layout_mode = 2
+text = "Restart Mission"
+
+[node name="HangarButton" type="Button" parent="Root/Frame/Buttons" unique_id=1750079977]
+custom_minimum_size = Vector2(180, 24)
+layout_mode = 2
+text = "Quit to Hangar"

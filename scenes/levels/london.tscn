@@ -18,6 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://bbu1i2vdl36db" path="res://scenes/pickups/weapon_pickup.tscn" id="17_j7qax"]
 [ext_resource type="Script" uid="uid://bhmq84kb4nlfy" path="res://scenes/hud/crosshair.gd" id="18_8v1gb"]
 [ext_resource type="PackedScene" uid="uid://d3f6kv8rj0pgl" path="res://scenes/pickups/alien_tech_drop.tscn" id="18_e2wpw"]
+[ext_resource type="PackedScene" uid="uid://ci0m4dfh7cg55" path="res://scenes/hud/pause_menu.tscn" id="19_8v1gb"]
+[ext_resource type="Script" uid="uid://ba58el5p4e8wy" path="res://scenes/hud/pause_menu.gd" id="20_k1bt5"]
 
 [node name="London" type="Node2D" unique_id=705097]
 script = ExtResource("1_tl1kh")
@@ -69,3 +71,7 @@ alien_tech_drop_scene = ExtResource("18_e2wpw")
 [node name="Crosshair" type="CanvasLayer" parent="." unique_id=1482935218 instance=ExtResource("17_e2wpw")]
 layer = 20
 script = ExtResource("18_8v1gb")
+
+[node name="PauseMenu" type="CanvasLayer" parent="." unique_id=366232786 instance=ExtResource("19_8v1gb")]
+layer = 15
+script = ExtResource("20_k1bt5")

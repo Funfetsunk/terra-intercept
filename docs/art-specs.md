@@ -133,7 +133,7 @@ Layers scroll on whole pixels. Keep backgrounds darker and lower in contrast tha
 
 | Item | Size | Notes |
 |---|---|---|
-| Side panel frames | 140×360 each | **Built.** Left panel: shield, hull and focus rows, ordnance grid and lives box. Right panel: special-meter row, 3 charge sockets and a SQUAD box. |
+| Side panel frames | 140×360 each | **Built.** Left panel: shield, hull and focus rows, ordnance grid and lives box. Right panel: special-meter row, 3 charge sockets, a SQUAD box, and tech, score and chain readout rows (icon socket plus a flat dark track with 8px text). |
 | Pilot portraits (Dash, Bucky, Max, Tammy) and commander (Steel) | 64×64 | **Built.** 4 expressions each (neutral, determined, hurt, happy), hand-tuned onto the palette. Skin and hair map onto one warm ramp (`2e222f` … `fdcbb0`) with a lightness offset per character (Dash 0, Tammy +2, Bucky −4, Max −10, Steel −12), so each skin tone keeps its depth. |
 | Shield / hull / focus / special bar tile | 5×10 | **Built.** 4px of art plus a 1px transparent column, tiled to fill a 65×10 track. |
 | Special charge icon | 12×12 | **Built.** Reuses the special-charge pickup badge. |
@@ -152,7 +152,7 @@ Layers scroll on whole pixels. Keep backgrounds darker and lower in contrast tha
 | Map route lines | 2px | **Built** in code: solid gold when open, dim dashes when locked. Long routes wrap round the Pacific. |
 | Upgrade icons (hangar list) | 16×16 | **Built.** Cut from the matching HUD icons. |
 | UI frame | 16×16 9-slice, 6px margins | **Built.** `ui_frame` plus focus, pressed and disabled variants, used for buttons, dialogue and panels. |
-| Mouse aim crosshair | 11×11 | Odd size, for a true centre pixel |
+| Mouse aim crosshair | 11×11 | **Built.** White ticks and a centre dot with a dark outline, drawn in game pixels on its own layer (not as the OS cursor, which wouldn't scale). |
 | Cutscene frames | 640×360 | |
 
 ## Outside the game

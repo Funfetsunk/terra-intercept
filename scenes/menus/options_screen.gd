@@ -18,6 +18,13 @@ const ACTION_DISPLAY_NAMES: Dictionary = {
 @onready var _remap_list: VBoxContainer = $RemapList
 @onready var _back_button: Button = $BackButton
 
+## Emitted when Back is pressed while the screen is embedded (opened from the pause menu).
+signal closed
+
+## When true the screen is an overlay (pause menu): Back closes it instead of
+## going to the title screen.
+var embedded: bool = false
+
 var _rows: Array[RemapRow] = []
 var _listening_action: String = ""
 
@@ -88,4 +95,8 @@ func _finish_listening() -> void:
 		row.refresh(ACTION_DISPLAY_NAMES.get(row.action, row.action))
 
 func _on_back() -> void:
+	if embedded:
+		closed.emit()
+		queue_free()
+		return
 	get_tree().change_scene_to_file("res://scenes/menus/title_screen.tscn")

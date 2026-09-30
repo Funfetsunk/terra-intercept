@@ -8,8 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://wklwemvx00mv" path="res://scenes/hud/crosshair.tscn" id="10_vdrwo"]
 [ext_resource type="Resource" uid="uid://baxpsygp200ea" path="res://data/missions/test_range_mission.tres" id="11_corhf"]
 [ext_resource type="Script" uid="uid://bhmq84kb4nlfy" path="res://scenes/hud/crosshair.gd" id="11_r04sm"]
+[ext_resource type="PackedScene" uid="uid://ci0m4dfh7cg55" path="res://scenes/hud/pause_menu.tscn" id="12_5sjue"]
 [ext_resource type="Script" uid="uid://c6cns2cik14l2" path="res://scenes/levels/scrolling_background.gd" id="12_irn3u"]
 [ext_resource type="PackedScene" uid="uid://ort4tmjdo7j" path="res://scenes/levels/background_layer.tscn" id="13_3vjr3"]
+[ext_resource type="Script" uid="uid://ba58el5p4e8wy" path="res://scenes/hud/pause_menu.gd" id="13_t7iem"]
 [ext_resource type="Script" uid="uid://b1vqxoh2qfcwi" path="res://scripts/systems/dialogue_controller.gd" id="15_a2tfc"]
 
 [node name="TestRange" type="Node2D" unique_id=1311692602]
@@ -47,3 +49,7 @@ mission = ExtResource("11_corhf")
 [node name="Crosshair" type="CanvasLayer" parent="." unique_id=1482935218 instance=ExtResource("10_vdrwo")]
 layer = 20
 script = ExtResource("11_r04sm")
+
+[node name="PauseMenu" type="CanvasLayer" parent="." unique_id=366232786 instance=ExtResource("12_5sjue")]
+layer = 15
+script = ExtResource("13_t7iem")

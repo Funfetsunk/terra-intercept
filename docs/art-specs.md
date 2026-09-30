@@ -12,7 +12,8 @@ Rows marked **Built** describe the art that is in the game now; the rest are spe
 - **Humans:** greys with red, blue and gold accents.
 - **Backgrounds** are darkened and desaturated so bullets and ships read on top. Bullets are the brightest things on screen.
 - **UI:** grey rim, orange trim and dark fill (the `ui_frame` 9-slice). Selected or focused elements use gold `f9c22b`.
-- **Hit flashes** draw a sprite as one flat palette colour (the `silhouette_flash` shader) instead of tinting it.
+- **Hit flashes** draw a sprite as one flat palette colour (the `silhouette_flash` shader) instead of tinting it. The same shader outlines the player ship in `8fd3ff`.
+- **The high-contrast option** outlines enemy bullets only, in `2e222f`.
 
 ## Text
 
@@ -37,6 +38,7 @@ Text drawn into art uses its own 3×5 pixel font (the "SQUAD"/"LIVES" plates) or
 | Ship sprite (Interceptor, Striker, Guardian, Vanguard) | 24×24 | **Built.** Banking sheet `<ship>_bank.png`, 120×24: full left, slight left, level, slight right, full right. The bank frames are derived from the level frame (lowered wing foreshortened and shaded darker, raised wing lit, right side mirrored) so all four ships bank the same way. |
 | Engine flame | 8×8 | **Built.** 3 frames looping, placed per ship by `ShipData.engine_flame_offsets` (one or two engines). |
 | Hit flash | Same as the ship | **Built** in code: a 0.1s palette silhouette (`8fd3ff` on a shield hit, `ffffff` on a hull hit). |
+| Player outline | 1px | **Built** in code: the `silhouette_flash` shader draws an `8fd3ff` outline round the ship so it never gets lost in the background. Ship frames keep at least a 1px transparent margin for it. |
 | Ship-select art | 72×72 | **Built.** 1 frame per ship. |
 
 - The hitbox is 3–4px at the ship's centre. Keep the cockpit or visual centre there. Art never changes the hitbox.
@@ -47,8 +49,7 @@ Text drawn into art uses its own 3×5 pixel font (the "SQUAD"/"LIVES" plates) or
 | Item | Size | Notes |
 |---|---|---|
 | Primary shot | 6×6 | **Built.** Pale-yellow diamond, shared by all ships. It is non-directional because twin-stick shots fly in any direction. |
-| Ordnance bomb | 10×10 | **Built.** Bomb with a lit fuse, matching the HUD ordnance badge. |
-| Missile (later ordnance type) | 4×10 | 2-frame trail |
+| Ordnance missile | 14×14 frames, 8 facings | **Built.** `ordnance_missile.png`: red nose, grey body, red fins and an orange exhaust, one frame per 45°, clockwise from up. The shot uses the facing nearest its flight direction (`OrdnanceData.bullet_direction_sheet`). The HUD ordnance badges show the same missile. |
 | Homing swarm projectile | 4×4 | |
 | Mine | 8×8 | 2-frame blink |
 

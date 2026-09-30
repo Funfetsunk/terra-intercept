@@ -46,7 +46,7 @@ Real art arrives piece by piece while milestone 3 is being built.
   - Backgrounds are darkened and desaturated so gameplay reads on top of them.
   - UI uses the grey-rim, orange-trim frame (`art/sprites/ui/ui_frame*.png`).
   - Explosions use the palette fire ramp and fade to smoke.
-- **How art gets made:** PixelLab output is never committed raw. It's remapped onto the palette first, and small items (bullets, pickups, explosions, UI frames, bank frames, the logo) are drawn procedurally in palette so they stay consistent. The remap and drawing scripts live in the session scratchpad, not the repo. Check every new PNG against the hex file before committing: 0 off-palette pixels and 0 semi-transparent pixels.
+- **How art gets made:** PixelLab output is never committed raw. It's remapped onto the palette first, and small items (bullets, pickups, explosions, UI frames, bank frames, the logo) are drawn procedurally in palette so they stay consistent. The remap and drawing scripts live in the session scratchpad, not the repo. Before committing art, run `python tools/check_palette.py` (all of `art/sprites/`, or pass file paths). It must report 0 failures: no off-palette pixels and no semi-transparent pixels. Nothing in a live scene references `art/placeholder/` any more.
 - **Portraits and ship-select art** were hand-tuned onto the palette on 2026-09-30, at the developer's request to keep the palette strict.
   - Warm skin and hair tones were mapped by lightness onto one warm ramp: `2e222f` `45293f` `6e2727` `7a3045` `9e4539` `cd683d` `e6904e` `fca790` `fdcbb0`.
   - Each character has a lightness offset, so their skin tones keep the same relative depth: Dash 0, Tammy +2, Bucky -4, Max -10, Steel -12.
@@ -67,14 +67,14 @@ Swap-in checklist, updated as art lands:
 
 - [x] Player ships (4) with banking frames: `*_bank.png` (120×24, 5 frames) via `ShipData.bank_sheet`, plus engine flames (`engine_flame.png`) at `ShipData.engine_flame_offsets`. The frames are derived from each ship's 24×24 art: the lowered wing is foreshortened and shaded, and the right-bank frames mirror the left.
 - [x] Bullets and ordnance (`art/sprites/bullets/`). The bullet manager draws textures at their native size on whole pixels.
-- [x] Enemies: drone, swarmer, lander pod (`art/sprites/enemies/`, `AnimatedSprite2D` + `SpriteFrames`). The spinner isn't used in London and is still placeholder, with a 0.65 fractional scale that must go when it gets art.
+- [x] Enemies: drone, swarmer, lander pod and spinner (`art/sprites/enemies/`, `AnimatedSprite2D` + `SpriteFrames`). The spinner spins through exact 90° rotations and isn't used in London yet.
 - [x] Mid-boss and Tower Bridge boss (`art/sprites/bosses/`, phase1 and phase2 animations). The Tower Bridge boss locks the ground scroll once it arrives.
-- [x] Thames and London backgrounds: two seamless 360×360 tiles (`art/sprites/backgrounds/london/`). London's NearLayer is hidden: no cloud or parallax layer yet.
+- [x] Thames and London backgrounds: two seamless 360×360 tiles (`art/sprites/backgrounds/london/`), plus a dithered smoke layer (`smoke.png`) on London's NearLayer at 1.4× scroll. BackgroundLayer places panels on whole pixels. The test range uses a palette starfield (`art/sprites/backgrounds/space/`).
 - [x] Pickups and alien tech (`art/sprites/pickups/`)
-- [x] Explosions and special effects: explosions in 3 sizes (`scenes/effects/`), and squad specials drawn in code as palette energy bands. The respawn bullet-clear ring doesn't exist yet.
+- [x] Explosions and special effects: explosions in 3 sizes and the respawn bullet-clear ring (`scenes/effects/`), a large explosion when the player's hull breaks, and squad specials drawn in code as palette energy bands.
 - [x] Portraits: Dash, Bucky, Max, Tammy, Steel (on-palette, hand-tuned). Most expressions are still unused, and there's no expression-switching logic.
 - [x] HUD panel frames and icons: both panels are full. The right panel has a special meter, 3 charge sockets and a SQUAD box with the armed squad-mate's icon and name. The focus socket has a clock icon.
-- [ ] Menu, hangar and map screens: done except the map. The title has a pixel logo (`art/sprites/title/logo.png`) and a palette-remapped background. All menus share `art/sprites/ui/menu_background.png`, and buttons and dialogue use the UI frame theme. The world map still has no map art or node icons. Ship-select art is hand-tuned onto the palette. The upgrade rows have no icons yet.
+- [x] Menu, hangar and map screens: the title has a pixel logo (`art/sprites/title/logo.png`) and a palette-remapped background. Menus share `art/sprites/ui/menu_background.png`, and buttons and dialogue use the UI frame theme. The world map has a tactical-map background, 16×16 node icons (completed, available blinking, locked) and route lines (`MapRoutes`). Hangar upgrades show 16×16 icons (`UpgradeData.icon`). Ship-select art is hand-tuned onto the palette.
 
 ## What already exists
 
@@ -199,6 +199,7 @@ res://
     resources/       # custom Resource class definitions
     systems/         # bullet manager, spawner, playfield helper, scoring, etc.
   themes/            # global Theme resources (default font/size)
+  tools/             # dev scripts outside Godot (.gdignore): check_palette.py
   docs/
     design-summary.md
     art-specs.md

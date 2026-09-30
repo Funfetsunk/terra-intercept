@@ -5,7 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://c1woeggvkgk0f" path="res://scenes/hud/hud.tscn" id="6_l6eno"]
 [ext_resource type="PackedScene" uid="uid://bdjsxy2elcbrc" path="res://scenes/hud/dialogue_box.tscn" id="8_x3ifj"]
 [ext_resource type="Script" uid="uid://bgoiagdeo8ki4" path="res://scripts/systems/enemy_spawner.gd" id="10_ospck"]
+[ext_resource type="PackedScene" uid="uid://wklwemvx00mv" path="res://scenes/hud/crosshair.tscn" id="10_vdrwo"]
 [ext_resource type="Resource" uid="uid://baxpsygp200ea" path="res://data/missions/test_range_mission.tres" id="11_corhf"]
+[ext_resource type="Script" uid="uid://bhmq84kb4nlfy" path="res://scenes/hud/crosshair.gd" id="11_r04sm"]
 [ext_resource type="Script" uid="uid://c6cns2cik14l2" path="res://scenes/levels/scrolling_background.gd" id="12_irn3u"]
 [ext_resource type="PackedScene" uid="uid://ort4tmjdo7j" path="res://scenes/levels/background_layer.tscn" id="13_3vjr3"]
 [ext_resource type="Script" uid="uid://b1vqxoh2qfcwi" path="res://scripts/systems/dialogue_controller.gd" id="15_a2tfc"]
@@ -35,10 +37,13 @@ mission = ExtResource("11_corhf")
 
 [node name="FarLayer" parent="PlayfieldRoot/Background" unique_id=2071353270 instance=ExtResource("13_3vjr3")]
 scroll_speed_multiplier = 0.5
-panel_b_color = Color(1, 1, 1, 1)
 
 [node name="NearLayer" parent="PlayfieldRoot/Background" unique_id=1113152482 instance=ExtResource("13_3vjr3")]
 
 [node name="EnemySpawner" type="Node" parent="PlayfieldRoot" unique_id=876114463]
 script = ExtResource("10_ospck")
 mission = ExtResource("11_corhf")
+
+[node name="Crosshair" type="CanvasLayer" parent="." unique_id=1482935218 instance=ExtResource("10_vdrwo")]
+layer = 20
+script = ExtResource("11_r04sm")

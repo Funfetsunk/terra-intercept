@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://wklwemvx00mv"]
+
+[ext_resource type="Script" uid="uid://bhmq84kb4nlfy" path="res://scenes/hud/crosshair.gd" id="1_kw5i7"]
+[ext_resource type="Texture2D" uid="uid://b4m5nlijngi36" path="res://art/sprites/ui/crosshair.png" id="2_epbgx"]
+
+[node name="Crosshair" type="CanvasLayer" unique_id=1482935218]
+layer = 20
+script = ExtResource("1_kw5i7")
+
+[node name="Crosshair" type="Sprite2D" parent="." unique_id=1538896209]
+texture_filter = 1
+texture = ExtResource("2_epbgx")
+centered = false
+offset = Vector2(-5, -5)

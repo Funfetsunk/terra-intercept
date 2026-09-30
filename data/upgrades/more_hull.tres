@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://ctramuajawwt1"]
 
+[ext_resource type="Texture2D" uid="uid://15uxokuruvf0" path="res://art/sprites/ui/upgrades/upgrade_hull.png" id="1_m0540"]
 [ext_resource type="Script" uid="uid://bsd2c4vqvxcyc" path="res://scripts/resources/upgrade_data.gd" id="1_xeave"]
 
 [resource]
@@ -11,3 +12,4 @@ cost = 20
 stat_name = "hull_max"
 value_per_level = 1.0
 max_level = 3
+icon = ExtResource("1_m0540")

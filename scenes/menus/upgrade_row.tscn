@@ -7,6 +7,13 @@ custom_minimum_size = Vector2(0, 50)
 theme_override_constants/separation = 12
 script = ExtResource("1_v3ejo")
 
+[node name="Icon" type="TextureRect" parent="." unique_id=1493517134]
+texture_filter = 1
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_vertical = 4
+stretch_mode = 3
+
 [node name="InfoLabel" type="Label" parent="." unique_id=1735889118]
 layout_mode = 2
 size_flags_horizontal = 3

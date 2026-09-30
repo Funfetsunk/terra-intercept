@@ -3,6 +3,7 @@ class_name UpgradeRow
 
 signal purchased
 
+@onready var _icon: TextureRect = $Icon
 @onready var _info_label: Label = $InfoLabel
 @onready var _action_button: Button = $ActionButton
 
@@ -12,6 +13,7 @@ var _game_state: Node
 func setup(upgrade: UpgradeData, game_state: Node) -> void:
 	_upgrade = upgrade
 	_game_state = game_state
+	_icon.texture = upgrade.icon
 	_action_button.pressed.connect(_on_buy_pressed)
 	refresh()
 

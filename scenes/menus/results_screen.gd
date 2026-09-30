@@ -1,15 +1,19 @@
 extends Control
 
 @onready var _continue_button: Button = $ContinueButton
-@onready var _results_label: Label = $ResultsLabel
+@onready var _names_label: Label = $Frame/NamesLabel
+@onready var _values_label: Label = $Frame/ValuesLabel
+@onready var _grade_label: Label = $Frame/GradeLabel
 
 func _ready() -> void:
 	var r: Dictionary = get_node("/root/GameState").last_mission_results
-	_results_label.text = "Score: %d\nCompletion: +%d\nLives: +%d\nHull: +%d\nShield: +%d\nTech: %d\n\nTotal: %d\nGrade: %s" % [
+	_names_label.text = "Score\nCompletion\nLives\nHull\nShield\nTech\n\nTotal"
+	_values_label.text = "%d\n+%d\n+%d\n+%d\n+%d\n%d\n\n%d" % [
 		r.get("base_score", 0), r.get("completion_bonus", 0), r.get("lives_bonus", 0),
 		r.get("hull_bonus", 0), r.get("shield_bonus", 0), r.get("tech", 0),
-		r.get("total_score", 0), r.get("grade", "-"),
+		r.get("total_score", 0),
 	]
+	_grade_label.text = str(r.get("grade", "-"))
 	_continue_button.pressed.connect(_on_continue)
 	_continue_button.grab_focus()
 

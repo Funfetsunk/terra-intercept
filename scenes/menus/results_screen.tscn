@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bj2ever8ip4q0" path="res://scenes/menus/results_screen.gd" id="1_cppup"]
 [ext_resource type="Texture2D" uid="uid://i768lh5kdmul" path="res://art/sprites/ui/menu_background.png" id="2_dwvih"]
+[ext_resource type="StyleBox" uid="uid://bh6ph7hdr1hrx" path="res://themes/panel_frame.tres" id="3_5mbrb"]
 
 [node name="ResultsScreen" type="Control" unique_id=1594880899]
 layout_mode = 3
@@ -27,28 +28,80 @@ texture = ExtResource("2_dwvih")
 
 [node name="TitleLabel" type="Label" parent="." unique_id=992348054]
 layout_mode = 0
-offset_top = 16.0
+offset_top = 24.0
 offset_right = 640.0
-offset_bottom = 40.0
-theme_override_font_sizes/font_size = 18
-text = "Mission Complete"
+offset_bottom = 44.0
+theme_override_colors/font_color = Color(0.9764706, 0.7607843, 0.16862746, 1)
+theme_override_colors/font_outline_color = Color(0.18039216, 0.13333334, 0.18431373, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 16
+text = "MISSION COMPLETE"
 horizontal_alignment = 1
 
-[node name="ResultsLabel" type="Label" parent="." unique_id=119960425]
+[node name="Frame" type="Panel" parent="." unique_id=459731198]
 layout_mode = 0
-offset_left = 220.0
-offset_top = 52.0
-offset_right = 420.0
-offset_bottom = 232.0
-theme_override_font_sizes/font_size = 12
-text = "Score: 0"
+offset_left = 170.0
+offset_top = 60.0
+offset_right = 470.0
+offset_bottom = 230.0
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("3_5mbrb")
+
+[node name="NamesLabel" type="Label" parent="Frame" unique_id=659667556]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 18.0
+offset_right = 128.0
+offset_bottom = 158.0
+theme_override_colors/font_color = Color(0.78039217, 0.8627451, 0.8156863, 1)
+theme_override_colors/font_outline_color = Color(0.18039216, 0.13333334, 0.18431373, 1)
+theme_override_constants/line_spacing = 6
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 8
+
+[node name="ValuesLabel" type="Label" parent="Frame" unique_id=1295040431]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 18.0
+offset_right = 190.0
+offset_bottom = 158.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.18039216, 0.13333334, 0.18431373, 1)
+theme_override_constants/line_spacing = 6
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 2
+
+[node name="GradeCaption" type="Label" parent="Frame" unique_id=487305480]
+layout_mode = 0
+offset_left = 206.0
+offset_top = 40.0
+offset_right = 286.0
+offset_bottom = 56.0
+theme_override_colors/font_color = Color(0.60784316, 0.67058825, 0.69803923, 1)
+theme_override_colors/font_outline_color = Color(0.18039216, 0.13333334, 0.18431373, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 8
+text = "GRADE"
+horizontal_alignment = 1
+
+[node name="GradeLabel" type="Label" parent="Frame" unique_id=1075369849]
+layout_mode = 0
+offset_left = 206.0
+offset_top = 60.0
+offset_right = 286.0
+offset_bottom = 100.0
+theme_override_colors/font_color = Color(0.9764706, 0.7607843, 0.16862746, 1)
+theme_override_colors/font_outline_color = Color(0.18039216, 0.13333334, 0.18431373, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 32
+text = "-"
 horizontal_alignment = 1
 
 [node name="ContinueButton" type="Button" parent="." unique_id=1449946164]
 layout_mode = 0
-offset_left = 270.0
+offset_left = 260.0
 offset_top = 250.0
-offset_right = 370.0
-offset_bottom = 280.0
-theme_override_font_sizes/font_size = 13
+offset_right = 380.0
+offset_bottom = 278.0
 text = "Continue"

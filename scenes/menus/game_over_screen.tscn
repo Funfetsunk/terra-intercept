@@ -27,32 +27,40 @@ texture = ExtResource("2_bcvxg")
 
 [node name="TitleLabel" type="Label" parent="." unique_id=878544757]
 layout_mode = 0
-offset_top = 16.0
+offset_top = 60.0
 offset_right = 640.0
-offset_bottom = 40.0
-theme_override_font_sizes/font_size = 18
-text = "Mission Failed"
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0.9098039, 0.23137255, 0.23137255, 1)
+theme_override_colors/font_outline_color = Color(0.18039216, 0.13333334, 0.18431373, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 16
+text = "MISSION FAILED"
 horizontal_alignment = 1
 
 [node name="ButtonList" type="VBoxContainer" parent="." unique_id=1454568915]
 layout_mode = 0
-offset_left = 260.0
-offset_top = 140.0
-offset_right = 380.0
-offset_bottom = 260.0
+offset_left = 240.0
+offset_top = 120.0
+offset_right = 400.0
+offset_bottom = 250.0
+theme_override_constants/separation = 6
 
 [node name="RestartButton" type="Button" parent="ButtonList" unique_id=136437513]
+custom_minimum_size = Vector2(160, 26)
 layout_mode = 2
 text = "Restart Mission"
 
 [node name="SkipTutorialButton" type="Button" parent="ButtonList" unique_id=724030992]
+custom_minimum_size = Vector2(160, 26)
 layout_mode = 2
 text = "Skip Tutorial"
 
 [node name="QuitButton" type="Button" parent="ButtonList" unique_id=1996368015]
+custom_minimum_size = Vector2(160, 26)
 layout_mode = 2
 text = "Quit to Title"
 
 [node name="HangarButton" type="Button" parent="ButtonList" unique_id=25601131]
+custom_minimum_size = Vector2(160, 26)
 layout_mode = 2
 text = "Hangar"

@@ -14,6 +14,7 @@ func _ready() -> void:
 	var bd: BossData = data as BossData
 	($Sprite as AnimatedSprite2D).play("phase1")
 	if bd != null:
+		set_secondary_pattern(bd.secondary_pattern)
 		_music_before = _audio.get_current_music()
 		_audio.play_music(bd.music)
 	var shape := CircleShape2D.new()
@@ -34,6 +35,7 @@ func take_damage(amount: float) -> bool:
 		if _current_pattern != null:
 			_rng.seed = _current_pattern.rng_seed
 		_audio.play_music(bd.music_phase2)
+		set_secondary_pattern(bd.phase_2_secondary_pattern)
 		($Sprite as AnimatedSprite2D).play("phase2")
 	return was_kill
 

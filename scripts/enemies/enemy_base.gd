@@ -16,6 +16,12 @@ var _rng: RandomNumberGenerator = RandomNumberGenerator.new()
 var _burst_timer: float = 0.0
 var _burst_index: int = 0
 var _current_pattern: BulletPatternData = null
+## Optional second pattern fired alongside the main one (bosses), with its own
+## timer and seeded RNG so both stay deterministic.
+var _secondary_pattern: BulletPatternData = null
+var _secondary_rng: RandomNumberGenerator = RandomNumberGenerator.new()
+var _secondary_timer: float = 0.0
+var _secondary_burst_index: int = 0
 
 func _ready() -> void:
 	_bullets = get_node("/root/BulletManager")
@@ -38,15 +44,31 @@ func _process_movement(_delta: float) -> void:
 	pass
 
 func _process_pattern(delta: float) -> void:
-	if _current_pattern == null:
-		return
-	_burst_timer -= delta
-	if _burst_timer <= 0.0:
-		_fire_burst(_current_pattern)
-		_burst_timer += _current_pattern.burst_interval
+	if _current_pattern != null:
+		_burst_timer -= delta
+		if _burst_timer <= 0.0:
+			_fire_burst(_current_pattern)
+			_burst_timer += _current_pattern.burst_interval
+	if _secondary_pattern != null:
+		_secondary_timer -= delta
+		if _secondary_timer <= 0.0:
+			_fire_pattern(_secondary_pattern, _secondary_burst_index, _secondary_rng)
+			_secondary_burst_index += 1
+			_secondary_timer += _secondary_pattern.burst_interval
+
+func set_secondary_pattern(pattern: BulletPatternData) -> void:
+	_secondary_pattern = pattern
+	_secondary_burst_index = 0
+	if pattern != null:
+		_secondary_rng.seed = pattern.rng_seed
+		_secondary_timer = pattern.burst_interval
 
 func _fire_burst(pattern: BulletPatternData) -> void:
-	var base_angle_deg: float = pattern.fixed_angle_degrees + pattern.rotation_per_burst_degrees * _burst_index
+	_fire_pattern(pattern, _burst_index, _rng)
+	_burst_index += 1
+
+func _fire_pattern(pattern: BulletPatternData, burst_index: int, rng: RandomNumberGenerator) -> void:
+	var base_angle_deg: float = pattern.fixed_angle_degrees + pattern.rotation_per_burst_degrees * burst_index
 	if pattern.aim_at_player:
 		var to_player: Vector2 = _bullets.get_player_position() - global_position
 		base_angle_deg = rad_to_deg(to_player.angle())
@@ -59,11 +81,10 @@ func _fire_burst(pattern: BulletPatternData) -> void:
 		var offset: float = angle_step * float(i) if full_ring else (-pattern.angle_spread_degrees / 2.0 + angle_step * float(i))
 		var angle_deg: float = base_angle_deg + offset
 		if pattern.jitter_degrees > 0.0:
-			angle_deg += _rng.randf_range(-pattern.jitter_degrees, pattern.jitter_degrees)
+			angle_deg += rng.randf_range(-pattern.jitter_degrees, pattern.jitter_degrees)
 		var rad: float = deg_to_rad(angle_deg)
 		var dir: Vector2 = Vector2(cos(rad), sin(rad))
 		_bullets.spawn_enemy_bullet(global_position, dir, pattern.bullet_speed, pattern.bullet_radius, pattern.bullet_color, pattern.bullet_lifetime, pattern.bullet_damage, pattern.bullet_texture)
-	_burst_index += 1
 
 func take_damage(amount: float) -> bool:
 	hull_current = max(0.0, hull_current - amount)

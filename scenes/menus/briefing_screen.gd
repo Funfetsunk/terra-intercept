@@ -1,5 +1,9 @@
 extends Control
 
+## Palette backdrop behind real portrait art. portrait_color is only used for
+## lines that have no portrait texture (placeholder swatch).
+@export var portrait_backdrop_color: Color = Color("3e3546")
+
 @onready var _game_state: Node = get_node("/root/GameState")
 @onready var _portrait_box: ColorRect = $PortraitBox
 @onready var _portrait_art: TextureRect = $PortraitBox/Art
@@ -30,7 +34,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func _show_line(index: int) -> void:
 	_index = index
 	var line: BriefingLine = _lines[index]
-	_portrait_box.color = line.portrait_color
+	_portrait_box.color = portrait_backdrop_color if line.portrait != null else line.portrait_color
 	_portrait_art.texture = line.portrait
 	_speaker_label.text = line.speaker_name
 	_text_label.text = line.text

@@ -47,7 +47,13 @@ Real art arrives piece by piece while milestone 3 is being built.
   - UI uses the grey-rim, orange-trim frame (`art/sprites/ui/ui_frame*.png`).
   - Explosions use the palette fire ramp and fade to smoke.
 - **How art gets made:** PixelLab output is never committed raw. It's remapped onto the palette first, and small items (bullets, pickups, explosions, UI frames, bank frames, the logo) are drawn procedurally in palette so they stay consistent. The remap and drawing scripts live in the session scratchpad, not the repo. Check every new PNG against the hex file before committing: 0 off-palette pixels and 0 semi-transparent pixels.
-- **Open palette exception:** the 20 portraits and the 4 ship-select pilot pieces are still off-palette. Forcing them onto Resurrect 64 turned darker skin pale or ashen and flattened the hair and uniforms, so they were held back pending the developer's decision: keep them as a UI exception, or accept a hand-tuned remap.
+- **Portraits and ship-select art** were hand-tuned onto the palette on 2026-09-30, at the developer's request to keep the palette strict.
+  - Warm skin and hair tones were mapped by lightness onto one warm ramp: `2e222f` `45293f` `6e2727` `7a3045` `9e4539` `cd683d` `e6904e` `fca790` `fdcbb0`.
+  - Each character has a lightness offset, so their skin tones keep the same relative depth: Dash 0, Tammy +2, Bucky -4, Max -10, Steel -12.
+  - Near-black hair and armour are lifted slightly so braids and armour plates keep their detail.
+  - Everything else uses a hue-guarded nearest match.
+  - Side effect: brown hair now reads chestnut or auburn, since the palette has no neutral mid-brown.
+  - Dialogue and briefing portraits now sit on a palette backdrop (`portrait_backdrop_color`, `3e3546`). The old `portrait_color` swatch only shows for lines with no portrait art.
 - **Placeholder art from asset packs** lives in `art/placeholder/<pack-name>/`, each folder with a note on its source and licence. It never mixes with the real art in `art/sprites/`.
 
 **Pipeline setup (task 1, done):**
@@ -66,9 +72,9 @@ Swap-in checklist, updated as art lands:
 - [x] Thames and London backgrounds: two seamless 360×360 tiles (`art/sprites/backgrounds/london/`). London's NearLayer is hidden: no cloud or parallax layer yet.
 - [x] Pickups and alien tech (`art/sprites/pickups/`)
 - [x] Explosions and special effects: explosions in 3 sizes (`scenes/effects/`), and squad specials drawn in code as palette energy bands. The respawn bullet-clear ring doesn't exist yet.
-- [ ] Portraits: Dash, Bucky, Max, Tammy, Steel. The art is real, but off-palette pending the decision above. Most expressions are still unused, and there's no expression-switching logic.
+- [x] Portraits: Dash, Bucky, Max, Tammy, Steel (on-palette, hand-tuned). Most expressions are still unused, and there's no expression-switching logic.
 - [x] HUD panel frames and icons: both panels are full. The right panel has a special meter, 3 charge sockets and a SQUAD box with the armed squad-mate's icon and name. The focus socket has a clock icon.
-- [ ] Menu, hangar and map screens: done except the map. The title has a pixel logo (`art/sprites/title/logo.png`) and a palette-remapped background. All menus share `art/sprites/ui/menu_background.png`, and buttons and dialogue use the UI frame theme. The world map still has no map art or node icons. Ship-select art is off-palette (see portraits). The upgrade rows have no icons yet.
+- [ ] Menu, hangar and map screens: done except the map. The title has a pixel logo (`art/sprites/title/logo.png`) and a palette-remapped background. All menus share `art/sprites/ui/menu_background.png`, and buttons and dialogue use the UI frame theme. The world map still has no map art or node icons. Ship-select art is hand-tuned onto the palette. The upgrade rows have no icons yet.
 
 ## What already exists
 

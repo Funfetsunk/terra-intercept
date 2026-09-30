@@ -11,6 +11,9 @@ enum SpecialShape { VERTICAL_LINE, CONE, CIRCLE, HORIZONTAL_LINE }
 @export var radio_intro: String = ""
 @export var select_art: Texture2D
 @export var icon_sprite: Texture2D
+## In-flight banking sheet: 5 frames of 24x24 in a row (full left, slight left,
+## level, slight right, full right). Falls back to icon_sprite when unset.
+@export var bank_sheet: Texture2D
 @export var portrait: Texture2D
 
 @export_group("Movement")

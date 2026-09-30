@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="ShipData" format=3 uid="uid://d0x61lii3rvbi"]
 
 [ext_resource type="Script" uid="uid://boquiv061idvy" path="res://scripts/resources/ship_data.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://djgicr1c88lgu" path="res://art/sprites/player_ships/vanguard_bank.png" id="1_dtbx6"]
 [ext_resource type="Texture2D" uid="uid://cjmkt66py4ky7" path="res://art/sprites/bullets/player_shot_6.png" id="1_spr0v"]
 [ext_resource type="Texture2D" uid="uid://db8ce5sqcaeqx" path="res://art/sprites/player_ships/vanguard.png" id="2_3hb8c"]
 [ext_resource type="Texture2D" uid="uid://6w5veomx7kp0" path="res://art/sprites/ship_select/vanguard_select.png" id="3_qi20r"]
@@ -15,6 +16,7 @@ traits_description = "All-rounder"
 radio_intro = "Tammy, standing by. Just say when."
 select_art = ExtResource("3_qi20r")
 icon_sprite = ExtResource("2_3hb8c")
+bank_sheet = ExtResource("1_dtbx6")
 portrait = ExtResource("3_spr0v")
 move_speed = 139.0
 move_acceleration = 2000.0

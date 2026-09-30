@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="ShipData" format=3 uid="uid://b3c6554j4do4e"]
 
 [ext_resource type="Script" uid="uid://boquiv061idvy" path="res://scripts/resources/ship_data.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://ddepvued53tu4" path="res://art/sprites/player_ships/guardian_bank.png" id="1_56sw8"]
 [ext_resource type="Texture2D" uid="uid://cjmkt66py4ky7" path="res://art/sprites/bullets/player_shot_6.png" id="1_a55y1"]
 [ext_resource type="Texture2D" uid="uid://b6lyksp0jrikm" path="res://art/sprites/player_ships/guardian.png" id="2_f36ja"]
 [ext_resource type="Texture2D" uid="uid://birhtc3lgp5pg" path="res://art/sprites/portraits/max_neutral.png" id="3_a55y1"]
@@ -15,6 +16,7 @@ traits_description = "Slower, big shield"
 radio_intro = "Max on station. I've got you."
 select_art = ExtResource("3_ruij8")
 icon_sprite = ExtResource("2_f36ja")
+bank_sheet = ExtResource("1_56sw8")
 portrait = ExtResource("3_a55y1")
 move_speed = 118.0
 move_acceleration = 2000.0

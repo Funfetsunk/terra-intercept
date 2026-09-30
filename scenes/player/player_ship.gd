@@ -62,7 +62,21 @@ func _ready() -> void:
 		_squad = [data]
 	data = data.duplicate()
 	_apply_upgrades()
-	if data.icon_sprite != null:
+	if data.bank_sheet != null:
+		var frames: Array[Texture2D] = []
+		var frame_w: float = data.bank_sheet.get_width() / 5.0
+		for i in range(5):
+			var frame := AtlasTexture.new()
+			frame.atlas = data.bank_sheet
+			frame.region = Rect2(i * frame_w, 0.0, frame_w, data.bank_sheet.get_height())
+			frames.append(frame)
+		bank_frame_full_left = frames[0]
+		bank_frame_slight_left = frames[1]
+		bank_frame_neutral = frames[2]
+		bank_frame_slight_right = frames[3]
+		bank_frame_full_right = frames[4]
+		$Sprite.texture = bank_frame_neutral
+	elif data.icon_sprite != null:
 		bank_frame_full_left = data.icon_sprite
 		bank_frame_slight_left = data.icon_sprite
 		bank_frame_neutral = data.icon_sprite

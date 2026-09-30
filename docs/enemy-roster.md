@@ -1,6 +1,6 @@
-# Terra Intercept — Enemy Roster (DRAFT for review)
+# Terra Intercept — Enemy Roster
 
-Status: **draft**. Nothing here is built until the developer approves it. Once approved, the roster and debut schedule move into `docs/design-summary.md`, and sizes into `docs/art-specs.md`.
+Status: **approved** (2026-09-30), 15 types. This is the reference for enemy types, their roles and which mission each debuts in. Sizes also go into `docs/art-specs.md` as each enemy is built.
 
 ## Why this exists
 
@@ -93,10 +93,3 @@ Variants are palette swaps made with the existing remap tooling. No new drawing.
   - Tether pair: a beam-contact check in the bullet manager.
   - Crawler: locking to the background scroll.
 - Burrower and Cloaker only need timed visibility.
-
-## Questions for the developer
-
-1. Are 6 new types (15 in total) the right amount, or would you prefer fewer and more variants?
-2. Any types to cut, swap or rename? (For example, is the Tether pair too fiddly? Does the Crawler suit the Great Wall?)
-3. Is the column-based debut rule (both lanes of a column feed the shared pool from the next column) OK?
-4. Is the variant colour plan OK? The Elite crimson stays clear of the reserved pink bullet colour, but it is close in hue, so pink enemy bullets would need a darker outline against Elite enemies.

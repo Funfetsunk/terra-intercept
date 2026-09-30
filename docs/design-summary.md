@@ -129,16 +129,10 @@ After that, the squad emerges above Earth, the ending plays and the credits roll
 
 ## Enemies and bosses
 
-- **Regular enemies:** 9 types, used everywhere. Harder variants use recoloured sprites with more bullets or new patterns.
-  1. Drone
-  2. Swarmer
-  3. Lander pod, which crash-lands on rooftops and landmarks and unfolds into a gun emplacement
-  4. Spinner
-  5. Flanker
-  6. Carrier
-  7. Sniper, which telegraphs a laser before firing
-  8. Shielder
-  9. Kamikaze
+- **Regular enemies:** 15 types, used everywhere. The full roster, with each type's role, telegraph and debut mission, is in `docs/enemy-roster.md`. Harder variants are recolours with more bullets or new patterns (Mk II for columns 4–6, Space for Orbital, Elite for the homeworld).
+  - Original 9: Drone, Swarmer, Lander pod (crash-lands on rooftops and landmarks and unfolds into a gun emplacement), Spinner, Flanker, Carrier, Sniper (telegraphs a laser before firing), Shielder, Kamikaze.
+  - Added 6: Burrower, Mine layer, Splitter, Tether pair, Crawler, Cloaker.
+  - Debuts are planned per column. Anything introduced in either lane of a column joins both lanes from the next column, so every route has met every type by column 6.
 - **Mid-bosses:** 2–3, reused and recoloured across missions.
 - **Bosses:** A unique boss for each Earth mission, plus the mothership and the Gate Core.
 - **Mission length:** 4–6 minutes.

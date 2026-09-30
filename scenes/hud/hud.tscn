@@ -17,6 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://bcbxcmtyat7dr" path="res://art/sprites/hud/ui_7.png" id="9_bluaa"]
 [ext_resource type="Texture2D" uid="uid://b35ljanheyv0t" path="res://art/sprites/hud/ui_8.png" id="10_bbrgr"]
 [ext_resource type="Texture2D" uid="uid://b01rvtuse4jua" path="res://art/sprites/hud/ui_9.png" id="11_3fmw6"]
+[ext_resource type="StyleBox" uid="uid://dricp31rvg5ui" path="res://themes/special_bar_fill.tres" id="18_8vblv"]
+[ext_resource type="Texture2D" uid="uid://dfpmfvr6v3fxi" path="res://art/sprites/hud/special_charge_icon.png" id="19_ccb21"]
 
 [node name="HUD" type="CanvasLayer" unique_id=1725720245]
 script = ExtResource("1_48c2t")
@@ -150,6 +152,66 @@ offset_right = 140.0
 offset_bottom = 360.0
 texture = ExtResource("5_mgtrf")
 
+[node name="SpecialBar" type="ProgressBar" parent="HUDRoot/RightPanelBg" unique_id=917400669]
+custom_minimum_size = Vector2(65, 10)
+layout_mode = 0
+offset_left = 46.0
+offset_top = 29.0
+offset_right = 111.0
+offset_bottom = 39.0
+theme_override_styles/fill = ExtResource("18_8vblv")
+max_value = 1.0
+show_percentage = false
+
+[node name="SpecialCharge1" type="TextureRect" parent="HUDRoot/RightPanelBg" unique_id=1918802689]
+texture_filter = 1
+layout_mode = 0
+offset_left = 26.0
+offset_top = 58.0
+offset_right = 38.0
+offset_bottom = 70.0
+mouse_filter = 2
+texture = ExtResource("19_ccb21")
+
+[node name="SpecialCharge2" type="TextureRect" parent="HUDRoot/RightPanelBg" unique_id=947033922]
+texture_filter = 1
+layout_mode = 0
+offset_left = 64.0
+offset_top = 58.0
+offset_right = 76.0
+offset_bottom = 70.0
+mouse_filter = 2
+texture = ExtResource("19_ccb21")
+
+[node name="SpecialCharge3" type="TextureRect" parent="HUDRoot/RightPanelBg" unique_id=949425713]
+texture_filter = 1
+layout_mode = 0
+offset_left = 102.0
+offset_top = 58.0
+offset_right = 114.0
+offset_bottom = 70.0
+mouse_filter = 2
+texture = ExtResource("19_ccb21")
+
+[node name="SquadIcon" type="TextureRect" parent="HUDRoot/RightPanelBg" unique_id=2079383919]
+texture_filter = 1
+layout_mode = 0
+offset_left = 58.0
+offset_top = 102.0
+offset_right = 82.0
+offset_bottom = 126.0
+mouse_filter = 2
+
+[node name="SquadName" type="Label" parent="HUDRoot/RightPanelBg" unique_id=738257141]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 130.0
+offset_right = 106.0
+offset_bottom = 146.0
+theme_override_colors/font_color = Color(0.78039217, 0.8627451, 0.8156863, 1)
+text = "-"
+horizontal_alignment = 1
+
 [node name="LeftPanel" type="VBoxContainer" parent="HUDRoot" unique_id=2079910361]
 layout_mode = 0
 offset_left = 8.0
@@ -160,26 +222,32 @@ offset_bottom = 236.0
 [node name="LivesLabel" type="Label" parent="HUDRoot/LeftPanel" unique_id=1862482661]
 visible = false
 layout_mode = 2
+theme_override_colors/font_color = Color(0.18039216, 0.13333334, 0.18431373, 1)
 text = "Lives: 3"
 
 [node name="OrdnanceLabel" type="Label" parent="HUDRoot/LeftPanel" unique_id=2060462217]
 visible = false
 layout_mode = 2
+theme_override_colors/font_color = Color(0.18039216, 0.13333334, 0.18431373, 1)
 text = "Ordnance: 5/5"
 
 [node name="TechLabel" type="Label" parent="HUDRoot/LeftPanel" unique_id=103671485]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.18039216, 0.13333334, 0.18431373, 1)
 text = "Tech: 0"
 
 [node name="ScoreLabel" type="Label" parent="HUDRoot/LeftPanel" unique_id=2039780289]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.18039216, 0.13333334, 0.18431373, 1)
 text = "Score: 0"
 
 [node name="ChainLabel" type="Label" parent="HUDRoot/LeftPanel" unique_id=1441619416]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.18039216, 0.13333334, 0.18431373, 1)
 text = "Chain: x1"
 
 [node name="RightPanel" type="VBoxContainer" parent="HUDRoot" unique_id=83778539]
+visible = false
 layout_mode = 0
 offset_left = 508.0
 offset_top = 8.0

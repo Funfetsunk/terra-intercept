@@ -1,0 +1,7 @@
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://dricp31rvg5ui"]
+
+[ext_resource type="Texture2D" uid="uid://cx1due7vi5kte" path="res://art/sprites/hud/special_bar_tile.png" id="1_gtg6u"]
+
+[resource]
+texture = ExtResource("1_gtg6u")
+axis_stretch_horizontal = 1

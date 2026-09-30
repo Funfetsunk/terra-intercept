@@ -22,6 +22,14 @@ extends CanvasLayer
 @onready var _special_label: Label = $HUDRoot/RightPanel/SpecialChargesLabel
 @onready var _special_progress_bar: ProgressBar = $HUDRoot/RightPanel/SpecialProgressBar
 @onready var _squad_label: Label = $HUDRoot/RightPanel/SquadLabel
+@onready var _special_bar: ProgressBar = $HUDRoot/RightPanelBg/SpecialBar
+@onready var _special_charge_icons: Array[TextureRect] = [
+	$HUDRoot/RightPanelBg/SpecialCharge1,
+	$HUDRoot/RightPanelBg/SpecialCharge2,
+	$HUDRoot/RightPanelBg/SpecialCharge3,
+]
+@onready var _squad_icon: TextureRect = $HUDRoot/RightPanelBg/SquadIcon
+@onready var _squad_name: Label = $HUDRoot/RightPanelBg/SquadName
 @onready var _ordnance_label: Label = $HUDRoot/LeftPanel/OrdnanceLabel
 @onready var _tech_label: Label = $HUDRoot/LeftPanel/TechLabel
 @onready var _score_label: Label = $HUDRoot/LeftPanel/ScoreLabel
@@ -72,16 +80,21 @@ func _on_focus_changed(current: float, max_value: float) -> void:
 
 func _on_special_changed(current: int, max_value: int) -> void:
 	_special_label.text = "Special: %d/%d" % [current, max_value]
+	for i in range(_special_charge_icons.size()):
+		_special_charge_icons[i].visible = i < current
 
 func _on_special_progress_changed(progress: float) -> void:
 	_special_progress_bar.value = progress
+	_special_bar.value = progress
 
 func _on_squad_selection_changed(ship: ShipData) -> void:
 	_squad_label.text = "Squad: %s" % ship.pilot_name
+	_squad_icon.texture = ship.icon_sprite
+	_squad_name.text = ship.pilot_name
 
 func _on_special_fired(_ship: ShipData) -> void:
-	_squad_label.modulate = special_fire_flash_color
-	create_tween().tween_property(_squad_label, "modulate", Color.WHITE, special_fire_flash_duration)
+	_squad_name.modulate = special_fire_flash_color
+	create_tween().tween_property(_squad_name, "modulate", Color.WHITE, special_fire_flash_duration)
 
 func _on_ordnance_ammo_changed(current: int) -> void:
 	var game_state: Node = get_node("/root/GameState")

@@ -4,7 +4,7 @@ class_name BackgroundLayer
 @export var scroll_speed_multiplier: float = 1.0
 @export var panel_height: float = 360.0
 @export var panel_a_color: Color = Color(1.0, 1.0, 1.0, 1.0)
-@export var panel_b_color: Color = Color(0.82, 0.82, 0.92, 1.0)
+@export var panel_b_color: Color = Color(1.0, 1.0, 1.0, 1.0)
 ## Art for each panel. The two alternate as they scroll, so B's top edge must
 ## continue A's bottom edge and vice versa. Leave empty to keep the scene's texture.
 @export var panel_a_texture: Texture2D

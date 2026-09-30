@@ -35,8 +35,7 @@ mission = ExtResource("11_corhf")
 
 [node name="FarLayer" parent="PlayfieldRoot/Background" unique_id=2071353270 instance=ExtResource("13_3vjr3")]
 scroll_speed_multiplier = 0.5
-panel_a_color = Color(0.06, 0.02, 0.09, 1)
-panel_b_color = Color(0.08, 0.03, 0.11, 1)
+panel_b_color = Color(1, 1, 1, 1)
 
 [node name="NearLayer" parent="PlayfieldRoot/Background" unique_id=1113152482 instance=ExtResource("13_3vjr3")]
 

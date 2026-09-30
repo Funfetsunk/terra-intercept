@@ -6,12 +6,12 @@
 [resource]
 script = ExtResource("1")
 pattern_name = "Tower Bridge Phase 2 Fan"
-burst_size = 7
-angle_spread_degrees = 70.0
-burst_interval = 0.7
+burst_size = 9
+angle_spread_degrees = 80.0
+burst_interval = 0.45
 rotation_per_burst_degrees = 15.0
 rng_seed = 21
-bullet_speed = 140.0
+bullet_speed = 150.0
 bullet_radius = 4.0
 bullet_color = Color(1, 1, 1, 1)
 bullet_texture = ExtResource("1_rwffq")

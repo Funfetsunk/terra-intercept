@@ -27,8 +27,8 @@ enum SpecialShape { VERTICAL_LINE, CONE, CIRCLE, HORIZONTAL_LINE }
 
 @export_group("Shield")
 @export var shield_max: float = 6.0
-@export var shield_recharge_delay: float = 3.0
-@export var shield_recharge_rate: float = 2.0
+@export var shield_recharge_delay: float = 4.0
+@export var shield_recharge_rate: float = 1.5
 
 @export_group("Hull")
 @export var hull_max: float = 3.0

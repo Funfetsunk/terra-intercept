@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SpawnEntry" format=3 uid="uid://dueotsnmlytla"]
+
+[ext_resource type="Resource" uid="uid://l7xouxu3flyu" path="res://data/patterns/drone_pattern_fan_late.tres" id="1_qavgu"]
+[ext_resource type="PackedScene" uid="uid://dtnhnyl0x1y01" path="res://scenes/enemies/drone.tscn" id="2_faom6"]
+[ext_resource type="Script" uid="uid://c33ljo8b85nep" path="res://scripts/resources/spawn_entry.gd" id="3_newjg"]
+
+[resource]
+script = ExtResource("3_newjg")
+scene = ExtResource("2_faom6")
+spawn_time = 205.15
+spawn_position_relative = Vector2(0.5, -0.45)
+pattern_override = ExtResource("1_qavgu")

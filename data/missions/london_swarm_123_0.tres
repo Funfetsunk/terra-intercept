@@ -1,12 +1,12 @@
-[gd_resource type="Resource" script_class="SpawnEntry" format=3]
+[gd_resource type="Resource" script_class="SpawnEntry" format=3 uid="uid://ckmh7j86b5kw1"]
 
-[ext_resource type="Script" path="res://scripts/resources/spawn_entry.gd" id="1"]
-[ext_resource type="PackedScene" path="res://scenes/enemies/swarmer.tscn" id="2"]
-[ext_resource type="Resource" path="res://data/patterns/swarmer_pattern_tight.tres" id="3"]
+[ext_resource type="Script" uid="uid://c33ljo8b85nep" path="res://scripts/resources/spawn_entry.gd" id="1"]
+[ext_resource type="Resource" uid="uid://cdejj6urf0ir6" path="res://data/patterns/swarmer_pattern_tight_late.tres" id="1_xosl7"]
+[ext_resource type="PackedScene" uid="uid://c2ntt3im5qe7m" path="res://scenes/enemies/swarmer.tscn" id="2"]
 
 [resource]
 script = ExtResource("1")
 scene = ExtResource("2")
 spawn_time = 211.6
 spawn_position_relative = Vector2(0.65, -0.45)
-pattern_override = ExtResource("3")
+pattern_override = ExtResource("1_xosl7")

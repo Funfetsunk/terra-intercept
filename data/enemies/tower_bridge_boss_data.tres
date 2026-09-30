@@ -6,17 +6,21 @@
 [ext_resource type="Resource" uid="uid://b8qk27vi7csn3" path="res://data/patterns/tower_bridge_phase1.tres" id="2"]
 [ext_resource type="AudioStream" uid="uid://jhas3alcpgyt" path="res://audio/music/boss_phase2.ogg" id="2_gjqhk"]
 [ext_resource type="Resource" uid="uid://bm7ru6iqsmjb" path="res://data/patterns/tower_bridge_phase2.tres" id="3"]
+[ext_resource type="Resource" uid="uid://buu7b6nk4lfej" path="res://data/patterns/tower_bridge_phase2_ring.tres" id="6_ahbjk"]
+[ext_resource type="Resource" uid="uid://bnbo5jvt51yxl" path="res://data/patterns/tower_bridge_phase1_ring.tres" id="8_wjaqx"]
 
 [resource]
 script = ExtResource("1")
 phase_2_pattern = ExtResource("3")
+secondary_pattern = ExtResource("8_wjaqx")
+phase_2_secondary_pattern = ExtResource("6_ahbjk")
 sprite_size = 160.0
 sprite_color = Color(0.25, 0.3, 0.4, 1)
 music = ExtResource("1_alxyh")
 music_phase2 = ExtResource("2_gjqhk")
 enemy_name = "Tower Bridge Sentinel"
 move_speed = 20.0
-hull_max = 150.0
+hull_max = 450.0
 hitbox_radius = 48.0
 pattern = ExtResource("2")
 score_value = 8000

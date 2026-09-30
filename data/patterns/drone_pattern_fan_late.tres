@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="BulletPatternData" format=3 uid="uid://l7xouxu3flyu"]
+
+[ext_resource type="Texture2D" uid="uid://qeskbvot425g" path="res://art/sprites/bullets/enemy_orb_pink_6.png" id="1_weowe"]
+[ext_resource type="Script" uid="uid://skm1jc2p0sdk" path="res://scripts/resources/bullet_pattern_data.gd" id="2_asu1p"]
+
+[resource]
+script = ExtResource("2_asu1p")
+pattern_name = "Drone Fan (Late)"
+burst_size = 3
+angle_spread_degrees = 40.0
+burst_interval = 0.9
+aim_at_player = false
+rng_seed = 4
+bullet_speed = 126.49999999999999
+bullet_color = Color(1, 1, 1, 1)
+bullet_texture = ExtResource("1_weowe")

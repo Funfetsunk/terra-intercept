@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="BulletPatternData" format=3 uid="uid://c0gmkrbmltmnk"]
+
+[ext_resource type="Texture2D" uid="uid://bk0mscxc8vbay" path="res://art/sprites/bullets/enemy_orb_cyan_6.png" id="1_nlfhh"]
+[ext_resource type="Script" uid="uid://skm1jc2p0sdk" path="res://scripts/resources/bullet_pattern_data.gd" id="2_t8oyq"]
+
+[resource]
+script = ExtResource("2_t8oyq")
+pattern_name = "Paris Sentinel Aimed Fan P2"
+burst_size = 5
+angle_spread_degrees = 36.0
+burst_interval = 0.9
+rng_seed = 32
+bullet_speed = 140.0
+bullet_color = Color(1, 1, 1, 1)
+bullet_texture = ExtResource("1_nlfhh")

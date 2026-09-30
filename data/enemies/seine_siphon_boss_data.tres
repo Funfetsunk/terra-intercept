@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="BossData" format=3 uid="uid://drtpy26or708t"]
+
+[ext_resource type="PackedScene" uid="uid://c5hgr5sh58h6f" path="res://scenes/effects/explosion_large.tscn" id="1_ic316"]
+[ext_resource type="AudioStream" uid="uid://b4jsl3exhcfm8" path="res://audio/music/boss.ogg" id="2_f85nj"]
+[ext_resource type="AudioStream" uid="uid://jhas3alcpgyt" path="res://audio/music/boss_phase2.ogg" id="3_wummc"]
+[ext_resource type="Resource" uid="uid://dkyosm1dcg11w" path="res://data/patterns/seine_siphon_phase1.tres" id="4_rsjos"]
+[ext_resource type="Resource" uid="uid://csbvw5idev2x0" path="res://data/patterns/seine_siphon_phase2.tres" id="5_fj8at"]
+[ext_resource type="Resource" uid="uid://ddxhj23khuex4" path="res://data/patterns/seine_siphon_phase2_ring.tres" id="6_3p6t6"]
+[ext_resource type="Script" uid="uid://mfqvklciutsc" path="res://scripts/resources/boss_data.gd" id="7_0tvky"]
+[ext_resource type="Resource" uid="uid://2wl2x6c7727v" path="res://data/patterns/seine_siphon_phase1_ring.tres" id="8_07cp6"]
+
+[resource]
+script = ExtResource("7_0tvky")
+phase_2_pattern = ExtResource("5_fj8at")
+secondary_pattern = ExtResource("8_07cp6")
+phase_2_secondary_pattern = ExtResource("6_3p6t6")
+sprite_size = 168.0
+music = ExtResource("2_f85nj")
+music_phase2 = ExtResource("3_wummc")
+enemy_name = "Seine Siphon"
+move_speed = 20.0
+hull_max = 520.0
+hitbox_radius = 44.0
+pattern = ExtResource("4_rsjos")
+score_value = 9000
+alien_tech_drop = 24
+explosion_scene = ExtResource("1_ic316")

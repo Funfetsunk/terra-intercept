@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://c6uof0oj2p4ms"]
+
+[ext_resource type="Script" uid="uid://jg4ogwqao7lo" path="res://scenes/enemies/flanker.gd" id="1_kxh2i"]
+[ext_resource type="Resource" uid="uid://dofhyv4ye8af1" path="res://data/enemies/flanker_data.tres" id="2_iu1hd"]
+[ext_resource type="SpriteFrames" uid="uid://cdhyepa12ei1v" path="res://art/sprites/enemies/flanker_frames.tres" id="3_vbo8r"]
+[ext_resource type="Texture2D" uid="uid://ddu5bhgn3yplp" path="res://art/sprites/enemies/flanker_warning.png" id="4_wudma"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hp0eq"]
+radius = 8.0
+
+[node name="Flanker" type="Node2D" unique_id=752966588]
+script = ExtResource("1_kxh2i")
+data = ExtResource("2_iu1hd")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1720942060]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1482987445]
+shape = SubResource("CircleShape2D_hp0eq")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1939788849]
+sprite_frames = ExtResource("3_vbo8r")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Warning" type="Sprite2D" parent="." unique_id=1033038276]
+visible = false
+z_index = 5
+texture = ExtResource("4_wudma")

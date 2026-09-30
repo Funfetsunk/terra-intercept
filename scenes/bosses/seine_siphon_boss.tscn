@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cpo1bnwb5t7yq"]
+
+[ext_resource type="Script" uid="uid://bed8o18cnmeis" path="res://scenes/bosses/stage_boss.gd" id="1_up5jy"]
+[ext_resource type="Resource" uid="uid://drtpy26or708t" path="res://data/enemies/seine_siphon_boss_data.tres" id="2_u68sh"]
+[ext_resource type="SpriteFrames" uid="uid://ckif70vg8y4b3" path="res://art/sprites/bosses/seine_siphon_boss_frames.tres" id="3_jm6uu"]
+
+[node name="SeineSiphonBoss" type="Node2D" unique_id=1565486044]
+script = ExtResource("1_up5jy")
+data = ExtResource("2_u68sh")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1094601538]
+sprite_frames = ExtResource("3_jm6uu")
+animation = &"phase1"
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1211079051]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1101519119]

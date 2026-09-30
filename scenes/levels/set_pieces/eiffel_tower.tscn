@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bdn412rxjlouw"]
+
+[ext_resource type="Script" uid="uid://dsiocmmqolpwy" path="res://scenes/levels/set_piece.gd" id="1_t2fe8"]
+[ext_resource type="Texture2D" uid="uid://dcmr3h3q1c2j" path="res://art/sprites/backgrounds/paris/eiffel_tower.png" id="2_x60lu"]
+
+[node name="EiffelTower" type="Node2D" unique_id=1359827422]
+z_index = -9
+script = ExtResource("1_t2fe8")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=868889266]
+texture = ExtResource("2_x60lu")

@@ -11,6 +11,9 @@ class_name BackgroundLayer
 @export var panel_b_texture: Texture2D
 
 var base_speed: float = 0.0
+# Exact scroll offsets; panels are drawn at these rounded to whole pixels so
+# pixel art (and dithered layers) never sit between pixels and shimmer.
+var _offsets: PackedFloat32Array = PackedFloat32Array([0.0, -360.0])
 
 @onready var _panels: Array[Control] = [$PanelA, $PanelB]
 
@@ -19,12 +22,15 @@ func _ready() -> void:
 		($PanelA as TextureRect).texture = panel_a_texture
 	if panel_b_texture != null:
 		($PanelB as TextureRect).texture = panel_b_texture
+	_offsets[0] = $PanelA.position.y
+	_offsets[1] = $PanelB.position.y
 	$PanelA.modulate = panel_a_color
 	$PanelB.modulate = panel_b_color
 
 func _physics_process(delta: float) -> void:
 	var speed: float = base_speed * scroll_speed_multiplier
-	for panel: Control in _panels:
-		panel.position.y += speed * delta
-		if panel.position.y >= panel_height:
-			panel.position.y -= panel_height * 2.0
+	for i in range(_panels.size()):
+		_offsets[i] += speed * delta
+		if _offsets[i] >= panel_height:
+			_offsets[i] -= panel_height * 2.0
+		_panels[i].position.y = roundf(_offsets[i])

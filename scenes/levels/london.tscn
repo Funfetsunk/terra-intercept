@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://ddx3bxd7njgm0" path="res://art/sprites/backgrounds/london/thames_a.png" id="10_tl1kh"]
 [ext_resource type="Texture2D" uid="uid://dc3obnleji5nc" path="res://art/sprites/backgrounds/london/thames_b.png" id="11_g5f8b"]
 [ext_resource type="Resource" uid="uid://c2wfa0cb0tqh" path="res://data/missions/london_mission.tres" id="11_vng0p"]
+[ext_resource type="Texture2D" uid="uid://dvhhaaltk6dka" path="res://art/sprites/backgrounds/london/smoke.png" id="12_g5f8b"]
 [ext_resource type="PackedScene" uid="uid://ort4tmjdo7j" path="res://scenes/levels/background_layer.tscn" id="12_gk56g"]
 [ext_resource type="Script" uid="uid://bgoiagdeo8ki4" path="res://scripts/systems/enemy_spawner.gd" id="14_08gnv"]
 [ext_resource type="Script" uid="uid://b1vqxoh2qfcwi" path="res://scripts/systems/dialogue_controller.gd" id="15_hpj1l"]
@@ -46,7 +47,10 @@ panel_a_texture = ExtResource("10_tl1kh")
 panel_b_texture = ExtResource("11_g5f8b")
 
 [node name="NearLayer" parent="PlayfieldRoot/Background" unique_id=899699578 instance=ExtResource("12_gk56g")]
-visible = false
+scroll_speed_multiplier = 1.4
+panel_b_color = Color(1, 1, 1, 1)
+panel_a_texture = ExtResource("12_g5f8b")
+panel_b_texture = ExtResource("12_g5f8b")
 
 [node name="EnemySpawner" type="Node" parent="PlayfieldRoot" unique_id=1415624087]
 script = ExtResource("14_08gnv")

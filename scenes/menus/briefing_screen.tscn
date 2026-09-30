@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dk8mxb6uba077"]
 
 [ext_resource type="Script" uid="uid://b3472spx6ggtr" path="res://scenes/menus/briefing_screen.gd" id="1_3w5rx"]
+[ext_resource type="Texture2D" uid="uid://i768lh5kdmul" path="res://art/sprites/ui/menu_background.png" id="2_hwfqe"]
 [ext_resource type="StyleBox" uid="uid://bh6ph7hdr1hrx" path="res://themes/panel_frame.tres" id="2_ofi8n"]
 
 [node name="BriefingScreen" type="Control" unique_id=1411676457]
@@ -16,6 +17,14 @@ offset_right = 640.0
 offset_bottom = 360.0
 mouse_filter = 2
 color = Color(0.18039216, 0.13333334, 0.18431373, 1)
+
+[node name="Art" type="TextureRect" parent="Backdrop" unique_id=24343139]
+texture_filter = 1
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+mouse_filter = 2
+texture = ExtResource("2_hwfqe")
 
 [node name="Frame" type="Panel" parent="." unique_id=2047696289]
 layout_mode = 0

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://xjv0wopauwqg"]
 
 [ext_resource type="Script" uid="uid://cm7v10c4vvpsh" path="res://scenes/menus/ship_select.gd" id="1_goq04"]
+[ext_resource type="Texture2D" uid="uid://i768lh5kdmul" path="res://art/sprites/ui/menu_background.png" id="2_goq04"]
 [ext_resource type="PackedScene" uid="uid://b8iglihbb86lg" path="res://scenes/menus/ship_select_entry.tscn" id="2_mh5ls"]
 [ext_resource type="Resource" uid="uid://mr4a3f1p7odg" path="res://data/ships/interceptor_ship_data.tres" id="4_an8i7"]
 [ext_resource type="Resource" uid="uid://c4qtwh5htagu" path="res://data/ships/striker_ship_data.tres" id="5_fleu5"]
@@ -19,7 +20,15 @@ layout_mode = 0
 offset_right = 640.0
 offset_bottom = 360.0
 mouse_filter = 2
-color = Color(0.04, 0.05, 0.1, 1)
+color = Color(0.18039216, 0.13333334, 0.18431373, 1)
+
+[node name="Art" type="TextureRect" parent="Backdrop" unique_id=1585784534]
+texture_filter = 1
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+mouse_filter = 2
+texture = ExtResource("2_goq04")
 
 [node name="TitleLabel" type="Label" parent="." unique_id=430291404]
 layout_mode = 0

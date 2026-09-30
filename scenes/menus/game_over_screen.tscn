@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://nr1mke8xc6ng"]
 
 [ext_resource type="Script" uid="uid://dl5672h1cfhxx" path="res://scenes/menus/game_over_screen.gd" id="1_agkj2"]
+[ext_resource type="Texture2D" uid="uid://i768lh5kdmul" path="res://art/sprites/ui/menu_background.png" id="2_bcvxg"]
 
 [node name="GameOverScreen" type="Control" unique_id=71803714]
 layout_mode = 3
@@ -14,7 +15,15 @@ layout_mode = 0
 offset_right = 640.0
 offset_bottom = 360.0
 mouse_filter = 2
-color = Color(0.04, 0.05, 0.1, 1)
+color = Color(0.18039216, 0.13333334, 0.18431373, 1)
+
+[node name="Art" type="TextureRect" parent="Backdrop" unique_id=1459097284]
+texture_filter = 1
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+mouse_filter = 2
+texture = ExtResource("2_bcvxg")
 
 [node name="TitleLabel" type="Label" parent="." unique_id=878544757]
 layout_mode = 0

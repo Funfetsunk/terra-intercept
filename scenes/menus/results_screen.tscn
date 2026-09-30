@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c1kn0qwfulc1c"]
 
 [ext_resource type="Script" uid="uid://bj2ever8ip4q0" path="res://scenes/menus/results_screen.gd" id="1_cppup"]
+[ext_resource type="Texture2D" uid="uid://i768lh5kdmul" path="res://art/sprites/ui/menu_background.png" id="2_dwvih"]
 
 [node name="ResultsScreen" type="Control" unique_id=1594880899]
 layout_mode = 3
@@ -14,7 +15,15 @@ layout_mode = 0
 offset_right = 640.0
 offset_bottom = 360.0
 mouse_filter = 2
-color = Color(0.04, 0.05, 0.1, 1)
+color = Color(0.18039216, 0.13333334, 0.18431373, 1)
+
+[node name="Art" type="TextureRect" parent="Backdrop" unique_id=1671493888]
+texture_filter = 1
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+mouse_filter = 2
+texture = ExtResource("2_dwvih")
 
 [node name="TitleLabel" type="Label" parent="." unique_id=992348054]
 layout_mode = 0

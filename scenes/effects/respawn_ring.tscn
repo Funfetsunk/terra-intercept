@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://di6u5kdm1rkoh"]
+
+[ext_resource type="SpriteFrames" uid="uid://b75nln3bp54in" path="res://art/sprites/effects/respawn_ring_frames.tres" id="1_pq54a"]
+[ext_resource type="Script" uid="uid://dpm6725v32f1c" path="res://scenes/effects/explosion.gd" id="2_drmat"]
+
+[node name="RespawnRing" type="AnimatedSprite2D" unique_id=438183761]
+sprite_frames = ExtResource("1_pq54a")
+animation = &"boom"
+script = ExtResource("2_drmat")

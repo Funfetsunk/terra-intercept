@@ -1,0 +1,53 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://b75nln3bp54in"]
+
+[ext_resource type="Texture2D" uid="uid://r8dtxipjuul5" path="res://art/sprites/effects/respawn_ring.png" id="1_wtl84"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_godag"]
+atlas = ExtResource("1_wtl84")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wtl84"]
+atlas = ExtResource("1_wtl84")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xeaqk"]
+atlas = ExtResource("1_wtl84")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e4gjp"]
+atlas = ExtResource("1_wtl84")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yx2jb"]
+atlas = ExtResource("1_wtl84")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n2rnc"]
+atlas = ExtResource("1_wtl84")
+region = Rect2(640, 0, 128, 128)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_godag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wtl84")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xeaqk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e4gjp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yx2jb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n2rnc")
+}],
+"loop": 0,
+"name": &"boom",
+"speed": 12.0
+}]

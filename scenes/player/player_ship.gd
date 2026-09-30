@@ -24,6 +24,10 @@ signal ordnance_ammo_changed(current: int)
 @export var bank_frame_slight_right: Texture2D
 @export var bank_frame_full_right: Texture2D
 @export var bank_input_threshold: float = 0.3
+## One-shot effect played where the hull breaks.
+@export var death_explosion_scene: PackedScene = preload("res://scenes/effects/explosion_large.tscn")
+## One-shot effect played on respawn, showing the bullet-clear area.
+@export var respawn_ring_scene: PackedScene = preload("res://scenes/effects/respawn_ring.tscn")
 
 var shield_current: float = 0.0
 var hull_current: float = 0.0
@@ -244,6 +248,7 @@ func take_hit(damage: float) -> void:
 		_flash_hull_hit()
 		get_tree().call_group("playfield_root", "shake")
 		if hull_current <= 0.0:
+			_spawn_effect(death_explosion_scene)
 			hull_depleted.emit()
 
 func _flash_shield_hit() -> void:
@@ -264,6 +269,7 @@ func respawn() -> void:
 	hull_current = data.hull_max
 	_respawn_invincible_timer = data.respawn_invincibility_duration
 	_bullets.call_deferred("clear_enemy_bullets_in_circle", global_position, data.respawn_bullet_clear_radius)
+	_spawn_effect(respawn_ring_scene)
 	shield_changed.emit(shield_current, data.shield_max)
 	hull_changed.emit(hull_current, data.hull_max)
 	respawned.emit()
@@ -379,3 +385,10 @@ func _place_engine_flames() -> void:
 		flames[i].visible = has_engine
 		if has_engine:
 			flames[i].position = data.engine_flame_offsets[i].round()
+
+func _spawn_effect(scene: PackedScene) -> void:
+	if scene == null:
+		return
+	var fx: Node2D = scene.instantiate()
+	fx.position = get_parent().to_local(global_position)
+	get_parent().call_deferred("add_child", fx)

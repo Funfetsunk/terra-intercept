@@ -375,7 +375,7 @@ func _try_fire_ordnance() -> void:
 		return
 	_game_state.ordnance_ammo -= 1
 	ordnance_ammo_changed.emit(_game_state.ordnance_ammo)
-	_bullets.spawn_player_bullet(global_position, _last_move_dir, ordnance.bullet_speed, ordnance.bullet_radius, ordnance.bullet_color, 3.0, ordnance.bullet_damage, ordnance.bullet_texture)
+	_bullets.spawn_player_bullet(global_position, _last_move_dir, ordnance.bullet_speed, ordnance.bullet_radius, ordnance.bullet_color, 3.0, ordnance.bullet_damage, ordnance.texture_for_direction(_last_move_dir))
 	_ordnance_cooldown = ordnance.fire_cooldown
 	ordnance_fired.emit()
 

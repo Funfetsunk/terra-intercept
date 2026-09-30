@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c44rsj3vr6lwy"
-path="res://.godot/imported/ordnance_bomb.png-67ef1267e8fda649db05cd086ec612b4.ctex"
+uid="uid://bcpidng3nhigl"
+path="res://.godot/imported/ordnance_missile.png-ec784bc5af35fe7c421034ef26bdbca2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/sprites/bullets/ordnance_bomb.png"
-dest_files=["res://.godot/imported/ordnance_bomb.png-67ef1267e8fda649db05cd086ec612b4.ctex"]
+source_file="res://art/sprites/bullets/ordnance_missile.png"
+dest_files=["res://.godot/imported/ordnance_missile.png-ec784bc5af35fe7c421034ef26bdbca2.ctex"]
 
 [params]
 

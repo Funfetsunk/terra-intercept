@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="OrdnanceData" format=3 uid="uid://r48ijib2xvvg"]
 
 [ext_resource type="Script" uid="uid://b681onsb0ephm" path="res://scripts/resources/ordnance_data.gd" id="1"]
-[ext_resource type="Texture2D" uid="uid://c44rsj3vr6lwy" path="res://art/sprites/bullets/ordnance_bomb.png" id="1_vhyfn"]
+[ext_resource type="Texture2D" uid="uid://bcpidng3nhigl" path="res://art/sprites/bullets/ordnance_missile.png" id="1_vhyfn"]
 
 [resource]
 script = ExtResource("1")
 starting_ammo = 6
 bullet_color = Color(1, 1, 1, 1)
-bullet_texture = ExtResource("1_vhyfn")
+bullet_direction_sheet = ExtResource("1_vhyfn")

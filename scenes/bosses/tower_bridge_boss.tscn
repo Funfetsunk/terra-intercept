@@ -1,19 +1,16 @@
 [gd_scene format=3 uid="uid://cxfwvjlxfs8sp"]
 
 [ext_resource type="Script" uid="uid://bed8o18cnmeis" path="res://scenes/bosses/tower_bridge_boss.gd" id="1_hstvv"]
-[ext_resource type="Resource" path="res://data/enemies/tower_bridge_boss_data.tres" id="2_me6t6"]
+[ext_resource type="Resource" uid="uid://d0wgdnevym0ug" path="res://data/enemies/tower_bridge_boss_data.tres" id="2_me6t6"]
+[ext_resource type="SpriteFrames" uid="uid://yd58d0kma11t" path="res://art/sprites/bosses/tower_bridge_boss_frames.tres" id="3_524yy"]
 
 [node name="TowerBridgeBoss" type="Node2D" unique_id=531802956]
 script = ExtResource("1_hstvv")
 data = ExtResource("2_me6t6")
 
-[node name="Sprite" type="ColorRect" parent="." unique_id=1573485657]
-offset_left = -80.0
-offset_top = -80.0
-offset_right = 80.0
-offset_bottom = 80.0
-mouse_filter = 2
-color = Color(0.25, 0.3, 0.4, 1)
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1218501353]
+sprite_frames = ExtResource("3_524yy")
+animation = &"phase1"
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1194799434]
 collision_layer = 4

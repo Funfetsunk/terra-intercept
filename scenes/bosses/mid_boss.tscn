@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://8an6xs20iikn"]
 
 [ext_resource type="Script" uid="uid://blx0exha146r7" path="res://scenes/bosses/mid_boss.gd" id="1_rdia2"]
-[ext_resource type="Resource" path="res://data/enemies/boss_data.tres" id="2_buxl7"]
+[ext_resource type="Resource" uid="uid://b7uvyakunp7ek" path="res://data/enemies/boss_data.tres" id="2_buxl7"]
+[ext_resource type="SpriteFrames" uid="uid://bxqqmupdv0tex" path="res://art/sprites/bosses/mid_boss_frames.tres" id="3_0gqjt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tsxae"]
 radius = 32.0
@@ -10,13 +11,9 @@ radius = 32.0
 script = ExtResource("1_rdia2")
 data = ExtResource("2_buxl7")
 
-[node name="Sprite" type="ColorRect" parent="." unique_id=452256481]
-offset_left = -40.0
-offset_top = -40.0
-offset_right = 40.0
-offset_bottom = 40.0
-mouse_filter = 2
-color = Color(0.55, 0.1, 0.15, 1)
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=2016960770]
+sprite_frames = ExtResource("3_0gqjt")
+animation = &"phase1"
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=524534122]
 collision_layer = 4

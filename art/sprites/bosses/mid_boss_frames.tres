@@ -1,0 +1,44 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://bxqqmupdv0tex"]
+
+[ext_resource type="Texture2D" uid="uid://u1sigu1f4q3t" path="res://art/sprites/bosses/mid_boss.png" id="1_xi14f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ne3ue"]
+atlas = ExtResource("1_xi14f")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivyop"]
+atlas = ExtResource("1_xi14f")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hq8gi"]
+atlas = ExtResource("1_xi14f")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2g54f"]
+atlas = ExtResource("1_xi14f")
+region = Rect2(192, 0, 64, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ne3ue")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ivyop")
+}],
+"loop": 1,
+"name": &"phase1",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hq8gi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2g54f")
+}],
+"loop": 1,
+"name": &"phase2",
+"speed": 6.0
+}]

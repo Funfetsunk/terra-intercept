@@ -1,0 +1,44 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://yd58d0kma11t"]
+
+[ext_resource type="Texture2D" uid="uid://bh5y80x3n036g" path="res://art/sprites/bosses/tower_bridge_boss.png" id="1_qh7an"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wgchu"]
+atlas = ExtResource("1_qh7an")
+region = Rect2(0, 0, 168, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kgx5u"]
+atlas = ExtResource("1_qh7an")
+region = Rect2(168, 0, 168, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_27fqw"]
+atlas = ExtResource("1_qh7an")
+region = Rect2(336, 0, 168, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_snj1w"]
+atlas = ExtResource("1_qh7an")
+region = Rect2(504, 0, 168, 112)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wgchu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kgx5u")
+}],
+"loop": 1,
+"name": &"phase1",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_27fqw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_snj1w")
+}],
+"loop": 1,
+"name": &"phase2",
+"speed": 6.0
+}]

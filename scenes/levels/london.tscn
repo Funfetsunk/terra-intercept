@@ -35,7 +35,7 @@ script = ExtResource("6_y27mh")
 [node name="PlayerShip" parent="PlayfieldRoot" unique_id=1276083379 instance=ExtResource("2_g5f8b")]
 position = Vector2(180, 300)
 
-[node name="Background" type="Node2D" parent="PlayfieldRoot" unique_id=455193155]
+[node name="Background" type="Node2D" parent="PlayfieldRoot" unique_id=455193155 groups=["scrolling_background"]]
 z_index = -10
 script = ExtResource("10_0fxbs")
 mission = ExtResource("11_vng0p")

@@ -1,7 +1,8 @@
 [gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://y81rvxuy4co7"]
 
 [ext_resource type="Script" uid="uid://bxbax4x8ptrvy" path="res://scripts/resources/enemy_data.gd" id="1"]
-[ext_resource type="Resource" path="res://data/patterns/spinner_pattern.tres" id="2"]
+[ext_resource type="PackedScene" uid="uid://bca5f08gnsvli" path="res://scenes/effects/explosion_medium.tscn" id="1_fvvtb"]
+[ext_resource type="Resource" uid="uid://d1mnfxt6rmjry" path="res://data/patterns/spinner_pattern.tres" id="2"]
 
 [resource]
 script = ExtResource("1")
@@ -12,3 +13,4 @@ hitbox_radius = 9.0
 pattern = ExtResource("2")
 score_value = 250
 alien_tech_drop = 2
+explosion_scene = ExtResource("1_fvvtb")

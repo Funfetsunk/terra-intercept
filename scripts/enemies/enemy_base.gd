@@ -74,6 +74,10 @@ func take_damage(amount: float) -> bool:
 
 func _die() -> void:
 	enemy_destroyed.emit(self, data.score_value)
+	if data.explosion_scene != null:
+		var boom: Node2D = data.explosion_scene.instantiate()
+		boom.position = get_parent().to_local(global_position)
+		get_parent().call_deferred("add_child", boom)
 	get_node("/root/GameState").register_kill(data.score_value)
 	if data.alien_tech_drop > 0:
 		var drop: Node2D = ALIEN_TECH_DROP_SCENE.instantiate()

@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bca5f08gnsvli"]
+
+[ext_resource type="SpriteFrames" uid="uid://bmtb60m2q7g01" path="res://art/sprites/effects/explosion_medium_frames.tres" id="1_s842t"]
+[ext_resource type="Script" uid="uid://dpm6725v32f1c" path="res://scenes/effects/explosion.gd" id="2_2wmik"]
+
+[node name="ExplosionMedium" type="AnimatedSprite2D" unique_id=1258903967]
+sprite_frames = ExtResource("1_s842t")
+animation = &"boom"
+script = ExtResource("2_2wmik")

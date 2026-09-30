@@ -9,3 +9,5 @@ class_name EnemyData
 @export var pattern: BulletPatternData
 @export var score_value: int = 100
 @export var alien_tech_drop: int = 0
+## Effect spawned where the enemy dies (a scene whose root plays once and frees itself).
+@export var explosion_scene: PackedScene

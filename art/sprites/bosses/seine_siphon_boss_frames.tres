@@ -1,0 +1,44 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://ckif70vg8y4b3"]
+
+[ext_resource type="Texture2D" uid="uid://d14lvps4ss6p0" path="res://art/sprites/bosses/seine_siphon_boss.png" id="1_6wqro"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ieej0"]
+atlas = ExtResource("1_6wqro")
+region = Rect2(0, 0, 168, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8poa"]
+atlas = ExtResource("1_6wqro")
+region = Rect2(168, 0, 168, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71t8g"]
+atlas = ExtResource("1_6wqro")
+region = Rect2(336, 0, 168, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a258q"]
+atlas = ExtResource("1_6wqro")
+region = Rect2(504, 0, 168, 112)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ieej0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u8poa")
+}],
+"loop": 1,
+"name": &"phase1",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71t8g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a258q")
+}],
+"loop": 1,
+"name": &"phase2",
+"speed": 3.0
+}]

@@ -63,7 +63,7 @@ Textured bullets are drawn at their own pixel size on whole pixels. The collisio
 | Swarmer | 16×16 | **Built.** 2-frame glow pulse. |
 | Lander pod | 24×24 frames | **Built.** 16×24 pod centred in the frame while falling, then an unfold frame, then 2 deployed frames. |
 | Spinner | 24×24 | **Built.** Spins through 4 exact 90° rotations, so no resampling. |
-| Flanker | 20×20 | Enters from the sides and behind |
+| Flanker | 20×20 | **Built.** Dart shape pointing right, rotated in whole quarter turns to face its entry direction. 2-frame glow pulse. Plus an 8×8 amber (`f9c22b`) warning chevron that blinks at the playfield edge before it enters. |
 | Carrier | 32×32 | Larger because it's slow and armoured |
 | Sniper | 20×20 | Its laser telegraph is a 1–2px line drawn in code |
 | Shielder | 24×24, plus a 40×40 shield ring | |
@@ -78,11 +78,12 @@ Textured bullets are drawn at their own pixel size on whole pixels. The collisio
 |---|---|---|
 | Mid-boss | 64×64 | **Built.** Alien gunship. `phase1` (green core pulse) and `phase2` (red core) animations. Reused and recoloured for later missions. |
 | Tower Bridge boss | 168×112 | **Built.** Drawn at an angle so it reads from above, standing on the Thames. `phase2` swaps to a battle-damaged version with a flickering core. The ground scroll locks while it's on screen. |
+| Seine siphon boss (Paris) | 168×112 | **Built.** Four-legged siphon rig standing in the Seine, green fluid tanks. `phase2` is battle-damaged, its core flickering between green and red. The ground scroll locks while it's on screen. |
 | Other Earth mission bosses | 128–200 on the longest side | Must fit within the 360-wide playfield with room to dodge; 200 wide is the practical maximum |
 | Mothership (mission 7) | Wider than the playfield, built from parts | Hull turrets as separate 16–32px pieces, plus a core of about 128×128 |
 | Gate Core (final boss) | About 200×200 | Broken into parts that can animate or be destroyed |
 
-The two built bosses are single images with a phase-2 variant. Later bosses that need per-part destruction should be built from separate parts (body, turrets, weak points).
+The built bosses are single images with a phase-2 variant. Later bosses that need per-part destruction should be built from separate parts (body, turrets, weak points).
 
 ## Enemy bullets
 
@@ -122,10 +123,10 @@ All effects end by blinking or dithering out, never by alpha fading.
 
 | Item | Size | Notes |
 |---|---|---|
-| Scrolling ground layer | 360×360 tiles | **Built** (London): two tiles, `thames_a` and `thames_b`, that alternate seamlessly. Any B tile must keep A's top and bottom edges. The HUD panels cover the playfield's side edges, so no screen-shake margin is needed. |
+| Scrolling ground layer | 360×360 tiles | **Built** (London, Paris): two tiles per mission (`thames_a`/`thames_b`, `seine_a`/`seine_b`) that alternate seamlessly. Any B tile must keep A's top and bottom edges. The HUD panels cover the playfield's side edges, so no screen-shake margin is needed. |
 | Parallax layers (clouds, smoke) | 360×360 | **Built** (London): a dithered `smoke.png` haze, about 8% coverage, at 1.4× scroll. |
 | Space / test range | 360×360 | **Built:** a palette starfield. |
-| Set-piece landmarks | 120–240 wide | Drawn at an angle so they read from above |
+| Set-piece landmarks | 120–240 on the longest side | Drawn at an angle so they read from above. **Built:** the Eiffel Tower (96×160, `backgrounds/paris/eiffel_tower.png`), a `SetPiece` scene that scrolls with the ground once, spawned from the mission timeline. Mapped darker than the gameplay layer, like the tiles. |
 
 Layers scroll on whole pixels. Keep backgrounds darker and lower in contrast than everything in the gameplay layer.
 

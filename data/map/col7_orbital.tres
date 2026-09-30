@@ -7,3 +7,5 @@ script = ExtResource("1_uhyt3")
 id = "Orbital"
 display_name = "Orbital"
 column = 7
+map_position = Vector2(44, 212)
+label_offset = Vector2(0, 13)

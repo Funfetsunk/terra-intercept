@@ -8,3 +8,5 @@ id = "col3_north"
 display_name = "Siberian Ice"
 column = 3
 lane = "north"
+map_position = Vector2(447, 82)
+label_offset = Vector2(0, -17)

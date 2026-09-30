@@ -8,3 +8,5 @@ id = "col4_north"
 display_name = "Great Wall of China"
 column = 4
 lane = "north"
+map_position = Vector2(494, 137)
+label_offset = Vector2(0, -17)

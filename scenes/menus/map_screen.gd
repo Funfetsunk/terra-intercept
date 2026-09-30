@@ -2,14 +2,6 @@ extends Control
 
 const MAP_NODE_BUTTON_SCENE: PackedScene = preload("res://scenes/menus/map_node_button.tscn")
 
-## Centre x of each column's node, and the lane rows' centre y (whole pixels).
-const COLUMN_X: Dictionary = {1: 56, 2: 144, 3: 232, 4: 320, 5: 408, 6: 496, 7: 584}
-const NORTH_Y: float = 118.0
-const SOUTH_Y: float = 248.0
-const CENTER_Y: float = 183.0
-## Height of a node's icon centre within its button (content margin + half a 16px icon).
-const ROUTE_ANCHOR_Y: float = 11.0
-
 @onready var _game_state: Node = get_node("/root/GameState")
 @onready var _tech_label: Label = $TechLabel
 @onready var _node_container: Control = $NodeContainer
@@ -52,15 +44,9 @@ func _build_nodes() -> void:
 		var state: MapNodeButton.State = MapNodeButton.State.COMPLETED if is_completed else (MapNodeButton.State.AVAILABLE if is_frontier else MapNodeButton.State.LOCKED)
 		var button: MapNodeButton = MAP_NODE_BUTTON_SCENE.instantiate()
 		_node_container.add_child(button)
-		var y: float = CENTER_Y
-		if map_node.lane == "north":
-			y = NORTH_Y
-		elif map_node.lane == "south":
-			y = SOUTH_Y
-		button.setup(map_node, map_node.display_name, state)
-		button.position = (Vector2(COLUMN_X[map_node.column], y) - button.size * 0.5).round()
-		# Routes join the node icons, which sit at the top centre of each button.
-		centers[map_node.id] = button.position + Vector2(button.size.x * 0.5, ROUTE_ANCHOR_Y)
+		button.setup(map_node, map_node.display_name, state, map_node.label_offset)
+		button.position = (map_node.map_position - button.size * 0.5).round()
+		centers[map_node.id] = map_node.map_position
 		states[map_node.id] = state
 		button.activated.connect(_on_node_activated)
 		if is_frontier:

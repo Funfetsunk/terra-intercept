@@ -8,3 +8,5 @@ id = "col2_north"
 display_name = "Norwegian Fjords"
 column = 2
 lane = "north"
+map_position = Vector2(313, 94)
+label_offset = Vector2(0, -17)

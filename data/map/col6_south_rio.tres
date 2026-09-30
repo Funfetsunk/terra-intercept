@@ -8,3 +8,5 @@ id = "col6_south"
 display_name = "Rio de Janeiro"
 column = 6
 lane = "south"
+map_position = Vector2(232, 259)
+label_offset = Vector2(0, 17)

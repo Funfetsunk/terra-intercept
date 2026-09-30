@@ -8,3 +8,5 @@ id = "col3_south"
 display_name = "Cairo & Pyramids"
 column = 3
 lane = "south"
+map_position = Vector2(354, 157)
+label_offset = Vector2(0, 17)

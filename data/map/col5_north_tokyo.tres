@@ -8,3 +8,5 @@ id = "col5_north"
 display_name = "Tokyo"
 column = 5
 lane = "north"
+map_position = Vector2(532, 146)
+label_offset = Vector2(30, 0)

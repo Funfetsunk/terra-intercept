@@ -8,3 +8,5 @@ id = "col4_south"
 display_name = "Himalayas"
 column = 4
 lane = "south"
+map_position = Vector2(446, 161)
+label_offset = Vector2(0, 13)

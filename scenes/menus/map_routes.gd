@@ -12,6 +12,11 @@ class_name MapRoutes
 @export var locked_color: Color = Color("3e3546")
 ## Locked routes are drawn as dashes: this many pixels on, then off.
 @export var dash_length: float = 4.0
+## Routes spanning more than this many pixels across the map wrap round
+## the Pacific instead, leaving one map edge and re-entering at the other.
+@export var wrap_threshold: float = 250.0
+@export var map_left_x: float = 26.0
+@export var map_right_x: float = 614.0
 
 var _segments: Array[Dictionary] = []
 
@@ -26,8 +31,22 @@ func show_routes(nodes: Array, centers: Dictionary, states: Dictionary) -> void:
 				continue
 			var from_done: bool = states[a.id] == MapNodeButton.State.COMPLETED
 			var to_open: bool = states[b.id] != MapNodeButton.State.LOCKED
-			_segments.append({"from": centers[a.id], "to": centers[b.id], "open": from_done and to_open})
+			_add_route(centers[a.id], centers[b.id], from_done and to_open)
 	queue_redraw()
+
+func _add_route(from: Vector2, to: Vector2, open: bool) -> void:
+	if absf(to.x - from.x) <= wrap_threshold:
+		_segments.append({"from": from, "to": to, "open": open})
+		return
+	# Wrap: exit through the nearer side edge and come back in on the other side.
+	var going_east: bool = to.x < from.x
+	var exit_x: float = map_right_x if going_east else map_left_x
+	var entry_x: float = map_left_x if going_east else map_right_x
+	var first: float = absf(exit_x - from.x)
+	var total: float = first + absf(to.x - entry_x)
+	var edge_y: float = roundf(from.y + (to.y - from.y) * (first / total))
+	_segments.append({"from": from, "to": Vector2(exit_x, edge_y), "open": open})
+	_segments.append({"from": Vector2(entry_x, edge_y), "to": to, "open": open})
 
 func _draw() -> void:
 	# Locked routes first so open routes sit on top where they share a node.

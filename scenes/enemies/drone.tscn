@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dtnhnyl0x1y01"]
 
 [ext_resource type="Script" uid="uid://b7oa2k2dr8s8b" path="res://scenes/enemies/drone.gd" id="1_y3ws1"]
-[ext_resource type="Resource" path="res://data/enemies/drone_data.tres" id="2_dyfay"]
-[ext_resource type="Texture2D" uid="uid://1m22hov5fd1a" path="res://art/placeholder/shumped-asset-pack/atlas/enemy_arrow_red.tres" id="3_dyfay"]
+[ext_resource type="Resource" uid="uid://u1jqni3hviq8" path="res://data/enemies/drone_data.tres" id="2_dyfay"]
+[ext_resource type="SpriteFrames" uid="uid://ccah0gny3pmid" path="res://art/sprites/enemies/drone_frames.tres" id="3_dyfay"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xgp3v"]
 radius = 8.0
@@ -18,5 +18,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=137391378]
 shape = SubResource("CircleShape2D_xgp3v")
 
-[node name="Sprite" type="Sprite2D" parent="." unique_id=1511113990]
-texture = ExtResource("3_dyfay")
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=98424590]
+sprite_frames = ExtResource("3_dyfay")
+animation = &"idle"
+autoplay = "idle"

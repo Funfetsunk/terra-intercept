@@ -1,0 +1,25 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://b0pb8quiftute"]
+
+[ext_resource type="Texture2D" uid="uid://bwnurn4frlqpd" path="res://art/sprites/enemies/swarmer.png" id="1_wefpa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4wxdn"]
+atlas = ExtResource("1_wefpa")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5f7ui"]
+atlas = ExtResource("1_wefpa")
+region = Rect2(16, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4wxdn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5f7ui")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 6.0
+}]

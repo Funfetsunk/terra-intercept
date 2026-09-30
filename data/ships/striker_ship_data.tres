@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ShipData" format=3 uid="uid://c4qtwh5htagu"]
 
 [ext_resource type="Script" uid="uid://boquiv061idvy" path="res://scripts/resources/ship_data.gd" id="1"]
-[ext_resource type="Texture2D" uid="uid://trmgal1ykn3w" path="res://art/placeholder/shumped-asset-pack/atlas/bullet_pill_blue.tres" id="1_vph8y"]
+[ext_resource type="Texture2D" uid="uid://cjmkt66py4ky7" path="res://art/sprites/bullets/player_shot_6.png" id="1_h3504"]
 [ext_resource type="Texture2D" uid="uid://j7j3u5m4f3tb" path="res://art/sprites/player_ships/striker.png" id="2_o7vsq"]
 [ext_resource type="Texture2D" uid="uid://cf8eleq8et15k" path="res://art/sprites/ship_select/striker_select.png" id="3_f0uc6"]
 [ext_resource type="Texture2D" uid="uid://dl5gq2g68hppp" path="res://art/sprites/portraits/bucky_determined.png" id="3_h3504"]
@@ -20,6 +20,7 @@ move_speed = 134.0
 move_acceleration = 2000.0
 fire_rate = 12.0
 bullet_speed = 280.0
-bullet_texture = ExtResource("1_vph8y")
+bullet_color = Color(1, 1, 1, 1)
+bullet_texture = ExtResource("1_h3504")
 bullet_damage = 1.5
 special_shape = 1

@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="BulletPatternData" format=3 uid="uid://bhjpqriqpq4cv"]
 
 [ext_resource type="Script" uid="uid://skm1jc2p0sdk" path="res://scripts/resources/bullet_pattern_data.gd" id="1"]
-[ext_resource type="Texture2D" uid="uid://b7bdkjjeum1gn" path="res://art/placeholder/shumped-asset-pack/atlas/bullet_pill_red.tres" id="1_kq0av"]
+[ext_resource type="Texture2D" uid="uid://qeskbvot425g" path="res://art/sprites/bullets/enemy_orb_pink_6.png" id="1_kq0av"]
 
 [resource]
 script = ExtResource("1")
 pattern_name = "Drone Aimed Shot (Tutorial)"
 burst_interval = 2.5
 bullet_speed = 70.0
-bullet_color = Color(1, 0.4, 0.4, 1)
+bullet_color = Color(1, 1, 1, 1)
 bullet_texture = ExtResource("1_kq0av")

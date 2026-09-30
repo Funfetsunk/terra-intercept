@@ -158,14 +158,20 @@ func _draw() -> void:
 		_draw_bullet(_enemy_pool.positions[i], _enemy_pool.radii[i], _enemy_pool.colors[i], _enemy_pool.textures[i], high_contrast)
 
 func _draw_bullet(pos: Vector2, radius: float, color: Color, texture: Texture2D, high_contrast: bool) -> void:
+	if texture != null:
+		# Real art draws at its native size on whole pixels (never stretched to the
+		# hitbox), so the sprite stays pixel-perfect whatever the collision radius is.
+		var size: Vector2 = texture.get_size()
+		var top_left: Vector2 = (pos - size * 0.5).round()
+		if high_contrast:
+			draw_circle(top_left + size * 0.5, maxf(size.x, size.y) * 0.5 + 1.0, Color.BLACK)
+		draw_texture(texture, top_left, color)
+		return
 	var half: float = radius
 	var rect: Rect2 = Rect2(pos.x - half, pos.y - half, half * 2.0, half * 2.0)
 	if high_contrast:
 		draw_rect(rect.grow(1.0), Color.BLACK, true)
-	if texture != null:
-		draw_texture_rect(texture, rect, false, color)
-	else:
-		draw_rect(rect, color, true)
+	draw_rect(rect, color, true)
 
 func register_player(player: Node2D, hitbox_radius: float) -> void:
 	_registered_player = player

@@ -101,6 +101,19 @@ Each location has its own gameplay twist. Difficulty is set per mission and rise
 - **Tutorial section:** Short prompts from the commander, shown only when the screen is quiet, teach movement, aiming, pickups and tech, focus, and ordnance. Squad-mates then radio in to introduce specials. Hits still drain shields and hull during this section, but the hull can't drop below 1. Anything lost is quietly restored when the tutorial ends.
 - **Live section:** From there the run to Tower Bridge and the boss play normally. If you die after finishing the tutorial, restarting offers "Skip tutorial."
 
+### Mission 2 (south): Paris
+
+- **Route:** Flying along the Seine through the city.
+- **Twist:** The Flanker's debut. Enemies enter from the sides and from behind, so the player has to watch their back. The Spinner also appears.
+- **Boss:** A huge alien machine siphoning water out of the Seine (they harvest Earth's water). The Eiffel Tower appears as a set piece along the route rather than as the boss.
+
+### Mission 2 (north): Norwegian Fjords
+
+- **Route:** Flying up a fjord between cliffs.
+- **Twist:** The fjord walls narrow and widen, squeezing the space the player can fly in. The Grand Canyon (column 6) has a similar twist, so the two need different wall shapes and timing to stay distinct.
+- **New enemy:** The Carrier (slow, armoured, launches smaller enemies).
+- **Boss:** An alien drill rig boring into a glacier to harvest ice and meltwater, with drill arms and turrets.
+
 ### Mission 7: Orbital
 
 A dogfight through wrecked satellites and alien fleets as Earth recedes below. The mothership is the boss, fought in two parts: the outer hull and its turrets, then the core. The mission ends with the squad diving into the portal.

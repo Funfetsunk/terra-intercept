@@ -26,7 +26,7 @@
 - **Art:** Pure 2D pixel art in a 90s arcade style, with angled drawing so landmarks read well from above.
 - **Screen layout:** A playfield of about 360×360 in the centre, with HUD panels either side showing the pilot portrait, shield and hull, special charges, focus meter, ordnance and score.
 - **Sprite sizes:** Player ships about 24×24, small enemies 16–24, mid-bosses about 64, bosses 128–200, bullets 4–8.
-- **Palette:** Fixed at 32–48 colours. The bright bullet colours are reserved and never used in backgrounds.
+- **Palette:** Fixed: Resurrect 64 (64 colours, `art/palette/resurrect-64.hex`). The bright bullet colours are reserved and never used in backgrounds.
 - **Options:** CRT scanline filter, screen-shake setting, button remapping, high-contrast bullet outlines, and a numbered Sound Test (tracks unlock once heard, all sound effects available from the start, with track names and a "composed by" credit).
 - **Language:** English only.
 - **Credits:** Everyone who contributed is named.

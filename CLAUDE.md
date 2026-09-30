@@ -38,7 +38,7 @@ Real art arrives piece by piece while milestone 3 is being built.
 - **Never interrupt the current task** to swap art in. Finish the task, commit, then do the art swap as its own small task and commit.
 - **Follow `docs/art-specs.md`** for every size. If an incoming asset doesn't match the spec, say so and ask rather than rescaling: pixel art must never be scaled by fractions.
 - **Hitboxes and collision shapes don't change** when art is swapped in. A bigger sprite doesn't mean a bigger hitbox.
-- **Palette:** the fixed 32–48 colour palette, with bullet colours reserved and never used in backgrounds. Enforced in practice: a submitted title-screen background (`art/sprites/title/title_background.png`) was smooth-shaded/anti-aliased painted art, clearly outside the palette and off the project's flat pixel-art look — flagged rather than silently accepted, wired in as a live preview, and held out of commits for a session. Committed on request as a temporary placeholder (2026-09-23) so it's not just a local file — it still needs a pixel-art redo at the same path/name before art-pass sign-off.
+- **Palette:** Resurrect 64 by Kerrie Lake (Lospec), all 64 colours, stored at `art/palette/resurrect-64.hex` (one hex colour per line, no `#`). This replaced the original 32–48 colour plan (2026-09-30). Every sprite uses only these colours: no anti-aliasing, no semi-transparent pixels, no off-palette tints. A few bright colours are reserved for bullets and never used in backgrounds; which ones is not chosen yet. When the palette was adopted, a check found that none of the art committed so far (HUD, ships, portraits, ship select, title) uses it. Every pixel is off-palette, so all of it needs remapping or redrawing. Enforced in practice: a submitted title-screen background (`art/sprites/title/title_background.png`) was smooth-shaded/anti-aliased painted art, clearly outside the palette and off the project's flat pixel-art look — flagged rather than silently accepted, wired in as a live preview, and held out of commits for a session. Committed on request as a temporary placeholder (2026-09-23) so it's not just a local file — it still needs a pixel-art redo at the same path/name before art-pass sign-off.
 - **Placeholder art from asset packs** lives in `art/placeholder/<pack-name>/`, each folder with a note on its source and licence. It never mixes with the real art in `art/sprites/`.
 
 **Pipeline setup (task 1, done):**
@@ -172,6 +172,7 @@ res://
     sprites/         # exported PNGs (real art)
     placeholder/     # asset-pack placeholders, one folder per pack + source/licence note
     fonts/           # pixel fonts (Press Start 2P, OFL licensed)
+    palette/         # the game palette (resurrect-64.hex)
   audio/
     music/           # OGG files with loop points (currently placeholder synthesized loops)
     sfx/             # jsfxr / ChipTone exports (none yet)

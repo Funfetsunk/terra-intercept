@@ -2,7 +2,7 @@
 
 All sizes are in **game pixels at 1×**. Draw and export at exactly these sizes; Godot scales the whole game up (3× at 1080p, 4× at 1440p). Never upscale art before export.
 
-Keep everything within the fixed 32–48 colour palette, and never use the reserved bullet colours outside bullets.
+Keep everything within the fixed palette, Resurrect 64 (`art/palette/resurrect-64.hex`, 64 colours), and never use the reserved bullet colours outside bullets.
 
 ## Screen layout
 

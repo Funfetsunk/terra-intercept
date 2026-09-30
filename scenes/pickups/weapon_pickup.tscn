@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dxne1w5pg4r4k" path="res://scenes/pickups/pickup.gd" id="1_08ttg"]
 [ext_resource type="Resource" path="res://data/pickups/weapon_level_pickup.tres" id="2_owlvl"]
-[ext_resource type="Texture2D" uid="uid://cwetugp0hgbup" path="res://art/placeholder/shumped-asset-pack/atlas/pickup_arrow_blue.tres" id="3_owlvl"]
+[ext_resource type="SpriteFrames" uid="uid://csgld13cw4wpu" path="res://art/sprites/pickups/weapon_pickup_frames.tres" id="3_owlvl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_377g7"]
 
@@ -17,6 +17,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1676945954]
 shape = SubResource("CircleShape2D_377g7")
 
-[node name="Sprite" type="Sprite2D" parent="." unique_id=224435293]
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("3_owlvl")
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1854921222]
+sprite_frames = ExtResource("3_owlvl")
+animation = &"idle"
+autoplay = "idle"

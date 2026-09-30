@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dxne1w5pg4r4k" path="res://scenes/pickups/pickup.gd" id="1_i0qd8"]
 [ext_resource type="Resource" path="res://data/pickups/special_charge_pickup.tres" id="2_x1sjr"]
-[ext_resource type="Texture2D" uid="uid://c6cgblitjky21" path="res://art/placeholder/shumped-asset-pack/atlas/pickup_purple_shard.tres" id="3_x1sjr"]
+[ext_resource type="SpriteFrames" uid="uid://bpq2hrhfjcpun" path="res://art/sprites/pickups/special_charge_pickup_frames.tres" id="3_x1sjr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a0j52"]
 
@@ -17,6 +17,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1189608611]
 shape = SubResource("CircleShape2D_a0j52")
 
-[node name="Sprite" type="Sprite2D" parent="." unique_id=1843724217]
-scale = Vector2(0.65, 0.65)
-texture = ExtResource("3_x1sjr")
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=973771957]
+sprite_frames = ExtResource("3_x1sjr")
+animation = &"idle"
+autoplay = "idle"

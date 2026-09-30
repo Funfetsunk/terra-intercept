@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://bhlv3l3lmsebv"]
+
+[ext_resource type="Texture2D" uid="uid://uygyvsvedcmn" path="res://art/sprites/pickups/hull_repair_pickup.png" id="1_0ed7f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iwul6"]
+atlas = ExtResource("1_0ed7f")
+region = Rect2(0, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pogu8"]
+atlas = ExtResource("1_0ed7f")
+region = Rect2(12, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q18tn"]
+atlas = ExtResource("1_0ed7f")
+region = Rect2(24, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0eqe"]
+atlas = ExtResource("1_0ed7f")
+region = Rect2(36, 0, 12, 12)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iwul6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pogu8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q18tn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0eqe")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 8.0
+}]

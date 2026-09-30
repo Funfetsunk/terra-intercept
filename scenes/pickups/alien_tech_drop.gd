@@ -2,6 +2,8 @@ extends Node2D
 class_name AlienTechDrop
 
 @export var amount: int = 1
+## Drops worth at least this much use the large gem sprite.
+@export var large_gem_threshold: int = 2
 @export var drift_speed: float = 40.0
 @export var pickup_radius: float = 10.0
 @export var despawn_y: float = 400.0
@@ -10,24 +12,24 @@ class_name AlienTechDrop
 @export var never_despawn: bool = false
 @export var highlighted: bool = false
 @export var highlight_pulse_speed: float = 4.0
-@export var highlight_pulse_scale: float = 0.25
+## Highlighted pickups bob up and down by up to this many whole pixels
+## (pixel art is never scaled by fractions, so no size pulse).
+@export var highlight_bob_pixels: float = 2.0
 
 var _bullets: Node = null
 var _collected: bool = false
 var _pulse_elapsed: float = 0.0
-var _base_sprite_scale: Vector2 = Vector2.ONE
 
 func _ready() -> void:
 	_bullets = get_node("/root/BulletManager")
-	_base_sprite_scale = $Sprite.scale
+	($Sprite as AnimatedSprite2D).play("large" if amount >= large_gem_threshold else "small")
 
 func _physics_process(delta: float) -> void:
 	if _collected:
 		return
 	if highlighted:
 		_pulse_elapsed += delta
-		var scale_factor: float = 1.0 + sin(_pulse_elapsed * highlight_pulse_speed) * highlight_pulse_scale
-		$Sprite.scale = _base_sprite_scale * scale_factor
+		$Sprite.position.y = roundf(sin(_pulse_elapsed * highlight_pulse_speed) * highlight_bob_pixels)
 	var player: Node2D = _bullets.get_registered_player()
 	if player != null and global_position.distance_to(player.global_position) <= magnet_radius:
 		global_position = global_position.move_toward(player.global_position, magnet_speed * delta)

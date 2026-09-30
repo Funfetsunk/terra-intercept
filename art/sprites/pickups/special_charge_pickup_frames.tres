@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://bpq2hrhfjcpun"]
+
+[ext_resource type="Texture2D" uid="uid://da3guqywtjx55" path="res://art/sprites/pickups/special_charge_pickup.png" id="1_cwvtq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1m7f"]
+atlas = ExtResource("1_cwvtq")
+region = Rect2(0, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wv8et"]
+atlas = ExtResource("1_cwvtq")
+region = Rect2(12, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uqrn4"]
+atlas = ExtResource("1_cwvtq")
+region = Rect2(24, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8pst"]
+atlas = ExtResource("1_cwvtq")
+region = Rect2(36, 0, 12, 12)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1m7f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wv8et")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uqrn4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s8pst")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 8.0
+}]

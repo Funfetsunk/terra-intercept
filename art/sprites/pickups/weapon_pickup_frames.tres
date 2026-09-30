@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://csgld13cw4wpu"]
+
+[ext_resource type="Texture2D" uid="uid://c62iij8i6ebld" path="res://art/sprites/pickups/weapon_pickup.png" id="1_3xuca"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxpup"]
+atlas = ExtResource("1_3xuca")
+region = Rect2(0, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1ace"]
+atlas = ExtResource("1_3xuca")
+region = Rect2(12, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mtbbf"]
+atlas = ExtResource("1_3xuca")
+region = Rect2(24, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76ovu"]
+atlas = ExtResource("1_3xuca")
+region = Rect2(36, 0, 12, 12)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cxpup")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b1ace")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mtbbf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_76ovu")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 8.0
+}]

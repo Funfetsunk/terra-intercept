@@ -105,7 +105,7 @@ Context for anything built from here on.
   - **Seine siphon:** two sweeping water jets from the tanks plus layered droplet rain. Phase 2: counter-rotating spirals that form a lattice.
   - **Glacier drill:** ice-shard sprays from the drill arms plus a spinning pinwheel from the drill. Phase 2: a shard storm plus slow layered ice walls.
   - The Sentinel mid-boss keeps its ring patterns.
-- **Special meter:** charges come slowly. Each point of damage dealt adds 0.001 of a charge and each kill adds 0.004 (`ShipData` defaults), which works out to a handful of charges per mission plus pickups. The first values (0.05 and 0.25) refilled almost constantly. The Special Meter Rate upgrade adds 0.0003 per level.
+- **Special meter:** every mission starts with 3 charges (`ShipData.special_charges_at_start`, capped at `special_charge_max`). Recharging is slow: each point of damage dealt adds 0.0012 of a charge and each kill adds 0.0048 (`ShipData` defaults), which works out to a handful of charges per mission plus pickups. The first values (0.05 and 0.25) refilled almost constantly. The Special Meter Rate upgrade adds 0.0003 per level.
   - The mid-boss has 150 hull.
   - From 2:30, drones and swarmers switch to the `*_late` pattern variants (spreads with 15% faster bullets), and the last minute has 22 extra mirrored spawns (`london_late_extra_*.tres`).
   - Shields wait 4s before recharging, then recharge at 1.5/s (`ShipData` defaults).

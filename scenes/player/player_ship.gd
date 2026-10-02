@@ -82,6 +82,7 @@ func _ready() -> void:
 		_squad = [data]
 	data = data.duplicate()
 	_apply_upgrades()
+	special_charges = mini(data.special_charges_at_start, data.special_charge_max)
 	if data.bank_sheet != null:
 		var frames: Array[Texture2D] = []
 		var frame_w: float = data.bank_sheet.get_width() / 5.0

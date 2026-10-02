@@ -57,8 +57,10 @@ enum SpecialShape { VERTICAL_LINE, CONE, CIRCLE, HORIZONTAL_LINE }
 
 @export_group("Special")
 @export var special_charge_max: int = 3
-@export var special_charge_per_damage: float = 0.001
-@export var special_charge_per_kill_bonus: float = 0.004
+## Charges held at the start of every mission (capped at special_charge_max).
+@export var special_charges_at_start: int = 3
+@export var special_charge_per_damage: float = 0.0012
+@export var special_charge_per_kill_bonus: float = 0.0048
 @export var special_radius: float = 60.0
 @export var special_damage: float = 4.0
 @export var special_duration: float = 0.5

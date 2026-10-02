@@ -77,6 +77,7 @@ Textured bullets are drawn at their own pixel size on whole pixels. The collisio
 
 - Every enemy is an `AnimatedSprite2D` with a `SpriteFrames` resource sliced from a uniform-grid sheet.
 - Each enemy needs 2–4 idle or movement frames. Harder variants are palette swaps within the alien ramps.
+- **Space (column 7), built:** `<name>_space.png` / `<name>_space_frames.tres` for every enemy that flies in space. Violet becomes steel blue (`45293f→323353`, `6b3e75→484a77`, `905ea9→4d65b4`, `a884f3→4d9be6`, `eaaded→8fd3ff`) and the green glow stays.
 - **Mk II (columns 4–6), built:** every enemy has a `<name>_mk2.png` sheet and `<name>_mk2_frames.tres`. Violet steps down one shade (`a884f3→905ea9`, `905ea9→6b3e75`, `6b3e75→45293f`, `eaaded→a884f3`) and the green glow becomes amber (`165a4c→9e4539`, `239063→cd683d`, `1ebc73→e6904e`, `91db69→f9c22b`, `cddf6c→fbb954`). The frames have the same animation names as the base frames, and `EnemyData.sprite_frames` swaps them in.
 
 ## Bosses
@@ -96,6 +97,8 @@ Textured bullets are drawn at their own pixel size on whole pixels. The collisio
 | Harbour leviathan (Sydney) | 168×96, plus a 168×96 underwater shadow | **Built.** Foam is mapped to `7f708a`–`c7dcd0`. Phase 2 is a battle-damaged edit. The shadow is the hull silhouette in a `2e222f`/`323353` checker. |
 | Mining crawler (Grand Canyon) | 96×168 body, 40×32 drum cutters | **Built.** Art turned a quarter turn to face down. The drum cutters are BossPart children. |
 | Sugarloaf fortress (Rio) | 168×128, 32×24 cable cars | **Built.** Rock mapped to dark neutral greys. The cables are drawn in code (`2e222f` with a `7f708a` highlight) above the mountain sprite (`show_behind_parent`). |
+| Mothership (Orbital) | Hull 400×128 (wider than the playfield; the HUD panels hide the ends), core 96×96, turrets 24×24 | **Built.** The hull has `closed` and `open` (dark hatch with a green rim) animations, and six turret bays. The turrets are the kaiju back cannon in Space colours. The core is a separate boss with an orange `phase2`. |
+| Portal | 96×96, 4 frames | **Built.** Drawn procedurally: an ordered-dither spiral in blues and `c7dcd0`, squashed vertically. It opens when the mothership dies and the victory flyout steers into it. |
 | Other Earth mission bosses | 128–200 on the longest side | Must fit within the 360-wide playfield with room to dodge; 200 wide is the practical maximum |
 | Mothership (mission 7) | Wider than the playfield, built from parts | Hull turrets as separate 16–32px pieces, plus a core of about 128×128 |
 | Gate Core (final boss) | About 200×200 | Broken into parts that can animate or be destroyed |
@@ -142,7 +145,7 @@ All effects end by blinking or dithering out, never by alpha fading.
 |---|---|---|
 | Scrolling ground layer | 360×360 tiles | **Built** (London, Paris, Fjords, Siberia, Cairo): two tiles per mission (`thames_a`/`thames_b`, `seine_a`/`seine_b`, `fjord_a`/`fjord_b`, `tundra_a`/`tundra_b`, `desert_a`/`desert_b`, `wall_a`/`wall_b`, `slopes_a`/`slopes_b`, `city_a`/`city_b`, `harbour_a`/`harbour_b`, `canyon_a`/`canyon_b`, `coast_a`/`coast_b`). Siberia's B tile is A mirrored vertically, because its diagonal streams can't wrap any other way. Cairo uses the same tile twice, because its winding road can't be mirrored that alternate seamlessly. Any B tile must keep A's top and bottom edges. The HUD panels cover the playfield's side edges, so no screen-shake margin is needed. |
 | Parallax layers (clouds, smoke) | 360×360 | **Built** (London): a dithered `smoke.png` haze, about 8% coverage, at 1.4× scroll. |
-| Space / test range | 360×360 | **Built:** a palette starfield. |
+| Space / test range | 360×360 | **Built:** a palette starfield, plus `near_stars.png` (sparse, transparent) as a 2× parallax layer in Orbital. Orbital set pieces: `earth_limb.png` (360×128, Earth receding at the start) and three 48×48 satellite wrecks. |
 | Set-piece landmarks | 120–240 on the longest side | Drawn at an angle so they read from above. **Built:** the Eiffel Tower (96×160, `backgrounds/paris/eiffel_tower.png`), a `SetPiece` scene that scrolls with the ground once, spawned from the mission timeline. Mapped darker than the gameplay layer, like the tiles. Also the Opera House (128×96) and Harbour Bridge (360×80, flown under three times) in `backgrounds/sydney/`, Christ the Redeemer (96×96, `backgrounds/rio/`), the Grand Canyon rock pillars (40×40, solid obstacles), and the glacier front (360×200, `backgrounds/fjords/glacier_front.png`), which slides in under the Fjords boss and stops when the scroll locks. |
 | Fjord cliff walls | 124×104, tiles vertically | **Built:** `backgrounds/fjords/cliff_rock.png`, a seamless rock-and-pine texture drawn by `FjordWalls` up to 118px deep on each side, with a 1px `9babb2` rim and a 3px `2e222f` shadow on the water side. Snow is mapped to `7f708a` so the walls stay background-dark. |
 

@@ -1,0 +1,25 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://8jhuh15r3siv"]
+
+[ext_resource type="Texture2D" uid="uid://b8a5itvd4jmk" path="res://art/sprites/enemies/flanker_space.png" id="1_p3ty3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mpk6u"]
+atlas = ExtResource("1_p3ty3")
+region = Rect2(0, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vsnrd"]
+atlas = ExtResource("1_p3ty3")
+region = Rect2(20, 0, 20, 20)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mpk6u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vsnrd")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 4.0
+}]

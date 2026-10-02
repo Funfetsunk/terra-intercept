@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://pvp6x6y8alk3"]
+
+[ext_resource type="Texture2D" uid="uid://dvmbaop4g135j" path="res://art/sprites/bosses/portal.png" id="1_jiscx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uv6ka"]
+atlas = ExtResource("1_jiscx")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4nhsp"]
+atlas = ExtResource("1_jiscx")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6mq47"]
+atlas = ExtResource("1_jiscx")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1nki"]
+atlas = ExtResource("1_jiscx")
+region = Rect2(288, 0, 96, 96)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uv6ka")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4nhsp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6mq47")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1nki")
+}],
+"loop": 1,
+"name": &"spin",
+"speed": 8.0
+}]

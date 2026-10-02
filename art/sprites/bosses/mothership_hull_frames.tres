@@ -1,0 +1,44 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://dd3bblc388wxy"]
+
+[ext_resource type="Texture2D" uid="uid://7nvf5jvjtc08" path="res://art/sprites/bosses/mothership_hull.png" id="1_4qngp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l132a"]
+atlas = ExtResource("1_4qngp")
+region = Rect2(0, 0, 400, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n70wv"]
+atlas = ExtResource("1_4qngp")
+region = Rect2(400, 0, 400, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_br4rh"]
+atlas = ExtResource("1_4qngp")
+region = Rect2(800, 0, 400, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifxf0"]
+atlas = ExtResource("1_4qngp")
+region = Rect2(1200, 0, 400, 128)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l132a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n70wv")
+}],
+"loop": 1,
+"name": &"closed",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_br4rh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ifxf0")
+}],
+"loop": 1,
+"name": &"open",
+"speed": 3.0
+}]

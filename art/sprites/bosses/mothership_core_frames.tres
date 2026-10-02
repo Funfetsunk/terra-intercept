@@ -1,0 +1,44 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://ca5hrsgf3iyle"]
+
+[ext_resource type="Texture2D" uid="uid://ca1nyo3i4ymcm" path="res://art/sprites/bosses/mothership_core.png" id="1_y4hvb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y72lv"]
+atlas = ExtResource("1_y4hvb")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v10dc"]
+atlas = ExtResource("1_y4hvb")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h68ls"]
+atlas = ExtResource("1_y4hvb")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_je3v7"]
+atlas = ExtResource("1_y4hvb")
+region = Rect2(288, 0, 96, 96)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y72lv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v10dc")
+}],
+"loop": 1,
+"name": &"phase1",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h68ls")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_je3v7")
+}],
+"loop": 1,
+"name": &"phase2",
+"speed": 4.0
+}]

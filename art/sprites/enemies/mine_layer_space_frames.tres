@@ -1,0 +1,25 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://bjmrwcwocddid"]
+
+[ext_resource type="Texture2D" uid="uid://b6wd3a1g3h8e7" path="res://art/sprites/enemies/mine_layer_space.png" id="1_80vt6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60fj6"]
+atlas = ExtResource("1_80vt6")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_03poj"]
+atlas = ExtResource("1_80vt6")
+region = Rect2(24, 0, 24, 24)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_60fj6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_03poj")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 4.0
+}]

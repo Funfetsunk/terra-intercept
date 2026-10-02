@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bj2ever8ip4q0" path="res://scenes/menus/results_screen.gd" id="1_cppup"]
 [ext_resource type="Texture2D" uid="uid://i768lh5kdmul" path="res://art/sprites/ui/menu_background.png" id="2_dwvih"]
 [ext_resource type="StyleBox" uid="uid://bh6ph7hdr1hrx" path="res://themes/panel_frame.tres" id="3_5mbrb"]
+[ext_resource type="PackedScene" uid="uid://c8kaig230cm5v" path="res://scenes/ui/screen_fade.tscn" id="4_kc8ch"]
 
 [node name="ResultsScreen" type="Control" unique_id=1594880899]
 layout_mode = 3
@@ -105,3 +106,5 @@ offset_top = 250.0
 offset_right = 380.0
 offset_bottom = 278.0
 text = "Continue"
+
+[node name="ScreenFade" parent="." unique_id=1035464793 instance=ExtResource("4_kc8ch")]

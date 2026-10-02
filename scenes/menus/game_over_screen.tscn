@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dl5672h1cfhxx" path="res://scenes/menus/game_over_screen.gd" id="1_agkj2"]
 [ext_resource type="Texture2D" uid="uid://i768lh5kdmul" path="res://art/sprites/ui/menu_background.png" id="2_bcvxg"]
+[ext_resource type="PackedScene" uid="uid://c8kaig230cm5v" path="res://scenes/ui/screen_fade.tscn" id="3_cn6yb"]
 
 [node name="GameOverScreen" type="Control" unique_id=71803714]
 layout_mode = 3
@@ -64,3 +65,5 @@ text = "Quit to Title"
 custom_minimum_size = Vector2(160, 26)
 layout_mode = 2
 text = "Hangar"
+
+[node name="ScreenFade" parent="." unique_id=1035464793 instance=ExtResource("3_cn6yb")]

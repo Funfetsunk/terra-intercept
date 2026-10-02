@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c8kaig230cm5v"]
+
+[ext_resource type="Script" uid="uid://sxn1ioadvs3r" path="res://scenes/ui/screen_fade.gd" id="1_h888t"]
+[ext_resource type="Shader" uid="uid://bheedvgp8lmrm" path="res://shaders/dither_fade.gdshader" id="2_1nhx3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ba5dr"]
+shader = ExtResource("2_1nhx3")
+shader_parameter/progress = 0.0
+shader_parameter/fade_color = Color(0.18, 0.133, 0.184, 1)
+
+[node name="ScreenFade" type="CanvasLayer" unique_id=1035464793]
+layer = 60
+script = ExtResource("1_h888t")
+
+[node name="Fade" type="ColorRect" parent="." unique_id=865787556]
+material = SubResource("ShaderMaterial_ba5dr")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color(0.18039216, 0.13333334, 0.18431373, 1)

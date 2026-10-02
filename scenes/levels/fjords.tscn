@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://bfn4tsohwani4" path="res://art/sprites/backgrounds/fjords/fjord_b.png" id="13_vg3gs"]
 [ext_resource type="PackedScene" uid="uid://wklwemvx00mv" path="res://scenes/hud/crosshair.tscn" id="14_vcd7b"]
 [ext_resource type="PackedScene" uid="uid://ci0m4dfh7cg55" path="res://scenes/hud/pause_menu.tscn" id="15_mruc8"]
+[ext_resource type="PackedScene" uid="uid://c8kaig230cm5v" path="res://scenes/ui/screen_fade.tscn" id="18_4dhfo"]
 
 [node name="Fjords" type="Node2D" unique_id=705097]
 script = ExtResource("1_gbec2")
@@ -65,3 +66,5 @@ mission = ExtResource("5_gy7q2")
 [node name="Crosshair" parent="." unique_id=1482935218 instance=ExtResource("14_vcd7b")]
 
 [node name="PauseMenu" parent="." unique_id=366232786 instance=ExtResource("15_mruc8")]
+
+[node name="ScreenFade" parent="." unique_id=1035464793 instance=ExtResource("18_4dhfo")]

@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://bgoiagdeo8ki4" path="res://scripts/systems/enemy_spawner.gd" id="13_dlx5k"]
 [ext_resource type="PackedScene" uid="uid://wklwemvx00mv" path="res://scenes/hud/crosshair.tscn" id="14_ruvvi"]
 [ext_resource type="PackedScene" uid="uid://ci0m4dfh7cg55" path="res://scenes/hud/pause_menu.tscn" id="15_5qq36"]
+[ext_resource type="PackedScene" uid="uid://c8kaig230cm5v" path="res://scenes/ui/screen_fade.tscn" id="16_cydh3"]
 
 [node name="Paris" type="Node2D" unique_id=705097]
 script = ExtResource("1_l2bo6")
@@ -57,3 +58,5 @@ mission = ExtResource("5_446pp")
 [node name="Crosshair" parent="." unique_id=1482935218 instance=ExtResource("14_ruvvi")]
 
 [node name="PauseMenu" parent="." unique_id=366232786 instance=ExtResource("15_5qq36")]
+
+[node name="ScreenFade" parent="." unique_id=1035464793 instance=ExtResource("16_cydh3")]

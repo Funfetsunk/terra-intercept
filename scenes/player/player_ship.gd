@@ -13,6 +13,8 @@ signal focus_used
 signal ordnance_fired
 signal squad_selection_changed(ship: ShipData)
 signal ordnance_ammo_changed(current: int)
+## Emitted once the ship has flown off the top of the screen after a boss kill.
+signal victory_exit_finished
 
 @export var data: ShipData
 ## Hit flashes draw the ship as a flat palette silhouette (silhouette_flash shader).
@@ -30,6 +32,13 @@ signal ordnance_ammo_changed(current: int)
 @export var death_explosion_scene: PackedScene = preload("res://scenes/effects/explosion_large.tscn")
 ## One-shot effect played on respawn, showing the bullet-clear area.
 @export var respawn_ring_scene: PackedScene = preload("res://scenes/effects/respawn_ring.tscn")
+@export_group("Victory exit")
+## After the final boss dies the ship hovers this long, then flies off the top.
+@export var victory_hover_duration: float = 1.0
+@export var victory_exit_acceleration: float = 700.0
+@export var victory_exit_max_speed: float = 420.0
+## How far past the top edge the ship travels before the exit counts as finished.
+@export var victory_exit_margin: float = 40.0
 
 var shield_current: float = 0.0
 var hull_current: float = 0.0
@@ -54,6 +63,10 @@ var _is_focused: bool = false
 var _last_move_dir: Vector2 = Vector2.UP
 var _ordnance_cooldown: float = 0.0
 var _active_special: ShipData = null
+enum VictoryState { NONE, HOVER, EXIT, DONE }
+var _victory_state: VictoryState = VictoryState.NONE
+var _victory_timer: float = 0.0
+var _victory_speed: float = 0.0
 
 @onready var _bullets: Node = get_node("/root/BulletManager")
 @onready var _game_state: Node = get_node("/root/GameState")
@@ -120,6 +133,9 @@ func _exit_tree() -> void:
 	_bullets.unregister_player()
 
 func _physics_process(delta: float) -> void:
+	if _victory_state != VictoryState.NONE:
+		_process_victory(delta)
+		return
 	_process_focus(delta)
 	_process_movement(delta)
 	_process_timers(delta)
@@ -232,7 +248,7 @@ func _process_fire(delta: float) -> void:
 	weapon_fired.emit()
 
 func take_hit(damage: float) -> void:
-	if _game_state.is_game_over:
+	if _game_state.is_game_over or _victory_state != VictoryState.NONE:
 		return
 	if _is_invincible():
 		return
@@ -274,6 +290,32 @@ func _flash(color: Color, duration: float) -> void:
 
 func _is_invincible() -> bool:
 	return _hull_invincible_timer > 0.0 or _respawn_invincible_timer > 0.0 or _special_invincible_timer > 0.0
+
+## Starts the end-of-mission flyout: player control stops, the ship hovers for
+## `victory_hover_duration`, then accelerates off the top of the screen and
+## emits `victory_exit_finished`.
+func play_victory_exit() -> void:
+	if _victory_state != VictoryState.NONE:
+		return
+	_victory_state = VictoryState.HOVER
+	_victory_timer = 0.0
+	_victory_speed = 0.0
+	_velocity = Vector2.ZERO
+	_update_bank_frame(0.0)
+
+func _process_victory(delta: float) -> void:
+	match _victory_state:
+		VictoryState.HOVER:
+			_victory_timer += delta
+			if _victory_timer >= victory_hover_duration:
+				_victory_state = VictoryState.EXIT
+		VictoryState.EXIT:
+			_victory_speed = minf(victory_exit_max_speed, _victory_speed + victory_exit_acceleration * delta)
+			global_position.y -= _victory_speed * delta
+			if global_position.y < _playfield.rect.position.y - victory_exit_margin:
+				_victory_state = VictoryState.DONE
+				visible = false
+				victory_exit_finished.emit()
 
 func respawn() -> void:
 	global_position = _spawn_origin

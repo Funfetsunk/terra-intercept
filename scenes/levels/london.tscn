@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bxqbg0b61dcva"]
 
-[ext_resource type="Script" path="res://scenes/levels/mission_level.gd" id="1_8v1gb"]
+[ext_resource type="Script" uid="uid://75rqdkq3l656" path="res://scenes/levels/mission_level.gd" id="1_8v1gb"]
 [ext_resource type="PackedScene" uid="uid://bveh1trv7wuqf" path="res://scenes/player/player_ship.tscn" id="2_g5f8b"]
 [ext_resource type="PackedScene" uid="uid://c1woeggvkgk0f" path="res://scenes/hud/hud.tscn" id="6_8v1gb"]
 [ext_resource type="Script" uid="uid://bjif1hmet7sgc" path="res://scripts/systems/playfield_shake.gd" id="6_y27mh"]
@@ -16,10 +16,9 @@
 [ext_resource type="Script" uid="uid://c22u4wcieqmm2" path="res://scripts/systems/tutorial_sequencer.gd" id="16_g5f8b"]
 [ext_resource type="PackedScene" uid="uid://wklwemvx00mv" path="res://scenes/hud/crosshair.tscn" id="17_e2wpw"]
 [ext_resource type="PackedScene" uid="uid://bbu1i2vdl36db" path="res://scenes/pickups/weapon_pickup.tscn" id="17_j7qax"]
-[ext_resource type="Script" uid="uid://bhmq84kb4nlfy" path="res://scenes/hud/crosshair.gd" id="18_8v1gb"]
 [ext_resource type="PackedScene" uid="uid://d3f6kv8rj0pgl" path="res://scenes/pickups/alien_tech_drop.tscn" id="18_e2wpw"]
 [ext_resource type="PackedScene" uid="uid://ci0m4dfh7cg55" path="res://scenes/hud/pause_menu.tscn" id="19_8v1gb"]
-[ext_resource type="Script" uid="uid://ba58el5p4e8wy" path="res://scenes/hud/pause_menu.gd" id="20_k1bt5"]
+[ext_resource type="PackedScene" uid="uid://c8kaig230cm5v" path="res://scenes/ui/screen_fade.tscn" id="19_k1bt5"]
 
 [node name="London" type="Node2D" unique_id=705097]
 script = ExtResource("1_8v1gb")
@@ -70,10 +69,8 @@ enemy_spawner_path = NodePath("../EnemySpawner")
 weapon_pickup_scene = ExtResource("17_j7qax")
 alien_tech_drop_scene = ExtResource("18_e2wpw")
 
-[node name="Crosshair" type="CanvasLayer" parent="." unique_id=1482935218 instance=ExtResource("17_e2wpw")]
-layer = 20
-script = ExtResource("18_8v1gb")
+[node name="Crosshair" parent="." unique_id=1482935218 instance=ExtResource("17_e2wpw")]
 
-[node name="PauseMenu" type="CanvasLayer" parent="." unique_id=366232786 instance=ExtResource("19_8v1gb")]
-layer = 15
-script = ExtResource("20_k1bt5")
+[node name="PauseMenu" parent="." unique_id=366232786 instance=ExtResource("19_8v1gb")]
+
+[node name="ScreenFade" parent="." unique_id=1035464793 instance=ExtResource("19_k1bt5")]

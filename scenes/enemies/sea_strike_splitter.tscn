@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dvm2yjlm0fgi3"]
+
+[ext_resource type="Script" uid="uid://byr6ub8q1dq5e" path="res://scenes/enemies/sea_strike.gd" id="1_fl8nv"]
+[ext_resource type="PackedScene" uid="uid://cfgei6rgcao5f" path="res://scenes/enemies/splitter.tscn" id="2_noipj"]
+
+[node name="SeaStrike" type="Node2D" unique_id=676063271]
+script = ExtResource("1_fl8nv")
+enemy_scene = ExtResource("2_noipj")
+count = 3
+interval = 0.5

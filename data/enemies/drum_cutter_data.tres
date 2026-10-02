@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://c3yjr0tqd0s2w"]
+
+[ext_resource type="PackedScene" uid="uid://bca5f08gnsvli" path="res://scenes/effects/explosion_medium.tscn" id="1_ivc36"]
+[ext_resource type="Resource" uid="uid://cceddrmuccr21" path="res://data/patterns/drum_cutter_pattern.tres" id="2_nnal6"]
+[ext_resource type="Script" uid="uid://bxbax4x8ptrvy" path="res://scripts/resources/enemy_data.gd" id="3_8atll"]
+
+[resource]
+script = ExtResource("3_8atll")
+enemy_name = "Drum Cutter"
+move_speed = 0.0
+hull_max = 80.0
+hitbox_radius = 14.0
+pattern = ExtResource("2_nnal6")
+score_value = 1500
+alien_tech_drop = 4
+explosion_scene = ExtResource("1_ivc36")

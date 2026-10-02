@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bhrvpl4vewu88"]
+
+[ext_resource type="Script" uid="uid://byr6ub8q1dq5e" path="res://scenes/enemies/sea_strike.gd" id="1_dg38a"]
+[ext_resource type="PackedScene" uid="uid://bgpkeg50nw4o4" path="res://scenes/enemies/kamikaze.tscn" id="2_brjli"]
+
+[node name="SeaStrike" type="Node2D" unique_id=487366972]
+script = ExtResource("1_dg38a")
+enemy_scene = ExtResource("2_brjli")
+interval = 0.4

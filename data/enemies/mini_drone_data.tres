@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://cqod42uxua45n"]
+
+[ext_resource type="PackedScene" uid="uid://c5glm5ofoajet" path="res://scenes/effects/explosion_small.tscn" id="1_l74y0"]
+[ext_resource type="Resource" uid="uid://b2n1cixf1on2f" path="res://data/patterns/mini_drone_pattern.tres" id="2_se4lj"]
+[ext_resource type="Script" uid="uid://bxbax4x8ptrvy" path="res://scripts/resources/enemy_data.gd" id="3_7q654"]
+
+[resource]
+script = ExtResource("3_7q654")
+enemy_name = "Mini Drone"
+move_speed = 0.0
+hull_max = 1.0
+hitbox_radius = 5.0
+pattern = ExtResource("2_se4lj")
+score_value = 60
+explosion_scene = ExtResource("1_l74y0")

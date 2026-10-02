@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://ce4gxuokiwr3w"]
+
+[ext_resource type="Script" uid="uid://bon0a0ploytgo" path="res://scenes/bosses/boss_part.gd" id="1_sjde6"]
+[ext_resource type="Resource" uid="uid://c3yjr0tqd0s2w" path="res://data/enemies/drum_cutter_data.tres" id="2_oiwkx"]
+[ext_resource type="SpriteFrames" uid="uid://bovjc125fwwp1" path="res://art/sprites/bosses/drum_cutter_frames.tres" id="3_4vm01"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4omdf"]
+radius = 14.0
+
+[node name="DrumCutter" type="Node2D" unique_id=648294851]
+script = ExtResource("1_sjde6")
+data = ExtResource("2_oiwkx")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=24165754]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=633827876]
+shape = SubResource("CircleShape2D_4omdf")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1128481419]
+sprite_frames = ExtResource("3_4vm01")
+animation = &"idle"
+autoplay = "idle"

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cfgei6rgcao5f"]
+
+[ext_resource type="Script" uid="uid://bjwl6eduhwhrc" path="res://scenes/enemies/splitter.gd" id="1_j8406"]
+[ext_resource type="PackedScene" uid="uid://b3nwdqo6jphby" path="res://scenes/enemies/mini_drone.tscn" id="2_b5r0l"]
+[ext_resource type="Resource" uid="uid://pujuamc3jho3" path="res://data/enemies/splitter_data.tres" id="3_mqm7v"]
+[ext_resource type="SpriteFrames" uid="uid://dqw857g0ekswh" path="res://art/sprites/enemies/splitter_frames.tres" id="4_6egeq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_54w7r"]
+radius = 9.0
+
+[node name="Splitter" type="Node2D" unique_id=484705029]
+script = ExtResource("1_j8406")
+split_scene = ExtResource("2_b5r0l")
+data = ExtResource("3_mqm7v")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=510302093]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1064248324]
+shape = SubResource("CircleShape2D_54w7r")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1240110320]
+sprite_frames = ExtResource("4_6egeq")
+animation = &"idle"
+autoplay = "idle"

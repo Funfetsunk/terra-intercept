@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dg0hxpjnvratt"]
+
+[ext_resource type="Script" uid="uid://byr6ub8q1dq5e" path="res://scenes/enemies/sea_strike.gd" id="1_gvv6o"]
+[ext_resource type="PackedScene" uid="uid://c2ntt3im5qe7m" path="res://scenes/enemies/swarmer.tscn" id="2_uu0bu"]
+[ext_resource type="Resource" uid="uid://1tyadtrf70et" path="res://data/enemies/swarmer_mk2_data.tres" id="3_ryr7h"]
+
+[node name="SeaStrike" type="Node2D" unique_id=663649367]
+script = ExtResource("1_gvv6o")
+enemy_scene = ExtResource("2_uu0bu")
+data_override = ExtResource("3_ryr7h")
+count = 5
+interval = 0.3

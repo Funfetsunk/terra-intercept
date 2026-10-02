@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://70ac61pwntbd"]
+
+[ext_resource type="Script" uid="uid://75rqdkq3l656" path="res://scenes/levels/mission_level.gd" id="1_aef6x"]
+[ext_resource type="PackedScene" uid="uid://c1woeggvkgk0f" path="res://scenes/hud/hud.tscn" id="2_8lmpa"]
+[ext_resource type="PackedScene" uid="uid://bdjsxy2elcbrc" path="res://scenes/hud/dialogue_box.tscn" id="3_5b2yo"]
+[ext_resource type="Script" uid="uid://b1vqxoh2qfcwi" path="res://scripts/systems/dialogue_controller.gd" id="4_pre2m"]
+[ext_resource type="Resource" uid="uid://dwjweodp4ljsn" path="res://data/missions/grand_canyon_mission.tres" id="5_agk54"]
+[ext_resource type="Script" uid="uid://bjif1hmet7sgc" path="res://scripts/systems/playfield_shake.gd" id="6_ouhty"]
+[ext_resource type="PackedScene" uid="uid://bveh1trv7wuqf" path="res://scenes/player/player_ship.tscn" id="7_wf2yt"]
+[ext_resource type="Script" uid="uid://bmpk44dxyxabo" path="res://scenes/levels/fjord_walls.gd" id="8_vue45"]
+[ext_resource type="Texture2D" uid="uid://cih6tss0d613r" path="res://art/sprites/backgrounds/canyon/cliff_rock.png" id="9_2w0ht"]
+[ext_resource type="Script" uid="uid://c6cns2cik14l2" path="res://scenes/levels/scrolling_background.gd" id="10_v53up"]
+[ext_resource type="PackedScene" uid="uid://ort4tmjdo7j" path="res://scenes/levels/background_layer.tscn" id="11_33jif"]
+[ext_resource type="Texture2D" uid="uid://bp5gync14k5vw" path="res://art/sprites/backgrounds/canyon/canyon_a.png" id="12_u5yxp"]
+[ext_resource type="Texture2D" uid="uid://nyn03id1np52" path="res://art/sprites/backgrounds/canyon/canyon_b.png" id="13_utiam"]
+[ext_resource type="Texture2D" uid="uid://dvhhaaltk6dka" path="res://art/sprites/backgrounds/london/smoke.png" id="14_qusra"]
+[ext_resource type="Script" uid="uid://bgoiagdeo8ki4" path="res://scripts/systems/enemy_spawner.gd" id="15_n1kmj"]
+[ext_resource type="PackedScene" uid="uid://wklwemvx00mv" path="res://scenes/hud/crosshair.tscn" id="16_exidv"]
+[ext_resource type="PackedScene" uid="uid://ci0m4dfh7cg55" path="res://scenes/hud/pause_menu.tscn" id="17_0yt2i"]
+[ext_resource type="PackedScene" uid="uid://c8kaig230cm5v" path="res://scenes/ui/screen_fade.tscn" id="18_l6xk8"]
+
+[node name="GrandCanyon" type="Node2D" unique_id=705097]
+script = ExtResource("1_aef6x")
+mission_id = "col6_north"
+
+[node name="HUD" parent="." unique_id=1725720245 instance=ExtResource("2_8lmpa")]
+
+[node name="DialogueBox" parent="." unique_id=647446749 instance=ExtResource("3_5b2yo")]
+
+[node name="DialogueController" type="Node" parent="." unique_id=1061489573]
+script = ExtResource("4_pre2m")
+mission = ExtResource("5_agk54")
+dialogue_box_path = NodePath("../DialogueBox")
+
+[node name="PlayfieldRoot" type="Node2D" parent="." unique_id=370220181]
+position = Vector2(140, 0)
+script = ExtResource("6_ouhty")
+
+[node name="PlayerShip" parent="PlayfieldRoot" unique_id=1276083379 instance=ExtResource("7_wf2yt")]
+position = Vector2(180, 300)
+
+[node name="CanyonWalls" type="Node2D" parent="PlayfieldRoot" unique_id=1800470214]
+z_index = -8
+script = ExtResource("8_vue45")
+mission = ExtResource("5_agk54")
+rock_texture = ExtResource("9_2w0ht")
+edge_jitter_px = 1
+rim_color = Color(0.8039216, 0.40784314, 0.23921569, 1)
+smooth_bends = false
+
+[node name="Background" type="Node2D" parent="PlayfieldRoot" unique_id=455193155 groups=["scrolling_background"]]
+z_index = -10
+script = ExtResource("10_v53up")
+mission = ExtResource("5_agk54")
+
+[node name="FarLayer" parent="PlayfieldRoot/Background" unique_id=2071353270 instance=ExtResource("11_33jif")]
+panel_a_texture = ExtResource("12_u5yxp")
+panel_b_texture = ExtResource("13_utiam")
+
+[node name="NearLayer" parent="PlayfieldRoot/Background" unique_id=899699578 instance=ExtResource("11_33jif")]
+scroll_speed_multiplier = 1.4
+panel_a_texture = ExtResource("14_qusra")
+panel_b_texture = ExtResource("14_qusra")
+
+[node name="EnemySpawner" type="Node" parent="PlayfieldRoot" unique_id=1415624087]
+script = ExtResource("15_n1kmj")
+mission = ExtResource("5_agk54")
+
+[node name="Crosshair" parent="." unique_id=1482935218 instance=ExtResource("16_exidv")]
+
+[node name="PauseMenu" parent="." unique_id=366232786 instance=ExtResource("17_0yt2i")]
+
+[node name="ScreenFade" parent="." unique_id=1035464793 instance=ExtResource("18_l6xk8")]

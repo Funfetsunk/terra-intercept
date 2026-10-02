@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bdm8vwpjll6ug"]
+
+[ext_resource type="Script" uid="uid://dvaljau416ip4" path="res://scenes/bosses/mining_crawler_boss.gd" id="1_xvtru"]
+[ext_resource type="Resource" uid="uid://drbi06nsrppks" path="res://data/enemies/mining_crawler_boss_data.tres" id="2_kabuq"]
+[ext_resource type="SpriteFrames" uid="uid://c6uh8mrev6i4r" path="res://art/sprites/bosses/mining_crawler_frames.tres" id="3_mqdqn"]
+[ext_resource type="PackedScene" uid="uid://ce4gxuokiwr3w" path="res://scenes/bosses/drum_cutter.tscn" id="4_wudvy"]
+
+[node name="MiningCrawlerBoss" type="Node2D" unique_id=346003153]
+script = ExtResource("1_xvtru")
+advance_y = 160.0
+hover_y = 84.0
+data = ExtResource("2_kabuq")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=202417588]
+sprite_frames = ExtResource("3_mqdqn")
+animation = &"phase1"
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1549695385]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=2048285508]
+
+[node name="DrumL" parent="." unique_id=648294851 instance=ExtResource("4_wudvy")]
+position = Vector2(-26, 66)
+
+[node name="DrumR" parent="." unique_id=597648950 instance=ExtResource("4_wudvy")]
+position = Vector2(26, 66)
+first_volley_delay = 0.6
+mirror = true

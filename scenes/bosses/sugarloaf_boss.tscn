@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://72f7nvuf7nqv"]
+
+[ext_resource type="Script" uid="uid://dxcb1r0153kj3" path="res://scenes/bosses/sugarloaf_boss.gd" id="1_e55c3"]
+[ext_resource type="Resource" uid="uid://bho657mq7lj8k" path="res://data/enemies/sugarloaf_boss_data.tres" id="2_41v3y"]
+[ext_resource type="SpriteFrames" uid="uid://ccn4g26rv42ey" path="res://art/sprites/bosses/sugarloaf_boss_frames.tres" id="3_y7qv6"]
+[ext_resource type="PackedScene" uid="uid://c6e62gx34xw11" path="res://scenes/bosses/cable_car.tscn" id="4_co7nd"]
+
+[node name="SugarloafBoss" type="Node2D" unique_id=1345782361]
+script = ExtResource("1_e55c3")
+hover_y = 80.0
+data = ExtResource("2_41v3y")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=799844605]
+show_behind_parent = true
+sprite_frames = ExtResource("3_y7qv6")
+animation = &"phase1"
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=113984938]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1411755293]
+
+[node name="CarA" parent="." unique_id=636330298 instance=ExtResource("4_co7nd")]
+from_point = Vector2(-62, 6)
+to_point = Vector2(58, -22)
+
+[node name="CarB" parent="." unique_id=1077315367 instance=ExtResource("4_co7nd")]
+from_point = Vector2(-62, 6)
+to_point = Vector2(58, -22)
+start_offset = 0.5
+first_volley_delay = 1.0
+
+[node name="CarC" parent="." unique_id=1272600646 instance=ExtResource("4_co7nd")]
+from_point = Vector2(-62, 22)
+to_point = Vector2(58, -6)
+trip_time = 3.6
+start_offset = 0.25
+first_volley_delay = 0.5

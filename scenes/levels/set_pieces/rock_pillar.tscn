@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://5j8frdf1f5rr"]
+
+[ext_resource type="Script" uid="uid://bunvxhy6583ka" path="res://scenes/levels/rock_pillar.gd" id="1_eip0k"]
+[ext_resource type="Texture2D" uid="uid://bwq6x7prg8pyw" path="res://art/sprites/backgrounds/canyon/rock_pillar.png" id="2_33rnn"]
+
+[node name="RockPillar" type="Node2D" unique_id=2053105629]
+z_index = -7
+script = ExtResource("1_eip0k")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=438140696]
+texture = ExtResource("2_33rnn")

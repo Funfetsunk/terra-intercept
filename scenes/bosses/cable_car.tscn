@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://c6e62gx34xw11"]
+
+[ext_resource type="Script" uid="uid://wx5s32kafpwo" path="res://scenes/bosses/cable_car.gd" id="1_qyqxo"]
+[ext_resource type="Resource" uid="uid://cn3gw0xuik1ym" path="res://data/enemies/cable_car_data.tres" id="2_6ec8x"]
+[ext_resource type="SpriteFrames" uid="uid://d245ucajhkw4u" path="res://art/sprites/bosses/cable_car_frames.tres" id="3_e7cbl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7e78u"]
+radius = 11.0
+
+[node name="CableCar" type="Node2D" unique_id=636330298]
+script = ExtResource("1_qyqxo")
+data = ExtResource("2_6ec8x")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=581489356]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=549551910]
+shape = SubResource("CircleShape2D_7e78u")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1741620756]
+sprite_frames = ExtResource("3_e7cbl")
+animation = &"idle"
+autoplay = "idle"

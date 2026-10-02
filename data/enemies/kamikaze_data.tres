@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://c01liui0mjcwm"]
+
+[ext_resource type="PackedScene" uid="uid://c5glm5ofoajet" path="res://scenes/effects/explosion_small.tscn" id="1_ny2jo"]
+[ext_resource type="Script" uid="uid://bxbax4x8ptrvy" path="res://scripts/resources/enemy_data.gd" id="2_ijnx5"]
+
+[resource]
+script = ExtResource("2_ijnx5")
+enemy_name = "Kamikaze"
+move_speed = 70.0
+hull_max = 4.0
+hitbox_radius = 7.0
+contact_damage = 2.0
+score_value = 300
+alien_tech_drop = 1
+explosion_scene = ExtResource("1_ny2jo")

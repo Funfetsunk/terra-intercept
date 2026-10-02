@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="BossData" format=3 uid="uid://bho657mq7lj8k"]
+
+[ext_resource type="PackedScene" uid="uid://c5hgr5sh58h6f" path="res://scenes/effects/explosion_large.tscn" id="1_8xodf"]
+[ext_resource type="AudioStream" uid="uid://b4jsl3exhcfm8" path="res://audio/music/boss.ogg" id="2_hw0od"]
+[ext_resource type="AudioStream" uid="uid://jhas3alcpgyt" path="res://audio/music/boss_phase2.ogg" id="3_grupn"]
+[ext_resource type="Resource" uid="uid://bmropdfpjjkhx" path="res://data/patterns/sugarloaf_phase1.tres" id="4_yjej1"]
+[ext_resource type="Resource" uid="uid://chr3hy5k78be7" path="res://data/patterns/sugarloaf_phase2.tres" id="5_tfpjb"]
+[ext_resource type="Resource" uid="uid://ugrglikdd0bh" path="res://data/patterns/sugarloaf_phase2_aimed.tres" id="6_2q0cx"]
+[ext_resource type="Script" uid="uid://mfqvklciutsc" path="res://scripts/resources/boss_data.gd" id="7_4g787"]
+[ext_resource type="Resource" uid="uid://blnyvmrtk5vbl" path="res://data/patterns/sugarloaf_phase1_ring.tres" id="8_nmmmy"]
+
+[resource]
+script = ExtResource("7_4g787")
+phase_2_pattern = ExtResource("5_tfpjb")
+secondary_pattern = ExtResource("8_nmmmy")
+phase_2_secondary_pattern = ExtResource("6_2q0cx")
+sprite_size = 168.0
+music = ExtResource("2_hw0od")
+music_phase2 = ExtResource("3_grupn")
+enemy_name = "Sugarloaf Fortress"
+move_speed = 20.0
+hull_max = 680.0
+hitbox_radius = 40.0
+pattern = ExtResource("4_yjej1")
+score_value = 13000
+alien_tech_drop = 32
+explosion_scene = ExtResource("1_8xodf")

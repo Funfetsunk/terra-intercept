@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://cn3gw0xuik1ym"]
+
+[ext_resource type="PackedScene" uid="uid://bca5f08gnsvli" path="res://scenes/effects/explosion_medium.tscn" id="1_lt42s"]
+[ext_resource type="Resource" uid="uid://w734knelg63n" path="res://data/patterns/cable_car_pattern.tres" id="2_dhss8"]
+[ext_resource type="Script" uid="uid://bxbax4x8ptrvy" path="res://scripts/resources/enemy_data.gd" id="3_d4hg2"]
+
+[resource]
+script = ExtResource("3_d4hg2")
+enemy_name = "Cable Car"
+move_speed = 0.0
+hull_max = 45.0
+hitbox_radius = 11.0
+pattern = ExtResource("2_dhss8")
+score_value = 1000
+alien_tech_drop = 3
+explosion_scene = ExtResource("1_lt42s")

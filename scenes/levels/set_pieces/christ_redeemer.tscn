@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dsfpjnwibm81x"]
+
+[ext_resource type="Script" uid="uid://dsiocmmqolpwy" path="res://scenes/levels/set_piece.gd" id="1_avblf"]
+[ext_resource type="Texture2D" uid="uid://daynihm3qb2e4" path="res://art/sprites/backgrounds/rio/christ_redeemer.png" id="2_2s3s2"]
+
+[node name="ChristRedeemer" type="Node2D" unique_id=281489262]
+z_index = -9
+script = ExtResource("1_avblf")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1824468186]
+texture = ExtResource("2_2s3s2")

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bgpkeg50nw4o4"]
+
+[ext_resource type="Script" uid="uid://cp8hevtkcy0u3" path="res://scenes/enemies/kamikaze.gd" id="1_57i0o"]
+[ext_resource type="Resource" uid="uid://bypn6am8s0fi4" path="res://data/patterns/kamikaze_burst.tres" id="2_613kf"]
+[ext_resource type="Resource" uid="uid://c01liui0mjcwm" path="res://data/enemies/kamikaze_data.tres" id="3_d27o0"]
+[ext_resource type="SpriteFrames" uid="uid://cq05mvat1tavn" path="res://art/sprites/enemies/kamikaze_frames.tres" id="4_l73hf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mqvp2"]
+radius = 7.0
+
+[node name="Kamikaze" type="Node2D" unique_id=787820794]
+script = ExtResource("1_57i0o")
+burst_pattern = ExtResource("2_613kf")
+data = ExtResource("3_d27o0")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=2061061023]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=475334451]
+shape = SubResource("CircleShape2D_mqvp2")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=124115808]
+sprite_frames = ExtResource("4_l73hf")
+animation = &"idle"
+autoplay = "idle"

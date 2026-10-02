@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="BulletPatternData" format=3 uid="uid://cceddrmuccr21"]
+
+[ext_resource type="Texture2D" uid="uid://qeskbvot425g" path="res://art/sprites/bullets/enemy_orb_pink_6.png" id="1_30558"]
+[ext_resource type="Script" uid="uid://skm1jc2p0sdk" path="res://scripts/resources/bullet_pattern_data.gd" id="2_2athd"]
+
+[resource]
+script = ExtResource("2_2athd")
+pattern_name = "Drum Cutter Chips"
+burst_size = 4
+angle_spread_degrees = 50.0
+burst_interval = 1.3
+jitter_degrees = 8.0
+rng_seed = 184
+bullet_speed = 115.0
+bullet_color = Color(1, 1, 1, 1)
+bullet_texture = ExtResource("1_30558")
+bullet_lifetime = 5.0
+emitter_offsets = PackedVector2Array()
+emitter_angle_offsets = PackedFloat32Array()
+speed_jitter = 25.0

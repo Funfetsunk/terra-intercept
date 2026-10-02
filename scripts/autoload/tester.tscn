@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dilywgyhgtapb"]
+
+[ext_resource type="Script" path="res://scripts/autoload/tester.gd" id="1_lvhg1"]
+
+[node name="Tester" type="Node" unique_id=1700793074]
+script = ExtResource("1_lvhg1")
+
+[node name="Overlay" type="CanvasLayer" parent="." unique_id=74164390]
+layer = 90
+
+[node name="FpsLabel" type="Label" parent="Overlay" unique_id=45423479]
+offset_left = 504.0
+offset_top = 2.0
+offset_right = 636.0
+offset_bottom = 18.0
+theme_override_colors/font_color = Color(0.5686275, 0.85882354, 0.4117647, 1)
+theme_override_colors/font_outline_color = Color(0.18039216, 0.13333334, 0.18431373, 1)
+theme_override_constants/outline_size = 2
+text = "FPS --"
+horizontal_alignment = 2

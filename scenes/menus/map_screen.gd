@@ -42,6 +42,9 @@ func _build_nodes() -> void:
 		var is_completed: bool = _game_state.completed_missions.has(map_node.id)
 		var is_frontier: bool = map_node.column == _game_state.current_column and (map_node.lane.is_empty() or map_node.lane == _game_state.current_lane)
 		var state: MapNodeButton.State = MapNodeButton.State.COMPLETED if is_completed else (MapNodeButton.State.AVAILABLE if is_frontier else MapNodeButton.State.LOCKED)
+		# Tester builds can launch any mission.
+		if state == MapNodeButton.State.LOCKED and _tester_enabled():
+			state = MapNodeButton.State.AVAILABLE
 		var button: MapNodeButton = MAP_NODE_BUTTON_SCENE.instantiate()
 		_node_container.add_child(button)
 		button.setup(map_node, map_node.display_name, state, map_node.label_offset)
@@ -61,8 +64,14 @@ func _on_node_activated(node_data: Resource) -> void:
 		_coming_soon_overlay.visible = true
 		_ok_button.grab_focus()
 		return
-	_game_state.is_replay = _game_state.completed_missions.has(map_node.id) and not (map_node.column == _game_state.current_column and (map_node.lane.is_empty() or map_node.lane == _game_state.current_lane))
+	var is_frontier: bool = map_node.column == _game_state.current_column and (map_node.lane.is_empty() or map_node.lane == _game_state.current_lane)
+	_game_state.is_replay = _game_state.completed_missions.has(map_node.id) and not is_frontier
+	# Tester builds play ahead of the save's progress without advancing it.
+	if _tester_enabled() and not is_frontier:
+		_game_state.is_replay = true
 	_game_state.current_mission_name = map_node.id
+	# A fresh launch always starts from the beginning (not a leftover restart point).
+	_game_state.restart_section = ""
 	var lines: Array[Resource] = []
 	if map_node.column == 4 and not _game_state.midgame_reveal_shown:
 		lines.append_array(_game_state.midgame_reveal_lines)
@@ -90,3 +99,7 @@ func _on_south_chosen() -> void:
 	_game_state.choose_lane("south")
 	_lane_choice_overlay.visible = false
 	_build_nodes()
+
+func _tester_enabled() -> bool:
+	var tester: Node = get_node_or_null("/root/Tester")
+	return tester != null and tester.get("enabled") == true

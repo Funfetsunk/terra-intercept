@@ -200,6 +200,13 @@ Context for anything built from here on.
   - The roll scrolls over the starfield and Earth (hold confirm or ordnance to speed up).
   - The epilogue (the Alliance sequel hook) types out, then the screen fades to the title.
 - **`stage_boss.gd` `completes_mission`** (default true): off for bosses whose death hands over to something else first.
+- **Tester build** (`scripts/autoload/tester.gd`/`.tscn`, autoload `Tester`, last in the list):
+  - Active only when the export has the `tester` custom feature (the "Windows Tester" preset in `export_presets.cfg`), or in the editor with `force_in_editor`.
+  - It shows an FPS counter and makes every map node launchable, as a replay when ahead of progress.
+  - `tester_skip_boss` (F2 / pad Back) sets `restart_section = "boss"` and reloads the mission.
+  - Both presets embed the .pck in a single .exe (`build/`, git-ignored). Export templates must be installed (Editor → Manage Export Templates).
+  - The friend-facing instructions are `docs/playtest-guide.md`.
+  - Launching from the map always clears `restart_section`.
 - **Shared level script:** every mission level uses `scenes/levels/mission_level.gd` (exports `mission_id`, which must match the `MapNodeData` id, and `has_tutorial`). It records `GameState.current_level_path` and `current_level_has_tutorial`, so the game-over screen restarts the right level and only offers "Skip tutorial" where there is one. It also runs the outros (see above), so every level needs a `ScreenFade` child. London's own `london.gd` is gone. A new level is London's structure without the `TutorialSequencer`, with its own mission resource on `DialogueController`, `Background` and `EnemySpawner`, and its own tile textures on `FarLayer`.
 - **Stage boss script:** `scenes/bosses/stage_boss.gd` (formerly `tower_bridge_boss.gd`) is the generic final boss. It moves into place, locks the ground scroll, runs two phases with secondary patterns, and completes the mission on death. Each boss is just a scene (`Sprite` `AnimatedSprite2D` with `phase1`/`phase2`, plus `Hitbox`) and a `BossData`.
 - **Flanker** (`scenes/enemies/flanker.gd`): its entry side comes from the spawn position (relative x < 0 enters from the left, x > 1 from the right, otherwise from below, so use y ≈ 1.1). A warning chevron blinks at that edge for `telegraph_duration`, then it crosses on a sine sway, firing only once inside the playfield.

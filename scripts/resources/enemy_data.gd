@@ -11,3 +11,6 @@ class_name EnemyData
 @export var alien_tech_drop: int = 0
 ## Effect spawned where the enemy dies (a scene whose root plays once and frees itself).
 @export var explosion_scene: PackedScene
+## Optional art override (e.g. a Mk II recolour). Must have the same animation
+## names as the scene's own SpriteFrames. Leave empty to keep the scene's art.
+@export var sprite_frames: SpriteFrames

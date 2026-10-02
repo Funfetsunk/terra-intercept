@@ -19,6 +19,9 @@ class_name BulletPatternData
 ## Fire the burst from each of these points (relative to the enemy) instead of its
 ## centre, e.g. a boss's turrets. Aimed patterns aim from each point.
 @export var emitter_offsets: PackedVector2Array = PackedVector2Array()
+## Extra angle (degrees) added per emitter, matched by index to emitter_offsets,
+## so emitters can fire out of step (e.g. dishes sweeping at different angles).
+@export var emitter_angle_offsets: PackedFloat32Array = PackedFloat32Array()
 ## Repeat the burst at this many speeds, each `layer_speed_step` faster, so it
 ## arrives as stacked waves.
 @export var layers: int = 1

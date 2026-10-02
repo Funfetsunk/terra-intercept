@@ -25,12 +25,28 @@ var _secondary_burst_index: int = 0
 
 func _ready() -> void:
 	_bullets = get_node("/root/BulletManager")
+	_apply_sprite_frames()
 	hull_current = data.hull_max
 	_current_pattern = pattern_override if pattern_override != null else data.pattern
 	if _current_pattern != null:
 		_rng.seed = _current_pattern.rng_seed
 		_burst_timer = _current_pattern.burst_interval
 	_bullets.register_enemy(self)
+
+## Swaps in data.sprite_frames (a variant's art), keeping the current animation.
+func _apply_sprite_frames() -> void:
+	if data.sprite_frames == null:
+		return
+	var sprite: AnimatedSprite2D = get_node_or_null("Sprite") as AnimatedSprite2D
+	if sprite == null:
+		return
+	var anim: StringName = sprite.animation
+	var was_playing: bool = sprite.is_playing() or not String(sprite.autoplay).is_empty()
+	sprite.sprite_frames = data.sprite_frames
+	if data.sprite_frames.has_animation(anim):
+		sprite.animation = anim
+		if was_playing:
+			sprite.play(anim)
 
 func _exit_tree() -> void:
 	if _bullets != null:
@@ -80,11 +96,13 @@ func _fire_pattern(pattern: BulletPatternData, burst_index: int, rng: RandomNumb
 	if emitters.is_empty():
 		emitters = PackedVector2Array([Vector2.ZERO])
 	var layer_count: int = max(1, pattern.layers)
-	for emitter: Vector2 in emitters:
-		var origin: Vector2 = global_position + emitter
+	for e in range(emitters.size()):
+		var origin: Vector2 = global_position + emitters[e]
 		var emitter_angle_deg: float = base_angle_deg
 		if pattern.aim_at_player:
 			emitter_angle_deg = rad_to_deg((_bullets.get_player_position() - origin).angle())
+		if e < pattern.emitter_angle_offsets.size():
+			emitter_angle_deg += pattern.emitter_angle_offsets[e]
 		for layer in range(layer_count):
 			var speed: float = pattern.bullet_speed + pattern.layer_speed_step * float(layer)
 			for i in range(count):

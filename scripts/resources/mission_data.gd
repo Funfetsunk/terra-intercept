@@ -21,6 +21,12 @@ class_name MissionData
 ## Sandstorm gusts: each is (start time in s, duration in s, sideways push in
 ## px/s; negative pushes left).
 @export var gusts: PackedVector3Array = PackedVector3Array()
+## Ground pan (Great Wall): each key is (distance scrolled in px, sideways pan in
+## px), smoothstepped between keys. Empty means no pan.
+@export var pan_keys: PackedVector2Array = PackedVector2Array()
+## Avalanches: each is (start time in s, lane centre 0-1 across the playfield,
+## lane width in px).
+@export var avalanches: PackedVector3Array = PackedVector3Array()
 
 func get_section_start_time(section: String) -> float:
 	if section.is_empty():

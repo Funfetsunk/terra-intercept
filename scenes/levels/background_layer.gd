@@ -9,6 +9,9 @@ class_name BackgroundLayer
 ## continue A's bottom edge and vice versa. Leave empty to keep the scene's texture.
 @export var panel_a_texture: Texture2D
 @export var panel_b_texture: Texture2D
+## Extra width drawn either side of the playfield so the layer can pan sideways
+## (Great Wall). The art must tile seamlessly left to right. 0 = no panning.
+@export var pan_margin: float = 0.0
 
 var base_speed: float = 0.0
 # Exact scroll offsets; panels are drawn at these rounded to whole pixels so
@@ -26,6 +29,18 @@ func _ready() -> void:
 	_offsets[1] = $PanelB.position.y
 	$PanelA.modulate = panel_a_color
 	$PanelB.modulate = panel_b_color
+	if pan_margin > 0.0:
+		for panel: Control in _panels:
+			panel.size.x = panel.size.x + pan_margin * 2.0
+		set_pan(0.0)
+
+## Shifts the layer sideways by `px` (clamped to pan_margin), on whole pixels.
+func set_pan(px: float) -> void:
+	if pan_margin <= 0.0:
+		return
+	var x: float = roundf(-pan_margin + clampf(px, -pan_margin, pan_margin))
+	for panel: Control in _panels:
+		panel.position.x = x
 
 func _physics_process(delta: float) -> void:
 	var speed: float = base_speed * scroll_speed_multiplier

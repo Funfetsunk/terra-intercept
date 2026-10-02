@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://bb21kvpqjun5s"]
+
+[ext_resource type="Script" uid="uid://cgte63hrgcayu" path="res://scenes/bosses/mothership_boss.gd" id="1_g1qkw"]
+[ext_resource type="PackedScene" uid="uid://bo3ccbrbxcvjf" path="res://scenes/bosses/mothership_core.tscn" id="2_j2gje"]
+[ext_resource type="PackedScene" uid="uid://0kfnllij448m" path="res://scenes/bosses/portal.tscn" id="3_2yria"]
+[ext_resource type="AudioStream" uid="uid://b4jsl3exhcfm8" path="res://audio/music/boss.ogg" id="4_1v3na"]
+[ext_resource type="PackedScene" uid="uid://c5hgr5sh58h6f" path="res://scenes/effects/explosion_large.tscn" id="5_tf8j3"]
+[ext_resource type="SpriteFrames" uid="uid://dd3bblc388wxy" path="res://art/sprites/bosses/mothership_hull_frames.tres" id="6_dg56r"]
+[ext_resource type="PackedScene" uid="uid://bn2hexhqiv5wt" path="res://scenes/bosses/mothership_turret.tscn" id="7_booeg"]
+
+[node name="MothershipBoss" type="Node2D" unique_id=1949140388]
+script = ExtResource("1_g1qkw")
+core_scene = ExtResource("2_j2gje")
+portal_scene = ExtResource("3_2yria")
+entry_speed = 40.0
+music = ExtResource("4_1v3na")
+explosion_scene = ExtResource("5_tf8j3")
+
+[node name="Hull" type="AnimatedSprite2D" parent="." unique_id=272131744]
+sprite_frames = ExtResource("6_dg56r")
+animation = &"closed"
+
+[node name="Turret1" parent="." unique_id=1126942030 instance=ExtResource("7_booeg")]
+position = Vector2(-80, -34)
+
+[node name="Turret2" parent="." unique_id=1559896016 instance=ExtResource("7_booeg")]
+position = Vector2(-89, 0)
+first_volley_delay = 0.4
+
+[node name="Turret3" parent="." unique_id=1691517847 instance=ExtResource("7_booeg")]
+position = Vector2(-84, 36)
+first_volley_delay = 0.8
+
+[node name="Turret4" parent="." unique_id=1403605374 instance=ExtResource("7_booeg")]
+position = Vector2(82, -34)
+first_volley_delay = 0.2
+
+[node name="Turret5" parent="." unique_id=1497996738 instance=ExtResource("7_booeg")]
+position = Vector2(82, 36)
+first_volley_delay = 0.6
+
+[node name="Turret6" parent="." unique_id=1502846894 instance=ExtResource("7_booeg")]
+position = Vector2(0, 54)
+first_volley_delay = 1.0

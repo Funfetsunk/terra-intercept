@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://c5ja76f68s2wu"]
+
+[ext_resource type="PackedScene" uid="uid://c5glm5ofoajet" path="res://scenes/effects/explosion_small.tscn" id="1_i2fvo"]
+[ext_resource type="Resource" uid="uid://vfkuxxwfxb72" path="res://data/patterns/sniper_pattern_space.tres" id="2_qbpy7"]
+[ext_resource type="Script" uid="uid://bxbax4x8ptrvy" path="res://scripts/resources/enemy_data.gd" id="3_s4awn"]
+[ext_resource type="SpriteFrames" uid="uid://jal31amm7v6p" path="res://art/sprites/enemies/sniper_space_frames.tres" id="4_spg4a"]
+
+[resource]
+script = ExtResource("3_s4awn")
+enemy_name = "Sniper (Space)"
+move_speed = 60.0
+hull_max = 8.0
+pattern = ExtResource("2_qbpy7")
+score_value = 400
+alien_tech_drop = 2
+explosion_scene = ExtResource("1_i2fvo")
+sprite_frames = ExtResource("4_spg4a")

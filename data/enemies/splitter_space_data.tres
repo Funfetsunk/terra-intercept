@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://dvp2u57s2wrye"]
+
+[ext_resource type="PackedScene" uid="uid://c5glm5ofoajet" path="res://scenes/effects/explosion_small.tscn" id="1_2nv7r"]
+[ext_resource type="Resource" uid="uid://rxhh7tg88ulo" path="res://data/patterns/splitter_pattern_space.tres" id="2_3iues"]
+[ext_resource type="Script" uid="uid://bxbax4x8ptrvy" path="res://scripts/resources/enemy_data.gd" id="3_veq73"]
+[ext_resource type="SpriteFrames" uid="uid://2j7jrmswdefw" path="res://art/sprites/enemies/splitter_space_frames.tres" id="4_5gl6c"]
+
+[resource]
+script = ExtResource("3_veq73")
+enemy_name = "Splitter (Space)"
+hull_max = 10.0
+hitbox_radius = 9.0
+pattern = ExtResource("2_3iues")
+score_value = 300
+alien_tech_drop = 2
+explosion_scene = ExtResource("1_2nv7r")
+sprite_frames = ExtResource("4_5gl6c")

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://chcalpbevdi6r"]
+
+[ext_resource type="PackedScene" uid="uid://bca5f08gnsvli" path="res://scenes/effects/explosion_medium.tscn" id="1_ryxuh"]
+[ext_resource type="Resource" uid="uid://dvtlhy7oeyj60" path="res://data/patterns/shielder_pattern_space.tres" id="2_6y3mk"]
+[ext_resource type="Script" uid="uid://bxbax4x8ptrvy" path="res://scripts/resources/enemy_data.gd" id="3_mhudw"]
+[ext_resource type="SpriteFrames" uid="uid://dd5nsj2jgt02s" path="res://art/sprites/enemies/shielder_space_frames.tres" id="4_f4xya"]
+
+[resource]
+script = ExtResource("3_mhudw")
+enemy_name = "Shielder (Space)"
+move_speed = 50.0
+hull_max = 18.0
+hitbox_radius = 10.0
+pattern = ExtResource("2_6y3mk")
+score_value = 600
+alien_tech_drop = 4
+explosion_scene = ExtResource("1_ryxuh")
+sprite_frames = ExtResource("4_f4xya")

@@ -180,7 +180,7 @@ Column 6 is a step harder than column 5. Every enemy type is in the pool from he
 
 ### Mission 7: Orbital
 
-A dogfight through wrecked satellites and alien fleets as Earth recedes below. The mothership is the boss, fought in two parts: the outer hull and its turrets, then the core. The mission ends with the squad diving into the portal.
+A dogfight through wrecked satellites and alien fleets as Earth recedes below. Enemies are the Space variants (steel-blue armour, wider spreads). The mothership is the boss, fought in two parts: the six turrets on its outer hull (the hull itself can't be hurt), then the core, which emerges from the hull's hatch once the turrets are gone. When the core dies the portal opens and the squad dives into it.
 
 ### Mission 8: The homeworld
 

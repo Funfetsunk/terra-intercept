@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://bosvu7ryq5mwx"]
+
+[ext_resource type="PackedScene" uid="uid://c5glm5ofoajet" path="res://scenes/effects/explosion_small.tscn" id="1_ik33h"]
+[ext_resource type="Resource" uid="uid://upjf5cbd04n8" path="res://data/patterns/cloaker_pattern_space.tres" id="2_46c3q"]
+[ext_resource type="Script" uid="uid://bxbax4x8ptrvy" path="res://scripts/resources/enemy_data.gd" id="3_lsrhm"]
+[ext_resource type="SpriteFrames" uid="uid://bkvwpshkg7xgx" path="res://art/sprites/enemies/cloaker_space_frames.tres" id="4_xxl0e"]
+
+[resource]
+script = ExtResource("3_lsrhm")
+enemy_name = "Cloaker (Space)"
+move_speed = 0.0
+hull_max = 8.0
+pattern = ExtResource("2_46c3q")
+score_value = 500
+alien_tech_drop = 3
+explosion_scene = ExtResource("1_ik33h")
+sprite_frames = ExtResource("4_xxl0e")

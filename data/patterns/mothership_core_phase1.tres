@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="BulletPatternData" format=3 uid="uid://bxixcj37y5u6h"]
+
+[ext_resource type="Texture2D" uid="uid://drx443j5jisap" path="res://art/sprites/bullets/enemy_orb_cyan_8.png" id="1_2hqys"]
+[ext_resource type="Script" uid="uid://skm1jc2p0sdk" path="res://scripts/resources/bullet_pattern_data.gd" id="2_61oxn"]
+
+[resource]
+script = ExtResource("2_61oxn")
+pattern_name = "Mothership Core Pulse Rings"
+burst_size = 20
+angle_spread_degrees = 360.0
+burst_interval = 0.9
+rotation_per_burst_degrees = 9.0
+aim_at_player = false
+fixed_angle_degrees = 0.0
+rng_seed = 201
+bullet_speed = 85.0
+bullet_radius = 4.0
+bullet_color = Color(1, 1, 1, 1)
+bullet_texture = ExtResource("1_2hqys")
+bullet_lifetime = 5.0
+emitter_offsets = PackedVector2Array()
+emitter_angle_offsets = PackedFloat32Array()

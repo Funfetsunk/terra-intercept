@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://p64rv8bm1x7u"]
+
+[ext_resource type="Script" uid="uid://75rqdkq3l656" path="res://scenes/levels/mission_level.gd" id="1_7mcgh"]
+[ext_resource type="PackedScene" uid="uid://c1woeggvkgk0f" path="res://scenes/hud/hud.tscn" id="2_ng27u"]
+[ext_resource type="PackedScene" uid="uid://bdjsxy2elcbrc" path="res://scenes/hud/dialogue_box.tscn" id="3_clrxy"]
+[ext_resource type="Script" uid="uid://b1vqxoh2qfcwi" path="res://scripts/systems/dialogue_controller.gd" id="4_n7g8f"]
+[ext_resource type="Resource" uid="uid://dl0ro6phjbs27" path="res://data/missions/orbital_mission.tres" id="5_iwc7u"]
+[ext_resource type="Script" uid="uid://bjif1hmet7sgc" path="res://scripts/systems/playfield_shake.gd" id="6_jwkxb"]
+[ext_resource type="PackedScene" uid="uid://bveh1trv7wuqf" path="res://scenes/player/player_ship.tscn" id="7_el1uf"]
+[ext_resource type="Script" uid="uid://c6cns2cik14l2" path="res://scenes/levels/scrolling_background.gd" id="8_taik2"]
+[ext_resource type="PackedScene" uid="uid://ort4tmjdo7j" path="res://scenes/levels/background_layer.tscn" id="9_huijl"]
+[ext_resource type="Texture2D" uid="uid://dk7cm1efmgucb" path="res://art/sprites/backgrounds/space/starfield.png" id="10_vgi5u"]
+[ext_resource type="Texture2D" uid="uid://2g5so6ppq2h5" path="res://art/sprites/backgrounds/space/near_stars.png" id="11_o5qll"]
+[ext_resource type="Script" uid="uid://bgoiagdeo8ki4" path="res://scripts/systems/enemy_spawner.gd" id="12_7qwht"]
+[ext_resource type="PackedScene" uid="uid://wklwemvx00mv" path="res://scenes/hud/crosshair.tscn" id="13_tcjfw"]
+[ext_resource type="PackedScene" uid="uid://ci0m4dfh7cg55" path="res://scenes/hud/pause_menu.tscn" id="14_1b7np"]
+[ext_resource type="PackedScene" uid="uid://c8kaig230cm5v" path="res://scenes/ui/screen_fade.tscn" id="15_s2hqy"]
+
+[node name="Orbital" type="Node2D" unique_id=705097]
+script = ExtResource("1_7mcgh")
+mission_id = "Orbital"
+
+[node name="HUD" parent="." unique_id=1725720245 instance=ExtResource("2_ng27u")]
+
+[node name="DialogueBox" parent="." unique_id=647446749 instance=ExtResource("3_clrxy")]
+
+[node name="DialogueController" type="Node" parent="." unique_id=1061489573]
+script = ExtResource("4_n7g8f")
+mission = ExtResource("5_iwc7u")
+dialogue_box_path = NodePath("../DialogueBox")
+
+[node name="PlayfieldRoot" type="Node2D" parent="." unique_id=370220181]
+position = Vector2(140, 0)
+script = ExtResource("6_jwkxb")
+
+[node name="PlayerShip" parent="PlayfieldRoot" unique_id=1276083379 instance=ExtResource("7_el1uf")]
+position = Vector2(180, 300)
+
+[node name="Background" type="Node2D" parent="PlayfieldRoot" unique_id=455193155 groups=["scrolling_background"]]
+z_index = -10
+script = ExtResource("8_taik2")
+mission = ExtResource("5_iwc7u")
+
+[node name="FarLayer" parent="PlayfieldRoot/Background" unique_id=2071353270 instance=ExtResource("9_huijl")]
+panel_a_texture = ExtResource("10_vgi5u")
+panel_b_texture = ExtResource("10_vgi5u")
+
+[node name="NearLayer" parent="PlayfieldRoot/Background" unique_id=899699578 instance=ExtResource("9_huijl")]
+scroll_speed_multiplier = 2.0
+panel_a_texture = ExtResource("11_o5qll")
+panel_b_texture = ExtResource("11_o5qll")
+
+[node name="EnemySpawner" type="Node" parent="PlayfieldRoot" unique_id=1415624087]
+script = ExtResource("12_7qwht")
+mission = ExtResource("5_iwc7u")
+
+[node name="Crosshair" parent="." unique_id=1482935218 instance=ExtResource("13_tcjfw")]
+
+[node name="PauseMenu" parent="." unique_id=366232786 instance=ExtResource("14_1b7np")]
+
+[node name="ScreenFade" parent="." unique_id=1035464793 instance=ExtResource("15_s2hqy")]

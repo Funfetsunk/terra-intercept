@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="BulletPatternData" format=3 uid="uid://c175g4s8cwo38"]
+
+[ext_resource type="Texture2D" uid="uid://qeskbvot425g" path="res://art/sprites/bullets/enemy_orb_pink_6.png" id="1_w3ola"]
+[ext_resource type="Script" uid="uid://skm1jc2p0sdk" path="res://scripts/resources/bullet_pattern_data.gd" id="2_i548h"]
+
+[resource]
+script = ExtResource("2_i548h")
+pattern_name = "Mothership Turret Volley"
+burst_size = 3
+angle_spread_degrees = 24.0
+burst_interval = 1.3
+rng_seed = 200
+bullet_speed = 115.0
+bullet_color = Color(1, 1, 1, 1)
+bullet_texture = ExtResource("1_w3ola")
+bullet_lifetime = 5.0
+emitter_offsets = PackedVector2Array()
+emitter_angle_offsets = PackedFloat32Array()
+layers = 2
+layer_speed_step = 30.0

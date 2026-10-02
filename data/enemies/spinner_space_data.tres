@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://pabqhlybmre6"]
+
+[ext_resource type="PackedScene" uid="uid://bca5f08gnsvli" path="res://scenes/effects/explosion_medium.tscn" id="1_weral"]
+[ext_resource type="Resource" uid="uid://dshdu5dvjbv3j" path="res://data/patterns/spinner_pattern_space.tres" id="2_07mww"]
+[ext_resource type="Script" uid="uid://bxbax4x8ptrvy" path="res://scripts/resources/enemy_data.gd" id="3_8wcpt"]
+[ext_resource type="SpriteFrames" uid="uid://cs2n86qcbcf47" path="res://art/sprites/enemies/spinner_space_frames.tres" id="4_gfpv3"]
+
+[resource]
+script = ExtResource("3_8wcpt")
+enemy_name = "Spinner (Space)"
+move_speed = 32.0
+hull_max = 5.0
+hitbox_radius = 9.0
+pattern = ExtResource("2_07mww")
+score_value = 312
+alien_tech_drop = 2
+explosion_scene = ExtResource("1_weral")
+sprite_frames = ExtResource("4_gfpv3")

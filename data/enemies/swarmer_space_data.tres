@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://wicdunout8d5"]
+
+[ext_resource type="PackedScene" uid="uid://c5glm5ofoajet" path="res://scenes/effects/explosion_small.tscn" id="1_vwr3j"]
+[ext_resource type="Resource" uid="uid://d0s7s850c533m" path="res://data/patterns/swarmer_pattern_space.tres" id="2_n78po"]
+[ext_resource type="Script" uid="uid://bxbax4x8ptrvy" path="res://scripts/resources/enemy_data.gd" id="3_oaqva"]
+[ext_resource type="SpriteFrames" uid="uid://bp6jsjcirnrsl" path="res://art/sprites/enemies/swarmer_space_frames.tres" id="4_1rkds"]
+
+[resource]
+script = ExtResource("3_oaqva")
+enemy_name = "Swarmer (Space)"
+move_speed = 75.0
+hitbox_radius = 7.0
+pattern = ExtResource("2_n78po")
+score_value = 187
+alien_tech_drop = 1
+explosion_scene = ExtResource("1_vwr3j")
+sprite_frames = ExtResource("4_1rkds")

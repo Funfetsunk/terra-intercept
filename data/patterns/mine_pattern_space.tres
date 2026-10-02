@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="BulletPatternData" format=3 uid="uid://5b6yjbtbkgmh"]
+
+[ext_resource type="Texture2D" uid="uid://qeskbvot425g" path="res://art/sprites/bullets/enemy_orb_pink_6.png" id="1_qihc2"]
+[ext_resource type="Script" uid="uid://skm1jc2p0sdk" path="res://scripts/resources/bullet_pattern_data.gd" id="2_arn4n"]
+
+[resource]
+script = ExtResource("2_arn4n")
+pattern_name = "Mine Pop Ring (Space)"
+burst_size = 8
+angle_spread_degrees = 360.0
+aim_at_player = false
+fixed_angle_degrees = 0.0
+rng_seed = 102
+bullet_speed = 70.0
+bullet_color = Color(1, 1, 1, 1)
+bullet_texture = ExtResource("1_qihc2")
+bullet_lifetime = 5.0
+emitter_offsets = PackedVector2Array()
+emitter_angle_offsets = PackedFloat32Array()

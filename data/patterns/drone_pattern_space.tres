@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="BulletPatternData" format=3 uid="uid://dp1xkolvwvdyb"]
+
+[ext_resource type="Texture2D" uid="uid://qeskbvot425g" path="res://art/sprites/bullets/enemy_orb_pink_6.png" id="1_5y4ws"]
+[ext_resource type="Script" uid="uid://skm1jc2p0sdk" path="res://scripts/resources/bullet_pattern_data.gd" id="2_om7sy"]
+
+[resource]
+script = ExtResource("2_om7sy")
+pattern_name = "Drone Straight Shot (Mk II) (Space)"
+burst_size = 2
+angle_spread_degrees = 18.2
+burst_interval = 0.8
+aim_at_player = false
+bullet_speed = 121.0
+bullet_color = Color(1, 1, 1, 1)
+bullet_texture = ExtResource("1_5y4ws")
+emitter_offsets = null
+emitter_angle_offsets = null

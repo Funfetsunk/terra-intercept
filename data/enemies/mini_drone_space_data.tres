@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://s23ha4gc5v3u"]
+
+[ext_resource type="PackedScene" uid="uid://c5glm5ofoajet" path="res://scenes/effects/explosion_small.tscn" id="1_nojny"]
+[ext_resource type="Resource" uid="uid://bhqyuo12hbbs4" path="res://data/patterns/mini_drone_pattern_space.tres" id="2_eb70w"]
+[ext_resource type="Script" uid="uid://bxbax4x8ptrvy" path="res://scripts/resources/enemy_data.gd" id="3_5n8uq"]
+[ext_resource type="SpriteFrames" uid="uid://4hby2byrd2ev" path="res://art/sprites/enemies/mini_drone_space_frames.tres" id="4_i1juh"]
+
+[resource]
+script = ExtResource("3_5n8uq")
+enemy_name = "Mini Drone (Space)"
+move_speed = 0.0
+hitbox_radius = 5.0
+pattern = ExtResource("2_eb70w")
+score_value = 60
+explosion_scene = ExtResource("1_nojny")
+sprite_frames = ExtResource("4_i1juh")

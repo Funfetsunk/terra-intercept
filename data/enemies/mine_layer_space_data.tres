@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://cqy0o5uug0fm2"]
+
+[ext_resource type="PackedScene" uid="uid://bca5f08gnsvli" path="res://scenes/effects/explosion_medium.tscn" id="1_2jylw"]
+[ext_resource type="Script" uid="uid://bxbax4x8ptrvy" path="res://scripts/resources/enemy_data.gd" id="2_ahaqn"]
+[ext_resource type="SpriteFrames" uid="uid://bjmrwcwocddid" path="res://art/sprites/enemies/mine_layer_space_frames.tres" id="3_jyptw"]
+
+[resource]
+script = ExtResource("2_ahaqn")
+enemy_name = "Mine Layer (Space)"
+hull_max = 12.0
+hitbox_radius = 11.0
+score_value = 400
+alien_tech_drop = 3
+explosion_scene = ExtResource("1_2jylw")
+sprite_frames = ExtResource("3_jyptw")

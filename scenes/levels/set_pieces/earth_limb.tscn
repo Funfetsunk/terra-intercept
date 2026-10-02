@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://d136w1bk0xeru"]
+
+[ext_resource type="Script" uid="uid://dsiocmmqolpwy" path="res://scenes/levels/set_piece.gd" id="1_eaq80"]
+[ext_resource type="Texture2D" uid="uid://l5rlrfvm5ijs" path="res://art/sprites/backgrounds/space/earth_limb.png" id="2_ea67g"]
+
+[node name="EarthLimb" type="Node2D" unique_id=2030746052]
+z_index = -9
+script = ExtResource("1_eaq80")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1031278098]
+texture = ExtResource("2_ea67g")

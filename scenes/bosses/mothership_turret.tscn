@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bn2hexhqiv5wt"]
+
+[ext_resource type="Script" uid="uid://bon0a0ploytgo" path="res://scenes/bosses/boss_part.gd" id="1_gkkjh"]
+[ext_resource type="Resource" uid="uid://3xquk7s8x7bf" path="res://data/enemies/mothership_turret_data.tres" id="2_xq3br"]
+[ext_resource type="SpriteFrames" uid="uid://fukii1ot72fp" path="res://art/sprites/bosses/kaiju_cannon_space_frames.tres" id="3_dhfyn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qytw6"]
+
+[node name="MothershipTurret" type="Node2D" unique_id=1126942030]
+script = ExtResource("1_gkkjh")
+data = ExtResource("2_xq3br")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=466874633]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1359526774]
+shape = SubResource("CircleShape2D_qytw6")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=104470755]
+sprite_frames = ExtResource("3_dhfyn")
+animation = &"idle"
+autoplay = "idle"

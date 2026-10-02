@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://0kfnllij448m"]
+
+[ext_resource type="SpriteFrames" uid="uid://pvp6x6y8alk3" path="res://art/sprites/bosses/portal_frames.tres" id="1_ggcs0"]
+
+[node name="Portal" type="Node2D" unique_id=1056176292]
+z_index = -5
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=550602970]
+sprite_frames = ExtResource("1_ggcs0")
+animation = &"spin"
+autoplay = "spin"

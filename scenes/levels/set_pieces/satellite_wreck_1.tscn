@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://ddkj8q61po5ki"]
+
+[ext_resource type="Script" uid="uid://dsiocmmqolpwy" path="res://scenes/levels/set_piece.gd" id="1_7qdbd"]
+[ext_resource type="Texture2D" uid="uid://boak2cgu58nfq" path="res://art/sprites/backgrounds/space/satellite_wreck_1.png" id="2_yx7st"]
+
+[node name="SatelliteWreck1" type="Node2D" unique_id=661382547]
+z_index = -9
+script = ExtResource("1_7qdbd")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1658684851]
+texture = ExtResource("2_yx7st")

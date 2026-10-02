@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://fk2td22b8oc4"]
+
+[ext_resource type="Script" uid="uid://c80pw5bvot3ny" path="res://scenes/enemies/swarmer.gd" id="1_a00vf"]
+[ext_resource type="Resource" uid="uid://wicdunout8d5" path="res://data/enemies/swarmer_space_data.tres" id="2_puh3n"]
+[ext_resource type="SpriteFrames" uid="uid://b0pb8quiftute" path="res://art/sprites/enemies/swarmer_frames.tres" id="3_ypmlo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8lfaa"]
+radius = 7.0
+
+[node name="SwarmerSpace" type="Node2D" unique_id=676977858]
+script = ExtResource("1_a00vf")
+data = ExtResource("2_puh3n")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1263550476]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1016792493]
+shape = SubResource("CircleShape2D_8lfaa")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=779234156]
+sprite_frames = ExtResource("3_ypmlo")
+animation = &"idle"
+autoplay = "idle"

@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="BossData" format=3 uid="uid://bkf137i4llnot"]
+
+[ext_resource type="PackedScene" uid="uid://c5hgr5sh58h6f" path="res://scenes/effects/explosion_large.tscn" id="1_2yq08"]
+[ext_resource type="AudioStream" uid="uid://jhas3alcpgyt" path="res://audio/music/boss_phase2.ogg" id="2_wdpvd"]
+[ext_resource type="Resource" uid="uid://bxixcj37y5u6h" path="res://data/patterns/mothership_core_phase1.tres" id="3_tajre"]
+[ext_resource type="Resource" uid="uid://bdtdl7h7opovo" path="res://data/patterns/mothership_core_phase2.tres" id="4_o1rn4"]
+[ext_resource type="Resource" uid="uid://c1bhn43eat2fk" path="res://data/patterns/mothership_core_phase2_ring.tres" id="5_ecyf1"]
+[ext_resource type="Script" uid="uid://mfqvklciutsc" path="res://scripts/resources/boss_data.gd" id="6_n0ybl"]
+[ext_resource type="Resource" uid="uid://de8b6qy80tre5" path="res://data/patterns/mothership_core_phase1_aimed.tres" id="7_4hivi"]
+
+[resource]
+script = ExtResource("6_n0ybl")
+phase_2_pattern = ExtResource("4_o1rn4")
+secondary_pattern = ExtResource("7_4hivi")
+phase_2_secondary_pattern = ExtResource("5_ecyf1")
+sprite_size = 96.0
+music = ExtResource("2_wdpvd")
+music_phase2 = ExtResource("2_wdpvd")
+enemy_name = "Mothership Core"
+hull_max = 560.0
+hitbox_radius = 34.0
+pattern = ExtResource("3_tajre")
+score_value = 20000
+alien_tech_drop = 40
+explosion_scene = ExtResource("1_2yq08")

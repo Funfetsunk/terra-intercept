@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://dx7cpv5qw744m"]
+
+[ext_resource type="PackedScene" uid="uid://c5glm5ofoajet" path="res://scenes/effects/explosion_small.tscn" id="1_gc77u"]
+[ext_resource type="Resource" uid="uid://5b6yjbtbkgmh" path="res://data/patterns/mine_pattern_space.tres" id="2_oy503"]
+[ext_resource type="Script" uid="uid://bxbax4x8ptrvy" path="res://scripts/resources/enemy_data.gd" id="3_jtgid"]
+[ext_resource type="SpriteFrames" uid="uid://cpbdnrqhqlwip" path="res://art/sprites/enemies/mine_space_frames.tres" id="4_rdepr"]
+
+[resource]
+script = ExtResource("3_jtgid")
+enemy_name = "Mine (Space)"
+move_speed = 0.0
+hitbox_radius = 4.0
+pattern = ExtResource("2_oy503")
+score_value = 20
+explosion_scene = ExtResource("1_gc77u")
+sprite_frames = ExtResource("4_rdepr")

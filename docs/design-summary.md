@@ -162,6 +162,22 @@ Column 4 is a step harder than column 3, and the second mid-boss (a Carrier-clas
 
 Column 5 is a step harder than column 4. Regular enemies stay Mk II and the escort mothership is the mid-boss.
 
+### Mission 6 (north): Grand Canyon
+
+- **Route:** Flying down the Grand Canyon.
+- **Twist:** The canyon walls narrow the playfield, but unlike the Fjords' smooth bends the channel snakes in sharp zigzags, and free-standing rock pillars stand in the middle of the channel to weave around.
+- **New enemies:** The Kamikaze and the Splitter.
+- **Boss:** A huge alien mining crawler wedged across the canyon, with grinding drum cutters and turrets, chewing through the rock as it advances up the canyon at the player.
+
+### Mission 6 (south): Rio de Janeiro
+
+- **Route:** Sweeping along Copacabana and the coast past the favela hills.
+- **Twist:** Sea strikes. Alien ships rise out of the sea in waves from the side of the screen, signalled by splashes. Christ the Redeemer appears as a set piece on Corcovado.
+- **New enemies:** The Kamikaze and the Splitter.
+- **Boss:** A fortress on Sugarloaf Mountain. Armoured cable cars run along the wires between the peaks as moving turrets, guarding a core in the mountain.
+
+Column 6 is a step harder than column 5. Every enemy type is in the pool from here, regular enemies stay Mk II and the escort mothership is the mid-boss.
+
 ### Mission 7: Orbital
 
 A dogfight through wrecked satellites and alien fleets as Earth recedes below. The mothership is the boss, fought in two parts: the outer hull and its turrets, then the core. The mission ends with the squad diving into the portal.

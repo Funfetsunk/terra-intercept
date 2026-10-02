@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://c36jypwgd8qxd"]
+
+[ext_resource type="PackedScene" uid="uid://bca5f08gnsvli" path="res://scenes/effects/explosion_medium.tscn" id="1_xe7ew"]
+[ext_resource type="Resource" uid="uid://dtk10uukv2m2x" path="res://data/patterns/lander_pod_pattern_elite.tres" id="2_6qxst"]
+[ext_resource type="Script" uid="uid://bxbax4x8ptrvy" path="res://scripts/resources/enemy_data.gd" id="3_lcvwd"]
+[ext_resource type="SpriteFrames" uid="uid://dwt002sw4fl5o" path="res://art/sprites/enemies/lander_pod_elite_frames.tres" id="4_7bect"]
+
+[resource]
+script = ExtResource("3_lcvwd")
+enemy_name = "Lander Pod (Elite)"
+move_speed = 0.0
+hull_max = 5.0
+hitbox_radius = 10.0
+pattern = ExtResource("2_6qxst")
+score_value = 300
+alien_tech_drop = 2
+explosion_scene = ExtResource("1_xe7ew")
+sprite_frames = ExtResource("4_7bect")

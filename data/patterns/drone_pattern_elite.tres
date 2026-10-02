@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="BulletPatternData" format=3 uid="uid://c24cpnl8s0g6i"]
+
+[ext_resource type="Texture2D" uid="uid://qeskbvot425g" path="res://art/sprites/bullets/enemy_orb_pink_6.png" id="1_4dnsl"]
+[ext_resource type="Script" uid="uid://skm1jc2p0sdk" path="res://scripts/resources/bullet_pattern_data.gd" id="2_wnjug"]
+
+[resource]
+script = ExtResource("2_wnjug")
+pattern_name = "Drone Straight Shot (Elite)"
+burst_size = 2
+angle_spread_degrees = 14.0
+burst_interval = 0.8
+aim_at_player = false
+bullet_speed = 121.0
+bullet_color = Color(1, 1, 1, 1)
+bullet_texture = ExtResource("1_4dnsl")
+emitter_offsets = null
+emitter_angle_offsets = null
+layers = 2
+layer_speed_step = 25.0

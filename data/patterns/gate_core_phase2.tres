@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="BulletPatternData" format=3 uid="uid://dpuvjljup8pjy"]
+
+[ext_resource type="Texture2D" uid="uid://dr1x8jow1640n" path="res://art/sprites/bullets/enemy_orb_pink_8.png" id="1_lwkey"]
+[ext_resource type="Script" uid="uid://skm1jc2p0sdk" path="res://scripts/resources/bullet_pattern_data.gd" id="2_a0d6f"]
+
+[resource]
+script = ExtResource("2_a0d6f")
+pattern_name = "Gate Core Flower"
+burst_size = 24
+angle_spread_degrees = 360.0
+burst_interval = 0.55
+rotation_per_burst_degrees = 7.5
+aim_at_player = false
+fixed_angle_degrees = 0.0
+rng_seed = 302
+bullet_speed = 95.0
+bullet_radius = 4.0
+bullet_color = Color(1, 1, 1, 1)
+bullet_texture = ExtResource("1_lwkey")
+bullet_damage = 1.5
+bullet_lifetime = 6.0
+emitter_offsets = PackedVector2Array()
+emitter_angle_offsets = PackedFloat32Array()

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://b3vlj5y1eae2q"]
+
+[ext_resource type="PackedScene" uid="uid://c5glm5ofoajet" path="res://scenes/effects/explosion_small.tscn" id="1_wo5s6"]
+[ext_resource type="Resource" uid="uid://cg5ueg7gv16tu" path="res://data/patterns/flanker_pattern_elite.tres" id="2_o3k5r"]
+[ext_resource type="Script" uid="uid://bxbax4x8ptrvy" path="res://scripts/resources/enemy_data.gd" id="3_b5o73"]
+[ext_resource type="SpriteFrames" uid="uid://b4lfqe6j2h8sl" path="res://art/sprites/enemies/flanker_elite_frames.tres" id="4_m36hu"]
+
+[resource]
+script = ExtResource("3_b5o73")
+enemy_name = "Flanker (Elite)"
+move_speed = 95.0
+hull_max = 5.0
+pattern = ExtResource("2_o3k5r")
+score_value = 300
+alien_tech_drop = 1
+explosion_scene = ExtResource("1_wo5s6")
+sprite_frames = ExtResource("4_m36hu")

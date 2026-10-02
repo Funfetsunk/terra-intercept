@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://dvj5kpjabrst1"]
+
+[ext_resource type="Script" uid="uid://6w1k3m7f0tus" path="res://scenes/bosses/gate_core_boss.gd" id="1_0agw7"]
+[ext_resource type="Resource" uid="uid://dj42apx1sxlxx" path="res://data/patterns/gate_core_phase3.tres" id="2_cba35"]
+[ext_resource type="Resource" uid="uid://vnes0kmuywh0" path="res://data/patterns/gate_core_phase3_counter.tres" id="3_e8sch"]
+[ext_resource type="PackedScene" uid="uid://bgpkeg50nw4o4" path="res://scenes/enemies/kamikaze.tscn" id="4_rf2kq"]
+[ext_resource type="Resource" uid="uid://bd85kcsqvnwos" path="res://data/enemies/kamikaze_elite_data.tres" id="5_dsaof"]
+[ext_resource type="Resource" uid="uid://c6ultjnu4bjgx" path="res://data/enemies/gate_core_data.tres" id="6_mbq82"]
+[ext_resource type="SpriteFrames" uid="uid://dhr8fr6efrdvx" path="res://art/sprites/bosses/gate_core_frames.tres" id="7_pxxdx"]
+[ext_resource type="PackedScene" uid="uid://ceupxthno8krw" path="res://scenes/bosses/gate_emitter.tscn" id="8_cgn1t"]
+
+[node name="GateCoreBoss" type="Node2D" unique_id=88515342]
+script = ExtResource("1_0agw7")
+orbit_radius = Vector2(116, 98)
+phase3_pattern = ExtResource("2_cba35")
+phase3_secondary_pattern = ExtResource("3_e8sch")
+reinforcement_scene = ExtResource("4_rf2kq")
+reinforcement_data = ExtResource("5_dsaof")
+shield_radius = 38.0
+hover_y = 110.0
+data = ExtResource("6_mbq82")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=81363913]
+show_behind_parent = true
+sprite_frames = ExtResource("7_pxxdx")
+animation = &"phase1"
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1799174369]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1595476993]
+
+[node name="Emitter1" parent="." unique_id=223548826 groups=["gate_emitter"] instance=ExtResource("8_cgn1t")]
+
+[node name="Emitter2" parent="." unique_id=2063935341 groups=["gate_emitter"] instance=ExtResource("8_cgn1t")]
+first_volley_delay = 0.35
+
+[node name="Emitter3" parent="." unique_id=590873243 groups=["gate_emitter"] instance=ExtResource("8_cgn1t")]
+first_volley_delay = 0.7
+
+[node name="Emitter4" parent="." unique_id=1397778545 groups=["gate_emitter"] instance=ExtResource("8_cgn1t")]
+first_volley_delay = 1.0499999999999998

@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="BossData" format=3 uid="uid://b2ryeqao5jo4o"]
+
+[ext_resource type="PackedScene" uid="uid://c5hgr5sh58h6f" path="res://scenes/effects/explosion_large.tscn" id="1_r1jxm"]
+[ext_resource type="AudioStream" uid="uid://xweoxwdo0mpr" path="res://audio/music/mid_boss.ogg" id="2_pr8rv"]
+[ext_resource type="AudioStream" uid="uid://cy8m8buhn168n" path="res://audio/music/mid_boss_phase2.ogg" id="3_apd0e"]
+[ext_resource type="Resource" uid="uid://cbh2w5jye3nk5" path="res://data/patterns/escort_phase1.tres" id="4_60moh"]
+[ext_resource type="Resource" uid="uid://wl6k32tcb2ss" path="res://data/patterns/escort_phase2_elite.tres" id="5_jfmou"]
+[ext_resource type="Resource" uid="uid://qmdnpxh8d34f" path="res://data/patterns/escort_phase2_aimed.tres" id="6_3wqia"]
+[ext_resource type="Script" uid="uid://mfqvklciutsc" path="res://scripts/resources/boss_data.gd" id="7_iscpm"]
+[ext_resource type="Resource" uid="uid://c56hdmitsqpn4" path="res://data/patterns/escort_phase1_aimed.tres" id="8_5wvnf"]
+[ext_resource type="SpriteFrames" uid="uid://cauar74vsrofi" path="res://art/sprites/bosses/escort_mid_boss_elite_frames.tres" id="9_q8uxj"]
+
+[resource]
+script = ExtResource("7_iscpm")
+phase_2_pattern = ExtResource("5_jfmou")
+secondary_pattern = ExtResource("8_5wvnf")
+phase_2_secondary_pattern = ExtResource("6_3wqia")
+music = ExtResource("2_pr8rv")
+music_phase2 = ExtResource("3_apd0e")
+enemy_name = "Escort Mothership (Elite)"
+move_speed = 20.0
+hull_max = 380.0
+hitbox_radius = 26.0
+pattern = ExtResource("4_60moh")
+score_value = 8000
+alien_tech_drop = 16
+explosion_scene = ExtResource("1_r1jxm")
+sprite_frames = ExtResource("9_q8uxj")

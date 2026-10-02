@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cbjaulr4mvfn"]
+
+[ext_resource type="Texture2D" uid="uid://ccyod5v56gxtl" path="res://art/sprites/backgrounds/homeworld/debris_4.png" id="1_s1vw4"]
+
+[node name="Debris4" type="Node2D" unique_id=1022290011]
+z_index = 3
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=2001676033]
+texture = ExtResource("1_s1vw4")

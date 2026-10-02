@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="BossData" format=3 uid="uid://c6ultjnu4bjgx"]
+
+[ext_resource type="PackedScene" uid="uid://c5hgr5sh58h6f" path="res://scenes/effects/explosion_large.tscn" id="1_p0mis"]
+[ext_resource type="AudioStream" uid="uid://b4jsl3exhcfm8" path="res://audio/music/boss.ogg" id="2_nf333"]
+[ext_resource type="AudioStream" uid="uid://jhas3alcpgyt" path="res://audio/music/boss_phase2.ogg" id="3_p4iml"]
+[ext_resource type="Resource" uid="uid://dprde2wh2001x" path="res://data/patterns/gate_core_phase1.tres" id="4_26jok"]
+[ext_resource type="Resource" uid="uid://dpuvjljup8pjy" path="res://data/patterns/gate_core_phase2.tres" id="5_24ie7"]
+[ext_resource type="Resource" uid="uid://cnv76ovexauoh" path="res://data/patterns/gate_core_phase2_aimed.tres" id="6_vwwe6"]
+[ext_resource type="Script" uid="uid://mfqvklciutsc" path="res://scripts/resources/boss_data.gd" id="7_i8kem"]
+[ext_resource type="Resource" uid="uid://d3p58v5qtm04c" path="res://data/patterns/gate_core_phase1_ring.tres" id="8_kids2"]
+
+[resource]
+script = ExtResource("7_i8kem")
+phase_2_hp_threshold = 0.6
+phase_2_pattern = ExtResource("5_24ie7")
+secondary_pattern = ExtResource("8_kids2")
+phase_2_secondary_pattern = ExtResource("6_vwwe6")
+sprite_size = 200.0
+music = ExtResource("2_nf333")
+music_phase2 = ExtResource("3_p4iml")
+enemy_name = "Gate Core"
+hull_max = 1100.0
+hitbox_radius = 36.0
+pattern = ExtResource("4_26jok")
+score_value = 50000
+alien_tech_drop = 60
+explosion_scene = ExtResource("1_p0mis")

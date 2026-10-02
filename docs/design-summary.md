@@ -184,12 +184,12 @@ A dogfight through wrecked satellites and alien fleets as Earth recedes below. E
 
 ### Mission 8: The homeworld
 
-1. **The arrival:** You exit the portal into their air defences.
-2. **The foundry:** A scrolling run through the complex where portals are built.
-3. **The Gate Core:** The final boss, fought in several phases.
-4. **The escape:** An enemy-free sprint back through the collapsing portal, with a bonus for time remaining.
+1. **The arrival:** You exit the portal into their air defences, over a scorched world mined down to ash and lava seams. Elite enemies (crimson armour, white glow, an extra bullet layer) and ground flak turrets.
+2. **The foundry:** The ground switches to the portal foundry behind a huge blast gate. Molten metal pours down lanes (telegraphed like the Himalayan avalanches).
+3. **The Gate Core:** The final boss, fought in three phases. Shield emitters orbit the core and must be destroyed first; then the exposed core spins up; below a quarter health it melts down, with dense counter-spirals and Elite kamikazes warping in.
+4. **The escape:** An enemy-free sprint back through the collapsing portal: a 40-second countdown, falling debris that costs 3 seconds per hit (no damage), and the time left paid out as a score bonus. The squad flies out through the exit portal.
 
-After that, the squad emerges above Earth, the ending plays and the credits roll.
+After that, the squad emerges above Earth (Steel's ending lines), the credits roll over Earth, and the sequel hook types out: the Alliance has noticed humanity.
 
 ## Enemies and bosses
 

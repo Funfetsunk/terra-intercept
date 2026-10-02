@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://cv661fbo1x5ia"]
+
+[ext_resource type="PackedScene" uid="uid://bca5f08gnsvli" path="res://scenes/effects/explosion_medium.tscn" id="1_65vxr"]
+[ext_resource type="Resource" uid="uid://cfblmbbqt52q4" path="res://data/patterns/spinner_pattern_elite.tres" id="2_slltr"]
+[ext_resource type="Script" uid="uid://bxbax4x8ptrvy" path="res://scripts/resources/enemy_data.gd" id="3_bvonm"]
+[ext_resource type="SpriteFrames" uid="uid://dmsbep0ja0b4d" path="res://art/sprites/enemies/spinner_elite_frames.tres" id="4_457wm"]
+
+[resource]
+script = ExtResource("3_bvonm")
+enemy_name = "Spinner (Elite)"
+move_speed = 32.0
+hull_max = 6.0
+hitbox_radius = 9.0
+pattern = ExtResource("2_slltr")
+score_value = 375
+alien_tech_drop = 2
+explosion_scene = ExtResource("1_65vxr")
+sprite_frames = ExtResource("4_457wm")

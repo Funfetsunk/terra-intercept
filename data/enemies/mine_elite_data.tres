@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://ddbexu14k6kli"]
+
+[ext_resource type="PackedScene" uid="uid://c5glm5ofoajet" path="res://scenes/effects/explosion_small.tscn" id="1_c53q3"]
+[ext_resource type="Resource" uid="uid://dybgqqtxnt1lj" path="res://data/patterns/mine_pattern_elite.tres" id="2_o3a1n"]
+[ext_resource type="Script" uid="uid://bxbax4x8ptrvy" path="res://scripts/resources/enemy_data.gd" id="3_7nyyl"]
+[ext_resource type="SpriteFrames" uid="uid://cy8fuatkaxkbf" path="res://art/sprites/enemies/mine_elite_frames.tres" id="4_fsbxy"]
+
+[resource]
+script = ExtResource("3_7nyyl")
+enemy_name = "Mine (Elite)"
+move_speed = 0.0
+hitbox_radius = 4.0
+pattern = ExtResource("2_o3a1n")
+score_value = 30
+explosion_scene = ExtResource("1_c53q3")
+sprite_frames = ExtResource("4_fsbxy")

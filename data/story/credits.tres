@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CreditsData" format=3 uid="uid://bkgmhw6xk185c"]
+
+[ext_resource type="Script" uid="uid://c0x0p220quxbj" path="res://scripts/resources/credits_data.gd" id="1_gbeck"]
+
+[resource]
+script = ExtResource("1_gbeck")
+lines = PackedStringArray("TERRA INTERCEPT", "", "", "A GAME BY", "Thomas Evans", "", "", "THE SQUAD", "Dash  -  Interceptor", "Bucky  -  Striker", "Max  -  Guardian", "Tammy  -  Vanguard", "", "COMMANDER", "Steel", "", "", "FONT", "Press Start 2P", "The Press Start 2P Project Authors", "(SIL Open Font License 1.1)", "", "", "MADE WITH", "Godot Engine", "", "", "", "Every portal is closed.", "Every colony is free.", "", "", "", "THANK YOU FOR PLAYING", "", "", "", "", "", "")
+epilogue = "Far beyond the collapsed portals,
+something watched the miners fall.
+
+\"Humanity has broken the miners.
+They are ready.
+
+Send word to the Alliance.\""

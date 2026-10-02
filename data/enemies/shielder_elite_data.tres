@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://bvqn2wi78u5k0"]
+
+[ext_resource type="PackedScene" uid="uid://bca5f08gnsvli" path="res://scenes/effects/explosion_medium.tscn" id="1_ruhgx"]
+[ext_resource type="Resource" uid="uid://cty8vlcv1a6tg" path="res://data/patterns/shielder_pattern_elite.tres" id="2_wulwu"]
+[ext_resource type="Script" uid="uid://bxbax4x8ptrvy" path="res://scripts/resources/enemy_data.gd" id="3_kwqtf"]
+[ext_resource type="SpriteFrames" uid="uid://bux66bcivtgmi" path="res://art/sprites/enemies/shielder_elite_frames.tres" id="4_musec"]
+
+[resource]
+script = ExtResource("3_kwqtf")
+enemy_name = "Shielder (Elite)"
+move_speed = 50.0
+hull_max = 21.0
+hitbox_radius = 10.0
+pattern = ExtResource("2_wulwu")
+score_value = 900
+alien_tech_drop = 4
+explosion_scene = ExtResource("1_ruhgx")
+sprite_frames = ExtResource("4_musec")

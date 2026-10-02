@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="BulletPatternData" format=3 uid="uid://c4oxm2rmve17o"]
+
+[ext_resource type="Texture2D" uid="uid://bk0mscxc8vbay" path="res://art/sprites/bullets/enemy_orb_cyan_6.png" id="1_a8s5v"]
+[ext_resource type="Script" uid="uid://skm1jc2p0sdk" path="res://scripts/resources/bullet_pattern_data.gd" id="2_mpiyo"]
+
+[resource]
+script = ExtResource("2_mpiyo")
+pattern_name = "Swarmer Spread (Elite)"
+burst_size = 4
+angle_spread_degrees = 20.0
+burst_interval = 1.2
+jitter_degrees = 4.0
+rng_seed = 2
+bullet_speed = 143.0
+bullet_color = Color(1, 1, 1, 1)
+bullet_texture = ExtResource("1_a8s5v")
+emitter_offsets = null
+emitter_angle_offsets = null
+layers = 2
+layer_speed_step = 25.0

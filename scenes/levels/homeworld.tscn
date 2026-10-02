@@ -1,0 +1,162 @@
+[gd_scene format=4 uid="uid://dpy1nwpwd14un"]
+
+[ext_resource type="Script" uid="uid://75rqdkq3l656" path="res://scenes/levels/mission_level.gd" id="1_e17dh"]
+[ext_resource type="PackedScene" uid="uid://c1woeggvkgk0f" path="res://scenes/hud/hud.tscn" id="2_8c1yy"]
+[ext_resource type="PackedScene" uid="uid://bdjsxy2elcbrc" path="res://scenes/hud/dialogue_box.tscn" id="3_s0jpu"]
+[ext_resource type="Script" uid="uid://b1vqxoh2qfcwi" path="res://scripts/systems/dialogue_controller.gd" id="4_q0iyy"]
+[ext_resource type="Resource" uid="uid://u00mnee2c87u" path="res://data/missions/homeworld_mission.tres" id="5_c5i1i"]
+[ext_resource type="Script" uid="uid://bjif1hmet7sgc" path="res://scripts/systems/playfield_shake.gd" id="6_e6krk"]
+[ext_resource type="PackedScene" uid="uid://bveh1trv7wuqf" path="res://scenes/player/player_ship.tscn" id="7_c3jvs"]
+[ext_resource type="Script" uid="uid://c8tdtncije8cj" path="res://scenes/levels/avalanche_lanes.gd" id="8_r42ji"]
+[ext_resource type="Shader" uid="uid://cdcdwx2ttklvc" path="res://shaders/fog_dither.gdshader" id="9_fr35d"]
+[ext_resource type="Script" uid="uid://c6cns2cik14l2" path="res://scenes/levels/scrolling_background.gd" id="10_8cwrb"]
+[ext_resource type="PackedScene" uid="uid://ort4tmjdo7j" path="res://scenes/levels/background_layer.tscn" id="11_p66wm"]
+[ext_resource type="Texture2D" uid="uid://c2l6suq4wr1wt" path="res://art/sprites/backgrounds/homeworld/surface_a.png" id="12_lato7"]
+[ext_resource type="Texture2D" uid="uid://ca1a1r6dxhmbs" path="res://art/sprites/backgrounds/homeworld/surface_b.png" id="13_kxvlh"]
+[ext_resource type="Texture2D" uid="uid://dvhhaaltk6dka" path="res://art/sprites/backgrounds/london/smoke.png" id="14_xet3v"]
+[ext_resource type="Script" uid="uid://bgoiagdeo8ki4" path="res://scripts/systems/enemy_spawner.gd" id="15_lcxtb"]
+[ext_resource type="Script" uid="uid://cufxth8ho0h7y" path="res://scenes/levels/section_backgrounds.gd" id="16_obq1o"]
+[ext_resource type="Texture2D" uid="uid://cdf21untsc2g3" path="res://art/sprites/backgrounds/homeworld/foundry_a.png" id="17_ieqd4"]
+[ext_resource type="Texture2D" uid="uid://boavywftinkux" path="res://art/sprites/backgrounds/homeworld/foundry_b.png" id="18_eo2tv"]
+[ext_resource type="PackedScene" uid="uid://bcq0c4jd1odwa" path="res://scenes/levels/set_pieces/blast_gate.tscn" id="19_mf1ie"]
+[ext_resource type="Script" uid="uid://5mow00qnipux" path="res://scenes/levels/escape_sequence.gd" id="20_r8pef"]
+[ext_resource type="Texture2D" uid="uid://cyfghjb6ta4ss" path="res://art/sprites/backgrounds/homeworld/tunnel_a.png" id="21_cfmqn"]
+[ext_resource type="Texture2D" uid="uid://cullth2cdbvrt" path="res://art/sprites/backgrounds/homeworld/tunnel_b.png" id="22_j236x"]
+[ext_resource type="PackedScene" uid="uid://du53kio1g8kkg" path="res://scenes/levels/set_pieces/debris_1.tscn" id="23_ulfak"]
+[ext_resource type="PackedScene" uid="uid://b24kkufjurxv" path="res://scenes/levels/set_pieces/debris_2.tscn" id="24_cwnmf"]
+[ext_resource type="PackedScene" uid="uid://r2fmv56xdcmv" path="res://scenes/levels/set_pieces/debris_3.tscn" id="25_a6wvc"]
+[ext_resource type="PackedScene" uid="uid://cbjaulr4mvfn" path="res://scenes/levels/set_pieces/debris_4.tscn" id="26_wtwnx"]
+[ext_resource type="PackedScene" uid="uid://0kfnllij448m" path="res://scenes/bosses/portal.tscn" id="27_5n24f"]
+[ext_resource type="PackedScene" uid="uid://wklwemvx00mv" path="res://scenes/hud/crosshair.tscn" id="28_rm5ku"]
+[ext_resource type="PackedScene" uid="uid://ci0m4dfh7cg55" path="res://scenes/hud/pause_menu.tscn" id="29_cu8q0"]
+[ext_resource type="PackedScene" uid="uid://c8kaig230cm5v" path="res://scenes/ui/screen_fade.tscn" id="30_gyeiy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f222q"]
+shader = ExtResource("9_fr35d")
+shader_parameter/banks = PackedVector4Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/bank_count = 0
+shader_parameter/rect_size = Vector2(360, 360)
+shader_parameter/fog_light = Color(0.9764706, 0.7607843, 0.16862746, 1)
+shader_parameter/fog_dark = Color(0.9019608, 0.5647059, 0.30588236, 1)
+shader_parameter/wisp_strength = 0.15
+shader_parameter/wisp_scale = 0.045
+shader_parameter/wisp_speed = 0.6
+shader_parameter/density_scale = 1.0
+shader_parameter/stripe_period = 0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qtj5t"]
+shader = ExtResource("9_fr35d")
+shader_parameter/banks = PackedVector4Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/bank_count = 0
+shader_parameter/rect_size = Vector2(360, 360)
+shader_parameter/fog_light = Color(0.9764706, 0.7607843, 0.16862746, 1)
+shader_parameter/fog_dark = Color(0.9019608, 0.5647059, 0.30588236, 1)
+shader_parameter/wisp_strength = 0.15
+shader_parameter/wisp_scale = 0.045
+shader_parameter/wisp_speed = 0.6
+shader_parameter/density_scale = 1.0
+shader_parameter/stripe_period = 0
+
+[node name="Homeworld" type="Node2D" unique_id=705097]
+script = ExtResource("1_e17dh")
+mission_id = "Homeworld"
+
+[node name="HUD" parent="." unique_id=1725720245 instance=ExtResource("2_8c1yy")]
+
+[node name="DialogueBox" parent="." unique_id=647446749 instance=ExtResource("3_s0jpu")]
+
+[node name="DialogueController" type="Node" parent="." unique_id=1061489573]
+script = ExtResource("4_q0iyy")
+mission = ExtResource("5_c5i1i")
+dialogue_box_path = NodePath("../DialogueBox")
+
+[node name="PlayfieldRoot" type="Node2D" parent="." unique_id=370220181]
+position = Vector2(140, 0)
+script = ExtResource("6_e6krk")
+
+[node name="PlayerShip" parent="PlayfieldRoot" unique_id=1276083379 instance=ExtResource("7_c3jvs")]
+z_index = 6
+position = Vector2(180, 300)
+
+[node name="MoltenPours" type="Node2D" parent="PlayfieldRoot" unique_id=90937241]
+z_index = 4
+script = ExtResource("8_r42ji")
+mission = ExtResource("5_c5i1i")
+damage = 2.0
+trickle_color = Color(0.9607843, 0.49019608, 0.2901961, 1)
+
+[node name="Slide1" type="ColorRect" parent="PlayfieldRoot/MoltenPours" unique_id=1529251770]
+visible = false
+material = SubResource("ShaderMaterial_f222q")
+mouse_filter = 2
+color = Color(0.78039217, 0.8627451, 0.8156863, 1)
+
+[node name="Slide2" type="ColorRect" parent="PlayfieldRoot/MoltenPours" unique_id=1785440433]
+visible = false
+material = SubResource("ShaderMaterial_qtj5t")
+mouse_filter = 2
+color = Color(0.78039217, 0.8627451, 0.8156863, 1)
+
+[node name="Background" type="Node2D" parent="PlayfieldRoot" unique_id=455193155 groups=["scrolling_background"]]
+z_index = -10
+script = ExtResource("10_8cwrb")
+mission = ExtResource("5_c5i1i")
+
+[node name="FarLayer" parent="PlayfieldRoot/Background" unique_id=2071353270 instance=ExtResource("11_p66wm")]
+panel_a_texture = ExtResource("12_lato7")
+panel_b_texture = ExtResource("13_kxvlh")
+
+[node name="NearLayer" parent="PlayfieldRoot/Background" unique_id=899699578 instance=ExtResource("11_p66wm")]
+scroll_speed_multiplier = 1.4
+panel_a_texture = ExtResource("14_xet3v")
+panel_b_texture = ExtResource("14_xet3v")
+
+[node name="EnemySpawner" type="Node" parent="PlayfieldRoot" unique_id=1415624087]
+script = ExtResource("15_lcxtb")
+mission = ExtResource("5_c5i1i")
+
+[node name="SectionBackgrounds" type="Node" parent="PlayfieldRoot" unique_id=1510632116]
+script = ExtResource("16_obq1o")
+mission = ExtResource("5_c5i1i")
+switch_times = PackedFloat32Array(108)
+tiles_a = Array[Texture2D]([ExtResource("17_ieqd4")])
+tiles_b = Array[Texture2D]([ExtResource("18_eo2tv")])
+seam_scenes = Array[PackedScene]([ExtResource("19_mf1ie")])
+
+[node name="EscapeSequence" type="Node2D" parent="PlayfieldRoot" unique_id=243937080]
+script = ExtResource("20_r8pef")
+tunnel_texture_a = ExtResource("21_cfmqn")
+tunnel_texture_b = ExtResource("22_j236x")
+debris_scenes = Array[PackedScene]([ExtResource("23_ulfak"), ExtResource("24_cwnmf"), ExtResource("25_a6wvc"), ExtResource("26_wtwnx")])
+exit_portal_scene = ExtResource("27_5n24f")
+
+[node name="EscapeHud" type="CanvasLayer" parent="PlayfieldRoot/EscapeSequence" unique_id=1891677760]
+layer = 12
+
+[node name="TimerLabel" type="Label" parent="PlayfieldRoot/EscapeSequence/EscapeHud" unique_id=1282148874]
+offset_left = 140.0
+offset_top = 10.0
+offset_right = 500.0
+offset_bottom = 26.0
+theme_override_colors/font_color = Color(0.9764706, 0.7607843, 0.16862746, 1)
+theme_override_colors/font_outline_color = Color(0.18039216, 0.13333334, 0.18431373, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 16
+text = "40.00"
+horizontal_alignment = 1
+
+[node name="Caption" type="Label" parent="PlayfieldRoot/EscapeSequence/EscapeHud" unique_id=1741767550]
+offset_left = 140.0
+offset_top = 30.0
+offset_right = 500.0
+offset_bottom = 46.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.18039216, 0.13333334, 0.18431373, 1)
+theme_override_constants/outline_size = 2
+horizontal_alignment = 1
+
+[node name="Crosshair" parent="." unique_id=1482935218 instance=ExtResource("28_rm5ku")]
+
+[node name="PauseMenu" parent="." unique_id=366232786 instance=ExtResource("29_cu8q0")]
+
+[node name="ScreenFade" parent="." unique_id=1035464793 instance=ExtResource("30_gyeiy")]

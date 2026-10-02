@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MapNodeData" format=3 uid="uid://cyy653kw60p4w"]
+
+[ext_resource type="Resource" uid="uid://u00mnee2c87u" path="res://data/missions/homeworld_mission.tres" id="1_hsovs"]
+[ext_resource type="Script" uid="uid://n2636wdimn86" path="res://scripts/resources/map_node_data.gd" id="2_aaoe7"]
+
+[resource]
+script = ExtResource("2_aaoe7")
+id = "Homeworld"
+display_name = "Homeworld"
+column = 8
+mission_scene_path = "res://scenes/levels/homeworld.tscn"
+mission_data = ExtResource("1_hsovs")
+map_position = Vector2(46, 178)
+label_offset = Vector2(0, -13)

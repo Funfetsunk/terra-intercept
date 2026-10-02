@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="BulletPatternData" format=3 uid="uid://cg5ueg7gv16tu"]
+
+[ext_resource type="Texture2D" uid="uid://bk0mscxc8vbay" path="res://art/sprites/bullets/enemy_orb_cyan_6.png" id="1_jj7hv"]
+[ext_resource type="Script" uid="uid://skm1jc2p0sdk" path="res://scripts/resources/bullet_pattern_data.gd" id="2_2ei6l"]
+
+[resource]
+script = ExtResource("2_2ei6l")
+pattern_name = "Flanker Aimed Pair (Elite)"
+burst_size = 3
+angle_spread_degrees = 10.0
+burst_interval = 1.1
+rng_seed = 30
+bullet_speed = 132.0
+bullet_color = Color(1, 1, 1, 1)
+bullet_texture = ExtResource("1_jj7hv")
+emitter_offsets = null
+emitter_angle_offsets = null
+layers = 2
+layer_speed_step = 25.0

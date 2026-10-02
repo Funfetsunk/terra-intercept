@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://c1wxavics5aft"]
+
+[ext_resource type="Script" uid="uid://d001umdlusfxo" path="res://scenes/enemies/mine_layer.gd" id="1_q44kx"]
+[ext_resource type="PackedScene" uid="uid://dcuj6t6eqtn" path="res://scenes/enemies/mine_elite.tscn" id="2_eu6ny"]
+[ext_resource type="Resource" uid="uid://dbp3mhfdo3lf6" path="res://data/enemies/mine_layer_elite_data.tres" id="3_3ir58"]
+[ext_resource type="SpriteFrames" uid="uid://51m2bj7flxn1" path="res://art/sprites/enemies/mine_layer_frames.tres" id="4_xohy5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0iqx2"]
+radius = 11.0
+
+[node name="MineLayerElite" type="Node2D" unique_id=2133784682]
+script = ExtResource("1_q44kx")
+mine_scene = ExtResource("2_eu6ny")
+data = ExtResource("3_3ir58")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1990791585]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1557299890]
+shape = SubResource("CircleShape2D_0iqx2")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1089129399]
+sprite_frames = ExtResource("4_xohy5")
+animation = &"idle"
+autoplay = "idle"

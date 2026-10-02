@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://d4ib17uwv0j8l"]
+
+[ext_resource type="Script" uid="uid://ls6u6mx104x8" path="res://scenes/menus/credits_screen.gd" id="1_teleb"]
+[ext_resource type="Resource" uid="uid://bkgmhw6xk185c" path="res://data/story/credits.tres" id="2_64634"]
+[ext_resource type="Texture2D" uid="uid://dk7cm1efmgucb" path="res://art/sprites/backgrounds/space/starfield.png" id="3_p700k"]
+[ext_resource type="Texture2D" uid="uid://l5rlrfvm5ijs" path="res://art/sprites/backgrounds/space/earth_limb.png" id="4_36d1s"]
+[ext_resource type="PackedScene" uid="uid://c8kaig230cm5v" path="res://scenes/ui/screen_fade.tscn" id="5_3cnls"]
+
+[node name="CreditsScreen" type="Control" unique_id=359176562]
+layout_mode = 3
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 640.0
+offset_bottom = 360.0
+script = ExtResource("1_teleb")
+credits = ExtResource("2_64634")
+
+[node name="Backdrop" type="ColorRect" parent="." unique_id=2143202449]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 640.0
+offset_bottom = 360.0
+mouse_filter = 2
+color = Color(0.18039216, 0.13333334, 0.18431373, 1)
+
+[node name="Stars" type="TextureRect" parent="." unique_id=1010529507]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("3_p700k")
+stretch_mode = 1
+
+[node name="Earth" type="TextureRect" parent="." unique_id=744775423]
+layout_mode = 0
+offset_left = 140.0
+offset_top = 232.0
+offset_right = 140.0
+offset_bottom = 232.0
+texture = ExtResource("4_36d1s")
+
+[node name="Roll" type="Label" parent="." unique_id=1984426884]
+layout_mode = 0
+offset_top = 360.0
+offset_right = 640.0
+offset_bottom = 376.0
+theme_override_colors/font_outline_color = Color(0.18039216, 0.13333334, 0.18431373, 1)
+theme_override_constants/line_spacing = 4
+theme_override_constants/outline_size = 2
+horizontal_alignment = 1
+
+[node name="Epilogue" type="Label" parent="." unique_id=667819130]
+layout_mode = 0
+offset_top = 120.0
+offset_right = 640.0
+offset_bottom = 240.0
+theme_override_colors/font_color = Color(0.8117647, 0.39607844, 0.49803922, 1)
+theme_override_constants/line_spacing = 4
+horizontal_alignment = 1
+
+[node name="ScreenFade" parent="." unique_id=1035464793 instance=ExtResource("5_3cnls")]

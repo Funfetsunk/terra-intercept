@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cbx032bium0m"]
+
+[ext_resource type="Script" uid="uid://4xc2oy0e5u03" path="res://scenes/enemies/crawler.gd" id="1_a8ic6"]
+[ext_resource type="Resource" uid="uid://c482rbjl6lo6v" path="res://data/enemies/flak_turret_data.tres" id="2_6yj06"]
+[ext_resource type="SpriteFrames" uid="uid://crp5r7nad8k70" path="res://art/sprites/enemies/flak_turret_frames.tres" id="3_a8ic6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_perxt"]
+
+[node name="FlakTurret" type="Node2D" unique_id=1798832405]
+script = ExtResource("1_a8ic6")
+crawl_speed = 0.0
+charge_time = 0.4
+data = ExtResource("2_6yj06")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1070264935]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1302738343]
+shape = SubResource("CircleShape2D_perxt")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1383182376]
+sprite_frames = ExtResource("3_a8ic6")
+animation = &"idle"

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://bgwyi87pvy1js"]
+
+[ext_resource type="PackedScene" uid="uid://bca5f08gnsvli" path="res://scenes/effects/explosion_medium.tscn" id="1_hkpw1"]
+[ext_resource type="Resource" uid="uid://b6wucih7l8f6y" path="res://data/patterns/gate_emitter_pattern.tres" id="2_j31l4"]
+[ext_resource type="Script" uid="uid://bxbax4x8ptrvy" path="res://scripts/resources/enemy_data.gd" id="3_5yjja"]
+
+[resource]
+script = ExtResource("3_5yjja")
+enemy_name = "Gate Shield Emitter"
+hull_max = 70.0
+hitbox_radius = 12.0
+pattern = ExtResource("2_j31l4")
+score_value = 3000
+alien_tech_drop = 5
+explosion_scene = ExtResource("1_hkpw1")

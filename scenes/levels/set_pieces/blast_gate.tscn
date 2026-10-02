@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bcq0c4jd1odwa"]
+
+[ext_resource type="Script" uid="uid://dsiocmmqolpwy" path="res://scenes/levels/set_piece.gd" id="1_dxq1f"]
+[ext_resource type="Texture2D" uid="uid://cw8mvnny8sire" path="res://art/sprites/backgrounds/homeworld/blast_gate.png" id="2_7c5ov"]
+
+[node name="BlastGate" type="Node2D" unique_id=1274069377]
+z_index = -9
+script = ExtResource("1_dxq1f")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=855551128]
+texture = ExtResource("2_7c5ov")

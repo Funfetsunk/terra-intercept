@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://b074b1d7it4uj"]
+
+[ext_resource type="Script" uid="uid://d2486fvrwlwpg" path="res://scenes/enemies/mini_drone.gd" id="1_ngk2p"]
+[ext_resource type="Resource" uid="uid://4mnac3jbh4oh" path="res://data/enemies/mini_drone_elite_data.tres" id="2_r6g0o"]
+[ext_resource type="SpriteFrames" uid="uid://dujih7wmraany" path="res://art/sprites/enemies/mini_drone_frames.tres" id="3_lmrx2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4vhbe"]
+radius = 5.0
+
+[node name="MiniDroneElite" type="Node2D" unique_id=415111696]
+script = ExtResource("1_ngk2p")
+data = ExtResource("2_r6g0o")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1175838179]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1692500595]
+shape = SubResource("CircleShape2D_4vhbe")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1931508965]
+sprite_frames = ExtResource("3_lmrx2")
+animation = &"idle"
+autoplay = "idle"

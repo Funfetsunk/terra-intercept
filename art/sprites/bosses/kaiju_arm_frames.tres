@@ -1,0 +1,25 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://ceedyq7xifs53"]
+
+[ext_resource type="Texture2D" uid="uid://cygkmqaanp4bw" path="res://art/sprites/bosses/kaiju_arm.png" id="1_hs1ud"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hfr16"]
+atlas = ExtResource("1_hs1ud")
+region = Rect2(0, 0, 40, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bvx7l"]
+atlas = ExtResource("1_hs1ud")
+region = Rect2(40, 0, 40, 48)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hfr16")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bvx7l")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 4.0
+}]

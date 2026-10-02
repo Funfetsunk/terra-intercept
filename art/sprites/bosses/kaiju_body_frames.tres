@@ -1,0 +1,44 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://fb3mltq0x5q1"]
+
+[ext_resource type="Texture2D" uid="uid://dggxohnmgf2lp" path="res://art/sprites/bosses/kaiju_body.png" id="1_y6hm0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qqewc"]
+atlas = ExtResource("1_y6hm0")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6pcwn"]
+atlas = ExtResource("1_y6hm0")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rrava"]
+atlas = ExtResource("1_y6hm0")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4qt3u"]
+atlas = ExtResource("1_y6hm0")
+region = Rect2(384, 0, 128, 128)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qqewc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6pcwn")
+}],
+"loop": 1,
+"name": &"phase1",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rrava")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4qt3u")
+}],
+"loop": 1,
+"name": &"phase2",
+"speed": 3.0
+}]

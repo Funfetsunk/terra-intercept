@@ -1,0 +1,44 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://dl8m476wuqemq"]
+
+[ext_resource type="Texture2D" uid="uid://hlur8jp7482q" path="res://art/sprites/bosses/leviathan_boss.png" id="1_piqip"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vkx1f"]
+atlas = ExtResource("1_piqip")
+region = Rect2(0, 0, 168, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2fp2"]
+atlas = ExtResource("1_piqip")
+region = Rect2(168, 0, 168, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_leo3n"]
+atlas = ExtResource("1_piqip")
+region = Rect2(336, 0, 168, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2wjh"]
+atlas = ExtResource("1_piqip")
+region = Rect2(504, 0, 168, 96)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vkx1f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h2fp2")
+}],
+"loop": 1,
+"name": &"phase1",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_leo3n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e2wjh")
+}],
+"loop": 1,
+"name": &"phase2",
+"speed": 3.0
+}]

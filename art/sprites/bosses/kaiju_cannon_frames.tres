@@ -1,0 +1,25 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://clxm3yo7fdj0e"]
+
+[ext_resource type="Texture2D" uid="uid://cgve7ey3lxjhi" path="res://art/sprites/bosses/kaiju_cannon.png" id="1_1f6gf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfhq1"]
+atlas = ExtResource("1_1f6gf")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qjdbj"]
+atlas = ExtResource("1_1f6gf")
+region = Rect2(24, 0, 24, 24)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tfhq1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qjdbj")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 4.0
+}]

@@ -1,0 +1,25 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://oqkpeknq62nj"]
+
+[ext_resource type="Texture2D" uid="uid://bgsu8dtlf1e0j" path="res://art/sprites/enemies/cloaker.png" id="1_xqy2j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jqr6"]
+atlas = ExtResource("1_xqy2j")
+region = Rect2(0, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k76sj"]
+atlas = ExtResource("1_xqy2j")
+region = Rect2(20, 0, 20, 20)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4jqr6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k76sj")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 4.0
+}]

@@ -1,0 +1,25 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://cy1e3r61uf1u6"]
+
+[ext_resource type="Texture2D" uid="uid://dbiqsukg47wlo" path="res://art/sprites/enemies/tether_node.png" id="1_jtuph"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_blr4d"]
+atlas = ExtResource("1_jtuph")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eesad"]
+atlas = ExtResource("1_jtuph")
+region = Rect2(16, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_blr4d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eesad")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 4.0
+}]

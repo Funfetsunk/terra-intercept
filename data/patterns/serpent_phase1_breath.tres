@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="BulletPatternData" format=3 uid="uid://btbfq5gvdemja"]
+
+[ext_resource type="Texture2D" uid="uid://qeskbvot425g" path="res://art/sprites/bullets/enemy_orb_pink_6.png" id="1_whtdo"]
+[ext_resource type="Script" uid="uid://skm1jc2p0sdk" path="res://scripts/resources/bullet_pattern_data.gd" id="2_eheym"]
+
+[resource]
+script = ExtResource("2_eheym")
+pattern_name = "Serpent Fire Breath"
+burst_size = 3
+angle_spread_degrees = 20.0
+burst_interval = 0.13
+aim_at_player = false
+rng_seed = 121
+bullet_speed = 130.0
+bullet_color = Color(1, 1, 1, 1)
+bullet_texture = ExtResource("1_whtdo")
+bullet_lifetime = 5.0
+emitter_offsets = PackedVector2Array()
+emitter_angle_offsets = PackedFloat32Array()
+sweep_degrees = 40.0
+sweep_period_bursts = 14

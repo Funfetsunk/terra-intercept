@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://g4nollieirc7"]
+
+[ext_resource type="Script" uid="uid://c1h400sc8heao" path="res://scenes/bosses/serpent_segment.gd" id="1_1awfa"]
+[ext_resource type="Resource" uid="uid://cbxe8o36qwpnp" path="res://data/enemies/serpent_segment_data.tres" id="2_33p8h"]
+[ext_resource type="SpriteFrames" uid="uid://cojxui12xfr2j" path="res://art/sprites/bosses/serpent_segment_frames.tres" id="3_q2hni"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j3pme"]
+
+[node name="SerpentSegment" type="Node2D" unique_id=1593939216]
+script = ExtResource("1_1awfa")
+data = ExtResource("2_33p8h")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=726129315]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=195558689]
+shape = SubResource("CircleShape2D_j3pme")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1683342874]
+sprite_frames = ExtResource("3_q2hni")
+animation = &"idle"
+autoplay = "idle"

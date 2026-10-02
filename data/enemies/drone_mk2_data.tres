@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://b8ewij2hq0qwo"]
+
+[ext_resource type="PackedScene" uid="uid://c5glm5ofoajet" path="res://scenes/effects/explosion_small.tscn" id="1_ul7xu"]
+[ext_resource type="Resource" uid="uid://c17nnjk2hbikw" path="res://data/patterns/drone_pattern_mk2.tres" id="2_mrkns"]
+[ext_resource type="Script" uid="uid://bxbax4x8ptrvy" path="res://scripts/resources/enemy_data.gd" id="3_jsyjb"]
+[ext_resource type="SpriteFrames" uid="uid://cc8c22ai3gmct" path="res://art/sprites/enemies/drone_mk2_frames.tres" id="4_exihi"]
+
+[resource]
+script = ExtResource("3_jsyjb")
+enemy_name = "Drone Mk II"
+move_speed = 43.0
+hull_max = 3.0
+pattern = ExtResource("2_mrkns")
+score_value = 125
+alien_tech_drop = 1
+explosion_scene = ExtResource("1_ul7xu")
+sprite_frames = ExtResource("4_exihi")

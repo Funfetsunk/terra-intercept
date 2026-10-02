@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="BossData" format=3 uid="uid://cgn6gvxbq7cmp"]
+
+[ext_resource type="PackedScene" uid="uid://c5hgr5sh58h6f" path="res://scenes/effects/explosion_large.tscn" id="1_cymxy"]
+[ext_resource type="AudioStream" uid="uid://b4jsl3exhcfm8" path="res://audio/music/boss.ogg" id="2_arfxv"]
+[ext_resource type="AudioStream" uid="uid://jhas3alcpgyt" path="res://audio/music/boss_phase2.ogg" id="3_tvd8l"]
+[ext_resource type="Resource" uid="uid://ds7tmxid16v4g" path="res://data/patterns/relay_phase1.tres" id="4_bm41s"]
+[ext_resource type="Resource" uid="uid://2ha6jused0ly" path="res://data/patterns/relay_phase2.tres" id="5_pcjne"]
+[ext_resource type="Resource" uid="uid://d011ep30qdcme" path="res://data/patterns/relay_phase2_dishes.tres" id="6_m30ot"]
+[ext_resource type="Script" uid="uid://mfqvklciutsc" path="res://scripts/resources/boss_data.gd" id="7_ec0sy"]
+[ext_resource type="Resource" uid="uid://tno48dleqefo" path="res://data/patterns/relay_phase1_mast.tres" id="8_c00p1"]
+
+[resource]
+script = ExtResource("7_ec0sy")
+phase_2_pattern = ExtResource("5_pcjne")
+secondary_pattern = ExtResource("8_c00p1")
+phase_2_secondary_pattern = ExtResource("6_m30ot")
+sprite_size = 168.0
+music = ExtResource("2_arfxv")
+music_phase2 = ExtResource("3_tvd8l")
+enemy_name = "Summit Relay"
+move_speed = 20.0
+hull_max = 640.0
+hitbox_radius = 48.0
+pattern = ExtResource("4_bm41s")
+score_value = 11000
+alien_tech_drop = 28
+explosion_scene = ExtResource("1_cymxy")

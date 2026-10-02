@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://3p5qlod16c5x"]
+
+[ext_resource type="PackedScene" uid="uid://c5glm5ofoajet" path="res://scenes/effects/explosion_small.tscn" id="1_68utu"]
+[ext_resource type="Resource" uid="uid://bip7babox3cr3" path="res://data/patterns/burrower_pattern_mk2.tres" id="2_3xpqi"]
+[ext_resource type="Script" uid="uid://bxbax4x8ptrvy" path="res://scripts/resources/enemy_data.gd" id="3_pjhoi"]
+[ext_resource type="SpriteFrames" uid="uid://bt1x7nf52pt0r" path="res://art/sprites/enemies/burrower_mk2_frames.tres" id="4_17dnb"]
+
+[resource]
+script = ExtResource("3_pjhoi")
+enemy_name = "Burrower Mk II"
+move_speed = 0.0
+hull_max = 7.0
+hitbox_radius = 9.0
+pattern = ExtResource("2_3xpqi")
+score_value = 375
+alien_tech_drop = 2
+explosion_scene = ExtResource("1_68utu")
+sprite_frames = ExtResource("4_17dnb")

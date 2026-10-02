@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dnxuae1hill41"]
+
+[ext_resource type="Script" uid="uid://bm344kcihce1p" path="res://scenes/enemies/carrier.gd" id="1_ypjea"]
+[ext_resource type="PackedScene" uid="uid://ceml8r1eb4tgj" path="res://scenes/enemies/swarmer_mk2.tscn" id="2_pibyk"]
+[ext_resource type="Resource" uid="uid://brq201hlw2xrx" path="res://data/enemies/carrier_mk2_data.tres" id="3_h04yk"]
+[ext_resource type="SpriteFrames" uid="uid://djxxxar1eptpf" path="res://art/sprites/enemies/carrier_frames.tres" id="4_ccmn0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xrkhl"]
+radius = 13.0
+
+[node name="CarrierMk2" type="Node2D" unique_id=642389352]
+script = ExtResource("1_ypjea")
+launch_scene = ExtResource("2_pibyk")
+data = ExtResource("3_h04yk")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=616514345]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=413328719]
+shape = SubResource("CircleShape2D_xrkhl")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=108636240]
+sprite_frames = ExtResource("4_ccmn0")
+animation = &"idle"
+autoplay = "idle"

@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="BossData" format=3 uid="uid://dapi0qo465rq0"]
+
+[ext_resource type="PackedScene" uid="uid://c5hgr5sh58h6f" path="res://scenes/effects/explosion_large.tscn" id="1_y44yb"]
+[ext_resource type="AudioStream" uid="uid://xweoxwdo0mpr" path="res://audio/music/mid_boss.ogg" id="2_m863o"]
+[ext_resource type="AudioStream" uid="uid://cy8m8buhn168n" path="res://audio/music/mid_boss_phase2.ogg" id="3_e0ska"]
+[ext_resource type="Resource" uid="uid://cbh2w5jye3nk5" path="res://data/patterns/escort_phase1.tres" id="4_22akg"]
+[ext_resource type="Resource" uid="uid://cq1lgc6pe6vqc" path="res://data/patterns/escort_phase2.tres" id="5_dvjja"]
+[ext_resource type="Resource" uid="uid://qmdnpxh8d34f" path="res://data/patterns/escort_phase2_aimed.tres" id="6_drdoj"]
+[ext_resource type="Script" uid="uid://mfqvklciutsc" path="res://scripts/resources/boss_data.gd" id="7_mk5nh"]
+[ext_resource type="Resource" uid="uid://c56hdmitsqpn4" path="res://data/patterns/escort_phase1_aimed.tres" id="8_0xbuq"]
+
+[resource]
+script = ExtResource("7_mk5nh")
+phase_2_pattern = ExtResource("5_dvjja")
+secondary_pattern = ExtResource("8_0xbuq")
+phase_2_secondary_pattern = ExtResource("6_drdoj")
+music = ExtResource("2_m863o")
+music_phase2 = ExtResource("3_e0ska")
+enemy_name = "Escort Mothership"
+move_speed = 20.0
+hull_max = 260.0
+hitbox_radius = 26.0
+pattern = ExtResource("4_22akg")
+score_value = 8000
+alien_tech_drop = 16
+explosion_scene = ExtResource("1_y44yb")

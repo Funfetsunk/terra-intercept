@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bo4hywmkvlahe"]
+
+[ext_resource type="Script" uid="uid://bed8o18cnmeis" path="res://scenes/bosses/stage_boss.gd" id="1_nxq2a"]
+[ext_resource type="Resource" uid="uid://cgn6gvxbq7cmp" path="res://data/enemies/summit_relay_boss_data.tres" id="2_w5ik7"]
+[ext_resource type="SpriteFrames" uid="uid://bht8x4umaec7a" path="res://art/sprites/bosses/summit_relay_boss_frames.tres" id="3_koi0r"]
+
+[node name="SummitRelayBoss" type="Node2D" unique_id=462380616]
+script = ExtResource("1_nxq2a")
+data = ExtResource("2_w5ik7")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1884785214]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1861607951]
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=360666481]
+sprite_frames = ExtResource("3_koi0r")
+animation = &"phase1"

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://cslsq0ihyr34k"]
+
+[ext_resource type="PackedScene" uid="uid://bca5f08gnsvli" path="res://scenes/effects/explosion_medium.tscn" id="1_2nrfu"]
+[ext_resource type="Script" uid="uid://bxbax4x8ptrvy" path="res://scripts/resources/enemy_data.gd" id="2_nsd68"]
+
+[resource]
+script = ExtResource("2_nsd68")
+enemy_name = "Mine Layer"
+hull_max = 9.0
+hitbox_radius = 11.0
+score_value = 400
+alien_tech_drop = 3
+explosion_scene = ExtResource("1_2nrfu")

@@ -1,0 +1,104 @@
+[gd_scene format=4 uid="uid://s4bw0gdwdooe"]
+
+[ext_resource type="Script" uid="uid://75rqdkq3l656" path="res://scenes/levels/mission_level.gd" id="1_7af1m"]
+[ext_resource type="PackedScene" uid="uid://c1woeggvkgk0f" path="res://scenes/hud/hud.tscn" id="2_47cp8"]
+[ext_resource type="PackedScene" uid="uid://bdjsxy2elcbrc" path="res://scenes/hud/dialogue_box.tscn" id="3_nobia"]
+[ext_resource type="Script" uid="uid://b1vqxoh2qfcwi" path="res://scripts/systems/dialogue_controller.gd" id="4_vy5df"]
+[ext_resource type="Resource" uid="uid://b8hj7t42m1m8n" path="res://data/missions/himalayas_mission.tres" id="5_ruf74"]
+[ext_resource type="Script" uid="uid://bjif1hmet7sgc" path="res://scripts/systems/playfield_shake.gd" id="6_qscaf"]
+[ext_resource type="PackedScene" uid="uid://bveh1trv7wuqf" path="res://scenes/player/player_ship.tscn" id="7_yfnwr"]
+[ext_resource type="Script" uid="uid://c8tdtncije8cj" path="res://scenes/levels/avalanche_lanes.gd" id="8_g3qv2"]
+[ext_resource type="Shader" uid="uid://cdcdwx2ttklvc" path="res://shaders/fog_dither.gdshader" id="9_0kerb"]
+[ext_resource type="Script" uid="uid://c6cns2cik14l2" path="res://scenes/levels/scrolling_background.gd" id="10_idbne"]
+[ext_resource type="PackedScene" uid="uid://ort4tmjdo7j" path="res://scenes/levels/background_layer.tscn" id="11_7e7m0"]
+[ext_resource type="Texture2D" uid="uid://cn0mrij0212r5" path="res://art/sprites/backgrounds/himalayas/slopes_a.png" id="12_fh021"]
+[ext_resource type="Texture2D" uid="uid://c7aru3y1sajp0" path="res://art/sprites/backgrounds/himalayas/slopes_b.png" id="13_ji81c"]
+[ext_resource type="Texture2D" uid="uid://dvhhaaltk6dka" path="res://art/sprites/backgrounds/london/smoke.png" id="14_gmc4k"]
+[ext_resource type="Script" uid="uid://bgoiagdeo8ki4" path="res://scripts/systems/enemy_spawner.gd" id="15_12cqx"]
+[ext_resource type="PackedScene" uid="uid://wklwemvx00mv" path="res://scenes/hud/crosshair.tscn" id="16_u2nf2"]
+[ext_resource type="PackedScene" uid="uid://ci0m4dfh7cg55" path="res://scenes/hud/pause_menu.tscn" id="17_gignx"]
+[ext_resource type="PackedScene" uid="uid://c8kaig230cm5v" path="res://scenes/ui/screen_fade.tscn" id="18_1r6cj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6ja5i"]
+shader = ExtResource("9_0kerb")
+shader_parameter/banks = PackedVector4Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/bank_count = 0
+shader_parameter/rect_size = Vector2(360, 360)
+shader_parameter/fog_light = Color(1, 1, 1, 1)
+shader_parameter/fog_dark = Color(0.78039217, 0.8627451, 0.8156863, 1)
+shader_parameter/wisp_strength = 0.15
+shader_parameter/wisp_scale = 0.045
+shader_parameter/wisp_speed = 0.6
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3uary"]
+shader = ExtResource("9_0kerb")
+shader_parameter/banks = PackedVector4Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/bank_count = 0
+shader_parameter/rect_size = Vector2(360, 360)
+shader_parameter/fog_light = Color(1, 1, 1, 1)
+shader_parameter/fog_dark = Color(0.78039217, 0.8627451, 0.8156863, 1)
+shader_parameter/wisp_strength = 0.15
+shader_parameter/wisp_scale = 0.045
+shader_parameter/wisp_speed = 0.6
+
+[node name="Himalayas" type="Node2D" unique_id=705097]
+script = ExtResource("1_7af1m")
+mission_id = "col4_south"
+
+[node name="HUD" parent="." unique_id=1725720245 instance=ExtResource("2_47cp8")]
+
+[node name="DialogueBox" parent="." unique_id=647446749 instance=ExtResource("3_nobia")]
+
+[node name="DialogueController" type="Node" parent="." unique_id=1061489573]
+script = ExtResource("4_vy5df")
+mission = ExtResource("5_ruf74")
+dialogue_box_path = NodePath("../DialogueBox")
+
+[node name="PlayfieldRoot" type="Node2D" parent="." unique_id=370220181]
+position = Vector2(140, 0)
+script = ExtResource("6_qscaf")
+
+[node name="PlayerShip" parent="PlayfieldRoot" unique_id=1276083379 instance=ExtResource("7_yfnwr")]
+z_index = 6
+position = Vector2(180, 300)
+
+[node name="AvalancheLanes" type="Node2D" parent="PlayfieldRoot" unique_id=90937241]
+z_index = 4
+script = ExtResource("8_g3qv2")
+mission = ExtResource("5_ruf74")
+
+[node name="Slide1" type="ColorRect" parent="PlayfieldRoot/AvalancheLanes" unique_id=1529251770]
+visible = false
+material = SubResource("ShaderMaterial_6ja5i")
+mouse_filter = 2
+color = Color(0.78039217, 0.8627451, 0.8156863, 1)
+
+[node name="Slide2" type="ColorRect" parent="PlayfieldRoot/AvalancheLanes" unique_id=1785440433]
+visible = false
+material = SubResource("ShaderMaterial_3uary")
+mouse_filter = 2
+color = Color(0.78039217, 0.8627451, 0.8156863, 1)
+
+[node name="Background" type="Node2D" parent="PlayfieldRoot" unique_id=455193155 groups=["scrolling_background"]]
+z_index = -10
+script = ExtResource("10_idbne")
+mission = ExtResource("5_ruf74")
+
+[node name="FarLayer" parent="PlayfieldRoot/Background" unique_id=2071353270 instance=ExtResource("11_7e7m0")]
+panel_a_texture = ExtResource("12_fh021")
+panel_b_texture = ExtResource("13_ji81c")
+
+[node name="NearLayer" parent="PlayfieldRoot/Background" unique_id=899699578 instance=ExtResource("11_7e7m0")]
+scroll_speed_multiplier = 1.4
+panel_a_texture = ExtResource("14_gmc4k")
+panel_b_texture = ExtResource("14_gmc4k")
+
+[node name="EnemySpawner" type="Node" parent="PlayfieldRoot" unique_id=1415624087]
+script = ExtResource("15_12cqx")
+mission = ExtResource("5_ruf74")
+
+[node name="Crosshair" parent="." unique_id=1482935218 instance=ExtResource("16_u2nf2")]
+
+[node name="PauseMenu" parent="." unique_id=366232786 instance=ExtResource("17_gignx")]
+
+[node name="ScreenFade" parent="." unique_id=1035464793 instance=ExtResource("18_1r6cj")]

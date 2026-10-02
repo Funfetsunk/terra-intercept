@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://cbxe8o36qwpnp"]
+
+[ext_resource type="PackedScene" uid="uid://bca5f08gnsvli" path="res://scenes/effects/explosion_medium.tscn" id="1_rsvk2"]
+[ext_resource type="Resource" uid="uid://40d5mb47oddo" path="res://data/patterns/serpent_segment_pattern.tres" id="2_fsy0p"]
+[ext_resource type="Script" uid="uid://bxbax4x8ptrvy" path="res://scripts/resources/enemy_data.gd" id="3_l7ou2"]
+
+[resource]
+script = ExtResource("3_l7ou2")
+enemy_name = "Serpent Segment"
+move_speed = 0.0
+hull_max = 35.0
+hitbox_radius = 10.0
+pattern = ExtResource("2_fsy0p")
+score_value = 800
+alien_tech_drop = 2
+explosion_scene = ExtResource("1_rsvk2")

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="BulletPatternData" format=3 uid="uid://cyf7eloyhkqpm"]
+
+[ext_resource type="Texture2D" uid="uid://bk0mscxc8vbay" path="res://art/sprites/bullets/enemy_orb_cyan_6.png" id="1_5a5t7"]
+[ext_resource type="Script" uid="uid://skm1jc2p0sdk" path="res://scripts/resources/bullet_pattern_data.gd" id="2_7mehd"]
+
+[resource]
+script = ExtResource("2_7mehd")
+pattern_name = "Crawler Turret Burst"
+burst_size = 3
+angle_spread_degrees = 16.0
+burst_interval = 2.0
+rng_seed = 101
+bullet_speed = 125.0
+bullet_color = Color(1, 1, 1, 1)
+bullet_texture = ExtResource("1_5a5t7")
+bullet_lifetime = 5.0
+emitter_offsets = PackedVector2Array()
+emitter_angle_offsets = PackedFloat32Array()

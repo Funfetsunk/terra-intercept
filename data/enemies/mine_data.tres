@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://biitxnv5q5y3w"]
+
+[ext_resource type="PackedScene" uid="uid://c5glm5ofoajet" path="res://scenes/effects/explosion_small.tscn" id="1_afc1i"]
+[ext_resource type="Resource" uid="uid://jnypu52hwmc4" path="res://data/patterns/mine_pop.tres" id="2_lyh8c"]
+[ext_resource type="Script" uid="uid://bxbax4x8ptrvy" path="res://scripts/resources/enemy_data.gd" id="3_bg88q"]
+
+[resource]
+script = ExtResource("3_bg88q")
+enemy_name = "Mine"
+move_speed = 0.0
+hull_max = 1.0
+hitbox_radius = 4.0
+pattern = ExtResource("2_lyh8c")
+score_value = 20
+explosion_scene = ExtResource("1_afc1i")

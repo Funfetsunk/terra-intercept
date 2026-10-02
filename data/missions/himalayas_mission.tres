@@ -1,0 +1,3258 @@
+[gd_resource type="Resource" script_class="MissionData" format=3 uid="uid://b8hj7t42m1m8n"]
+
+[ext_resource type="Script" uid="uid://cfm1tvmus3d7n" path="res://scripts/resources/dialogue_entry.gd" id="1_mxisu"]
+[ext_resource type="Texture2D" uid="uid://yu3oyaemyoau" path="res://art/sprites/portraits/steel_happy.png" id="2_ykacu"]
+[ext_resource type="Script" uid="uid://djsculn7twyp2" path="res://scripts/resources/briefing_line.gd" id="3_jbjbf"]
+[ext_resource type="Texture2D" uid="uid://b0hj6cdj2nm4c" path="res://art/sprites/portraits/steel_neutral.png" id="4_skgxx"]
+[ext_resource type="Texture2D" uid="uid://cfki4eoix83gv" path="res://art/sprites/portraits/steel_determined.png" id="5_kf1yx"]
+[ext_resource type="Script" uid="uid://cnhxdpsth8r8w" path="res://scripts/resources/mission_data.gd" id="6_7kapp"]
+[ext_resource type="Script" uid="uid://c03u7v4p7yrx6" path="res://scripts/resources/mission_section_marker.gd" id="7_hkq1v"]
+[ext_resource type="Script" uid="uid://c33ljo8b85nep" path="res://scripts/resources/spawn_entry.gd" id="8_upwdt"]
+[ext_resource type="Resource" uid="uid://b8ewij2hq0qwo" path="res://data/enemies/drone_mk2_data.tres" id="9_iiy4b"]
+[ext_resource type="PackedScene" uid="uid://dtnhnyl0x1y01" path="res://scenes/enemies/drone.tscn" id="10_ubgu2"]
+[ext_resource type="Resource" uid="uid://1tyadtrf70et" path="res://data/enemies/swarmer_mk2_data.tres" id="11_li4y7"]
+[ext_resource type="PackedScene" uid="uid://c2ntt3im5qe7m" path="res://scenes/enemies/swarmer.tscn" id="12_evfv3"]
+[ext_resource type="Resource" uid="uid://dalbcbmrd3jre" path="res://data/patterns/drone_pattern_fan_mk2.tres" id="13_pp3ik"]
+[ext_resource type="Resource" uid="uid://cj33tqgp2i07u" path="res://data/patterns/swarmer_pattern_tight_mk2.tres" id="14_1ojur"]
+[ext_resource type="PackedScene" uid="uid://bbu1i2vdl36db" path="res://scenes/pickups/weapon_pickup.tscn" id="15_jyh6o"]
+[ext_resource type="PackedScene" uid="uid://m5v4uy8vu1bu" path="res://scenes/enemies/sniper.tscn" id="16_roi62"]
+[ext_resource type="Resource" uid="uid://t441yfir7n55" path="res://data/enemies/flanker_mk2_data.tres" id="17_itmp2"]
+[ext_resource type="PackedScene" uid="uid://c6uof0oj2p4ms" path="res://scenes/enemies/flanker.tscn" id="18_paksg"]
+[ext_resource type="PackedScene" uid="uid://dq3nl3wuwbosv" path="res://scenes/enemies/mine_layer.tscn" id="19_ph7c6"]
+[ext_resource type="Resource" uid="uid://dvgls0nyj7pn3" path="res://data/enemies/spinner_mk2_data.tres" id="20_iexgf"]
+[ext_resource type="PackedScene" uid="uid://c0sc58a1pi75i" path="res://scenes/enemies/spinner.tscn" id="21_f4yxp"]
+[ext_resource type="Resource" uid="uid://qr60javibbjk" path="res://data/enemies/lander_pod_mk2_data.tres" id="22_m8s23"]
+[ext_resource type="PackedScene" uid="uid://csyyh0yeb3u8t" path="res://scenes/enemies/lander_pod.tscn" id="23_jxbtx"]
+[ext_resource type="Resource" uid="uid://3p5qlod16c5x" path="res://data/enemies/burrower_mk2_data.tres" id="24_u7w0v"]
+[ext_resource type="PackedScene" uid="uid://cy5jnll3s0gdd" path="res://scenes/enemies/burrower_ice.tscn" id="25_c3btw"]
+[ext_resource type="PackedScene" uid="uid://dnxuae1hill41" path="res://scenes/enemies/carrier_mk2.tscn" id="26_kchg7"]
+[ext_resource type="PackedScene" uid="uid://b0tqay2jrc0tv" path="res://scenes/pickups/hull_repair_pickup.tscn" id="27_sas06"]
+[ext_resource type="PackedScene" uid="uid://cygume1y6opgo" path="res://scenes/bosses/escort_mid_boss.tscn" id="28_s7684"]
+[ext_resource type="PackedScene" uid="uid://ucb17u7snxnd" path="res://scenes/pickups/special_charge_pickup.tscn" id="29_ut78e"]
+[ext_resource type="PackedScene" uid="uid://bo4hywmkvlahe" path="res://scenes/bosses/summit_relay_boss.tscn" id="30_61nq5"]
+[ext_resource type="AudioStream" uid="uid://q65udjkd5wn" path="res://audio/music/stage1.ogg" id="31_0vm64"]
+[ext_resource type="Script" uid="uid://dlbnckac0upbn" path="res://scripts/resources/tutorial_beat.gd" id="32_c06i0"]
+
+[sub_resource type="Resource" id="Resource_76xwp"]
+script = ExtResource("3_jbjbf")
+speaker_name = "Steel"
+portrait_color = Color(0.85, 0.65, 0.25, 1)
+portrait = ExtResource("2_ykacu")
+text = "Relay's silent. Good work up there."
+
+[sub_resource type="Resource" id="Resource_of7ec"]
+script = ExtResource("3_jbjbf")
+speaker_name = "Steel"
+portrait_color = Color(0.85, 0.65, 0.25, 1)
+portrait = ExtResource("4_skgxx")
+text = "We traced the signal before it went dark. It wasn't calling home -- it was calling something much closer."
+
+[sub_resource type="Resource" id="Resource_dt8xv"]
+script = ExtResource("3_jbjbf")
+speaker_name = "Steel"
+portrait_color = Color(0.85, 0.65, 0.25, 1)
+portrait = ExtResource("5_kf1yx")
+text = "Everest. They've built something on the summit, and it's transmitting."
+
+[sub_resource type="Resource" id="Resource_u7yq6"]
+script = ExtResource("3_jbjbf")
+speaker_name = "Steel"
+portrait_color = Color(0.85, 0.65, 0.25, 1)
+portrait = ExtResource("4_skgxx")
+text = "The slopes are unstable -- when you see avalanche warnings, get out of the lane. The snow takes their ships too. And watch for mines and sniper lines."
+
+[sub_resource type="Resource" id="Resource_ggkfx"]
+script = ExtResource("3_jbjbf")
+speaker_name = "Steel"
+portrait_color = Color(0.85, 0.65, 0.25, 1)
+portrait = ExtResource("5_kf1yx")
+text = "Climb to the top and shut that relay down."
+
+[sub_resource type="Resource" id="Resource_5a0ej"]
+script = ExtResource("7_hkq1v")
+section_name = "slope_run"
+
+[sub_resource type="Resource" id="Resource_3ya0q"]
+script = ExtResource("7_hkq1v")
+section_name = "boss"
+start_time = 250.0
+
+[sub_resource type="Resource" id="Resource_66ds0"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 8.0
+spawn_position_relative = Vector2(0.2, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_pq7kj"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 8.2
+spawn_position_relative = Vector2(0.32, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_hjkpi"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 9.2
+spawn_position_relative = Vector2(0.35, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_2cl17"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 9.4
+spawn_position_relative = Vector2(0.23, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_rgp6x"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 14.0
+spawn_position_relative = Vector2(0.68, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_6ar38"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 14.2
+spawn_position_relative = Vector2(0.8, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_nfqls"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 15.2
+spawn_position_relative = Vector2(0.65, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_hfx0k"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 15.4
+spawn_position_relative = Vector2(0.77, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_fnjji"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 20.0
+spawn_position_relative = Vector2(0.2, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_n3yh7"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 20.2
+spawn_position_relative = Vector2(0.32, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_cf1t2"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 21.2
+spawn_position_relative = Vector2(0.35, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_bd1ck"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 21.4
+spawn_position_relative = Vector2(0.23, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_lltv3"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 22.4
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_1ol2m"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 22.55
+spawn_position_relative = Vector2(0.35, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_am50m"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 22.55
+spawn_position_relative = Vector2(0.65, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_bv64k"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 26.0
+spawn_position_relative = Vector2(0.68, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_ypr2g"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 26.2
+spawn_position_relative = Vector2(0.8, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_7diqd"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 27.2
+spawn_position_relative = Vector2(0.65, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_qn643"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 27.4
+spawn_position_relative = Vector2(0.77, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_dh03d"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 28.4
+spawn_position_relative = Vector2(0.5, -0.45)
+pattern_override = ExtResource("13_pp3ik")
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_jl26n"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 28.55
+spawn_position_relative = Vector2(0.35, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_mg5x5"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 28.55
+spawn_position_relative = Vector2(0.65, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_l56wf"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 29.6
+spawn_position_relative = Vector2(0.35, -0.45)
+pattern_override = ExtResource("14_1ojur")
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_l0f7o"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 29.8
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_mgebh"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 32.0
+spawn_position_relative = Vector2(0.2, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_x2me1"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 32.2
+spawn_position_relative = Vector2(0.32, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_1ecp8"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 33.2
+spawn_position_relative = Vector2(0.35, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_k2ni6"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 33.4
+spawn_position_relative = Vector2(0.23, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_bxqa1"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 34.4
+spawn_position_relative = Vector2(0.5, -0.45)
+pattern_override = ExtResource("13_pp3ik")
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_r1ds5"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 34.55
+spawn_position_relative = Vector2(0.35, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_qdxck"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 34.55
+spawn_position_relative = Vector2(0.65, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_0121n"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("15_jyh6o")
+spawn_time = 35.0
+spawn_position_relative = Vector2(0.5, 0.056)
+
+[sub_resource type="Resource" id="Resource_6yumt"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 35.6
+spawn_position_relative = Vector2(0.65, -0.45)
+pattern_override = ExtResource("14_1ojur")
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_kswq2"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 35.8
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_ttw3f"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("16_roi62")
+spawn_time = 36.6
+spawn_position_relative = Vector2(0.4, -0.08)
+
+[sub_resource type="Resource" id="Resource_4veh8"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 38.0
+spawn_position_relative = Vector2(0.68, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_wukwy"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 38.2
+spawn_position_relative = Vector2(0.8, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_is4rr"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 39.2
+spawn_position_relative = Vector2(0.65, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_8mubj"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 39.4
+spawn_position_relative = Vector2(0.77, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_s8mby"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 40.4
+spawn_position_relative = Vector2(0.5, -0.45)
+pattern_override = ExtResource("13_pp3ik")
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_7hspb"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 40.55
+spawn_position_relative = Vector2(0.35, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_elbtg"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 40.55
+spawn_position_relative = Vector2(0.65, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_lb67p"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("18_paksg")
+spawn_time = 41.0
+spawn_position_relative = Vector2(-0.08, 0.25)
+data_override = ExtResource("17_itmp2")
+
+[sub_resource type="Resource" id="Resource_g8138"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 41.6
+spawn_position_relative = Vector2(0.35, -0.45)
+pattern_override = ExtResource("14_1ojur")
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_6vx3a"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 41.8
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_0bohv"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 44.0
+spawn_position_relative = Vector2(0.2, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_p6k7t"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 44.2
+spawn_position_relative = Vector2(0.32, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_lm1f5"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 44.4
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_5cb03"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 45.2
+spawn_position_relative = Vector2(0.35, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_4icwv"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 45.4
+spawn_position_relative = Vector2(0.23, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_yhisl"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("19_ph7c6")
+spawn_time = 46.0
+spawn_position_relative = Vector2(-0.08, 0.27)
+
+[sub_resource type="Resource" id="Resource_qvjv5"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 46.4
+spawn_position_relative = Vector2(0.5, -0.45)
+pattern_override = ExtResource("13_pp3ik")
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_ehdp0"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 46.55
+spawn_position_relative = Vector2(0.35, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_jxfcn"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 46.55
+spawn_position_relative = Vector2(0.65, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_n46rx"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 47.6
+spawn_position_relative = Vector2(0.65, -0.45)
+pattern_override = ExtResource("14_1ojur")
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_krpoc"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 47.8
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_8rmud"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("21_f4yxp")
+spawn_time = 48.0
+spawn_position_relative = Vector2(0.3, -0.1)
+data_override = ExtResource("20_iexgf")
+
+[sub_resource type="Resource" id="Resource_ilfit"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("16_roi62")
+spawn_time = 48.6
+spawn_position_relative = Vector2(0.6, -0.08)
+
+[sub_resource type="Resource" id="Resource_0b675"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 50.0
+spawn_position_relative = Vector2(0.68, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_jsd60"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 50.2
+spawn_position_relative = Vector2(0.8, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_d0sgk"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 50.4
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_ft8f7"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 51.2
+spawn_position_relative = Vector2(0.65, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_rkm8n"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 51.4
+spawn_position_relative = Vector2(0.77, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_r8he5"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 52.4
+spawn_position_relative = Vector2(0.5, -0.45)
+pattern_override = ExtResource("13_pp3ik")
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_mnxj7"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 52.55
+spawn_position_relative = Vector2(0.35, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_2g0s0"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 52.55
+spawn_position_relative = Vector2(0.65, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_djy7f"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("18_paksg")
+spawn_time = 53.0
+spawn_position_relative = Vector2(1.08, 0.55)
+data_override = ExtResource("17_itmp2")
+
+[sub_resource type="Resource" id="Resource_gakl3"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 53.6
+spawn_position_relative = Vector2(0.35, -0.45)
+pattern_override = ExtResource("14_1ojur")
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_abf15"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 53.8
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_opklc"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("23_jxbtx")
+spawn_time = 54.8
+spawn_position_relative = Vector2(0.8, -0.45)
+data_override = ExtResource("22_m8s23")
+
+[sub_resource type="Resource" id="Resource_5dy7i"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 56.0
+spawn_position_relative = Vector2(0.2, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_gvdet"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 56.2
+spawn_position_relative = Vector2(0.32, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_av2ud"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 56.4
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_ghe7e"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 57.2
+spawn_position_relative = Vector2(0.35, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_firio"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 57.4
+spawn_position_relative = Vector2(0.23, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_5fsif"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 58.4
+spawn_position_relative = Vector2(0.5, -0.45)
+pattern_override = ExtResource("13_pp3ik")
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_4jagv"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 58.55
+spawn_position_relative = Vector2(0.35, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_075mt"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 58.55
+spawn_position_relative = Vector2(0.65, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_7yejf"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 59.6
+spawn_position_relative = Vector2(0.65, -0.45)
+pattern_override = ExtResource("14_1ojur")
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_pabrp"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 59.8
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_vvjti"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("25_c3btw")
+spawn_time = 60.2
+spawn_position_relative = Vector2(0.3, 0.22)
+data_override = ExtResource("24_u7w0v")
+
+[sub_resource type="Resource" id="Resource_2o541"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("16_roi62")
+spawn_time = 60.6
+spawn_position_relative = Vector2(0.25, -0.08)
+
+[sub_resource type="Resource" id="Resource_v3wsg"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 62.0
+spawn_position_relative = Vector2(0.68, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_3swba"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("26_kchg7")
+spawn_time = 62.0
+spawn_position_relative = Vector2(0.3, -0.12)
+
+[sub_resource type="Resource" id="Resource_vfmrb"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 62.2
+spawn_position_relative = Vector2(0.8, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_wlnev"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 62.4
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_q5wbq"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 63.2
+spawn_position_relative = Vector2(0.65, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_p5h1x"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 63.4
+spawn_position_relative = Vector2(0.77, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_t1e76"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("19_ph7c6")
+spawn_time = 64.0
+spawn_position_relative = Vector2(1.08, 0.22)
+
+[sub_resource type="Resource" id="Resource_v7kna"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 64.4
+spawn_position_relative = Vector2(0.5, -0.45)
+pattern_override = ExtResource("13_pp3ik")
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_7fo1c"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 64.55
+spawn_position_relative = Vector2(0.35, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_5fwnd"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 64.55
+spawn_position_relative = Vector2(0.65, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_bsarb"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("18_paksg")
+spawn_time = 65.0
+spawn_position_relative = Vector2(-0.08, 0.45)
+data_override = ExtResource("17_itmp2")
+
+[sub_resource type="Resource" id="Resource_4svqd"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 65.6
+spawn_position_relative = Vector2(0.35, -0.45)
+pattern_override = ExtResource("14_1ojur")
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_r3ltr"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 65.8
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_t4hgw"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 68.0
+spawn_position_relative = Vector2(0.2, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_vv1xu"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 68.2
+spawn_position_relative = Vector2(0.32, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_8a3fx"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 68.4
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_ramyr"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 69.2
+spawn_position_relative = Vector2(0.35, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_t7w7x"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 69.4
+spawn_position_relative = Vector2(0.23, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_ml8gi"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 70.4
+spawn_position_relative = Vector2(0.5, -0.45)
+pattern_override = ExtResource("13_pp3ik")
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_b8oat"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 70.55
+spawn_position_relative = Vector2(0.35, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_30l7s"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 70.55
+spawn_position_relative = Vector2(0.65, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_d0hwq"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 71.6
+spawn_position_relative = Vector2(0.65, -0.45)
+pattern_override = ExtResource("14_1ojur")
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_67ba1"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 71.8
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_scdgc"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("25_c3btw")
+spawn_time = 72.2
+spawn_position_relative = Vector2(0.7, 0.3)
+data_override = ExtResource("24_u7w0v")
+
+[sub_resource type="Resource" id="Resource_li8cf"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("16_roi62")
+spawn_time = 72.6
+spawn_position_relative = Vector2(0.75, -0.08)
+
+[sub_resource type="Resource" id="Resource_la43c"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("23_jxbtx")
+spawn_time = 72.8
+spawn_position_relative = Vector2(0.2, -0.45)
+data_override = ExtResource("22_m8s23")
+
+[sub_resource type="Resource" id="Resource_rdpvc"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 74.0
+spawn_position_relative = Vector2(0.68, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_vtl8t"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 74.2
+spawn_position_relative = Vector2(0.8, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_f2cqk"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 74.4
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_jyova"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 75.2
+spawn_position_relative = Vector2(0.65, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_8ei78"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 75.4
+spawn_position_relative = Vector2(0.77, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_40os2"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 76.4
+spawn_position_relative = Vector2(0.5, -0.45)
+pattern_override = ExtResource("13_pp3ik")
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_mvfl7"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 76.55
+spawn_position_relative = Vector2(0.35, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_hg7dx"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 76.55
+spawn_position_relative = Vector2(0.65, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_ini0t"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("18_paksg")
+spawn_time = 77.0
+spawn_position_relative = Vector2(1.08, 0.4)
+data_override = ExtResource("17_itmp2")
+
+[sub_resource type="Resource" id="Resource_jfx72"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 77.6
+spawn_position_relative = Vector2(0.35, -0.45)
+pattern_override = ExtResource("14_1ojur")
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_4t5u5"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 77.8
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_idkko"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 80.0
+spawn_position_relative = Vector2(0.2, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_mdckf"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 80.2
+spawn_position_relative = Vector2(0.32, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_7f2p7"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 80.4
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_vo0jn"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 81.2
+spawn_position_relative = Vector2(0.35, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_b5jwm"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 81.4
+spawn_position_relative = Vector2(0.23, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_pcx7d"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("19_ph7c6")
+spawn_time = 82.0
+spawn_position_relative = Vector2(-0.08, 0.32)
+
+[sub_resource type="Resource" id="Resource_lowon"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 82.4
+spawn_position_relative = Vector2(0.5, -0.45)
+pattern_override = ExtResource("13_pp3ik")
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_1gfvp"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 82.55
+spawn_position_relative = Vector2(0.35, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_r1aif"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 82.55
+spawn_position_relative = Vector2(0.65, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_tbkmu"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 83.6
+spawn_position_relative = Vector2(0.65, -0.45)
+pattern_override = ExtResource("14_1ojur")
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_0odk8"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 83.8
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_803sr"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("21_f4yxp")
+spawn_time = 84.0
+spawn_position_relative = Vector2(0.7, -0.1)
+data_override = ExtResource("20_iexgf")
+
+[sub_resource type="Resource" id="Resource_fghwy"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("25_c3btw")
+spawn_time = 84.2
+spawn_position_relative = Vector2(0.45, 0.26)
+data_override = ExtResource("24_u7w0v")
+
+[sub_resource type="Resource" id="Resource_fvow7"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("16_roi62")
+spawn_time = 84.6
+spawn_position_relative = Vector2(0.4, -0.08)
+
+[sub_resource type="Resource" id="Resource_bqsax"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 86.0
+spawn_position_relative = Vector2(0.68, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_h7es5"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 86.2
+spawn_position_relative = Vector2(0.8, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_xh20c"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 86.4
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_jpg13"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 87.2
+spawn_position_relative = Vector2(0.65, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_xkqi3"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 87.4
+spawn_position_relative = Vector2(0.77, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_xl64l"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 88.4
+spawn_position_relative = Vector2(0.5, -0.45)
+pattern_override = ExtResource("13_pp3ik")
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_773sn"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 88.55
+spawn_position_relative = Vector2(0.35, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_26ega"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 88.55
+spawn_position_relative = Vector2(0.65, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_qke14"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("18_paksg")
+spawn_time = 89.0
+spawn_position_relative = Vector2(-0.08, 0.3)
+data_override = ExtResource("17_itmp2")
+
+[sub_resource type="Resource" id="Resource_m34vr"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 89.6
+spawn_position_relative = Vector2(0.35, -0.45)
+pattern_override = ExtResource("14_1ojur")
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_jix23"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 89.8
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_hqs7o"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("23_jxbtx")
+spawn_time = 90.8
+spawn_position_relative = Vector2(0.8, -0.45)
+data_override = ExtResource("22_m8s23")
+
+[sub_resource type="Resource" id="Resource_tutu0"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 92.0
+spawn_position_relative = Vector2(0.2, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_tt2be"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 92.2
+spawn_position_relative = Vector2(0.32, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_u5u61"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 92.4
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_eqalg"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 93.2
+spawn_position_relative = Vector2(0.35, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_42haf"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 93.4
+spawn_position_relative = Vector2(0.23, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_f4rnr"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 94.4
+spawn_position_relative = Vector2(0.5, -0.45)
+pattern_override = ExtResource("13_pp3ik")
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_hxfye"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 94.55
+spawn_position_relative = Vector2(0.35, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_6ghyb"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 94.55
+spawn_position_relative = Vector2(0.65, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_71rh0"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 95.6
+spawn_position_relative = Vector2(0.65, -0.45)
+pattern_override = ExtResource("14_1ojur")
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_3y8yp"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 95.8
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_snnu2"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("26_kchg7")
+spawn_time = 96.0
+spawn_position_relative = Vector2(0.7, -0.12)
+
+[sub_resource type="Resource" id="Resource_vxjym"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("25_c3btw")
+spawn_time = 96.2
+spawn_position_relative = Vector2(0.55, 0.34)
+data_override = ExtResource("24_u7w0v")
+
+[sub_resource type="Resource" id="Resource_ll8dq"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("16_roi62")
+spawn_time = 96.6
+spawn_position_relative = Vector2(0.6, -0.08)
+
+[sub_resource type="Resource" id="Resource_ygojh"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 98.0
+spawn_position_relative = Vector2(0.68, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_j5vml"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 98.2
+spawn_position_relative = Vector2(0.8, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_t2lfe"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 98.4
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_u8yb8"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 99.2
+spawn_position_relative = Vector2(0.65, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_52a06"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 99.4
+spawn_position_relative = Vector2(0.77, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_dybgd"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("19_ph7c6")
+spawn_time = 100.0
+spawn_position_relative = Vector2(1.08, 0.27)
+
+[sub_resource type="Resource" id="Resource_1xven"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("27_sas06")
+spawn_time = 100.0
+spawn_position_relative = Vector2(0.5, 0.056)
+
+[sub_resource type="Resource" id="Resource_8dod5"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 100.4
+spawn_position_relative = Vector2(0.5, -0.45)
+pattern_override = ExtResource("13_pp3ik")
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_677v4"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 100.55
+spawn_position_relative = Vector2(0.35, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_dnewg"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 100.55
+spawn_position_relative = Vector2(0.65, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_3s40n"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("18_paksg")
+spawn_time = 101.0
+spawn_position_relative = Vector2(1.08, 0.25)
+data_override = ExtResource("17_itmp2")
+
+[sub_resource type="Resource" id="Resource_54nsi"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 101.6
+spawn_position_relative = Vector2(0.35, -0.45)
+pattern_override = ExtResource("14_1ojur")
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_nuvny"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 101.8
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_k0q88"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 104.0
+spawn_position_relative = Vector2(0.2, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_nr022"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 104.2
+spawn_position_relative = Vector2(0.32, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_6ivm2"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 104.4
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_ql4mm"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 105.2
+spawn_position_relative = Vector2(0.35, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_cli6p"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 105.4
+spawn_position_relative = Vector2(0.23, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_ubxbs"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 106.4
+spawn_position_relative = Vector2(0.5, -0.45)
+pattern_override = ExtResource("13_pp3ik")
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_tib7d"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 106.55
+spawn_position_relative = Vector2(0.35, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_o0m1d"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 106.55
+spawn_position_relative = Vector2(0.65, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_anles"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 107.6
+spawn_position_relative = Vector2(0.65, -0.45)
+pattern_override = ExtResource("14_1ojur")
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_uqj17"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 107.8
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_yx5ow"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("25_c3btw")
+spawn_time = 108.2
+spawn_position_relative = Vector2(0.3, 0.22)
+data_override = ExtResource("24_u7w0v")
+
+[sub_resource type="Resource" id="Resource_tbna0"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("16_roi62")
+spawn_time = 108.6
+spawn_position_relative = Vector2(0.25, -0.08)
+
+[sub_resource type="Resource" id="Resource_7rk8c"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("23_jxbtx")
+spawn_time = 108.8
+spawn_position_relative = Vector2(0.2, -0.45)
+data_override = ExtResource("22_m8s23")
+
+[sub_resource type="Resource" id="Resource_56e1g"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 110.0
+spawn_position_relative = Vector2(0.68, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_chb6y"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 110.2
+spawn_position_relative = Vector2(0.8, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_meu8w"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 110.4
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_je83q"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 111.2
+spawn_position_relative = Vector2(0.65, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_grjmw"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 111.4
+spawn_position_relative = Vector2(0.77, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_p8usr"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 112.4
+spawn_position_relative = Vector2(0.5, -0.45)
+pattern_override = ExtResource("13_pp3ik")
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_lpita"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 112.55
+spawn_position_relative = Vector2(0.35, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_uuvno"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 112.55
+spawn_position_relative = Vector2(0.65, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_ufw32"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("18_paksg")
+spawn_time = 113.0
+spawn_position_relative = Vector2(-0.08, 0.55)
+data_override = ExtResource("17_itmp2")
+
+[sub_resource type="Resource" id="Resource_06l4p"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 113.6
+spawn_position_relative = Vector2(0.35, -0.45)
+pattern_override = ExtResource("14_1ojur")
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_ua0ao"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 113.8
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_capqy"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 116.0
+spawn_position_relative = Vector2(0.2, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_8jhfg"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 116.2
+spawn_position_relative = Vector2(0.32, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_8wu4w"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 116.4
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_vwhcp"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 117.2
+spawn_position_relative = Vector2(0.35, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_u36fy"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 117.4
+spawn_position_relative = Vector2(0.23, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_dem0u"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("19_ph7c6")
+spawn_time = 118.0
+spawn_position_relative = Vector2(-0.08, 0.22)
+
+[sub_resource type="Resource" id="Resource_a6xwm"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 118.4
+spawn_position_relative = Vector2(0.5, -0.45)
+pattern_override = ExtResource("13_pp3ik")
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_i1kc6"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 118.55
+spawn_position_relative = Vector2(0.35, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_hr3li"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 118.55
+spawn_position_relative = Vector2(0.65, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_c4s5t"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 119.6
+spawn_position_relative = Vector2(0.65, -0.45)
+pattern_override = ExtResource("14_1ojur")
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_m3lkb"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 119.8
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_mbbp8"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("15_jyh6o")
+spawn_time = 120.0
+spawn_position_relative = Vector2(0.5, 0.056)
+
+[sub_resource type="Resource" id="Resource_hj6dx"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("25_c3btw")
+spawn_time = 120.2
+spawn_position_relative = Vector2(0.7, 0.3)
+data_override = ExtResource("24_u7w0v")
+
+[sub_resource type="Resource" id="Resource_sj6d1"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("16_roi62")
+spawn_time = 120.6
+spawn_position_relative = Vector2(0.75, -0.08)
+
+[sub_resource type="Resource" id="Resource_p72ur"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 122.0
+spawn_position_relative = Vector2(0.68, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_kblw4"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 122.2
+spawn_position_relative = Vector2(0.8, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_lwpo3"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 122.4
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_2xana"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 123.2
+spawn_position_relative = Vector2(0.65, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_n8pi7"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 123.4
+spawn_position_relative = Vector2(0.77, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_jlt8u"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 124.4
+spawn_position_relative = Vector2(0.5, -0.45)
+pattern_override = ExtResource("13_pp3ik")
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_lgbsq"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 124.55
+spawn_position_relative = Vector2(0.35, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_eywhr"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 124.55
+spawn_position_relative = Vector2(0.65, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_60klx"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("18_paksg")
+spawn_time = 125.0
+spawn_position_relative = Vector2(1.08, 0.45)
+data_override = ExtResource("17_itmp2")
+
+[sub_resource type="Resource" id="Resource_jo4vm"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 125.6
+spawn_position_relative = Vector2(0.35, -0.45)
+pattern_override = ExtResource("14_1ojur")
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_n4bub"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 125.8
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_yggwi"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("23_jxbtx")
+spawn_time = 126.8
+spawn_position_relative = Vector2(0.8, -0.45)
+data_override = ExtResource("22_m8s23")
+
+[sub_resource type="Resource" id="Resource_dqrmj"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("28_s7684")
+spawn_time = 128.0
+spawn_position_relative = Vector2(0.5, -0.167)
+
+[sub_resource type="Resource" id="Resource_wwmya"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 129.2
+spawn_position_relative = Vector2(0.35, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_rdfit"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 129.4
+spawn_position_relative = Vector2(0.23, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_k3b1i"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 131.6
+spawn_position_relative = Vector2(0.65, -0.45)
+pattern_override = ExtResource("14_1ojur")
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_cp34b"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 131.8
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_n6t2f"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 135.2
+spawn_position_relative = Vector2(0.65, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_aim5m"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 135.4
+spawn_position_relative = Vector2(0.77, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_mx2rq"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 137.6
+spawn_position_relative = Vector2(0.35, -0.45)
+pattern_override = ExtResource("14_1ojur")
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_e7u2l"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 137.8
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_cqpv7"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 141.2
+spawn_position_relative = Vector2(0.35, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_yse1g"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 141.4
+spawn_position_relative = Vector2(0.23, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_2y767"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 143.6
+spawn_position_relative = Vector2(0.65, -0.45)
+pattern_override = ExtResource("14_1ojur")
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_rupgq"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 143.8
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_cldvi"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 147.2
+spawn_position_relative = Vector2(0.65, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_7xrjy"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 147.4
+spawn_position_relative = Vector2(0.77, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_31t2y"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 149.6
+spawn_position_relative = Vector2(0.35, -0.45)
+pattern_override = ExtResource("14_1ojur")
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_7lxm3"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 149.8
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_xpogj"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 152.0
+spawn_position_relative = Vector2(0.2, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_ks1xy"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 152.2
+spawn_position_relative = Vector2(0.32, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_0lmdx"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 152.4
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_yd617"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 153.2
+spawn_position_relative = Vector2(0.35, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_8kxgw"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 153.4
+spawn_position_relative = Vector2(0.23, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_3g0ei"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("19_ph7c6")
+spawn_time = 154.0
+spawn_position_relative = Vector2(-0.08, 0.27)
+
+[sub_resource type="Resource" id="Resource_fn32l"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 154.4
+spawn_position_relative = Vector2(0.5, -0.45)
+pattern_override = ExtResource("13_pp3ik")
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_3qr0n"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 154.55
+spawn_position_relative = Vector2(0.35, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_ardw6"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 154.55
+spawn_position_relative = Vector2(0.65, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_gn2gl"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 155.6
+spawn_position_relative = Vector2(0.65, -0.45)
+pattern_override = ExtResource("14_1ojur")
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_05vvw"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 155.8
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_o2kht"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("25_c3btw")
+spawn_time = 156.2
+spawn_position_relative = Vector2(0.3, 0.22)
+data_override = ExtResource("24_u7w0v")
+
+[sub_resource type="Resource" id="Resource_ie3ov"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("16_roi62")
+spawn_time = 156.6
+spawn_position_relative = Vector2(0.25, -0.08)
+
+[sub_resource type="Resource" id="Resource_ge4g0"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 158.0
+spawn_position_relative = Vector2(0.68, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_xrmgd"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 158.2
+spawn_position_relative = Vector2(0.8, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_o85r4"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 158.4
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_r63ov"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 159.2
+spawn_position_relative = Vector2(0.65, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_th1p4"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 159.4
+spawn_position_relative = Vector2(0.77, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_0q5na"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("29_ut78e")
+spawn_time = 160.0
+spawn_position_relative = Vector2(0.5, 0.056)
+
+[sub_resource type="Resource" id="Resource_lex1v"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 160.4
+spawn_position_relative = Vector2(0.5, -0.45)
+pattern_override = ExtResource("13_pp3ik")
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_dw3co"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 160.55
+spawn_position_relative = Vector2(0.35, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_8g3tw"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 160.55
+spawn_position_relative = Vector2(0.65, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_qsnkp"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("18_paksg")
+spawn_time = 161.0
+spawn_position_relative = Vector2(-0.08, 0.25)
+data_override = ExtResource("17_itmp2")
+
+[sub_resource type="Resource" id="Resource_gfs76"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 161.6
+spawn_position_relative = Vector2(0.35, -0.45)
+pattern_override = ExtResource("14_1ojur")
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_3bhop"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 161.8
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_tbaje"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("23_jxbtx")
+spawn_time = 162.8
+spawn_position_relative = Vector2(0.8, -0.45)
+data_override = ExtResource("22_m8s23")
+
+[sub_resource type="Resource" id="Resource_30u8d"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("18_paksg")
+spawn_time = 163.0
+spawn_position_relative = Vector2(0.3, 1.1)
+data_override = ExtResource("17_itmp2")
+
+[sub_resource type="Resource" id="Resource_g0p5j"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 164.0
+spawn_position_relative = Vector2(0.2, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_rjoqv"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 164.2
+spawn_position_relative = Vector2(0.32, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_t0hmo"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 164.4
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_2xxrf"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 165.2
+spawn_position_relative = Vector2(0.35, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_aw5dj"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 165.4
+spawn_position_relative = Vector2(0.23, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_6ucxl"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("26_kchg7")
+spawn_time = 166.0
+spawn_position_relative = Vector2(0.3, -0.12)
+
+[sub_resource type="Resource" id="Resource_o1lxe"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 166.4
+spawn_position_relative = Vector2(0.5, -0.45)
+pattern_override = ExtResource("13_pp3ik")
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_8p1pd"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 166.55
+spawn_position_relative = Vector2(0.35, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_e3leg"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 166.55
+spawn_position_relative = Vector2(0.65, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_77brc"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 167.6
+spawn_position_relative = Vector2(0.65, -0.45)
+pattern_override = ExtResource("14_1ojur")
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_xhxmo"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 167.8
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_4a1ic"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("25_c3btw")
+spawn_time = 168.2
+spawn_position_relative = Vector2(0.7, 0.3)
+data_override = ExtResource("24_u7w0v")
+
+[sub_resource type="Resource" id="Resource_d4cep"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("16_roi62")
+spawn_time = 168.6
+spawn_position_relative = Vector2(0.75, -0.08)
+
+[sub_resource type="Resource" id="Resource_1dqhj"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 170.0
+spawn_position_relative = Vector2(0.68, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_ut34l"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 170.2
+spawn_position_relative = Vector2(0.8, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_rvxfq"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 170.4
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_wmdr3"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 171.2
+spawn_position_relative = Vector2(0.65, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_2x0sp"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 171.4
+spawn_position_relative = Vector2(0.77, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_4vifw"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("19_ph7c6")
+spawn_time = 172.0
+spawn_position_relative = Vector2(1.08, 0.22)
+
+[sub_resource type="Resource" id="Resource_ua137"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 172.4
+spawn_position_relative = Vector2(0.5, -0.45)
+pattern_override = ExtResource("13_pp3ik")
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_8nxsj"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 172.55
+spawn_position_relative = Vector2(0.35, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_wcsa1"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 172.55
+spawn_position_relative = Vector2(0.65, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_mwvel"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("18_paksg")
+spawn_time = 173.0
+spawn_position_relative = Vector2(1.08, 0.55)
+data_override = ExtResource("17_itmp2")
+
+[sub_resource type="Resource" id="Resource_ew2u5"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 173.6
+spawn_position_relative = Vector2(0.35, -0.45)
+pattern_override = ExtResource("14_1ojur")
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_7dj2a"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 173.8
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_h53rd"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 176.0
+spawn_position_relative = Vector2(0.2, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_2073o"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("21_f4yxp")
+spawn_time = 176.0
+spawn_position_relative = Vector2(0.5, -0.1)
+data_override = ExtResource("20_iexgf")
+
+[sub_resource type="Resource" id="Resource_qree8"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 176.2
+spawn_position_relative = Vector2(0.32, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_cja7v"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 176.4
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_6cqee"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 177.2
+spawn_position_relative = Vector2(0.35, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_f5iur"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 177.4
+spawn_position_relative = Vector2(0.23, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_uitg7"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 178.4
+spawn_position_relative = Vector2(0.5, -0.45)
+pattern_override = ExtResource("13_pp3ik")
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_ptr5b"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 178.55
+spawn_position_relative = Vector2(0.35, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_d3eki"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 178.55
+spawn_position_relative = Vector2(0.65, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_m2742"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 179.6
+spawn_position_relative = Vector2(0.65, -0.45)
+pattern_override = ExtResource("14_1ojur")
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_8x3p1"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 179.8
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_dwtjr"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("25_c3btw")
+spawn_time = 180.2
+spawn_position_relative = Vector2(0.45, 0.26)
+data_override = ExtResource("24_u7w0v")
+
+[sub_resource type="Resource" id="Resource_ewguk"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("16_roi62")
+spawn_time = 180.6
+spawn_position_relative = Vector2(0.4, -0.08)
+
+[sub_resource type="Resource" id="Resource_ylpdv"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("23_jxbtx")
+spawn_time = 180.8
+spawn_position_relative = Vector2(0.2, -0.45)
+data_override = ExtResource("22_m8s23")
+
+[sub_resource type="Resource" id="Resource_5twwf"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 182.0
+spawn_position_relative = Vector2(0.68, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_2b65t"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 182.2
+spawn_position_relative = Vector2(0.8, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_16lbf"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 182.4
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_lj1qc"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 183.2
+spawn_position_relative = Vector2(0.65, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_2emq4"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 183.4
+spawn_position_relative = Vector2(0.77, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_wpqic"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 184.4
+spawn_position_relative = Vector2(0.5, -0.45)
+pattern_override = ExtResource("13_pp3ik")
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_n0ypb"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 184.55
+spawn_position_relative = Vector2(0.35, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_tqc0h"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 184.55
+spawn_position_relative = Vector2(0.65, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_g3r1v"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("18_paksg")
+spawn_time = 185.0
+spawn_position_relative = Vector2(-0.08, 0.45)
+data_override = ExtResource("17_itmp2")
+
+[sub_resource type="Resource" id="Resource_ucc5y"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 185.6
+spawn_position_relative = Vector2(0.35, -0.45)
+pattern_override = ExtResource("14_1ojur")
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_1fex0"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 185.8
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_3sixh"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("18_paksg")
+spawn_time = 187.0
+spawn_position_relative = Vector2(0.7, 1.1)
+data_override = ExtResource("17_itmp2")
+
+[sub_resource type="Resource" id="Resource_pnr18"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 188.0
+spawn_position_relative = Vector2(0.2, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_u7bp6"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 188.2
+spawn_position_relative = Vector2(0.32, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_16kqm"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 188.4
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_bfhld"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 189.2
+spawn_position_relative = Vector2(0.35, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_tgqxr"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 189.4
+spawn_position_relative = Vector2(0.23, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_ckckw"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("19_ph7c6")
+spawn_time = 190.0
+spawn_position_relative = Vector2(-0.08, 0.32)
+
+[sub_resource type="Resource" id="Resource_37aay"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("26_kchg7")
+spawn_time = 190.0
+spawn_position_relative = Vector2(0.7, -0.12)
+
+[sub_resource type="Resource" id="Resource_rftjp"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 190.4
+spawn_position_relative = Vector2(0.5, -0.45)
+pattern_override = ExtResource("13_pp3ik")
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_4gacu"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 190.55
+spawn_position_relative = Vector2(0.35, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_2w7mw"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 190.55
+spawn_position_relative = Vector2(0.65, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_g3t12"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 191.6
+spawn_position_relative = Vector2(0.65, -0.45)
+pattern_override = ExtResource("14_1ojur")
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_oflg5"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 191.8
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_haosv"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("25_c3btw")
+spawn_time = 192.2
+spawn_position_relative = Vector2(0.55, 0.34)
+data_override = ExtResource("24_u7w0v")
+
+[sub_resource type="Resource" id="Resource_vn3pr"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("16_roi62")
+spawn_time = 192.6
+spawn_position_relative = Vector2(0.6, -0.08)
+
+[sub_resource type="Resource" id="Resource_70pq1"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 194.0
+spawn_position_relative = Vector2(0.68, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_vj43q"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 194.2
+spawn_position_relative = Vector2(0.8, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_bvg6l"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 194.4
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_jo3b2"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 195.2
+spawn_position_relative = Vector2(0.65, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_h3be3"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 195.4
+spawn_position_relative = Vector2(0.77, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_x4otf"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("27_sas06")
+spawn_time = 196.0
+spawn_position_relative = Vector2(0.5, 0.056)
+
+[sub_resource type="Resource" id="Resource_iivc5"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 196.4
+spawn_position_relative = Vector2(0.5, -0.45)
+pattern_override = ExtResource("13_pp3ik")
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_oj8oj"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 196.55
+spawn_position_relative = Vector2(0.35, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_ae2vt"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 196.55
+spawn_position_relative = Vector2(0.65, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_3qq83"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("18_paksg")
+spawn_time = 197.0
+spawn_position_relative = Vector2(1.08, 0.4)
+data_override = ExtResource("17_itmp2")
+
+[sub_resource type="Resource" id="Resource_w6yxh"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 197.6
+spawn_position_relative = Vector2(0.35, -0.45)
+pattern_override = ExtResource("14_1ojur")
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_x7fk2"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 197.8
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_n0xcg"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("23_jxbtx")
+spawn_time = 198.8
+spawn_position_relative = Vector2(0.8, -0.45)
+data_override = ExtResource("22_m8s23")
+
+[sub_resource type="Resource" id="Resource_rkg66"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 200.0
+spawn_position_relative = Vector2(0.2, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_hf5ux"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 200.2
+spawn_position_relative = Vector2(0.32, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_7tst6"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 200.4
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_dfeb0"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 201.2
+spawn_position_relative = Vector2(0.35, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_5kakd"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 201.4
+spawn_position_relative = Vector2(0.23, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_mw7mn"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("21_f4yxp")
+spawn_time = 202.0
+spawn_position_relative = Vector2(0.3, -0.1)
+data_override = ExtResource("20_iexgf")
+
+[sub_resource type="Resource" id="Resource_765ll"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 202.4
+spawn_position_relative = Vector2(0.5, -0.45)
+pattern_override = ExtResource("13_pp3ik")
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_irfcy"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 202.55
+spawn_position_relative = Vector2(0.35, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_f2oe8"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 202.55
+spawn_position_relative = Vector2(0.65, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_8d1sy"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 203.6
+spawn_position_relative = Vector2(0.65, -0.45)
+pattern_override = ExtResource("14_1ojur")
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_befn2"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 203.8
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_8p6pq"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("25_c3btw")
+spawn_time = 204.2
+spawn_position_relative = Vector2(0.3, 0.22)
+data_override = ExtResource("24_u7w0v")
+
+[sub_resource type="Resource" id="Resource_rubne"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("16_roi62")
+spawn_time = 204.6
+spawn_position_relative = Vector2(0.25, -0.08)
+
+[sub_resource type="Resource" id="Resource_c65nr"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 206.0
+spawn_position_relative = Vector2(0.68, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_357tf"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 206.2
+spawn_position_relative = Vector2(0.8, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_jkvk1"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 206.4
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_md2hn"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 207.2
+spawn_position_relative = Vector2(0.65, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_oigfw"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 207.4
+spawn_position_relative = Vector2(0.77, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_u1hpd"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("19_ph7c6")
+spawn_time = 208.0
+spawn_position_relative = Vector2(1.08, 0.27)
+
+[sub_resource type="Resource" id="Resource_4nvbq"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 208.4
+spawn_position_relative = Vector2(0.5, -0.45)
+pattern_override = ExtResource("13_pp3ik")
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_mjhir"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 208.55
+spawn_position_relative = Vector2(0.35, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_rjvhi"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 208.55
+spawn_position_relative = Vector2(0.65, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_55p1p"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("18_paksg")
+spawn_time = 209.0
+spawn_position_relative = Vector2(-0.08, 0.3)
+data_override = ExtResource("17_itmp2")
+
+[sub_resource type="Resource" id="Resource_6o44a"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 209.6
+spawn_position_relative = Vector2(0.35, -0.45)
+pattern_override = ExtResource("14_1ojur")
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_4wcgv"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 209.8
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_5td3k"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("18_paksg")
+spawn_time = 211.0
+spawn_position_relative = Vector2(0.3, 1.1)
+data_override = ExtResource("17_itmp2")
+
+[sub_resource type="Resource" id="Resource_ecegx"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 212.0
+spawn_position_relative = Vector2(0.2, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_svoab"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 212.2
+spawn_position_relative = Vector2(0.32, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_m08it"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 212.4
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_65llr"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 213.2
+spawn_position_relative = Vector2(0.35, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_0jk4c"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 213.4
+spawn_position_relative = Vector2(0.23, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_783gt"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("26_kchg7")
+spawn_time = 214.0
+spawn_position_relative = Vector2(0.4, -0.12)
+
+[sub_resource type="Resource" id="Resource_i1n1w"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 214.4
+spawn_position_relative = Vector2(0.5, -0.45)
+pattern_override = ExtResource("13_pp3ik")
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_7xlno"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 214.55
+spawn_position_relative = Vector2(0.35, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_yf10a"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 214.55
+spawn_position_relative = Vector2(0.65, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_6ag5q"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 215.6
+spawn_position_relative = Vector2(0.65, -0.45)
+pattern_override = ExtResource("14_1ojur")
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_il8eq"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 215.8
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_l6set"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("25_c3btw")
+spawn_time = 216.2
+spawn_position_relative = Vector2(0.7, 0.3)
+data_override = ExtResource("24_u7w0v")
+
+[sub_resource type="Resource" id="Resource_xkq7x"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("16_roi62")
+spawn_time = 216.6
+spawn_position_relative = Vector2(0.75, -0.08)
+
+[sub_resource type="Resource" id="Resource_pnoe7"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("23_jxbtx")
+spawn_time = 216.8
+spawn_position_relative = Vector2(0.2, -0.45)
+data_override = ExtResource("22_m8s23")
+
+[sub_resource type="Resource" id="Resource_4a1y6"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 218.0
+spawn_position_relative = Vector2(0.68, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_d1sak"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 218.2
+spawn_position_relative = Vector2(0.8, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_fpup0"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 218.4
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_p6msu"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 219.2
+spawn_position_relative = Vector2(0.65, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_yqrtd"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 219.4
+spawn_position_relative = Vector2(0.77, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_w6rst"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 220.4
+spawn_position_relative = Vector2(0.5, -0.45)
+pattern_override = ExtResource("13_pp3ik")
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_7tycr"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 220.55
+spawn_position_relative = Vector2(0.35, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_hph57"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 220.55
+spawn_position_relative = Vector2(0.65, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_bigvb"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("18_paksg")
+spawn_time = 221.0
+spawn_position_relative = Vector2(1.08, 0.25)
+data_override = ExtResource("17_itmp2")
+
+[sub_resource type="Resource" id="Resource_fj7fc"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 221.6
+spawn_position_relative = Vector2(0.35, -0.45)
+pattern_override = ExtResource("14_1ojur")
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_vhqxw"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 221.8
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_hlwhn"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 224.0
+spawn_position_relative = Vector2(0.2, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_rnvqd"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 224.2
+spawn_position_relative = Vector2(0.32, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_syp3p"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 224.4
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_adcn7"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 225.2
+spawn_position_relative = Vector2(0.35, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_5jlaj"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 225.4
+spawn_position_relative = Vector2(0.23, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_dhg5u"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("19_ph7c6")
+spawn_time = 226.0
+spawn_position_relative = Vector2(-0.08, 0.22)
+
+[sub_resource type="Resource" id="Resource_jhuve"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("21_f4yxp")
+spawn_time = 226.0
+spawn_position_relative = Vector2(0.7, -0.1)
+data_override = ExtResource("20_iexgf")
+
+[sub_resource type="Resource" id="Resource_r47gb"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 226.4
+spawn_position_relative = Vector2(0.5, -0.45)
+pattern_override = ExtResource("13_pp3ik")
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_jwu0s"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 226.55
+spawn_position_relative = Vector2(0.35, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_ouj8s"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 226.55
+spawn_position_relative = Vector2(0.65, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_gnmv3"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 227.6
+spawn_position_relative = Vector2(0.65, -0.45)
+pattern_override = ExtResource("14_1ojur")
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_wdpya"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 227.8
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_qxq5g"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("25_c3btw")
+spawn_time = 228.2
+spawn_position_relative = Vector2(0.45, 0.26)
+data_override = ExtResource("24_u7w0v")
+
+[sub_resource type="Resource" id="Resource_qo7ml"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("16_roi62")
+spawn_time = 228.6
+spawn_position_relative = Vector2(0.4, -0.08)
+
+[sub_resource type="Resource" id="Resource_k3mg8"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 230.0
+spawn_position_relative = Vector2(0.68, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_pwthm"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 230.2
+spawn_position_relative = Vector2(0.8, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_xxeo5"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 230.4
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_idlm6"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 231.2
+spawn_position_relative = Vector2(0.65, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_5xq6a"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 231.4
+spawn_position_relative = Vector2(0.77, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_efem4"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 232.4
+spawn_position_relative = Vector2(0.5, -0.45)
+pattern_override = ExtResource("13_pp3ik")
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_ye6ah"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 232.55
+spawn_position_relative = Vector2(0.35, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_hy5n3"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 232.55
+spawn_position_relative = Vector2(0.65, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_lme6f"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("18_paksg")
+spawn_time = 233.0
+spawn_position_relative = Vector2(-0.08, 0.55)
+data_override = ExtResource("17_itmp2")
+
+[sub_resource type="Resource" id="Resource_a7kep"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 233.6
+spawn_position_relative = Vector2(0.35, -0.45)
+pattern_override = ExtResource("14_1ojur")
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_282es"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 233.8
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_ss7qx"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("23_jxbtx")
+spawn_time = 234.8
+spawn_position_relative = Vector2(0.8, -0.45)
+data_override = ExtResource("22_m8s23")
+
+[sub_resource type="Resource" id="Resource_vc687"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("18_paksg")
+spawn_time = 235.0
+spawn_position_relative = Vector2(0.7, 1.1)
+data_override = ExtResource("17_itmp2")
+
+[sub_resource type="Resource" id="Resource_eqwav"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 236.0
+spawn_position_relative = Vector2(0.2, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_eel4j"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("26_kchg7")
+spawn_time = 236.0
+spawn_position_relative = Vector2(0.6, -0.12)
+
+[sub_resource type="Resource" id="Resource_6opg3"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 236.2
+spawn_position_relative = Vector2(0.32, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_nmpg6"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 236.4
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_d1qnf"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 237.2
+spawn_position_relative = Vector2(0.35, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_7h44r"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 237.4
+spawn_position_relative = Vector2(0.23, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_cqbpo"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 238.4
+spawn_position_relative = Vector2(0.5, -0.45)
+pattern_override = ExtResource("13_pp3ik")
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_05yu7"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 238.55
+spawn_position_relative = Vector2(0.35, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_w6qps"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 238.55
+spawn_position_relative = Vector2(0.65, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_oj1wp"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 239.6
+spawn_position_relative = Vector2(0.65, -0.45)
+pattern_override = ExtResource("14_1ojur")
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_4rlnm"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 239.8
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_j2t3f"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("15_jyh6o")
+spawn_time = 240.0
+spawn_position_relative = Vector2(0.5, 0.056)
+
+[sub_resource type="Resource" id="Resource_3dwfs"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("25_c3btw")
+spawn_time = 240.2
+spawn_position_relative = Vector2(0.55, 0.34)
+data_override = ExtResource("24_u7w0v")
+
+[sub_resource type="Resource" id="Resource_cpcs7"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("16_roi62")
+spawn_time = 240.6
+spawn_position_relative = Vector2(0.6, -0.08)
+
+[sub_resource type="Resource" id="Resource_lsk8q"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 242.0
+spawn_position_relative = Vector2(0.68, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_l2y1h"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 242.2
+spawn_position_relative = Vector2(0.8, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_lgoho"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 242.4
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_pf3f7"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 243.2
+spawn_position_relative = Vector2(0.65, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_cjh6k"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 243.4
+spawn_position_relative = Vector2(0.77, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_6dv10"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("19_ph7c6")
+spawn_time = 244.0
+spawn_position_relative = Vector2(1.08, 0.32)
+
+[sub_resource type="Resource" id="Resource_m33ku"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 244.4
+spawn_position_relative = Vector2(0.5, -0.45)
+pattern_override = ExtResource("13_pp3ik")
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_7nt2e"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 244.55
+spawn_position_relative = Vector2(0.35, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_ok1yq"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("10_ubgu2")
+spawn_time = 244.55
+spawn_position_relative = Vector2(0.65, -0.45)
+data_override = ExtResource("9_iiy4b")
+
+[sub_resource type="Resource" id="Resource_wkmmd"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("18_paksg")
+spawn_time = 245.0
+spawn_position_relative = Vector2(1.08, 0.45)
+data_override = ExtResource("17_itmp2")
+
+[sub_resource type="Resource" id="Resource_a0c4e"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 245.6
+spawn_position_relative = Vector2(0.35, -0.45)
+pattern_override = ExtResource("14_1ojur")
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_62tdt"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("12_evfv3")
+spawn_time = 245.8
+spawn_position_relative = Vector2(0.5, -0.45)
+data_override = ExtResource("11_li4y7")
+
+[sub_resource type="Resource" id="Resource_d4cwh"]
+script = ExtResource("8_upwdt")
+scene = ExtResource("30_61nq5")
+spawn_time = 250.0
+spawn_position_relative = Vector2(0.5, -0.167)
+
+[resource]
+script = ExtResource("6_7kapp")
+mission_name = "Himalayas"
+background_scroll_speed = 40.0
+spawn_entries = Array[ExtResource("8_upwdt")]([SubResource("Resource_66ds0"), SubResource("Resource_pq7kj"), SubResource("Resource_hjkpi"), SubResource("Resource_2cl17"), SubResource("Resource_rgp6x"), SubResource("Resource_6ar38"), SubResource("Resource_nfqls"), SubResource("Resource_hfx0k"), SubResource("Resource_fnjji"), SubResource("Resource_n3yh7"), SubResource("Resource_cf1t2"), SubResource("Resource_bd1ck"), SubResource("Resource_lltv3"), SubResource("Resource_1ol2m"), SubResource("Resource_am50m"), SubResource("Resource_bv64k"), SubResource("Resource_ypr2g"), SubResource("Resource_7diqd"), SubResource("Resource_qn643"), SubResource("Resource_dh03d"), SubResource("Resource_jl26n"), SubResource("Resource_mg5x5"), SubResource("Resource_l56wf"), SubResource("Resource_l0f7o"), SubResource("Resource_mgebh"), SubResource("Resource_x2me1"), SubResource("Resource_1ecp8"), SubResource("Resource_k2ni6"), SubResource("Resource_bxqa1"), SubResource("Resource_r1ds5"), SubResource("Resource_qdxck"), SubResource("Resource_0121n"), SubResource("Resource_6yumt"), SubResource("Resource_kswq2"), SubResource("Resource_ttw3f"), SubResource("Resource_4veh8"), SubResource("Resource_wukwy"), SubResource("Resource_is4rr"), SubResource("Resource_8mubj"), SubResource("Resource_s8mby"), SubResource("Resource_7hspb"), SubResource("Resource_elbtg"), SubResource("Resource_lb67p"), SubResource("Resource_g8138"), SubResource("Resource_6vx3a"), SubResource("Resource_0bohv"), SubResource("Resource_p6k7t"), SubResource("Resource_lm1f5"), SubResource("Resource_5cb03"), SubResource("Resource_4icwv"), SubResource("Resource_yhisl"), SubResource("Resource_qvjv5"), SubResource("Resource_ehdp0"), SubResource("Resource_jxfcn"), SubResource("Resource_n46rx"), SubResource("Resource_krpoc"), SubResource("Resource_8rmud"), SubResource("Resource_ilfit"), SubResource("Resource_0b675"), SubResource("Resource_jsd60"), SubResource("Resource_d0sgk"), SubResource("Resource_ft8f7"), SubResource("Resource_rkm8n"), SubResource("Resource_r8he5"), SubResource("Resource_mnxj7"), SubResource("Resource_2g0s0"), SubResource("Resource_djy7f"), SubResource("Resource_gakl3"), SubResource("Resource_abf15"), SubResource("Resource_opklc"), SubResource("Resource_5dy7i"), SubResource("Resource_gvdet"), SubResource("Resource_av2ud"), SubResource("Resource_ghe7e"), SubResource("Resource_firio"), SubResource("Resource_5fsif"), SubResource("Resource_4jagv"), SubResource("Resource_075mt"), SubResource("Resource_7yejf"), SubResource("Resource_pabrp"), SubResource("Resource_vvjti"), SubResource("Resource_2o541"), SubResource("Resource_v3wsg"), SubResource("Resource_3swba"), SubResource("Resource_vfmrb"), SubResource("Resource_wlnev"), SubResource("Resource_q5wbq"), SubResource("Resource_p5h1x"), SubResource("Resource_t1e76"), SubResource("Resource_v7kna"), SubResource("Resource_7fo1c"), SubResource("Resource_5fwnd"), SubResource("Resource_bsarb"), SubResource("Resource_4svqd"), SubResource("Resource_r3ltr"), SubResource("Resource_t4hgw"), SubResource("Resource_vv1xu"), SubResource("Resource_8a3fx"), SubResource("Resource_ramyr"), SubResource("Resource_t7w7x"), SubResource("Resource_ml8gi"), SubResource("Resource_b8oat"), SubResource("Resource_30l7s"), SubResource("Resource_d0hwq"), SubResource("Resource_67ba1"), SubResource("Resource_scdgc"), SubResource("Resource_li8cf"), SubResource("Resource_la43c"), SubResource("Resource_rdpvc"), SubResource("Resource_vtl8t"), SubResource("Resource_f2cqk"), SubResource("Resource_jyova"), SubResource("Resource_8ei78"), SubResource("Resource_40os2"), SubResource("Resource_mvfl7"), SubResource("Resource_hg7dx"), SubResource("Resource_ini0t"), SubResource("Resource_jfx72"), SubResource("Resource_4t5u5"), SubResource("Resource_idkko"), SubResource("Resource_mdckf"), SubResource("Resource_7f2p7"), SubResource("Resource_vo0jn"), SubResource("Resource_b5jwm"), SubResource("Resource_pcx7d"), SubResource("Resource_lowon"), SubResource("Resource_1gfvp"), SubResource("Resource_r1aif"), SubResource("Resource_tbkmu"), SubResource("Resource_0odk8"), SubResource("Resource_803sr"), SubResource("Resource_fghwy"), SubResource("Resource_fvow7"), SubResource("Resource_bqsax"), SubResource("Resource_h7es5"), SubResource("Resource_xh20c"), SubResource("Resource_jpg13"), SubResource("Resource_xkqi3"), SubResource("Resource_xl64l"), SubResource("Resource_773sn"), SubResource("Resource_26ega"), SubResource("Resource_qke14"), SubResource("Resource_m34vr"), SubResource("Resource_jix23"), SubResource("Resource_hqs7o"), SubResource("Resource_tutu0"), SubResource("Resource_tt2be"), SubResource("Resource_u5u61"), SubResource("Resource_eqalg"), SubResource("Resource_42haf"), SubResource("Resource_f4rnr"), SubResource("Resource_hxfye"), SubResource("Resource_6ghyb"), SubResource("Resource_71rh0"), SubResource("Resource_3y8yp"), SubResource("Resource_snnu2"), SubResource("Resource_vxjym"), SubResource("Resource_ll8dq"), SubResource("Resource_ygojh"), SubResource("Resource_j5vml"), SubResource("Resource_t2lfe"), SubResource("Resource_u8yb8"), SubResource("Resource_52a06"), SubResource("Resource_dybgd"), SubResource("Resource_1xven"), SubResource("Resource_8dod5"), SubResource("Resource_677v4"), SubResource("Resource_dnewg"), SubResource("Resource_3s40n"), SubResource("Resource_54nsi"), SubResource("Resource_nuvny"), SubResource("Resource_k0q88"), SubResource("Resource_nr022"), SubResource("Resource_6ivm2"), SubResource("Resource_ql4mm"), SubResource("Resource_cli6p"), SubResource("Resource_ubxbs"), SubResource("Resource_tib7d"), SubResource("Resource_o0m1d"), SubResource("Resource_anles"), SubResource("Resource_uqj17"), SubResource("Resource_yx5ow"), SubResource("Resource_tbna0"), SubResource("Resource_7rk8c"), SubResource("Resource_56e1g"), SubResource("Resource_chb6y"), SubResource("Resource_meu8w"), SubResource("Resource_je83q"), SubResource("Resource_grjmw"), SubResource("Resource_p8usr"), SubResource("Resource_lpita"), SubResource("Resource_uuvno"), SubResource("Resource_ufw32"), SubResource("Resource_06l4p"), SubResource("Resource_ua0ao"), SubResource("Resource_capqy"), SubResource("Resource_8jhfg"), SubResource("Resource_8wu4w"), SubResource("Resource_vwhcp"), SubResource("Resource_u36fy"), SubResource("Resource_dem0u"), SubResource("Resource_a6xwm"), SubResource("Resource_i1kc6"), SubResource("Resource_hr3li"), SubResource("Resource_c4s5t"), SubResource("Resource_m3lkb"), SubResource("Resource_mbbp8"), SubResource("Resource_hj6dx"), SubResource("Resource_sj6d1"), SubResource("Resource_p72ur"), SubResource("Resource_kblw4"), SubResource("Resource_lwpo3"), SubResource("Resource_2xana"), SubResource("Resource_n8pi7"), SubResource("Resource_jlt8u"), SubResource("Resource_lgbsq"), SubResource("Resource_eywhr"), SubResource("Resource_60klx"), SubResource("Resource_jo4vm"), SubResource("Resource_n4bub"), SubResource("Resource_yggwi"), SubResource("Resource_dqrmj"), SubResource("Resource_wwmya"), SubResource("Resource_rdfit"), SubResource("Resource_k3b1i"), SubResource("Resource_cp34b"), SubResource("Resource_n6t2f"), SubResource("Resource_aim5m"), SubResource("Resource_mx2rq"), SubResource("Resource_e7u2l"), SubResource("Resource_cqpv7"), SubResource("Resource_yse1g"), SubResource("Resource_2y767"), SubResource("Resource_rupgq"), SubResource("Resource_cldvi"), SubResource("Resource_7xrjy"), SubResource("Resource_31t2y"), SubResource("Resource_7lxm3"), SubResource("Resource_xpogj"), SubResource("Resource_ks1xy"), SubResource("Resource_0lmdx"), SubResource("Resource_yd617"), SubResource("Resource_8kxgw"), SubResource("Resource_3g0ei"), SubResource("Resource_fn32l"), SubResource("Resource_3qr0n"), SubResource("Resource_ardw6"), SubResource("Resource_gn2gl"), SubResource("Resource_05vvw"), SubResource("Resource_o2kht"), SubResource("Resource_ie3ov"), SubResource("Resource_ge4g0"), SubResource("Resource_xrmgd"), SubResource("Resource_o85r4"), SubResource("Resource_r63ov"), SubResource("Resource_th1p4"), SubResource("Resource_0q5na"), SubResource("Resource_lex1v"), SubResource("Resource_dw3co"), SubResource("Resource_8g3tw"), SubResource("Resource_qsnkp"), SubResource("Resource_gfs76"), SubResource("Resource_3bhop"), SubResource("Resource_tbaje"), SubResource("Resource_30u8d"), SubResource("Resource_g0p5j"), SubResource("Resource_rjoqv"), SubResource("Resource_t0hmo"), SubResource("Resource_2xxrf"), SubResource("Resource_aw5dj"), SubResource("Resource_6ucxl"), SubResource("Resource_o1lxe"), SubResource("Resource_8p1pd"), SubResource("Resource_e3leg"), SubResource("Resource_77brc"), SubResource("Resource_xhxmo"), SubResource("Resource_4a1ic"), SubResource("Resource_d4cep"), SubResource("Resource_1dqhj"), SubResource("Resource_ut34l"), SubResource("Resource_rvxfq"), SubResource("Resource_wmdr3"), SubResource("Resource_2x0sp"), SubResource("Resource_4vifw"), SubResource("Resource_ua137"), SubResource("Resource_8nxsj"), SubResource("Resource_wcsa1"), SubResource("Resource_mwvel"), SubResource("Resource_ew2u5"), SubResource("Resource_7dj2a"), SubResource("Resource_h53rd"), SubResource("Resource_2073o"), SubResource("Resource_qree8"), SubResource("Resource_cja7v"), SubResource("Resource_6cqee"), SubResource("Resource_f5iur"), SubResource("Resource_uitg7"), SubResource("Resource_ptr5b"), SubResource("Resource_d3eki"), SubResource("Resource_m2742"), SubResource("Resource_8x3p1"), SubResource("Resource_dwtjr"), SubResource("Resource_ewguk"), SubResource("Resource_ylpdv"), SubResource("Resource_5twwf"), SubResource("Resource_2b65t"), SubResource("Resource_16lbf"), SubResource("Resource_lj1qc"), SubResource("Resource_2emq4"), SubResource("Resource_wpqic"), SubResource("Resource_n0ypb"), SubResource("Resource_tqc0h"), SubResource("Resource_g3r1v"), SubResource("Resource_ucc5y"), SubResource("Resource_1fex0"), SubResource("Resource_3sixh"), SubResource("Resource_pnr18"), SubResource("Resource_u7bp6"), SubResource("Resource_16kqm"), SubResource("Resource_bfhld"), SubResource("Resource_tgqxr"), SubResource("Resource_ckckw"), SubResource("Resource_37aay"), SubResource("Resource_rftjp"), SubResource("Resource_4gacu"), SubResource("Resource_2w7mw"), SubResource("Resource_g3t12"), SubResource("Resource_oflg5"), SubResource("Resource_haosv"), SubResource("Resource_vn3pr"), SubResource("Resource_70pq1"), SubResource("Resource_vj43q"), SubResource("Resource_bvg6l"), SubResource("Resource_jo3b2"), SubResource("Resource_h3be3"), SubResource("Resource_x4otf"), SubResource("Resource_iivc5"), SubResource("Resource_oj8oj"), SubResource("Resource_ae2vt"), SubResource("Resource_3qq83"), SubResource("Resource_w6yxh"), SubResource("Resource_x7fk2"), SubResource("Resource_n0xcg"), SubResource("Resource_rkg66"), SubResource("Resource_hf5ux"), SubResource("Resource_7tst6"), SubResource("Resource_dfeb0"), SubResource("Resource_5kakd"), SubResource("Resource_mw7mn"), SubResource("Resource_765ll"), SubResource("Resource_irfcy"), SubResource("Resource_f2oe8"), SubResource("Resource_8d1sy"), SubResource("Resource_befn2"), SubResource("Resource_8p6pq"), SubResource("Resource_rubne"), SubResource("Resource_c65nr"), SubResource("Resource_357tf"), SubResource("Resource_jkvk1"), SubResource("Resource_md2hn"), SubResource("Resource_oigfw"), SubResource("Resource_u1hpd"), SubResource("Resource_4nvbq"), SubResource("Resource_mjhir"), SubResource("Resource_rjvhi"), SubResource("Resource_55p1p"), SubResource("Resource_6o44a"), SubResource("Resource_4wcgv"), SubResource("Resource_5td3k"), SubResource("Resource_ecegx"), SubResource("Resource_svoab"), SubResource("Resource_m08it"), SubResource("Resource_65llr"), SubResource("Resource_0jk4c"), SubResource("Resource_783gt"), SubResource("Resource_i1n1w"), SubResource("Resource_7xlno"), SubResource("Resource_yf10a"), SubResource("Resource_6ag5q"), SubResource("Resource_il8eq"), SubResource("Resource_l6set"), SubResource("Resource_xkq7x"), SubResource("Resource_pnoe7"), SubResource("Resource_4a1y6"), SubResource("Resource_d1sak"), SubResource("Resource_fpup0"), SubResource("Resource_p6msu"), SubResource("Resource_yqrtd"), SubResource("Resource_w6rst"), SubResource("Resource_7tycr"), SubResource("Resource_hph57"), SubResource("Resource_bigvb"), SubResource("Resource_fj7fc"), SubResource("Resource_vhqxw"), SubResource("Resource_hlwhn"), SubResource("Resource_rnvqd"), SubResource("Resource_syp3p"), SubResource("Resource_adcn7"), SubResource("Resource_5jlaj"), SubResource("Resource_dhg5u"), SubResource("Resource_jhuve"), SubResource("Resource_r47gb"), SubResource("Resource_jwu0s"), SubResource("Resource_ouj8s"), SubResource("Resource_gnmv3"), SubResource("Resource_wdpya"), SubResource("Resource_qxq5g"), SubResource("Resource_qo7ml"), SubResource("Resource_k3mg8"), SubResource("Resource_pwthm"), SubResource("Resource_xxeo5"), SubResource("Resource_idlm6"), SubResource("Resource_5xq6a"), SubResource("Resource_efem4"), SubResource("Resource_ye6ah"), SubResource("Resource_hy5n3"), SubResource("Resource_lme6f"), SubResource("Resource_a7kep"), SubResource("Resource_282es"), SubResource("Resource_ss7qx"), SubResource("Resource_vc687"), SubResource("Resource_eqwav"), SubResource("Resource_eel4j"), SubResource("Resource_6opg3"), SubResource("Resource_nmpg6"), SubResource("Resource_d1qnf"), SubResource("Resource_7h44r"), SubResource("Resource_cqbpo"), SubResource("Resource_05yu7"), SubResource("Resource_w6qps"), SubResource("Resource_oj1wp"), SubResource("Resource_4rlnm"), SubResource("Resource_j2t3f"), SubResource("Resource_3dwfs"), SubResource("Resource_cpcs7"), SubResource("Resource_lsk8q"), SubResource("Resource_l2y1h"), SubResource("Resource_lgoho"), SubResource("Resource_pf3f7"), SubResource("Resource_cjh6k"), SubResource("Resource_6dv10"), SubResource("Resource_m33ku"), SubResource("Resource_7nt2e"), SubResource("Resource_ok1yq"), SubResource("Resource_wkmmd"), SubResource("Resource_a0c4e"), SubResource("Resource_62tdt"), SubResource("Resource_d4cwh")])
+section_markers = Array[ExtResource("7_hkq1v")]([SubResource("Resource_5a0ej"), SubResource("Resource_3ya0q")])
+stage_music = ExtResource("31_0vm64")
+pre_briefing_lines = Array[Resource]([SubResource("Resource_dt8xv"), SubResource("Resource_u7yq6"), SubResource("Resource_ggkfx")])
+post_briefing_lines = Array[Resource]([SubResource("Resource_76xwp"), SubResource("Resource_of7ec")])
+wall_keys = PackedVector3Array()
+fog_banks = PackedVector3Array()
+gusts = PackedVector3Array()
+pan_keys = PackedVector2Array()
+avalanches = PackedVector3Array(34, 0.25, 100, 56, 0.75, 100, 78, 0.5, 110, 98, 0.3, 110, 116, 0.7, 110, 162, 0.5, 120, 176, 0.25, 110, 190, 0.2, 100, 190, 0.8, 100, 204, 0.6, 120, 218, 0.3, 100, 218, 0.7, 100, 232, 0.5, 120)

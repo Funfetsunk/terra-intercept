@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="BulletPatternData" format=3 uid="uid://tno48dleqefo"]
+
+[ext_resource type="Texture2D" uid="uid://qeskbvot425g" path="res://art/sprites/bullets/enemy_orb_pink_6.png" id="1_y8pc7"]
+[ext_resource type="Script" uid="uid://skm1jc2p0sdk" path="res://scripts/resources/bullet_pattern_data.gd" id="2_mfrmp"]
+
+[resource]
+script = ExtResource("2_mfrmp")
+pattern_name = "Relay Mast Volley"
+burst_size = 5
+angle_spread_degrees = 40.0
+burst_interval = 1.6
+rng_seed = 131
+bullet_speed = 95.0
+bullet_color = Color(1, 1, 1, 1)
+bullet_texture = ExtResource("1_y8pc7")
+bullet_lifetime = 5.0
+emitter_offsets = PackedVector2Array(0, -49)
+emitter_angle_offsets = PackedFloat32Array()
+layers = 2
+layer_speed_step = 30.0

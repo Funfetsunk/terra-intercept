@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cygume1y6opgo"]
+
+[ext_resource type="Script" uid="uid://borwhxk1vq3nj" path="res://scenes/bosses/escort_mid_boss.gd" id="1_v46qy"]
+[ext_resource type="PackedScene" uid="uid://ceml8r1eb4tgj" path="res://scenes/enemies/swarmer_mk2.tscn" id="2_14wlp"]
+[ext_resource type="Resource" uid="uid://dapi0qo465rq0" path="res://data/enemies/escort_mid_boss_data.tres" id="3_m8rq5"]
+[ext_resource type="SpriteFrames" uid="uid://btnd1furbar31" path="res://art/sprites/bosses/escort_mid_boss_frames.tres" id="4_c6p48"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nbewi"]
+radius = 26.0
+
+[node name="EscortMidBoss" type="Node2D" unique_id=549894964]
+script = ExtResource("1_v46qy")
+launch_scene = ExtResource("2_14wlp")
+data = ExtResource("3_m8rq5")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=2015927368]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1741259982]
+shape = SubResource("CircleShape2D_nbewi")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=2067116567]
+sprite_frames = ExtResource("4_c6p48")
+animation = &"phase1"

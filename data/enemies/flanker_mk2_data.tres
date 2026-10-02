@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://t441yfir7n55"]
+
+[ext_resource type="PackedScene" uid="uid://c5glm5ofoajet" path="res://scenes/effects/explosion_small.tscn" id="1_24lqx"]
+[ext_resource type="Resource" uid="uid://bqqhxaaml13xe" path="res://data/patterns/flanker_pattern_mk2.tres" id="2_lex32"]
+[ext_resource type="Script" uid="uid://bxbax4x8ptrvy" path="res://scripts/resources/enemy_data.gd" id="3_g62bw"]
+[ext_resource type="SpriteFrames" uid="uid://bogrchl14xonv" path="res://art/sprites/enemies/flanker_mk2_frames.tres" id="4_xh6b8"]
+
+[resource]
+script = ExtResource("3_g62bw")
+enemy_name = "Flanker Mk II"
+move_speed = 95.0
+hull_max = 4.0
+pattern = ExtResource("2_lex32")
+score_value = 250
+alien_tech_drop = 1
+explosion_scene = ExtResource("1_24lqx")
+sprite_frames = ExtResource("4_xh6b8")

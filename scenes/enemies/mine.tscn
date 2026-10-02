@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://7lo0kh01sdej"]
+
+[ext_resource type="Script" uid="uid://djfygahipagri" path="res://scenes/enemies/mine.gd" id="1_awt7w"]
+[ext_resource type="Resource" uid="uid://biitxnv5q5y3w" path="res://data/enemies/mine_data.tres" id="2_q0dl3"]
+[ext_resource type="SpriteFrames" uid="uid://cfp515ksgeqm8" path="res://art/sprites/enemies/mine_frames.tres" id="3_6tqyb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_77haa"]
+radius = 4.0
+
+[node name="Mine" type="Node2D" unique_id=350539788]
+script = ExtResource("1_awt7w")
+data = ExtResource("2_q0dl3")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1778905850]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1978500361]
+shape = SubResource("CircleShape2D_77haa")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=50746420]
+sprite_frames = ExtResource("3_6tqyb")
+animation = &"blink"

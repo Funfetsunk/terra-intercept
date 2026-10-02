@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://m5v4uy8vu1bu"]
+
+[ext_resource type="Script" uid="uid://c7l20qsfuu873" path="res://scenes/enemies/sniper.gd" id="1_a0o7r"]
+[ext_resource type="Resource" uid="uid://b6uu8jep1lore" path="res://data/enemies/sniper_data.tres" id="2_i7aqa"]
+[ext_resource type="SpriteFrames" uid="uid://dwsbsqxtrjnif" path="res://art/sprites/enemies/sniper_frames.tres" id="3_uwuwu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4ayai"]
+radius = 8.0
+
+[node name="Sniper" type="Node2D" unique_id=237111806]
+script = ExtResource("1_a0o7r")
+data = ExtResource("2_i7aqa")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=654439844]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=494723197]
+shape = SubResource("CircleShape2D_4ayai")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1218078308]
+sprite_frames = ExtResource("3_uwuwu")
+animation = &"idle"
+autoplay = "idle"

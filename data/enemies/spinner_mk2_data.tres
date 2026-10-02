@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://dvgls0nyj7pn3"]
+
+[ext_resource type="PackedScene" uid="uid://bca5f08gnsvli" path="res://scenes/effects/explosion_medium.tscn" id="1_qr86p"]
+[ext_resource type="Resource" uid="uid://3micvt0m7y2k" path="res://data/patterns/spinner_pattern_mk2.tres" id="2_qwaa2"]
+[ext_resource type="Script" uid="uid://bxbax4x8ptrvy" path="res://scripts/resources/enemy_data.gd" id="3_inpku"]
+[ext_resource type="SpriteFrames" uid="uid://c71fmsl6w6ium" path="res://art/sprites/enemies/spinner_mk2_frames.tres" id="4_mowv0"]
+
+[resource]
+script = ExtResource("3_inpku")
+enemy_name = "Spinner Mk II"
+move_speed = 32.0
+hull_max = 5.0
+hitbox_radius = 9.0
+pattern = ExtResource("2_qwaa2")
+score_value = 312
+alien_tech_drop = 2
+explosion_scene = ExtResource("1_qr86p")
+sprite_frames = ExtResource("4_mowv0")

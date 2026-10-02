@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="BossData" format=3 uid="uid://chjwjto8w06ca"]
+
+[ext_resource type="PackedScene" uid="uid://c5hgr5sh58h6f" path="res://scenes/effects/explosion_large.tscn" id="1_bcrvg"]
+[ext_resource type="AudioStream" uid="uid://b4jsl3exhcfm8" path="res://audio/music/boss.ogg" id="2_yhlxb"]
+[ext_resource type="AudioStream" uid="uid://jhas3alcpgyt" path="res://audio/music/boss_phase2.ogg" id="3_a5k1v"]
+[ext_resource type="Resource" uid="uid://1m15bxnos7r8" path="res://data/patterns/serpent_phase1.tres" id="4_jpsja"]
+[ext_resource type="Resource" uid="uid://dah55xiwvgjh1" path="res://data/patterns/serpent_phase2.tres" id="5_6nwrq"]
+[ext_resource type="Resource" uid="uid://7t5b2qbkwthx" path="res://data/patterns/serpent_phase2_breath.tres" id="6_pqscq"]
+[ext_resource type="Script" uid="uid://mfqvklciutsc" path="res://scripts/resources/boss_data.gd" id="7_qml77"]
+[ext_resource type="Resource" uid="uid://btbfq5gvdemja" path="res://data/patterns/serpent_phase1_breath.tres" id="8_h6g5l"]
+
+[resource]
+script = ExtResource("7_qml77")
+phase_2_pattern = ExtResource("5_6nwrq")
+secondary_pattern = ExtResource("8_h6g5l")
+phase_2_secondary_pattern = ExtResource("6_pqscq")
+music = ExtResource("2_yhlxb")
+music_phase2 = ExtResource("3_a5k1v")
+enemy_name = "Serpent Dragon"
+move_speed = 0.0
+hull_max = 360.0
+hitbox_radius = 16.0
+pattern = ExtResource("4_jpsja")
+score_value = 9000
+alien_tech_drop = 20
+explosion_scene = ExtResource("1_bcrvg")

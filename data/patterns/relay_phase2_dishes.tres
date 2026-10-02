@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="BulletPatternData" format=3 uid="uid://d011ep30qdcme"]
+
+[ext_resource type="Texture2D" uid="uid://bk0mscxc8vbay" path="res://art/sprites/bullets/enemy_orb_cyan_6.png" id="1_mylcm"]
+[ext_resource type="Script" uid="uid://skm1jc2p0sdk" path="res://scripts/resources/bullet_pattern_data.gd" id="2_nbgxb"]
+
+[resource]
+script = ExtResource("2_nbgxb")
+pattern_name = "Relay Dish Beams (all)"
+burst_interval = 0.12
+aim_at_player = false
+rng_seed = 133
+bullet_speed = 140.0
+bullet_color = Color(1, 1, 1, 1)
+bullet_texture = ExtResource("1_mylcm")
+emitter_offsets = PackedVector2Array(-44, -34, 44, -34, -49, 11, 46, 11)
+emitter_angle_offsets = PackedFloat32Array(-40, 40, -15, 15)
+sweep_degrees = 70.0
+sweep_period_bursts = 36

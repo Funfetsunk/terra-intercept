@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://bxsf5c5xvsl3w"]
+
+[ext_resource type="Script" uid="uid://dxwm8ep3x6qu2" path="res://scenes/bosses/serpent_boss.gd" id="1_u8fyq"]
+[ext_resource type="AudioStream" uid="uid://b4jsl3exhcfm8" path="res://audio/music/boss.ogg" id="2_78t48"]
+[ext_resource type="AudioStream" uid="uid://jhas3alcpgyt" path="res://audio/music/boss_phase2.ogg" id="3_7fnps"]
+[ext_resource type="PackedScene" uid="uid://g4nollieirc7" path="res://scenes/bosses/serpent_segment.tscn" id="4_tl6rw"]
+[ext_resource type="Script" uid="uid://pafr77qrtbbu" path="res://scenes/bosses/serpent_head.gd" id="5_lphnl"]
+[ext_resource type="Resource" uid="uid://chjwjto8w06ca" path="res://data/enemies/serpent_head_data.tres" id="6_m6bwu"]
+[ext_resource type="SpriteFrames" uid="uid://epmemfo1m5rg" path="res://art/sprites/bosses/serpent_head_frames.tres" id="7_b8yy2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_imw1v"]
+radius = 16.0
+
+[node name="SerpentBoss" type="Node2D" unique_id=1752385651]
+script = ExtResource("1_u8fyq")
+music = ExtResource("2_78t48")
+music_phase2 = ExtResource("3_7fnps")
+
+[node name="Segment8" parent="." unique_id=1593939216 instance=ExtResource("4_tl6rw")]
+slot = 8
+
+[node name="Segment7" parent="." unique_id=884269943 instance=ExtResource("4_tl6rw")]
+slot = 7
+
+[node name="Segment6" parent="." unique_id=2143157000 instance=ExtResource("4_tl6rw")]
+slot = 6
+
+[node name="Segment5" parent="." unique_id=1103021453 instance=ExtResource("4_tl6rw")]
+slot = 5
+
+[node name="Segment4" parent="." unique_id=1415891363 instance=ExtResource("4_tl6rw")]
+slot = 4
+
+[node name="Segment3" parent="." unique_id=302762115 instance=ExtResource("4_tl6rw")]
+slot = 3
+
+[node name="Segment2" parent="." unique_id=796085312 instance=ExtResource("4_tl6rw")]
+slot = 2
+
+[node name="Segment1" parent="." unique_id=5853633 instance=ExtResource("4_tl6rw")]
+
+[node name="Head" type="Node2D" parent="." unique_id=1856910399]
+script = ExtResource("5_lphnl")
+data = ExtResource("6_m6bwu")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="Head" unique_id=1912897155]
+sprite_frames = ExtResource("7_b8yy2")
+animation = &"phase1"
+
+[node name="Hitbox" type="Area2D" parent="Head" unique_id=1841404593]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Head/Hitbox" unique_id=1515796492]
+shape = SubResource("CircleShape2D_imw1v")

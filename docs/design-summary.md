@@ -130,6 +130,22 @@ Each location has its own gameplay twist. Difficulty is set per mission and rise
 
 Column 3 is a step harder than column 2.
 
+### Mission 4 (north): Great Wall of China
+
+- **Route:** Following the Great Wall as it snakes over the hills.
+- **Twist:** The camera follows the Wall. The ground pans side to side as the Wall winds, so the terrain drifts diagonally under the player at times. Crawlers ride along the Wall itself.
+- **New enemies:** The Sniper and the Crawler (locked to the Wall). Regular enemies switch to their Mk II variants from this column.
+- **Boss:** A mechanical serpent-dragon coiling along the Wall. Its body segments can be destroyed; the head is the core.
+
+### Mission 4 (south): Himalayas / Everest
+
+- **Route:** Climbing the Himalayan slopes towards the summit of Everest.
+- **Twist:** Avalanche lanes. Telegraphed avalanches thunder down a lane of the screen. The player must get out of the lane or take heavy damage, but the avalanche also wipes out enemies and bullets in its path.
+- **New enemies:** The Sniper and the Mine layer. Regular enemies switch to their Mk II variants from this column.
+- **Boss:** An alien summit relay array built on Everest's peak. Rotating dish arrays fire sweeping beams of bullets, a hint towards the midgame reveal.
+
+Column 4 is a step harder than column 3, and the second mid-boss (a Carrier-class escort mothership) arrives here. Column 4 is also where the midgame reveal plays, on either route.
+
 ### Mission 7: Orbital
 
 A dogfight through wrecked satellites and alien fleets as Earth recedes below. The mothership is the boss, fought in two parts: the outer hull and its turrets, then the core. The mission ends with the squad diving into the portal.

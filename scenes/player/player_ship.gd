@@ -39,6 +39,9 @@ signal victory_exit_finished
 @export var victory_exit_max_speed: float = 420.0
 ## How far past the top edge the ship travels before the exit counts as finished.
 @export var victory_exit_margin: float = 40.0
+## If a node in the "victory_target" group exists (the Orbital portal), the
+## flyout steers sideways towards it at this speed.
+@export var victory_steer_speed: float = 140.0
 
 var shield_current: float = 0.0
 var hull_current: float = 0.0
@@ -313,6 +316,9 @@ func _process_victory(delta: float) -> void:
 		VictoryState.EXIT:
 			_victory_speed = minf(victory_exit_max_speed, _victory_speed + victory_exit_acceleration * delta)
 			global_position.y -= _victory_speed * delta
+			var target: Node2D = get_tree().get_first_node_in_group("victory_target") as Node2D
+			if target != null:
+				global_position.x = move_toward(global_position.x, target.global_position.x, victory_steer_speed * delta)
 			if global_position.y < _playfield.rect.position.y - victory_exit_margin:
 				_victory_state = VictoryState.DONE
 				visible = false

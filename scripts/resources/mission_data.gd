@@ -15,6 +15,12 @@ class_name MissionData
 ## Fjord-style side walls: each key is (distance scrolled in px, left wall
 ## width, right wall width). Empty means no walls.
 @export var wall_keys: PackedVector3Array = PackedVector3Array()
+## Ice-fog banks: each is (distance in px at which the bank's leading edge
+## reaches the bottom of the screen, length in px, density 0-1).
+@export var fog_banks: PackedVector3Array = PackedVector3Array()
+## Sandstorm gusts: each is (start time in s, duration in s, sideways push in
+## px/s; negative pushes left).
+@export var gusts: PackedVector3Array = PackedVector3Array()
 
 func get_section_start_time(section: String) -> float:
 	if section.is_empty():

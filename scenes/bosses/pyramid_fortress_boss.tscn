@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://c4gilharmrwik"]
+
+[ext_resource type="Script" uid="uid://bed8o18cnmeis" path="res://scenes/bosses/stage_boss.gd" id="1_ef21y"]
+[ext_resource type="Resource" uid="uid://cxqjmt3iuklhf" path="res://data/enemies/pyramid_fortress_boss_data.tres" id="2_e0hhk"]
+[ext_resource type="SpriteFrames" uid="uid://dxfq3l8dojw7c" path="res://art/sprites/bosses/pyramid_fortress_boss_frames.tres" id="3_ocn8o"]
+
+[node name="PyramidFortressBoss" type="Node2D" unique_id=919355294]
+script = ExtResource("1_ef21y")
+data = ExtResource("2_e0hhk")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=835598904]
+sprite_frames = ExtResource("3_ocn8o")
+animation = &"phase1"
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=808911487]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=472089022]

@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://d0rwe5c3txo78"]
+
+[ext_resource type="Script" uid="uid://b1c2k1ikc37sa" path="res://scenes/bosses/convoy_boss.gd" id="1_fw2c8"]
+[ext_resource type="AudioStream" uid="uid://b4jsl3exhcfm8" path="res://audio/music/boss.ogg" id="2_0ynik"]
+[ext_resource type="AudioStream" uid="uid://jhas3alcpgyt" path="res://audio/music/boss_phase2.ogg" id="3_8naq0"]
+[ext_resource type="Script" uid="uid://c2ey1ytdldnu7" path="res://scenes/bosses/convoy_engine.gd" id="4_uxdf4"]
+[ext_resource type="Resource" uid="uid://ctyobfy77uhp3" path="res://data/enemies/convoy_engine_data.tres" id="5_6xx26"]
+[ext_resource type="SpriteFrames" uid="uid://cn4a6xh502rss" path="res://art/sprites/bosses/convoy_engine_frames.tres" id="6_sgbb8"]
+[ext_resource type="PackedScene" uid="uid://duiolvxnsjuf5" path="res://scenes/bosses/convoy_car.tscn" id="7_1gw4m"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nx8w5"]
+radius = 15.0
+
+[node name="ConvoyBoss" type="Node2D" unique_id=120687039]
+script = ExtResource("1_fw2c8")
+music = ExtResource("2_0ynik")
+music_phase2 = ExtResource("3_8naq0")
+
+[node name="Engine" type="Node2D" parent="." unique_id=216933810]
+script = ExtResource("4_uxdf4")
+data = ExtResource("5_6xx26")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="Engine" unique_id=1689647679]
+sprite_frames = ExtResource("6_sgbb8")
+animation = &"shielded"
+
+[node name="Hitbox" type="Area2D" parent="Engine" unique_id=132142517]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Engine/Hitbox" unique_id=1978900884]
+shape = SubResource("CircleShape2D_nx8w5")
+
+[node name="Car1" parent="." unique_id=484706276 instance=ExtResource("7_1gw4m")]
+
+[node name="Car2" parent="." unique_id=234672179 instance=ExtResource("7_1gw4m")]
+slot = 2
+
+[node name="Car3" parent="." unique_id=2111313013 instance=ExtResource("7_1gw4m")]
+slot = 3
+
+[node name="Car4" parent="." unique_id=349834869 instance=ExtResource("7_1gw4m")]
+slot = 4
+
+[node name="Car5" parent="." unique_id=743943915 instance=ExtResource("7_1gw4m")]
+slot = 5

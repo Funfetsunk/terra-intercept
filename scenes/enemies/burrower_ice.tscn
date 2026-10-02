@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://cy5jnll3s0gdd"]
+
+[ext_resource type="Script" uid="uid://bbo87x0cvrogq" path="res://scenes/enemies/burrower.gd" id="1_4l7oa"]
+[ext_resource type="Resource" uid="uid://bkeq4pg3lub18" path="res://data/patterns/burrower_surface_ring.tres" id="2_0y1it"]
+[ext_resource type="Resource" uid="uid://datjh6tyu5jce" path="res://data/enemies/burrower_data.tres" id="3_x2wwh"]
+[ext_resource type="Texture2D" uid="uid://cccnsfnqhshl3" path="res://art/sprites/enemies/burrower_shadow.png" id="4_uslp5"]
+[ext_resource type="SpriteFrames" uid="uid://bohp7s80fmagk" path="res://art/sprites/enemies/burrower_puff_snow_frames.tres" id="5_55v1c"]
+[ext_resource type="SpriteFrames" uid="uid://ch8mqsff51asq" path="res://art/sprites/enemies/burrower_frames.tres" id="6_2qndk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jmouf"]
+radius = 9.0
+
+[node name="Burrower" type="Node2D" unique_id=1317603239]
+script = ExtResource("1_4l7oa")
+surface_pattern = ExtResource("2_0y1it")
+data = ExtResource("3_x2wwh")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1922825544]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1770475297]
+shape = SubResource("CircleShape2D_jmouf")
+
+[node name="Shadow" type="Sprite2D" parent="." unique_id=834363580]
+position = Vector2(0, 6)
+texture = ExtResource("4_uslp5")
+
+[node name="Puff" type="AnimatedSprite2D" parent="." unique_id=666498360]
+sprite_frames = ExtResource("5_55v1c")
+animation = &"puff"
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=431718565]
+sprite_frames = ExtResource("6_2qndk")
+animation = &"idle"

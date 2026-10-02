@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://beqo4nnceqqfd"]
+
+[ext_resource type="PackedScene" uid="uid://bca5f08gnsvli" path="res://scenes/effects/explosion_medium.tscn" id="1_1mu6a"]
+[ext_resource type="Resource" uid="uid://dp0cem5ar2q7b" path="res://data/patterns/convoy_car_pattern.tres" id="2_atqvm"]
+[ext_resource type="Script" uid="uid://bxbax4x8ptrvy" path="res://scripts/resources/enemy_data.gd" id="3_knrxe"]
+
+[resource]
+script = ExtResource("3_knrxe")
+enemy_name = "Convoy Tanker"
+move_speed = 0.0
+hull_max = 60.0
+hitbox_radius = 12.0
+pattern = ExtResource("2_atqvm")
+score_value = 1500
+alien_tech_drop = 5
+explosion_scene = ExtResource("1_1mu6a")

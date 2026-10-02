@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://duiolvxnsjuf5"]
+
+[ext_resource type="Script" uid="uid://ut7y66ckmdjk" path="res://scenes/bosses/convoy_car.gd" id="1_7eh81"]
+[ext_resource type="Resource" uid="uid://beqo4nnceqqfd" path="res://data/enemies/convoy_car_data.tres" id="2_5cghc"]
+[ext_resource type="SpriteFrames" uid="uid://cdvxwcii3drml" path="res://art/sprites/bosses/convoy_car_frames.tres" id="3_curb6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xkmro"]
+radius = 12.0
+
+[node name="ConvoyCar" type="Node2D" unique_id=484706276]
+script = ExtResource("1_7eh81")
+data = ExtResource("2_5cghc")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1059571188]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=466069999]
+shape = SubResource("CircleShape2D_xkmro")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1099902040]
+sprite_frames = ExtResource("3_curb6")
+animation = &"idle"
+autoplay = "idle"

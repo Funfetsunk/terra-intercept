@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="BulletPatternData" format=3 uid="uid://dxviyhgijrf7l"]
+
+[ext_resource type="Texture2D" uid="uid://bk0mscxc8vbay" path="res://art/sprites/bullets/enemy_orb_cyan_6.png" id="1_rjjyk"]
+[ext_resource type="Script" uid="uid://skm1jc2p0sdk" path="res://scripts/resources/bullet_pattern_data.gd" id="2_wv0oc"]
+
+[resource]
+script = ExtResource("2_wv0oc")
+pattern_name = "Pyramid Hatch Volleys"
+burst_interval = 0.75
+rng_seed = 90
+bullet_speed = 110.0
+bullet_color = Color(1, 1, 1, 1)
+bullet_texture = ExtResource("1_rjjyk")
+bullet_lifetime = 5.0
+emitter_offsets = PackedVector2Array(-50, 26, -20, 36, 32, 30, 56, 22)
+layers = 2
+layer_speed_step = 30.0

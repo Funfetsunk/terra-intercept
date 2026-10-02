@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="BulletPatternData" format=3 uid="uid://c4c267hnr4vkk"]
+
+[ext_resource type="Texture2D" uid="uid://bk0mscxc8vbay" path="res://art/sprites/bullets/enemy_orb_cyan_6.png" id="1_h18v6"]
+[ext_resource type="Script" uid="uid://skm1jc2p0sdk" path="res://scripts/resources/bullet_pattern_data.gd" id="2_re22y"]
+
+[resource]
+script = ExtResource("2_re22y")
+pattern_name = "Convoy Engine Plough Sweep"
+burst_size = 3
+angle_spread_degrees = 24.0
+burst_interval = 0.35
+aim_at_player = false
+rng_seed = 81
+bullet_speed = 105.0
+bullet_color = Color(1, 1, 1, 1)
+bullet_texture = ExtResource("1_h18v6")
+bullet_lifetime = 5.0
+emitter_offsets = PackedVector2Array()
+sweep_degrees = 60.0
+sweep_period_bursts = 20

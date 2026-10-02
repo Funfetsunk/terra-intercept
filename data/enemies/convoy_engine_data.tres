@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="BossData" format=3 uid="uid://ctyobfy77uhp3"]
+
+[ext_resource type="PackedScene" uid="uid://c5hgr5sh58h6f" path="res://scenes/effects/explosion_large.tscn" id="1_2ripp"]
+[ext_resource type="AudioStream" uid="uid://b4jsl3exhcfm8" path="res://audio/music/boss.ogg" id="2_5756p"]
+[ext_resource type="AudioStream" uid="uid://jhas3alcpgyt" path="res://audio/music/boss_phase2.ogg" id="3_psp04"]
+[ext_resource type="Resource" uid="uid://c4c267hnr4vkk" path="res://data/patterns/convoy_engine_phase1.tres" id="4_hxdpg"]
+[ext_resource type="Resource" uid="uid://cq2rofqcx2him" path="res://data/patterns/convoy_engine_phase2.tres" id="5_olp24"]
+[ext_resource type="Resource" uid="uid://dn2y2t6gojy7w" path="res://data/patterns/convoy_engine_phase2_aimed.tres" id="6_r5isg"]
+[ext_resource type="Script" uid="uid://mfqvklciutsc" path="res://scripts/resources/boss_data.gd" id="7_7v4oq"]
+[ext_resource type="Resource" uid="uid://vk7jokrnledh" path="res://data/patterns/convoy_engine_phase1_ring.tres" id="8_tn680"]
+
+[resource]
+script = ExtResource("7_7v4oq")
+phase_2_pattern = ExtResource("5_olp24")
+secondary_pattern = ExtResource("8_tn680")
+phase_2_secondary_pattern = ExtResource("6_r5isg")
+music = ExtResource("2_5756p")
+music_phase2 = ExtResource("3_psp04")
+enemy_name = "Convoy Engine"
+move_speed = 0.0
+hull_max = 280.0
+hitbox_radius = 15.0
+pattern = ExtResource("4_hxdpg")
+score_value = 6000
+alien_tech_drop = 14
+explosion_scene = ExtResource("1_2ripp")

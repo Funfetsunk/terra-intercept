@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="BulletPatternData" format=3 uid="uid://dujhf2v7rbodg"]
+
+[ext_resource type="Texture2D" uid="uid://qeskbvot425g" path="res://art/sprites/bullets/enemy_orb_pink_6.png" id="1_e6ejk"]
+[ext_resource type="Script" uid="uid://skm1jc2p0sdk" path="res://scripts/resources/bullet_pattern_data.gd" id="2_whkxy"]
+
+[resource]
+script = ExtResource("2_whkxy")
+pattern_name = "Pyramid Sand Blast"
+burst_size = 9
+angle_spread_degrees = 120.0
+burst_interval = 1.4
+aim_at_player = false
+jitter_degrees = 6.0
+rng_seed = 91
+bullet_speed = 90.0
+bullet_color = Color(1, 1, 1, 1)
+bullet_texture = ExtResource("1_e6ejk")
+bullet_lifetime = 5.0
+emitter_offsets = PackedVector2Array(0, -39)
+speed_jitter = 30.0

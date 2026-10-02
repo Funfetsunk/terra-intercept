@@ -1,0 +1,88 @@
+[gd_scene format=4 uid="uid://bl8lwbg4nhdeu"]
+
+[ext_resource type="Script" uid="uid://75rqdkq3l656" path="res://scenes/levels/mission_level.gd" id="1_ftlwn"]
+[ext_resource type="PackedScene" uid="uid://c1woeggvkgk0f" path="res://scenes/hud/hud.tscn" id="2_narhh"]
+[ext_resource type="PackedScene" uid="uid://bdjsxy2elcbrc" path="res://scenes/hud/dialogue_box.tscn" id="3_8q43a"]
+[ext_resource type="Script" uid="uid://b1vqxoh2qfcwi" path="res://scripts/systems/dialogue_controller.gd" id="4_qhsm5"]
+[ext_resource type="Resource" uid="uid://dyo7xacjfttm1" path="res://data/missions/siberia_mission.tres" id="5_lcl7e"]
+[ext_resource type="Script" uid="uid://bjif1hmet7sgc" path="res://scripts/systems/playfield_shake.gd" id="6_h1vj0"]
+[ext_resource type="PackedScene" uid="uid://bveh1trv7wuqf" path="res://scenes/player/player_ship.tscn" id="7_nkklp"]
+[ext_resource type="Script" uid="uid://btgb0sd5135n3" path="res://scenes/levels/fog_banks.gd" id="8_5706g"]
+[ext_resource type="Shader" uid="uid://cdcdwx2ttklvc" path="res://shaders/fog_dither.gdshader" id="9_p4r63"]
+[ext_resource type="Script" uid="uid://c6cns2cik14l2" path="res://scenes/levels/scrolling_background.gd" id="10_bt7oh"]
+[ext_resource type="PackedScene" uid="uid://ort4tmjdo7j" path="res://scenes/levels/background_layer.tscn" id="11_ii83o"]
+[ext_resource type="Texture2D" uid="uid://d0ub3mi1cm47l" path="res://art/sprites/backgrounds/siberia/tundra_a.png" id="12_1avb1"]
+[ext_resource type="Texture2D" uid="uid://dgwqccnlxnu6h" path="res://art/sprites/backgrounds/siberia/tundra_b.png" id="13_51sfk"]
+[ext_resource type="Texture2D" uid="uid://dvhhaaltk6dka" path="res://art/sprites/backgrounds/london/smoke.png" id="14_tp185"]
+[ext_resource type="Script" uid="uid://bgoiagdeo8ki4" path="res://scripts/systems/enemy_spawner.gd" id="15_8m7cp"]
+[ext_resource type="PackedScene" uid="uid://wklwemvx00mv" path="res://scenes/hud/crosshair.tscn" id="16_t8psp"]
+[ext_resource type="PackedScene" uid="uid://ci0m4dfh7cg55" path="res://scenes/hud/pause_menu.tscn" id="17_kmwbr"]
+[ext_resource type="PackedScene" uid="uid://c8kaig230cm5v" path="res://scenes/ui/screen_fade.tscn" id="18_apmwn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tfhqc"]
+shader = ExtResource("9_p4r63")
+shader_parameter/banks = PackedVector4Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/bank_count = 0
+shader_parameter/rect_size = Vector2(360, 360)
+shader_parameter/fog_light = Color(0.78, 0.863, 0.816, 1)
+shader_parameter/fog_dark = Color(0.608, 0.671, 0.698, 1)
+shader_parameter/wisp_strength = 0.25
+shader_parameter/wisp_scale = 0.045
+shader_parameter/wisp_speed = 0.6
+
+[node name="Siberia" type="Node2D" unique_id=705097]
+script = ExtResource("1_ftlwn")
+mission_id = "col3_north"
+
+[node name="HUD" parent="." unique_id=1725720245 instance=ExtResource("2_narhh")]
+
+[node name="DialogueBox" parent="." unique_id=647446749 instance=ExtResource("3_8q43a")]
+
+[node name="DialogueController" type="Node" parent="." unique_id=1061489573]
+script = ExtResource("4_qhsm5")
+mission = ExtResource("5_lcl7e")
+dialogue_box_path = NodePath("../DialogueBox")
+
+[node name="PlayfieldRoot" type="Node2D" parent="." unique_id=370220181]
+position = Vector2(140, 0)
+script = ExtResource("6_h1vj0")
+
+[node name="PlayerShip" parent="PlayfieldRoot" unique_id=1276083379 instance=ExtResource("7_nkklp")]
+z_index = 6
+position = Vector2(180, 300)
+
+[node name="FogBanks" type="Node2D" parent="PlayfieldRoot" unique_id=1230592680]
+z_index = 5
+script = ExtResource("8_5706g")
+mission = ExtResource("5_lcl7e")
+
+[node name="Fog" type="ColorRect" parent="PlayfieldRoot/FogBanks" unique_id=104313491]
+material = SubResource("ShaderMaterial_tfhqc")
+offset_right = 360.0
+offset_bottom = 360.0
+mouse_filter = 2
+color = Color(0.78039217, 0.8627451, 0.8156863, 1)
+
+[node name="Background" type="Node2D" parent="PlayfieldRoot" unique_id=455193155 groups=["scrolling_background"]]
+z_index = -10
+script = ExtResource("10_bt7oh")
+mission = ExtResource("5_lcl7e")
+
+[node name="FarLayer" parent="PlayfieldRoot/Background" unique_id=2071353270 instance=ExtResource("11_ii83o")]
+panel_a_texture = ExtResource("12_1avb1")
+panel_b_texture = ExtResource("13_51sfk")
+
+[node name="NearLayer" parent="PlayfieldRoot/Background" unique_id=899699578 instance=ExtResource("11_ii83o")]
+scroll_speed_multiplier = 1.4
+panel_a_texture = ExtResource("14_tp185")
+panel_b_texture = ExtResource("14_tp185")
+
+[node name="EnemySpawner" type="Node" parent="PlayfieldRoot" unique_id=1415624087]
+script = ExtResource("15_8m7cp")
+mission = ExtResource("5_lcl7e")
+
+[node name="Crosshair" parent="." unique_id=1482935218 instance=ExtResource("16_t8psp")]
+
+[node name="PauseMenu" parent="." unique_id=366232786 instance=ExtResource("17_kmwbr")]
+
+[node name="ScreenFade" parent="." unique_id=1035464793 instance=ExtResource("18_apmwn")]

@@ -61,6 +61,8 @@ var _enemy_pool: BulletPool = BulletPool.new()
 var _registered_player: Node2D = null
 var _registered_player_hitbox_radius: float = 0.0
 var _registered_enemies: Array[Node2D] = []
+## Shielders: player bullets inside an active shield circle are absorbed.
+var _registered_shields: Array[Node2D] = []
 var _enemy_bullet_time_scale: float = 1.0
 var _contact_cooldown: float = 0.0
 
@@ -131,6 +133,9 @@ func _check_player_bullets_vs_enemies() -> void:
 		return
 	var i: int = 0
 	while i < _player_pool.active_count:
+		if _is_shielded(_player_pool.positions[i]):
+			_player_pool.kill(i)
+			continue
 		var hit_enemy: Node2D = null
 		for e: Node2D in _registered_enemies:
 			if e == null or not is_instance_valid(e):
@@ -185,6 +190,21 @@ func set_player_hitbox_radius(hitbox_radius: float) -> void:
 
 func unregister_player() -> void:
 	_registered_player = null
+
+func _is_shielded(point: Vector2) -> bool:
+	for sh: Node2D in _registered_shields:
+		if sh == null or not is_instance_valid(sh):
+			continue
+		if sh.is_shield_active() and point.distance_to(sh.global_position) <= sh.get_shield_radius():
+			return true
+	return false
+
+func register_shield(shield: Node2D) -> void:
+	if not _registered_shields.has(shield):
+		_registered_shields.append(shield)
+
+func unregister_shield(shield: Node2D) -> void:
+	_registered_shields.erase(shield)
 
 func register_enemy(enemy: Node2D) -> void:
 	if not _registered_enemies.has(enemy):

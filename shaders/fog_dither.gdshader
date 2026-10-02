@@ -13,6 +13,10 @@ uniform vec4 fog_dark : source_color = vec4(0.608, 0.671, 0.698, 1.0);
 uniform float wisp_strength = 0.45;
 uniform float wisp_scale = 0.045;
 uniform float wisp_speed = 0.6;
+// Multiplies every bank's density (FogBanks drives it for neon flicker).
+uniform float density_scale = 1.0;
+// Every Nth row is left clear, like LED billboard scanlines (0 = off).
+uniform int stripe_period = 0;
 
 const float BAYER[16] = float[16](
 	0.0, 8.0, 2.0, 10.0,
@@ -32,7 +36,10 @@ void fragment() {
 	}
 	float wisp = sin(local.x * wisp_scale + local.y * wisp_scale * 0.7 + TIME * wisp_speed)
 		* sin(local.x * wisp_scale * 0.5 - TIME * wisp_speed * 0.7);
-	density = clamp(density * (1.0 - wisp_strength + wisp_strength * wisp), 0.0, 1.0);
+	density = clamp(density * (1.0 - wisp_strength + wisp_strength * wisp) * density_scale, 0.0, 1.0);
+	if (stripe_period > 0 && int(mod(local.y, float(stripe_period))) == 0) {
+		discard;
+	}
 	ivec2 cell = ivec2(mod(floor(FRAGCOORD.xy), 4.0));
 	float threshold = (BAYER[cell.y * 4 + cell.x] + 0.5) / 16.0;
 	if (threshold > density) {

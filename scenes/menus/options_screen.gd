@@ -15,6 +15,8 @@ const ACTION_DISPLAY_NAMES: Dictionary = {
 @onready var _shake_button: Button = $ShakeButton
 @onready var _contrast_button: Button = $ContrastButton
 @onready var _difficulty_button: Button = $DifficultyButton
+@onready var _fullscreen_button: Button = $FullscreenButton
+@onready var _music_button: Button = $MusicButton
 @onready var _remap_list: VBoxContainer = $RemapList
 @onready var _back_button: Button = $BackButton
 
@@ -33,6 +35,9 @@ func _ready() -> void:
 	_shake_button.pressed.connect(_on_shake_pressed)
 	_contrast_button.pressed.connect(_on_contrast_pressed)
 	_difficulty_button.pressed.connect(_on_difficulty_pressed)
+	_fullscreen_button.pressed.connect(_on_fullscreen_pressed)
+	_music_button.pressed.connect(_on_music_pressed)
+	_settings.settings_changed.connect(_refresh_labels)
 	_back_button.pressed.connect(_on_back)
 	for action: String in _settings.REMAPPABLE_ACTIONS:
 		var row: RemapRow = REMAP_ROW_SCENE.instantiate()
@@ -66,6 +71,8 @@ func _refresh_labels() -> void:
 	_shake_button.text = "Screen Shake: %s" % ("On" if _settings.screen_shake_enabled else "Off")
 	_contrast_button.text = "High-Contrast Bullets: %s" % ("On" if _settings.high_contrast_bullets else "Off")
 	_difficulty_button.text = "Difficulty: %s" % _settings.difficulty
+	_fullscreen_button.text = "Fullscreen: %s" % ("On" if _settings.fullscreen else "Off")
+	_music_button.text = "Music: %s" % ("On" if _settings.music_enabled else "Off")
 
 func _on_crt_pressed() -> void:
 	_settings.set_crt_filter_enabled(not _settings.crt_filter_enabled)
@@ -81,6 +88,14 @@ func _on_contrast_pressed() -> void:
 
 func _on_difficulty_pressed() -> void:
 	_settings.set_difficulty("Easy" if _settings.difficulty == "Normal" else "Normal")
+	_refresh_labels()
+
+func _on_fullscreen_pressed() -> void:
+	_settings.set_fullscreen(not _settings.fullscreen)
+	_refresh_labels()
+
+func _on_music_pressed() -> void:
+	_settings.set_music_enabled(not _settings.music_enabled)
 	_refresh_labels()
 
 func _on_rebind_requested(action: String) -> void:

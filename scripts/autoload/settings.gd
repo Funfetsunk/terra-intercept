@@ -13,6 +13,12 @@ var crt_filter_enabled: bool = false
 var screen_shake_enabled: bool = true
 var high_contrast_bullets: bool = false
 var difficulty: String = "Normal"
+## Borderless fullscreen (integer-scaled and letterboxed by the stretch
+## settings). Not applied at startup when running from the editor, so test
+## runs stay windowed; the toggle still works there.
+var fullscreen: bool = true
+## Off by default while the music tracks are placeholders.
+var music_enabled: bool = false
 
 var _default_events: Dictionary = {}
 
@@ -23,6 +29,15 @@ func _ready() -> void:
 		_default_events[action] = InputMap.action_get_events(action).duplicate()
 	load_settings()
 	_crt_overlay.visible = crt_filter_enabled
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	if not OS.has_feature("editor"):
+		_apply_window_mode()
+	get_node("/root/AudioManager").set_music_enabled(music_enabled)
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("toggle_fullscreen"):
+		get_viewport().set_input_as_handled()
+		set_fullscreen(not fullscreen)
 
 func damage_taken_multiplier() -> float:
 	return easy_damage_taken_multiplier if difficulty == "Easy" else 1.0
@@ -48,6 +63,23 @@ func set_high_contrast_bullets(value: bool) -> void:
 	high_contrast_bullets = value
 	save_settings()
 	settings_changed.emit()
+
+func set_fullscreen(value: bool) -> void:
+	fullscreen = value
+	_apply_window_mode()
+	save_settings()
+	settings_changed.emit()
+
+func set_music_enabled(value: bool) -> void:
+	music_enabled = value
+	get_node("/root/AudioManager").set_music_enabled(value)
+	save_settings()
+	settings_changed.emit()
+
+func _apply_window_mode() -> void:
+	var mode: DisplayServer.WindowMode = DisplayServer.WINDOW_MODE_FULLSCREEN if fullscreen else DisplayServer.WINDOW_MODE_WINDOWED
+	if DisplayServer.window_get_mode() != mode:
+		DisplayServer.window_set_mode(mode)
 
 func set_difficulty(value: String) -> void:
 	difficulty = value
@@ -88,6 +120,8 @@ func load_settings() -> void:
 	screen_shake_enabled = config.get_value("display", "screen_shake_enabled", screen_shake_enabled)
 	high_contrast_bullets = config.get_value("display", "high_contrast_bullets", high_contrast_bullets)
 	difficulty = config.get_value("gameplay", "difficulty", difficulty)
+	fullscreen = config.get_value("display", "fullscreen", fullscreen)
+	music_enabled = config.get_value("audio", "music_enabled", music_enabled)
 	for action: String in REMAPPABLE_ACTIONS:
 		var stored: Variant = config.get_value("bindings", action, null)
 		if stored == null:
@@ -103,6 +137,8 @@ func save_settings() -> void:
 	config.set_value("display", "screen_shake_enabled", screen_shake_enabled)
 	config.set_value("display", "high_contrast_bullets", high_contrast_bullets)
 	config.set_value("gameplay", "difficulty", difficulty)
+	config.set_value("display", "fullscreen", fullscreen)
+	config.set_value("audio", "music_enabled", music_enabled)
 	for action: String in REMAPPABLE_ACTIONS:
 		var events: Array = InputMap.action_get_events(action)
 		if not events.is_empty():

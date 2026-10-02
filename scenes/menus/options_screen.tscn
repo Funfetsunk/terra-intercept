@@ -36,39 +36,55 @@ horizontal_alignment = 1
 [node name="CrtButton" type="Button" parent="." unique_id=739298033]
 layout_mode = 0
 offset_left = 40.0
-offset_top = 40.0
+offset_top = 36.0
 offset_right = 300.0
-offset_bottom = 62.0
+offset_bottom = 58.0
 text = "CRT Filter: Off"
 
 [node name="ShakeButton" type="Button" parent="." unique_id=136602940]
 layout_mode = 0
 offset_left = 340.0
-offset_top = 40.0
+offset_top = 36.0
 offset_right = 600.0
-offset_bottom = 62.0
+offset_bottom = 58.0
 text = "Screen Shake: On"
 
 [node name="ContrastButton" type="Button" parent="." unique_id=1257675232]
 layout_mode = 0
 offset_left = 40.0
-offset_top = 68.0
+offset_top = 60.0
 offset_right = 300.0
-offset_bottom = 90.0
+offset_bottom = 82.0
 text = "High-Contrast Bullets: Off"
 
 [node name="DifficultyButton" type="Button" parent="." unique_id=1930924724]
 layout_mode = 0
 offset_left = 340.0
-offset_top = 68.0
+offset_top = 60.0
 offset_right = 600.0
-offset_bottom = 90.0
+offset_bottom = 82.0
 text = "Difficulty: Normal"
+
+[node name="FullscreenButton" type="Button" parent="." unique_id=1731283009]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 84.0
+offset_right = 300.0
+offset_bottom = 106.0
+text = "Fullscreen: On"
+
+[node name="MusicButton" type="Button" parent="." unique_id=399176444]
+layout_mode = 0
+offset_left = 340.0
+offset_top = 84.0
+offset_right = 600.0
+offset_bottom = 106.0
+text = "Music: Off"
 
 [node name="RemapList" type="VBoxContainer" parent="." unique_id=1302403231]
 layout_mode = 0
 offset_left = 40.0
-offset_top = 104.0
+offset_top = 114.0
 offset_right = 600.0
 offset_bottom = 300.0
 theme_override_constants/separation = 6

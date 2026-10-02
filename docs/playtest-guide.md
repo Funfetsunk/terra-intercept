@@ -1,12 +1,13 @@
 # Terra Intercept: playtest guide
 
-Thanks for testing! This is a work-in-progress build. Sound effects aren't in yet and the music is placeholder, so it's quieter than the real thing will be.
+Thanks for testing! This is a work-in-progress build. Sound effects aren't in yet and the music is placeholder, so music starts switched off (turn it on in Options if you like).
 
 ## Running it
 
 1. Unzip the folder anywhere and run `TerraIntercept_Tester.exe`.
 2. Windows may show "Windows protected your PC" because the game isn't code-signed. Click **More info**, then **Run anyway**.
-3. A gamepad is recommended (Xbox-style). Keyboard and mouse work too.
+3. The game opens fullscreen. Press **F11** (or Options, Fullscreen) to switch to a window.
+4. A gamepad is recommended (Xbox-style). Keyboard and mouse work too.
 
 ## Controls
 

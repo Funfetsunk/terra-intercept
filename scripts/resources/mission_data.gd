@@ -12,6 +12,9 @@ class_name MissionData
 @export var stage_music: AudioStream
 @export var pre_briefing_lines: Array[Resource] = []
 @export var post_briefing_lines: Array[Resource] = []
+## Fjord-style side walls: each key is (distance scrolled in px, left wall
+## width, right wall width). Empty means no walls.
+@export var wall_keys: PackedVector3Array = PackedVector3Array()
 
 func get_section_start_time(section: String) -> float:
 	if section.is_empty():

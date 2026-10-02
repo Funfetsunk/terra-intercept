@@ -1,0 +1,25 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://cojxui12xfr2j"]
+
+[ext_resource type="Texture2D" uid="uid://cpde80qanbjvb" path="res://art/sprites/bosses/serpent_segment.png" id="1_60uu8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ubqs"]
+atlas = ExtResource("1_60uu8")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idcx0"]
+atlas = ExtResource("1_60uu8")
+region = Rect2(24, 0, 24, 24)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ubqs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_idcx0")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 4.0
+}]

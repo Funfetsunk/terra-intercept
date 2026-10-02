@@ -1,0 +1,25 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://bt1x7nf52pt0r"]
+
+[ext_resource type="Texture2D" uid="uid://dcxyk53arimsy" path="res://art/sprites/enemies/burrower_mk2.png" id="1_s0r4q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yi3cg"]
+atlas = ExtResource("1_s0r4q")
+region = Rect2(0, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqtie"]
+atlas = ExtResource("1_s0r4q")
+region = Rect2(20, 0, 20, 20)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yi3cg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqtie")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 4.0
+}]

@@ -1,0 +1,25 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://cfp515ksgeqm8"]
+
+[ext_resource type="Texture2D" uid="uid://wy60xufqtowe" path="res://art/sprites/enemies/mine.png" id="1_0d5ll"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r3h7t"]
+atlas = ExtResource("1_0d5ll")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1tnh5"]
+atlas = ExtResource("1_0d5ll")
+region = Rect2(8, 0, 8, 8)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r3h7t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1tnh5")
+}],
+"loop": 1,
+"name": &"blink",
+"speed": 4.0
+}]

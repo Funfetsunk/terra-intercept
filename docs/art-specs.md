@@ -66,12 +66,15 @@ Textured bullets are drawn at their own pixel size on whole pixels. The collisio
 | Flanker | 20×20 | **Built.** Dart shape pointing right, rotated in whole quarter turns to face its entry direction. 2-frame glow pulse. Plus an 8×8 amber (`f9c22b`) warning chevron that blinks at the playfield edge before it enters. |
 | Carrier | 32×32 | **Built.** Larger because it's slow and armoured. `idle` is a 2-frame glow pulse; `open` shows the bay lit green (the launch telegraph). |
 | Burrower | 20×20 | **Built.** 2-frame glow pulse. While it's underground, a 3-frame puff (`burrower_puff_snow` / `burrower_puff_sand`, 20×20, light chunks plus `2e222f` debris) and an 18×8 `2e222f` shadow mark the spot. |
-| Sniper | 20×20 | Its laser telegraph is a 1–2px line drawn in code |
+| Sniper | 20×20 | **Built.** 2-frame glow. Its laser telegraph is an `f9c22b` line drawn in code: 1px, then 2px, blinking while locked. |
+| Crawler | 24×24 | **Built.** `idle` 2-frame glow, `charge` flashes the turret core orange before a burst. |
+| Mine layer | 24×24 | **Built.** Faces right and mirrors to cross left. Its mines are 8×8 (`mine.png`): violet body, amber spikes, core blinking `9e4539`/`fbb954`. |
 | Shielder | 24×24, plus a 40×40 shield ring | |
 | Kamikaze | 16×16 | Plus a 2–3 frame "arming" flash |
 
 - Every enemy is an `AnimatedSprite2D` with a `SpriteFrames` resource sliced from a uniform-grid sheet.
 - Each enemy needs 2–4 idle or movement frames. Harder variants are palette swaps within the alien ramps.
+- **Mk II (columns 4–6), built:** every enemy has a `<name>_mk2.png` sheet and `<name>_mk2_frames.tres`. Violet steps down one shade (`a884f3→905ea9`, `905ea9→6b3e75`, `6b3e75→45293f`, `eaaded→a884f3`) and the green glow becomes amber (`165a4c→9e4539`, `239063→cd683d`, `1ebc73→e6904e`, `91db69→f9c22b`, `cddf6c→fbb954`). The frames have the same animation names as the base frames, and `EnemyData.sprite_frames` swaps them in.
 
 ## Bosses
 
@@ -83,6 +86,9 @@ Textured bullets are drawn at their own pixel size on whole pixels. The collisio
 | Glacier drill rig (Fjords) | 168×112 | **Built.** Armoured rig with turrets, two drill arms and a meltwater tank, its drill biting into the glacier front set piece. `phase2` is battle-damaged, its tank and debris flickering green and red. The ground scroll locks while it's on screen. |
 | Harvester convoy (Siberia) | Engine 48×32, tanker cars 32×24 | **Built.** Separate parts that face right and mirror (flip_h, pixel-exact) when driving left. The engine's `shielded` animation has a green core, and `exposed` turns it orange. |
 | Pyramid fortress (Cairo) | 168×128 | **Built.** The Great Pyramid with an alien ship fused on, and stone mapped to dusky `694f62`/`966c6c` so it stands off the orange sand. `phase2` has the capstone split open into a red core and the face hatches burning. |
+| Escort mothership (mid-boss, columns 4–6) | 64×64 | **Built.** Twin launch bays and a core. `phase2` turns the glow orange. |
+| Serpent dragon (Great Wall) | Head 48×48, segments 24×24 | **Built.** Separate parts. Segments are round discs, so they never need rotating. `phase2` turns the head's glow orange. |
+| Summit relay (Himalayas) | 168×128 | **Built.** A spire with four dishes. The snow base is mapped to muted greys and trimmed to a jagged peak so it never ends in a straight edge. `phase2` turns the coils orange. |
 | Other Earth mission bosses | 128–200 on the longest side | Must fit within the 360-wide playfield with room to dodge; 200 wide is the practical maximum |
 | Mothership (mission 7) | Wider than the playfield, built from parts | Hull turrets as separate 16–32px pieces, plus a core of about 128×128 |
 | Gate Core (final boss) | About 200×200 | Broken into parts that can animate or be destroyed |
@@ -127,7 +133,7 @@ All effects end by blinking or dithering out, never by alpha fading.
 
 | Item | Size | Notes |
 |---|---|---|
-| Scrolling ground layer | 360×360 tiles | **Built** (London, Paris, Fjords, Siberia, Cairo): two tiles per mission (`thames_a`/`thames_b`, `seine_a`/`seine_b`, `fjord_a`/`fjord_b`, `tundra_a`/`tundra_b`, `desert_a`/`desert_b`). Siberia's B tile is A mirrored vertically, because its diagonal streams can't wrap any other way. Cairo uses the same tile twice, because its winding road can't be mirrored that alternate seamlessly. Any B tile must keep A's top and bottom edges. The HUD panels cover the playfield's side edges, so no screen-shake margin is needed. |
+| Scrolling ground layer | 360×360 tiles | **Built** (London, Paris, Fjords, Siberia, Cairo): two tiles per mission (`thames_a`/`thames_b`, `seine_a`/`seine_b`, `fjord_a`/`fjord_b`, `tundra_a`/`tundra_b`, `desert_a`/`desert_b`, `wall_a`/`wall_b`, `slopes_a`/`slopes_b`). Siberia's B tile is A mirrored vertically, because its diagonal streams can't wrap any other way. Cairo uses the same tile twice, because its winding road can't be mirrored that alternate seamlessly. Any B tile must keep A's top and bottom edges. The HUD panels cover the playfield's side edges, so no screen-shake margin is needed. |
 | Parallax layers (clouds, smoke) | 360×360 | **Built** (London): a dithered `smoke.png` haze, about 8% coverage, at 1.4× scroll. |
 | Space / test range | 360×360 | **Built:** a palette starfield. |
 | Set-piece landmarks | 120–240 on the longest side | Drawn at an angle so they read from above. **Built:** the Eiffel Tower (96×160, `backgrounds/paris/eiffel_tower.png`), a `SetPiece` scene that scrolls with the ground once, spawned from the mission timeline. Mapped darker than the gameplay layer, like the tiles. Also the glacier front (360×200, `backgrounds/fjords/glacier_front.png`), which slides in under the Fjords boss and stops when the scroll locks. |

@@ -1,0 +1,63 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://v1gff6wouhl1"]
+
+[ext_resource type="Texture2D" uid="uid://dwwvvjqur10p" path="res://art/sprites/enemies/lander_pod_mk2.png" id="1_kcj61"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6r5h"]
+atlas = ExtResource("1_kcj61")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87n8u"]
+atlas = ExtResource("1_kcj61")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tk0if"]
+atlas = ExtResource("1_kcj61")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhyli"]
+atlas = ExtResource("1_kcj61")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mv15r"]
+atlas = ExtResource("1_kcj61")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mo6l6"]
+atlas = ExtResource("1_kcj61")
+region = Rect2(48, 0, 24, 24)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p6r5h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87n8u")
+}],
+"loop": 1,
+"name": &"active",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tk0if")
+}],
+"loop": 1,
+"name": &"falling",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bhyli")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mv15r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mo6l6")
+}],
+"loop": 0,
+"name": &"unfold",
+"speed": 8.0
+}]

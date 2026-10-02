@@ -1,0 +1,44 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://epmemfo1m5rg"]
+
+[ext_resource type="Texture2D" uid="uid://8o7kwv2hqofv" path="res://art/sprites/bosses/serpent_head.png" id="1_g4kx2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j5jc3"]
+atlas = ExtResource("1_g4kx2")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2frye"]
+atlas = ExtResource("1_g4kx2")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8bmmi"]
+atlas = ExtResource("1_g4kx2")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xmqd"]
+atlas = ExtResource("1_g4kx2")
+region = Rect2(144, 0, 48, 48)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j5jc3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2frye")
+}],
+"loop": 1,
+"name": &"phase1",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8bmmi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xmqd")
+}],
+"loop": 1,
+"name": &"phase2",
+"speed": 4.0
+}]

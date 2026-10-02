@@ -1,0 +1,44 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://bht8x4umaec7a"]
+
+[ext_resource type="Texture2D" uid="uid://dgkbhvuth5lx8" path="res://art/sprites/bosses/summit_relay_boss.png" id="1_wkapu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_it124"]
+atlas = ExtResource("1_wkapu")
+region = Rect2(0, 0, 168, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fubad"]
+atlas = ExtResource("1_wkapu")
+region = Rect2(168, 0, 168, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xisw4"]
+atlas = ExtResource("1_wkapu")
+region = Rect2(336, 0, 168, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckkqv"]
+atlas = ExtResource("1_wkapu")
+region = Rect2(504, 0, 168, 128)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_it124")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fubad")
+}],
+"loop": 1,
+"name": &"phase1",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xisw4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ckkqv")
+}],
+"loop": 1,
+"name": &"phase2",
+"speed": 3.0
+}]

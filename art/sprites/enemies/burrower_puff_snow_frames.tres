@@ -1,0 +1,32 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://bohp7s80fmagk"]
+
+[ext_resource type="Texture2D" uid="uid://defbwa7n0dueq" path="res://art/sprites/enemies/burrower_puff_snow.png" id="1_gifbu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6jyaq"]
+atlas = ExtResource("1_gifbu")
+region = Rect2(0, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mgo3a"]
+atlas = ExtResource("1_gifbu")
+region = Rect2(20, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qkkuk"]
+atlas = ExtResource("1_gifbu")
+region = Rect2(40, 0, 20, 20)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6jyaq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mgo3a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qkkuk")
+}],
+"loop": 1,
+"name": &"puff",
+"speed": 8.0
+}]

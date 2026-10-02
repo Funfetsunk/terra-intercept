@@ -1,0 +1,25 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://cdvxwcii3drml"]
+
+[ext_resource type="Texture2D" uid="uid://rkg8l440alkj" path="res://art/sprites/bosses/convoy_car.png" id="1_6ex0b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ik4t"]
+atlas = ExtResource("1_6ex0b")
+region = Rect2(0, 0, 32, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_krnks"]
+atlas = ExtResource("1_6ex0b")
+region = Rect2(32, 0, 32, 24)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ik4t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_krnks")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 4.0
+}]

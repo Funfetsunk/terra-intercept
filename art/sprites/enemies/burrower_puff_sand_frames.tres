@@ -1,0 +1,32 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://cesbu5w5imhsa"]
+
+[ext_resource type="Texture2D" uid="uid://c4eljsq8whf8t" path="res://art/sprites/enemies/burrower_puff_sand.png" id="1_m1hev"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u3v3o"]
+atlas = ExtResource("1_m1hev")
+region = Rect2(0, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lup6v"]
+atlas = ExtResource("1_m1hev")
+region = Rect2(20, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wcyh6"]
+atlas = ExtResource("1_m1hev")
+region = Rect2(40, 0, 20, 20)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u3v3o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lup6v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wcyh6")
+}],
+"loop": 1,
+"name": &"puff",
+"speed": 8.0
+}]

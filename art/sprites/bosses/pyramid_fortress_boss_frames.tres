@@ -1,0 +1,44 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://dxfq3l8dojw7c"]
+
+[ext_resource type="Texture2D" uid="uid://cbknol1ti381n" path="res://art/sprites/bosses/pyramid_fortress_boss.png" id="1_eiu25"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pri55"]
+atlas = ExtResource("1_eiu25")
+region = Rect2(0, 0, 168, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rxhbr"]
+atlas = ExtResource("1_eiu25")
+region = Rect2(168, 0, 168, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wnrma"]
+atlas = ExtResource("1_eiu25")
+region = Rect2(336, 0, 168, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34hfg"]
+atlas = ExtResource("1_eiu25")
+region = Rect2(504, 0, 168, 128)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pri55")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rxhbr")
+}],
+"loop": 1,
+"name": &"phase1",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wnrma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_34hfg")
+}],
+"loop": 1,
+"name": &"phase2",
+"speed": 3.0
+}]

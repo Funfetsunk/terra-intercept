@@ -1,0 +1,44 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://cn4a6xh502rss"]
+
+[ext_resource type="Texture2D" uid="uid://b05gtdbmjfjye" path="res://art/sprites/bosses/convoy_engine.png" id="1_8ynq4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yj2hq"]
+atlas = ExtResource("1_8ynq4")
+region = Rect2(96, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mne0l"]
+atlas = ExtResource("1_8ynq4")
+region = Rect2(144, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ddg06"]
+atlas = ExtResource("1_8ynq4")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bgsby"]
+atlas = ExtResource("1_8ynq4")
+region = Rect2(48, 0, 48, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yj2hq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mne0l")
+}],
+"loop": 1,
+"name": &"exposed",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ddg06")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bgsby")
+}],
+"loop": 1,
+"name": &"shielded",
+"speed": 4.0
+}]

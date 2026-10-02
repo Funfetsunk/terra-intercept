@@ -16,3 +16,16 @@ class_name BulletPatternData
 @export var bullet_texture: Texture2D
 @export var bullet_damage: float = 1.0
 @export var bullet_lifetime: float = 4.0
+## Fire the burst from each of these points (relative to the enemy) instead of its
+## centre, e.g. a boss's turrets. Aimed patterns aim from each point.
+@export var emitter_offsets: PackedVector2Array = PackedVector2Array()
+## Repeat the burst at this many speeds, each `layer_speed_step` faster, so it
+## arrives as stacked waves.
+@export var layers: int = 1
+@export var layer_speed_step: float = 0.0
+## Swing the base angle back and forth by up to this many degrees, completing
+## one swing every `sweep_period_bursts` bursts (0 = no sweep).
+@export var sweep_degrees: float = 0.0
+@export var sweep_period_bursts: int = 0
+## Random +/- speed per bullet (seeded), for scattered shards rather than neat rings.
+@export var speed_jitter: float = 0.0

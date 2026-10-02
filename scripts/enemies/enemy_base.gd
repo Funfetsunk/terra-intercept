@@ -69,22 +69,35 @@ func _fire_burst(pattern: BulletPatternData) -> void:
 
 func _fire_pattern(pattern: BulletPatternData, burst_index: int, rng: RandomNumberGenerator) -> void:
 	var base_angle_deg: float = pattern.fixed_angle_degrees + pattern.rotation_per_burst_degrees * burst_index
-	if pattern.aim_at_player:
-		var to_player: Vector2 = _bullets.get_player_position() - global_position
-		base_angle_deg = rad_to_deg(to_player.angle())
+	if pattern.sweep_period_bursts > 0:
+		base_angle_deg += pattern.sweep_degrees * sin(TAU * float(burst_index) / float(pattern.sweep_period_bursts))
 	var count: int = max(1, pattern.burst_size)
 	var full_ring: bool = is_equal_approx(pattern.angle_spread_degrees, 360.0)
 	var angle_step: float = 0.0
 	if count > 1:
 		angle_step = pattern.angle_spread_degrees / float(count) if full_ring else pattern.angle_spread_degrees / float(count - 1)
-	for i in range(count):
-		var offset: float = angle_step * float(i) if full_ring else (-pattern.angle_spread_degrees / 2.0 + angle_step * float(i))
-		var angle_deg: float = base_angle_deg + offset
-		if pattern.jitter_degrees > 0.0:
-			angle_deg += rng.randf_range(-pattern.jitter_degrees, pattern.jitter_degrees)
-		var rad: float = deg_to_rad(angle_deg)
-		var dir: Vector2 = Vector2(cos(rad), sin(rad))
-		_bullets.spawn_enemy_bullet(global_position, dir, pattern.bullet_speed, pattern.bullet_radius, pattern.bullet_color, pattern.bullet_lifetime, pattern.bullet_damage, pattern.bullet_texture)
+	var emitters: PackedVector2Array = pattern.emitter_offsets
+	if emitters.is_empty():
+		emitters = PackedVector2Array([Vector2.ZERO])
+	var layer_count: int = max(1, pattern.layers)
+	for emitter: Vector2 in emitters:
+		var origin: Vector2 = global_position + emitter
+		var emitter_angle_deg: float = base_angle_deg
+		if pattern.aim_at_player:
+			emitter_angle_deg = rad_to_deg((_bullets.get_player_position() - origin).angle())
+		for layer in range(layer_count):
+			var speed: float = pattern.bullet_speed + pattern.layer_speed_step * float(layer)
+			for i in range(count):
+				var offset: float = angle_step * float(i) if full_ring else (-pattern.angle_spread_degrees / 2.0 + angle_step * float(i))
+				var angle_deg: float = emitter_angle_deg + offset
+				if pattern.jitter_degrees > 0.0:
+					angle_deg += rng.randf_range(-pattern.jitter_degrees, pattern.jitter_degrees)
+				var bullet_speed: float = speed
+				if pattern.speed_jitter > 0.0:
+					bullet_speed += rng.randf_range(-pattern.speed_jitter, pattern.speed_jitter)
+				var rad: float = deg_to_rad(angle_deg)
+				var dir: Vector2 = Vector2(cos(rad), sin(rad))
+				_bullets.spawn_enemy_bullet(origin, dir, bullet_speed, pattern.bullet_radius, pattern.bullet_color, pattern.bullet_lifetime, pattern.bullet_damage, pattern.bullet_texture)
 
 func take_damage(amount: float) -> bool:
 	hull_current = max(0.0, hull_current - amount)

@@ -5,15 +5,18 @@
 
 [resource]
 script = ExtResource("2_j6572")
-pattern_name = "Glacier Drill Phase 2 Ring"
-burst_size = 18
-angle_spread_degrees = 360.0
-burst_interval = 0.85
-rotation_per_burst_degrees = 9.0
+pattern_name = "Glacier Drill Ice Wall"
+burst_size = 13
+angle_spread_degrees = 150.0
+burst_interval = 1.7
 aim_at_player = false
-fixed_angle_degrees = 0.0
 rng_seed = 63
-bullet_speed = 80.0
+bullet_speed = 70.0
 bullet_color = Color(1, 1, 1, 1)
 bullet_texture = ExtResource("1_gbukw")
 bullet_lifetime = 7.0
+emitter_offsets = PackedVector2Array(-2, 40)
+layers = 2
+layer_speed_step = 30.0
+sweep_degrees = 12.0
+sweep_period_bursts = 4

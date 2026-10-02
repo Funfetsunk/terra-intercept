@@ -5,15 +5,17 @@
 
 [resource]
 script = ExtResource("2_ipw2n")
-pattern_name = "Glacier Drill Phase 2 Spray"
+pattern_name = "Glacier Drill Shard Storm"
 burst_size = 9
-angle_spread_degrees = 100.0
-burst_interval = 0.45
-rotation_per_burst_degrees = -12.0
+angle_spread_degrees = 80.0
+burst_interval = 0.65
+jitter_degrees = 10.0
 rng_seed = 62
-bullet_speed = 145.0
+bullet_speed = 130.0
 bullet_radius = 4.0
 bullet_color = Color(1, 1, 1, 1)
 bullet_texture = ExtResource("1_aq71j")
 bullet_damage = 1.5
 bullet_lifetime = 5.0
+emitter_offsets = PackedVector2Array(-39, 15, 32, 26)
+speed_jitter = 45.0

@@ -1,17 +1,19 @@
 [gd_resource type="Resource" script_class="BulletPatternData" format=3 uid="uid://b22b5xdqitjh4"]
 
-[ext_resource type="Texture2D" uid="uid://drx443j5jisap" path="res://art/sprites/bullets/enemy_orb_cyan_8.png" id="1_bj4om"]
+[ext_resource type="Texture2D" uid="uid://bk0mscxc8vbay" path="res://art/sprites/bullets/enemy_orb_cyan_6.png" id="1_bj4om"]
 [ext_resource type="Script" uid="uid://skm1jc2p0sdk" path="res://scripts/resources/bullet_pattern_data.gd" id="2_3j5yr"]
 
 [resource]
 script = ExtResource("2_3j5yr")
-pattern_name = "Glacier Drill Phase 1 Crossfire"
-burst_size = 5
-angle_spread_degrees = 40.0
-burst_interval = 0.5
+pattern_name = "Glacier Drill Ice Shards"
+burst_size = 6
+angle_spread_degrees = 50.0
+burst_interval = 0.85
+jitter_degrees = 8.0
 rng_seed = 60
-bullet_speed = 130.0
-bullet_radius = 4.0
+bullet_speed = 115.0
 bullet_color = Color(1, 1, 1, 1)
 bullet_texture = ExtResource("1_bj4om")
 bullet_lifetime = 5.0
+emitter_offsets = PackedVector2Array(-39, 15, 32, 26)
+speed_jitter = 35.0

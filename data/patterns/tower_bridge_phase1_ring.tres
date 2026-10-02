@@ -5,14 +5,16 @@
 
 [resource]
 script = ExtResource("2_53xca")
-pattern_name = "Tower Bridge Phase 1 Ring"
-burst_size = 10
-angle_spread_degrees = 360.0
-burst_interval = 1.4
-rotation_per_burst_degrees = 12.0
+pattern_name = "Tower Bridge Sweeping Curtain"
+burst_size = 5
+angle_spread_degrees = 50.0
+burst_interval = 0.24
 aim_at_player = false
 rng_seed = 22
-bullet_speed = 70.0
+bullet_speed = 90.0
 bullet_color = Color(1, 1, 1, 1)
 bullet_texture = ExtResource("1_5a1v3")
-bullet_lifetime = 7.0
+bullet_lifetime = 6.0
+emitter_offsets = PackedVector2Array(0, 8)
+sweep_degrees = 50.0
+sweep_period_bursts = 18

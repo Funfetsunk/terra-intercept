@@ -5,12 +5,13 @@
 
 [resource]
 script = ExtResource("1")
-pattern_name = "Tower Bridge Phase 1 Fan"
-burst_size = 7
-angle_spread_degrees = 60.0
-burst_interval = 0.7
+pattern_name = "Tower Bridge Twin Tower Volleys"
+burst_size = 3
+angle_spread_degrees = 20.0
+burst_interval = 0.9
 rng_seed = 20
 bullet_radius = 4.0
 bullet_color = Color(1, 1, 1, 1)
 bullet_texture = ExtResource("1_wk6by")
 bullet_lifetime = 5.0
+emitter_offsets = PackedVector2Array(-48, -6, 48, -6)

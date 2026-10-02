@@ -5,14 +5,15 @@
 
 [resource]
 script = ExtResource("2_1v1kr")
-pattern_name = "Seine Siphon Phase 1 Spiral"
-burst_size = 12
-angle_spread_degrees = 360.0
-rotation_per_burst_degrees = 13.0
-aim_at_player = false
-fixed_angle_degrees = 0.0
+pattern_name = "Seine Siphon Droplet Rain"
+burst_size = 3
+angle_spread_degrees = 34.0
+burst_interval = 1.5
 rng_seed = 41
-bullet_speed = 75.0
+bullet_speed = 80.0
 bullet_color = Color(1, 1, 1, 1)
 bullet_texture = ExtResource("1_xf4i3")
-bullet_lifetime = 7.0
+bullet_lifetime = 5.0
+emitter_offsets = PackedVector2Array(0, 6)
+layers = 3
+layer_speed_step = 22.0

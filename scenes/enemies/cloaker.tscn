@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dyv21i7eff65q"]
+
+[ext_resource type="Script" uid="uid://w45hi6j6k5tt" path="res://scenes/enemies/cloaker.gd" id="1_c00ae"]
+[ext_resource type="Resource" uid="uid://sep45wfv3pkt" path="res://data/enemies/cloaker_data.tres" id="2_eh3nq"]
+[ext_resource type="Shader" uid="uid://bp0mmqk6nj03t" path="res://shaders/cloak_dither.gdshader" id="3_0uypt"]
+[ext_resource type="SpriteFrames" uid="uid://oqkpeknq62nj" path="res://art/sprites/enemies/cloaker_frames.tres" id="4_imwfo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1dfpu"]
+radius = 8.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qg5jb"]
+resource_local_to_scene = true
+shader = ExtResource("3_0uypt")
+shader_parameter/visibility = 1.0
+
+[node name="Cloaker" type="Node2D" unique_id=1667129940]
+script = ExtResource("1_c00ae")
+data = ExtResource("2_eh3nq")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=689863401]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=2030660048]
+shape = SubResource("CircleShape2D_1dfpu")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=315380951]
+material = SubResource("ShaderMaterial_qg5jb")
+sprite_frames = ExtResource("4_imwfo")
+animation = &"idle"
+autoplay = "idle"

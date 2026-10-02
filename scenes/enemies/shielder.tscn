@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://buw64syr3qc6e"]
+
+[ext_resource type="Script" uid="uid://cpmqo8gktw83v" path="res://scenes/enemies/shielder.gd" id="1_o0p7u"]
+[ext_resource type="Resource" uid="uid://dcdm67sh2g8hm" path="res://data/enemies/shielder_data.tres" id="2_s3n8t"]
+[ext_resource type="SpriteFrames" uid="uid://dp3j5604i0ugp" path="res://art/sprites/enemies/shielder_frames.tres" id="3_e43fy"]
+[ext_resource type="SpriteFrames" uid="uid://2lk21rxpgfj0" path="res://art/sprites/enemies/shield_ring_frames.tres" id="4_22pyb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1l4dy"]
+
+[node name="Shielder" type="Node2D" unique_id=1935221370]
+script = ExtResource("1_o0p7u")
+data = ExtResource("2_s3n8t")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=38213815]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1789447978]
+shape = SubResource("CircleShape2D_1l4dy")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1461824742]
+sprite_frames = ExtResource("3_e43fy")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Ring" type="AnimatedSprite2D" parent="." unique_id=1248807126]
+sprite_frames = ExtResource("4_22pyb")
+animation = &"on"
+autoplay = "on"

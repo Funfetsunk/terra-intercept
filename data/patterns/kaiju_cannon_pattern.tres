@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="BulletPatternData" format=3 uid="uid://b23qek0svw6gi"]
+
+[ext_resource type="Texture2D" uid="uid://qeskbvot425g" path="res://art/sprites/bullets/enemy_orb_pink_6.png" id="1_m7gpt"]
+[ext_resource type="Script" uid="uid://skm1jc2p0sdk" path="res://scripts/resources/bullet_pattern_data.gd" id="2_drsqa"]
+
+[resource]
+script = ExtResource("2_drsqa")
+pattern_name = "Kaiju Back Cannon"
+burst_size = 2
+angle_spread_degrees = 6.0
+burst_interval = 0.9
+rng_seed = 155
+bullet_speed = 135.0
+bullet_color = Color(1, 1, 1, 1)
+bullet_texture = ExtResource("1_m7gpt")
+bullet_lifetime = 5.0
+emitter_offsets = PackedVector2Array()
+emitter_angle_offsets = PackedFloat32Array()

@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://boxk6c507ffjj"]
+
+[ext_resource type="Script" uid="uid://dsiocmmqolpwy" path="res://scenes/levels/set_piece.gd" id="1_58voa"]
+[ext_resource type="Texture2D" uid="uid://houjqxolv1t6" path="res://art/sprites/backgrounds/sydney/opera_house.png" id="2_gvh24"]
+
+[node name="OperaHouse" type="Node2D" unique_id=1791234936]
+z_index = -9
+script = ExtResource("1_58voa")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=869051363]
+texture = ExtResource("2_gvh24")

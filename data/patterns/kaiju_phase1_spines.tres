@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="BulletPatternData" format=3 uid="uid://b4ri5vfy68fhx"]
+
+[ext_resource type="Texture2D" uid="uid://qeskbvot425g" path="res://art/sprites/bullets/enemy_orb_pink_6.png" id="1_0oqg7"]
+[ext_resource type="Script" uid="uid://skm1jc2p0sdk" path="res://scripts/resources/bullet_pattern_data.gd" id="2_of1y7"]
+
+[resource]
+script = ExtResource("2_of1y7")
+pattern_name = "Kaiju Spine Spray"
+burst_size = 7
+angle_spread_degrees = 140.0
+burst_interval = 1.8
+aim_at_player = false
+jitter_degrees = 5.0
+rng_seed = 151
+bullet_speed = 95.0
+bullet_color = Color(1, 1, 1, 1)
+bullet_texture = ExtResource("1_0oqg7")
+bullet_lifetime = 5.0
+emitter_offsets = PackedVector2Array(0, -30, 0, 0)
+emitter_angle_offsets = PackedFloat32Array()

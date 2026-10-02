@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://cfgbg00i3lih"]
+
+[ext_resource type="Script" uid="uid://8hm5uvclfgaj" path="res://scenes/bosses/kaiju_boss.gd" id="1_m2b2u"]
+[ext_resource type="Resource" uid="uid://bsrxhu6x7k7l3" path="res://data/enemies/kaiju_boss_data.tres" id="2_g06pl"]
+[ext_resource type="SpriteFrames" uid="uid://fb3mltq0x5q1" path="res://art/sprites/bosses/kaiju_body_frames.tres" id="3_rjs7s"]
+[ext_resource type="PackedScene" uid="uid://exp7r1hdrhrt" path="res://scenes/bosses/kaiju_arm.tscn" id="4_ip6et"]
+[ext_resource type="PackedScene" uid="uid://d0o3f042ixg8e" path="res://scenes/bosses/kaiju_cannon.tscn" id="5_gupnj"]
+
+[node name="KaijuBoss" type="Node2D" unique_id=46806153]
+script = ExtResource("1_m2b2u")
+hover_y = 80.0
+data = ExtResource("2_g06pl")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=840625343]
+sprite_frames = ExtResource("3_rjs7s")
+animation = &"phase1"
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1156450244]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1044730712]
+
+[node name="ArmL" parent="." unique_id=942614889 instance=ExtResource("4_ip6et")]
+position = Vector2(-46, 16)
+
+[node name="ArmR" parent="." unique_id=1051002992 instance=ExtResource("4_ip6et")]
+position = Vector2(46, 16)
+first_volley_delay = 0.7
+mirror = true
+
+[node name="CannonL" parent="." unique_id=61667232 instance=ExtResource("5_gupnj")]
+position = Vector2(-18, -24)
+first_volley_delay = 0.3
+
+[node name="CannonR" parent="." unique_id=1100473713 instance=ExtResource("5_gupnj")]
+position = Vector2(18, -24)
+first_volley_delay = 0.75
+mirror = true

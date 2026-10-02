@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://rfgmhpgli07a"]
+
+[ext_resource type="PackedScene" uid="uid://bca5f08gnsvli" path="res://scenes/effects/explosion_medium.tscn" id="1_o3w5h"]
+[ext_resource type="Resource" uid="uid://cs1w86a2matii" path="res://data/patterns/kaiju_arm_pattern.tres" id="2_qmeq1"]
+[ext_resource type="Script" uid="uid://bxbax4x8ptrvy" path="res://scripts/resources/enemy_data.gd" id="3_swvqx"]
+
+[resource]
+script = ExtResource("3_swvqx")
+enemy_name = "Kaiju Arm"
+move_speed = 0.0
+hull_max = 70.0
+hitbox_radius = 14.0
+pattern = ExtResource("2_qmeq1")
+score_value = 1500
+alien_tech_drop = 4
+explosion_scene = ExtResource("1_o3w5h")

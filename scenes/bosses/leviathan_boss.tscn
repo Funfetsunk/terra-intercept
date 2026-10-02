@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dxwo7nwpc4ox5"]
+
+[ext_resource type="Script" uid="uid://23sx52egi4xo" path="res://scenes/bosses/leviathan_boss.gd" id="1_rigui"]
+[ext_resource type="Resource" uid="uid://t7t0lfdex48w" path="res://data/enemies/leviathan_boss_data.tres" id="2_v46fq"]
+[ext_resource type="Texture2D" uid="uid://dri1v2qc7bwqh" path="res://art/sprites/bosses/leviathan_shadow.png" id="3_quihx"]
+[ext_resource type="SpriteFrames" uid="uid://dl8m476wuqemq" path="res://art/sprites/bosses/leviathan_boss_frames.tres" id="4_1dhrt"]
+
+[node name="LeviathanBoss" type="Node2D" unique_id=259793331]
+script = ExtResource("1_rigui")
+data = ExtResource("2_v46fq")
+
+[node name="Shadow" type="Sprite2D" parent="." unique_id=1199546580]
+visible = false
+texture = ExtResource("3_quihx")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=38935663]
+sprite_frames = ExtResource("4_1dhrt")
+animation = &"phase1"
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1236623549]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=703616462]

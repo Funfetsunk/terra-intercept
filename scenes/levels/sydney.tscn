@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://da8oa7jmcfhvb"]
+
+[ext_resource type="Script" uid="uid://75rqdkq3l656" path="res://scenes/levels/mission_level.gd" id="1_1i3jp"]
+[ext_resource type="PackedScene" uid="uid://c1woeggvkgk0f" path="res://scenes/hud/hud.tscn" id="2_2w2re"]
+[ext_resource type="PackedScene" uid="uid://bdjsxy2elcbrc" path="res://scenes/hud/dialogue_box.tscn" id="3_37dm2"]
+[ext_resource type="Script" uid="uid://b1vqxoh2qfcwi" path="res://scripts/systems/dialogue_controller.gd" id="4_i8xof"]
+[ext_resource type="Resource" uid="uid://dh2gix02yllhj" path="res://data/missions/sydney_mission.tres" id="5_gj25c"]
+[ext_resource type="Script" uid="uid://bjif1hmet7sgc" path="res://scripts/systems/playfield_shake.gd" id="6_bg1wn"]
+[ext_resource type="PackedScene" uid="uid://bveh1trv7wuqf" path="res://scenes/player/player_ship.tscn" id="7_c1g8c"]
+[ext_resource type="Script" uid="uid://c6cns2cik14l2" path="res://scenes/levels/scrolling_background.gd" id="8_vpls7"]
+[ext_resource type="PackedScene" uid="uid://ort4tmjdo7j" path="res://scenes/levels/background_layer.tscn" id="9_3fk4m"]
+[ext_resource type="Texture2D" uid="uid://dpiqj2waew0w" path="res://art/sprites/backgrounds/sydney/harbour_a.png" id="10_a4b2l"]
+[ext_resource type="Texture2D" uid="uid://ddyiaymcx8c8r" path="res://art/sprites/backgrounds/sydney/harbour_b.png" id="11_p78ia"]
+[ext_resource type="Texture2D" uid="uid://dvhhaaltk6dka" path="res://art/sprites/backgrounds/london/smoke.png" id="12_je20f"]
+[ext_resource type="Script" uid="uid://bgoiagdeo8ki4" path="res://scripts/systems/enemy_spawner.gd" id="13_xoj8d"]
+[ext_resource type="PackedScene" uid="uid://wklwemvx00mv" path="res://scenes/hud/crosshair.tscn" id="14_81uci"]
+[ext_resource type="PackedScene" uid="uid://ci0m4dfh7cg55" path="res://scenes/hud/pause_menu.tscn" id="15_8r1p8"]
+[ext_resource type="PackedScene" uid="uid://c8kaig230cm5v" path="res://scenes/ui/screen_fade.tscn" id="16_a84u5"]
+
+[node name="Sydney" type="Node2D" unique_id=705097]
+script = ExtResource("1_1i3jp")
+mission_id = "col5_south"
+
+[node name="HUD" parent="." unique_id=1725720245 instance=ExtResource("2_2w2re")]
+
+[node name="DialogueBox" parent="." unique_id=647446749 instance=ExtResource("3_37dm2")]
+
+[node name="DialogueController" type="Node" parent="." unique_id=1061489573]
+script = ExtResource("4_i8xof")
+mission = ExtResource("5_gj25c")
+dialogue_box_path = NodePath("../DialogueBox")
+
+[node name="PlayfieldRoot" type="Node2D" parent="." unique_id=370220181]
+position = Vector2(140, 0)
+script = ExtResource("6_bg1wn")
+
+[node name="PlayerShip" parent="PlayfieldRoot" unique_id=1276083379 instance=ExtResource("7_c1g8c")]
+position = Vector2(180, 300)
+
+[node name="Background" type="Node2D" parent="PlayfieldRoot" unique_id=455193155 groups=["scrolling_background"]]
+z_index = -10
+script = ExtResource("8_vpls7")
+mission = ExtResource("5_gj25c")
+
+[node name="FarLayer" parent="PlayfieldRoot/Background" unique_id=2071353270 instance=ExtResource("9_3fk4m")]
+panel_a_texture = ExtResource("10_a4b2l")
+panel_b_texture = ExtResource("11_p78ia")
+
+[node name="NearLayer" parent="PlayfieldRoot/Background" unique_id=899699578 instance=ExtResource("9_3fk4m")]
+scroll_speed_multiplier = 1.4
+panel_a_texture = ExtResource("12_je20f")
+panel_b_texture = ExtResource("12_je20f")
+
+[node name="EnemySpawner" type="Node" parent="PlayfieldRoot" unique_id=1415624087]
+script = ExtResource("13_xoj8d")
+mission = ExtResource("5_gj25c")
+
+[node name="Crosshair" parent="." unique_id=1482935218 instance=ExtResource("14_81uci")]
+
+[node name="PauseMenu" parent="." unique_id=366232786 instance=ExtResource("15_8r1p8")]
+
+[node name="ScreenFade" parent="." unique_id=1035464793 instance=ExtResource("16_a84u5")]

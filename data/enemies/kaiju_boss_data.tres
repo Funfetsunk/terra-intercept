@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="BossData" format=3 uid="uid://bsrxhu6x7k7l3"]
+
+[ext_resource type="PackedScene" uid="uid://c5hgr5sh58h6f" path="res://scenes/effects/explosion_large.tscn" id="1_0le1m"]
+[ext_resource type="AudioStream" uid="uid://b4jsl3exhcfm8" path="res://audio/music/boss.ogg" id="2_ybj18"]
+[ext_resource type="AudioStream" uid="uid://jhas3alcpgyt" path="res://audio/music/boss_phase2.ogg" id="3_qjwqo"]
+[ext_resource type="Resource" uid="uid://cc83ebssylwhk" path="res://data/patterns/kaiju_phase1.tres" id="4_pjp2s"]
+[ext_resource type="Resource" uid="uid://clatte306o4k7" path="res://data/patterns/kaiju_phase2.tres" id="5_7ke4r"]
+[ext_resource type="Resource" uid="uid://clqjcfm5j6eoi" path="res://data/patterns/kaiju_phase2_ring.tres" id="6_x1yi8"]
+[ext_resource type="Script" uid="uid://mfqvklciutsc" path="res://scripts/resources/boss_data.gd" id="7_ssfov"]
+[ext_resource type="Resource" uid="uid://b4ri5vfy68fhx" path="res://data/patterns/kaiju_phase1_spines.tres" id="8_qskaf"]
+
+[resource]
+script = ExtResource("7_ssfov")
+phase_2_pattern = ExtResource("5_7ke4r")
+secondary_pattern = ExtResource("8_qskaf")
+phase_2_secondary_pattern = ExtResource("6_x1yi8")
+sprite_size = 128.0
+music = ExtResource("2_ybj18")
+music_phase2 = ExtResource("3_qjwqo")
+enemy_name = "Kaiju Mech"
+move_speed = 20.0
+hull_max = 600.0
+hitbox_radius = 34.0
+pattern = ExtResource("4_pjp2s")
+score_value = 12000
+alien_tech_drop = 30
+explosion_scene = ExtResource("1_0le1m")

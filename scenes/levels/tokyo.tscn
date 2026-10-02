@@ -1,0 +1,95 @@
+[gd_scene format=4 uid="uid://ceqq6bl2td2pm"]
+
+[ext_resource type="Script" uid="uid://75rqdkq3l656" path="res://scenes/levels/mission_level.gd" id="1_6d1up"]
+[ext_resource type="PackedScene" uid="uid://c1woeggvkgk0f" path="res://scenes/hud/hud.tscn" id="2_0f5kp"]
+[ext_resource type="PackedScene" uid="uid://bdjsxy2elcbrc" path="res://scenes/hud/dialogue_box.tscn" id="3_1hmg7"]
+[ext_resource type="Script" uid="uid://b1vqxoh2qfcwi" path="res://scripts/systems/dialogue_controller.gd" id="4_y4j0o"]
+[ext_resource type="Resource" uid="uid://h82oa3vdisvd" path="res://data/missions/tokyo_mission.tres" id="5_ujf4w"]
+[ext_resource type="Script" uid="uid://bjif1hmet7sgc" path="res://scripts/systems/playfield_shake.gd" id="6_hem43"]
+[ext_resource type="PackedScene" uid="uid://bveh1trv7wuqf" path="res://scenes/player/player_ship.tscn" id="7_ak645"]
+[ext_resource type="Script" uid="uid://btgb0sd5135n3" path="res://scenes/levels/fog_banks.gd" id="8_1vbwo"]
+[ext_resource type="Shader" uid="uid://cdcdwx2ttklvc" path="res://shaders/fog_dither.gdshader" id="9_pomcj"]
+[ext_resource type="Script" uid="uid://c6cns2cik14l2" path="res://scenes/levels/scrolling_background.gd" id="10_om6pk"]
+[ext_resource type="PackedScene" uid="uid://ort4tmjdo7j" path="res://scenes/levels/background_layer.tscn" id="11_qsma7"]
+[ext_resource type="Texture2D" uid="uid://b3rbtfhkqnfmn" path="res://art/sprites/backgrounds/tokyo/city_a.png" id="12_ahc53"]
+[ext_resource type="Texture2D" uid="uid://cvtnm7im62ro1" path="res://art/sprites/backgrounds/tokyo/city_b.png" id="13_w4jd0"]
+[ext_resource type="Texture2D" uid="uid://dvhhaaltk6dka" path="res://art/sprites/backgrounds/london/smoke.png" id="14_sh6gg"]
+[ext_resource type="Script" uid="uid://bgoiagdeo8ki4" path="res://scripts/systems/enemy_spawner.gd" id="15_0n0d1"]
+[ext_resource type="PackedScene" uid="uid://wklwemvx00mv" path="res://scenes/hud/crosshair.tscn" id="16_gp0h2"]
+[ext_resource type="PackedScene" uid="uid://ci0m4dfh7cg55" path="res://scenes/hud/pause_menu.tscn" id="17_greo6"]
+[ext_resource type="PackedScene" uid="uid://c8kaig230cm5v" path="res://scenes/ui/screen_fade.tscn" id="18_hwp1j"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pprd5"]
+shader = ExtResource("9_pomcj")
+shader_parameter/banks = PackedVector4Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/bank_count = 0
+shader_parameter/rect_size = Vector2(360, 360)
+shader_parameter/fog_light = Color(0.92941177, 0.5019608, 0.6, 1)
+shader_parameter/fog_dark = Color(0.3019608, 0.60784316, 0.9019608, 1)
+shader_parameter/wisp_strength = 0.2
+shader_parameter/wisp_scale = 0.045
+shader_parameter/wisp_speed = 0.6
+shader_parameter/density_scale = 1.0
+shader_parameter/stripe_period = 3
+
+[node name="Tokyo" type="Node2D" unique_id=705097]
+script = ExtResource("1_6d1up")
+mission_id = "col5_north"
+
+[node name="HUD" parent="." unique_id=1725720245 instance=ExtResource("2_0f5kp")]
+
+[node name="DialogueBox" parent="." unique_id=647446749 instance=ExtResource("3_1hmg7")]
+
+[node name="DialogueController" type="Node" parent="." unique_id=1061489573]
+script = ExtResource("4_y4j0o")
+mission = ExtResource("5_ujf4w")
+dialogue_box_path = NodePath("../DialogueBox")
+
+[node name="PlayfieldRoot" type="Node2D" parent="." unique_id=370220181]
+position = Vector2(140, 0)
+script = ExtResource("6_hem43")
+
+[node name="PlayerShip" parent="PlayfieldRoot" unique_id=1276083379 instance=ExtResource("7_ak645")]
+z_index = 6
+position = Vector2(180, 300)
+
+[node name="FogBanks" type="Node2D" parent="PlayfieldRoot" unique_id=1230592680]
+z_index = 5
+script = ExtResource("8_1vbwo")
+mission = ExtResource("5_ujf4w")
+drift_multiplier = 1.15
+feather_px = 30.0
+flicker_strength = 0.3
+flicker_hz = 2.1
+dropout_period = 2.7
+
+[node name="Fog" type="ColorRect" parent="PlayfieldRoot/FogBanks" unique_id=104313491]
+material = SubResource("ShaderMaterial_pprd5")
+offset_right = 360.0
+offset_bottom = 360.0
+mouse_filter = 2
+color = Color(0.78039217, 0.8627451, 0.8156863, 1)
+
+[node name="Background" type="Node2D" parent="PlayfieldRoot" unique_id=455193155 groups=["scrolling_background"]]
+z_index = -10
+script = ExtResource("10_om6pk")
+mission = ExtResource("5_ujf4w")
+
+[node name="FarLayer" parent="PlayfieldRoot/Background" unique_id=2071353270 instance=ExtResource("11_qsma7")]
+panel_a_texture = ExtResource("12_ahc53")
+panel_b_texture = ExtResource("13_w4jd0")
+
+[node name="NearLayer" parent="PlayfieldRoot/Background" unique_id=899699578 instance=ExtResource("11_qsma7")]
+scroll_speed_multiplier = 1.4
+panel_a_texture = ExtResource("14_sh6gg")
+panel_b_texture = ExtResource("14_sh6gg")
+
+[node name="EnemySpawner" type="Node" parent="PlayfieldRoot" unique_id=1415624087]
+script = ExtResource("15_0n0d1")
+mission = ExtResource("5_ujf4w")
+
+[node name="Crosshair" parent="." unique_id=1482935218 instance=ExtResource("16_gp0h2")]
+
+[node name="PauseMenu" parent="." unique_id=366232786 instance=ExtResource("17_greo6")]
+
+[node name="ScreenFade" parent="." unique_id=1035464793 instance=ExtResource("18_hwp1j")]

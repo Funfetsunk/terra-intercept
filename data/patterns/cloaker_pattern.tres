@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="BulletPatternData" format=3 uid="uid://bwk7ux2f7xf8n"]
+
+[ext_resource type="Texture2D" uid="uid://bk0mscxc8vbay" path="res://art/sprites/bullets/enemy_orb_cyan_6.png" id="1_b7ekp"]
+[ext_resource type="Script" uid="uid://skm1jc2p0sdk" path="res://scripts/resources/bullet_pattern_data.gd" id="2_jyv3r"]
+
+[resource]
+script = ExtResource("2_jyv3r")
+pattern_name = "Cloaker Spread"
+burst_size = 5
+angle_spread_degrees = 40.0
+rng_seed = 141
+bullet_speed = 140.0
+bullet_color = Color(1, 1, 1, 1)
+bullet_texture = ExtResource("1_b7ekp")
+bullet_lifetime = 5.0
+emitter_offsets = PackedVector2Array()
+emitter_angle_offsets = PackedFloat32Array()

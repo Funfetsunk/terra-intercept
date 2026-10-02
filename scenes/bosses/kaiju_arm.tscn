@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://exp7r1hdrhrt"]
+
+[ext_resource type="Script" uid="uid://bon0a0ploytgo" path="res://scenes/bosses/boss_part.gd" id="1_8jgk5"]
+[ext_resource type="Resource" uid="uid://rfgmhpgli07a" path="res://data/enemies/kaiju_arm_data.tres" id="2_epymx"]
+[ext_resource type="SpriteFrames" uid="uid://ceedyq7xifs53" path="res://art/sprites/bosses/kaiju_arm_frames.tres" id="3_4m66n"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2tswh"]
+radius = 14.0
+
+[node name="KaijuArm" type="Node2D" unique_id=942614889]
+script = ExtResource("1_8jgk5")
+data = ExtResource("2_epymx")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1140543433]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1705516509]
+shape = SubResource("CircleShape2D_2tswh")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1947748689]
+sprite_frames = ExtResource("3_4m66n")
+animation = &"idle"
+autoplay = "idle"

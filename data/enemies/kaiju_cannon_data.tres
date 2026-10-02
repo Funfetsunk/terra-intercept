@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://d4mcpc2o16bhr"]
+
+[ext_resource type="PackedScene" uid="uid://bca5f08gnsvli" path="res://scenes/effects/explosion_medium.tscn" id="1_c2qwa"]
+[ext_resource type="Resource" uid="uid://b23qek0svw6gi" path="res://data/patterns/kaiju_cannon_pattern.tres" id="2_nqyph"]
+[ext_resource type="Script" uid="uid://bxbax4x8ptrvy" path="res://scripts/resources/enemy_data.gd" id="3_6b72b"]
+
+[resource]
+script = ExtResource("3_6b72b")
+enemy_name = "Kaiju Cannon"
+move_speed = 0.0
+hull_max = 45.0
+hitbox_radius = 10.0
+pattern = ExtResource("2_nqyph")
+score_value = 1000
+alien_tech_drop = 3
+explosion_scene = ExtResource("1_c2qwa")

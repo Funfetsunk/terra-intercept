@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://boq0liinhpte5"]
+
+[ext_resource type="Script" uid="uid://bon0a0ploytgo" path="res://scenes/bosses/boss_part.gd" id="1_y5ekp"]
+[ext_resource type="Resource" uid="uid://pdoa4w4pvvwo" path="res://data/enemies/tether_node_data.tres" id="2_e8u8o"]
+[ext_resource type="SpriteFrames" uid="uid://cy1e3r61uf1u6" path="res://art/sprites/enemies/tether_node_frames.tres" id="3_rpt28"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uny7p"]
+radius = 7.0
+
+[node name="TetherNode" type="Node2D" unique_id=255999437]
+script = ExtResource("1_y5ekp")
+data = ExtResource("2_e8u8o")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=2008098234]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=2095820648]
+shape = SubResource("CircleShape2D_uny7p")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=713719790]
+sprite_frames = ExtResource("3_rpt28")
+animation = &"idle"
+autoplay = "idle"

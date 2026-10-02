@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bjn0tl6shg6m2"]
+
+[ext_resource type="Script" uid="uid://beskbw3cxtlm5" path="res://scenes/enemies/tether_pair.gd" id="1_r3rtn"]
+[ext_resource type="PackedScene" uid="uid://boq0liinhpte5" path="res://scenes/enemies/tether_node.tscn" id="2_lm0k3"]
+
+[node name="TetherPair" type="Node2D" unique_id=1751195845]
+script = ExtResource("1_r3rtn")
+a_start = Vector2(0.32, -0.05)
+b_start = Vector2(1.06, -0.05)
+a_end = Vector2(0.32, 1.1)
+b_end = Vector2(1.06, 1.1)
+
+[node name="A" parent="." unique_id=255999437 instance=ExtResource("2_lm0k3")]
+
+[node name="B" parent="." unique_id=1342656087 instance=ExtResource("2_lm0k3")]
+first_volley_delay = 1.2
+mirror = true

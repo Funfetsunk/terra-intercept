@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://sep45wfv3pkt"]
+
+[ext_resource type="PackedScene" uid="uid://c5glm5ofoajet" path="res://scenes/effects/explosion_small.tscn" id="1_eeh6m"]
+[ext_resource type="Resource" uid="uid://bwk7ux2f7xf8n" path="res://data/patterns/cloaker_pattern.tres" id="2_gk4l3"]
+[ext_resource type="Script" uid="uid://bxbax4x8ptrvy" path="res://scripts/resources/enemy_data.gd" id="3_7at3t"]
+
+[resource]
+script = ExtResource("3_7at3t")
+enemy_name = "Cloaker"
+move_speed = 0.0
+hull_max = 6.0
+pattern = ExtResource("2_gk4l3")
+score_value = 500
+alien_tech_drop = 3
+explosion_scene = ExtResource("1_eeh6m")

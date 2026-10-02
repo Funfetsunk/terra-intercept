@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://pdoa4w4pvvwo"]
+
+[ext_resource type="PackedScene" uid="uid://c5glm5ofoajet" path="res://scenes/effects/explosion_small.tscn" id="1_g3p33"]
+[ext_resource type="Resource" uid="uid://chu5aqmhfp0mj" path="res://data/patterns/tether_node_pattern.tres" id="2_53f38"]
+[ext_resource type="Script" uid="uid://bxbax4x8ptrvy" path="res://scripts/resources/enemy_data.gd" id="3_bc7oi"]
+
+[resource]
+script = ExtResource("3_bc7oi")
+enemy_name = "Tether Node"
+move_speed = 0.0
+hull_max = 8.0
+hitbox_radius = 7.0
+pattern = ExtResource("2_53f38")
+score_value = 350
+alien_tech_drop = 2
+explosion_scene = ExtResource("1_g3p33")

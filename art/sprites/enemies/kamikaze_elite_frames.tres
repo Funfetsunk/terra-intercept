@@ -1,0 +1,44 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://tjedarecj1vq"]
+
+[ext_resource type="Texture2D" uid="uid://cdnlm6r43eo0j" path="res://art/sprites/enemies/kamikaze_elite.png" id="1_ogpq4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wob64"]
+atlas = ExtResource("1_ogpq4")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fagu0"]
+atlas = ExtResource("1_ogpq4")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_176fr"]
+atlas = ExtResource("1_ogpq4")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7mvjs"]
+atlas = ExtResource("1_ogpq4")
+region = Rect2(16, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wob64")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fagu0")
+}],
+"loop": 1,
+"name": &"arming",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_176fr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7mvjs")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 10.0
+}]

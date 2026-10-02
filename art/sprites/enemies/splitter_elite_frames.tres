@@ -1,0 +1,37 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://djqcwye7s1yk6"]
+
+[ext_resource type="Texture2D" uid="uid://ckubfw6sy2c1h" path="res://art/sprites/enemies/splitter_elite.png" id="1_i25w3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwpnr"]
+atlas = ExtResource("1_i25w3")
+region = Rect2(40, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ovven"]
+atlas = ExtResource("1_i25w3")
+region = Rect2(0, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e4ee1"]
+atlas = ExtResource("1_i25w3")
+region = Rect2(20, 0, 20, 20)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwpnr")
+}],
+"loop": 1,
+"name": &"hit",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ovven")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e4ee1")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 4.0
+}]

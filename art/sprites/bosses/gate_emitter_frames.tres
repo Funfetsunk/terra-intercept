@@ -1,0 +1,25 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://cut7s3xp5jl2m"]
+
+[ext_resource type="Texture2D" uid="uid://bwlvyakmqmluv" path="res://art/sprites/bosses/gate_emitter.png" id="1_jsopr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jln44"]
+atlas = ExtResource("1_jsopr")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pifd"]
+atlas = ExtResource("1_jsopr")
+region = Rect2(32, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jln44")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8pifd")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 6.0
+}]

@@ -1,0 +1,25 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://bux66bcivtgmi"]
+
+[ext_resource type="Texture2D" uid="uid://cnvxpjkk5o4sj" path="res://art/sprites/enemies/shielder_elite.png" id="1_s5ywa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_861ce"]
+atlas = ExtResource("1_s5ywa")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4m0b"]
+atlas = ExtResource("1_s5ywa")
+region = Rect2(24, 0, 24, 24)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_861ce")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w4m0b")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 4.0
+}]

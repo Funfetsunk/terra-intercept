@@ -1,0 +1,25 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://cbs3keo8wpuix"]
+
+[ext_resource type="Texture2D" uid="uid://c3pllna1x88gw" path="res://art/sprites/enemies/drone_elite.png" id="1_fmspl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ema7j"]
+atlas = ExtResource("1_fmspl")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hunk"]
+atlas = ExtResource("1_fmspl")
+region = Rect2(16, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ema7j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8hunk")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 4.0
+}]

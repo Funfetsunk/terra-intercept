@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://dmsbep0ja0b4d"]
+
+[ext_resource type="Texture2D" uid="uid://t3na7i25tpxw" path="res://art/sprites/enemies/spinner_elite.png" id="1_8qc6a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imfkf"]
+atlas = ExtResource("1_8qc6a")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8g2fi"]
+atlas = ExtResource("1_8qc6a")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_akgrm"]
+atlas = ExtResource("1_8qc6a")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ap2im"]
+atlas = ExtResource("1_8qc6a")
+region = Rect2(72, 0, 24, 24)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imfkf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8g2fi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_akgrm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ap2im")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 8.0
+}]

@@ -1,0 +1,44 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://dowjag11afyax"]
+
+[ext_resource type="Texture2D" uid="uid://bnqp08hfxt2uv" path="res://art/sprites/enemies/crawler_elite.png" id="1_q1v20"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ghpyk"]
+atlas = ExtResource("1_q1v20")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uh2cx"]
+atlas = ExtResource("1_q1v20")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_grqrl"]
+atlas = ExtResource("1_q1v20")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k2hif"]
+atlas = ExtResource("1_q1v20")
+region = Rect2(24, 0, 24, 24)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ghpyk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uh2cx")
+}],
+"loop": 1,
+"name": &"charge",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_grqrl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k2hif")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 6.0
+}]

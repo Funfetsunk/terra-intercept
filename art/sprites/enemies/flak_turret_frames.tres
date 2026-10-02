@@ -1,0 +1,44 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://crp5r7nad8k70"]
+
+[ext_resource type="Texture2D" uid="uid://dbgoivwswfedn" path="res://art/sprites/enemies/flak_turret.png" id="1_0lcqo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ou31w"]
+atlas = ExtResource("1_0lcqo")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58mv2"]
+atlas = ExtResource("1_0lcqo")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_086pr"]
+atlas = ExtResource("1_0lcqo")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ayoyl"]
+atlas = ExtResource("1_0lcqo")
+region = Rect2(24, 0, 24, 24)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ou31w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58mv2")
+}],
+"loop": 1,
+"name": &"charge",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_086pr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ayoyl")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 6.0
+}]

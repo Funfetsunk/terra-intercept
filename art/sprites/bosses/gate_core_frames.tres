@@ -1,0 +1,82 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://dhr8fr6efrdvx"]
+
+[ext_resource type="Texture2D" uid="uid://b0tqxjroocw81" path="res://art/sprites/bosses/gate_core.png" id="1_a4njp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4eb3e"]
+atlas = ExtResource("1_a4njp")
+region = Rect2(400, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0gju"]
+atlas = ExtResource("1_a4njp")
+region = Rect2(600, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v432a"]
+atlas = ExtResource("1_a4njp")
+region = Rect2(1200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2kmv"]
+atlas = ExtResource("1_a4njp")
+region = Rect2(1400, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7gss"]
+atlas = ExtResource("1_a4njp")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_022ed"]
+atlas = ExtResource("1_a4njp")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3wx2q"]
+atlas = ExtResource("1_a4njp")
+region = Rect2(800, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibm0f"]
+atlas = ExtResource("1_a4njp")
+region = Rect2(1000, 0, 200, 200)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4eb3e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r0gju")
+}],
+"loop": 1,
+"name": &"exposed",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v432a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o2kmv")
+}],
+"loop": 1,
+"name": &"meltdown",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h7gss")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_022ed")
+}],
+"loop": 1,
+"name": &"phase1",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3wx2q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ibm0f")
+}],
+"loop": 1,
+"name": &"phase2",
+"speed": 6.0
+}]

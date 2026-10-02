@@ -1,0 +1,44 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://cauar74vsrofi"]
+
+[ext_resource type="Texture2D" uid="uid://bravvskw3i73n" path="res://art/sprites/bosses/escort_mid_boss_elite.png" id="1_7hwp2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ysn42"]
+atlas = ExtResource("1_7hwp2")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ekod"]
+atlas = ExtResource("1_7hwp2")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8mwg"]
+atlas = ExtResource("1_7hwp2")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1di2"]
+atlas = ExtResource("1_7hwp2")
+region = Rect2(192, 0, 64, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ysn42")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ekod")
+}],
+"loop": 1,
+"name": &"phase1",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x8mwg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1di2")
+}],
+"loop": 1,
+"name": &"phase2",
+"speed": 4.0
+}]

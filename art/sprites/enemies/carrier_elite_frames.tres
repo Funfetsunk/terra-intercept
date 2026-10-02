@@ -1,0 +1,44 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://dpknt2yclu5co"]
+
+[ext_resource type="Texture2D" uid="uid://cq57mpsq383uf" path="res://art/sprites/enemies/carrier_elite.png" id="1_mg6sf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ysiji"]
+atlas = ExtResource("1_mg6sf")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qe3cv"]
+atlas = ExtResource("1_mg6sf")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nwrbw"]
+atlas = ExtResource("1_mg6sf")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24b0o"]
+atlas = ExtResource("1_mg6sf")
+region = Rect2(96, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ysiji")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qe3cv")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nwrbw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_24b0o")
+}],
+"loop": 1,
+"name": &"open",
+"speed": 4.0
+}]

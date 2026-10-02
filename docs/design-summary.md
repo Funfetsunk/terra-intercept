@@ -146,6 +146,22 @@ Column 3 is a step harder than column 2.
 
 Column 4 is a step harder than column 3, and the second mid-boss (a Carrier-class escort mothership) arrives here. Column 4 is also where the midgame reveal plays, on either route.
 
+### Mission 5 (north): Tokyo
+
+- **Route:** Flying low over Tokyo at night.
+- **Twist:** Neon billboard bands. Giant holographic billboards scroll through the playfield as flickering, dithered neon bands that partly mask the bullets inside them. Cloakers lurk in them.
+- **New enemies:** The Cloaker and the Shielder.
+- **Boss:** A kaiju-style alien walker stomping through the city. Its arms and back cannons are separate targets; the body is the core.
+
+### Mission 5 (south): Sydney
+
+- **Route:** Flying across Sydney Harbour, past the Opera House and under the Harbour Bridge.
+- **Twist:** Tether beam fences. The Tether pair's debut is the twist: beams stretch across the harbour and sweep the screen, so the player picks the gap or kills one end to drop the beam.
+- **New enemies:** The Tether pair and the Shielder.
+- **Boss:** A harbour leviathan, a huge alien submarine that surfaces, dives to dodge (it can't be hit while under), and resurfaces somewhere else firing from opened hatches.
+
+Column 5 is a step harder than column 4. Regular enemies stay Mk II and the escort mothership is the mid-boss.
+
 ### Mission 7: Orbital
 
 A dogfight through wrecked satellites and alien fleets as Earth recedes below. The mothership is the boss, fought in two parts: the outer hull and its turrets, then the core. The mission ends with the squad diving into the portal.

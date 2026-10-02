@@ -114,6 +114,22 @@ Each location has its own gameplay twist. Difficulty is set per mission and rise
 - **New enemy:** The Carrier (slow, armoured, launches smaller enemies).
 - **Boss:** An alien drill rig boring into a glacier to harvest ice and meltwater, with drill arms and turrets.
 
+### Mission 3 (north): Siberian Ice
+
+- **Route:** Flying over frozen tundra and ice fields where the aliens are harvesting ice.
+- **Twist:** Ice fog. Dithered fog banks roll down the screen and partly hide enemies and bullets inside them, so the player reads the edges and avoids the thickest patches.
+- **New enemy:** The Burrower, surfacing from the ice. The Carrier and the Flanker join the pool.
+- **Boss:** A harvester convoy: a train of armoured ice tankers crossing the tundra, led by an engine. The player destroys the cars one by one, then the engine. (The original "alien drilling rig" idea moved to the Fjords boss.)
+
+### Mission 3 (south): Cairo and the pyramids
+
+- **Route:** Flying over the desert past Cairo towards Giza.
+- **Twist:** Sandstorms. Telegraphed gusts sweep across the screen and push the player sideways for a few seconds, so the player has to steer against them.
+- **New enemy:** The Burrower, surfacing from the sand. The Carrier and the Flanker join the pool.
+- **Boss:** A pyramid fortress. An alien ship has fused onto the Great Pyramid. Its faces slide open to fire, then the capstone opens into a turret core.
+
+Column 3 is a step harder than column 2.
+
 ### Mission 7: Orbital
 
 A dogfight through wrecked satellites and alien fleets as Earth recedes below. The mothership is the boss, fought in two parts: the outer hull and its turrets, then the core. The mission ends with the squad diving into the portal.

@@ -1,0 +1,44 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://c8i6mcggdsejm"]
+
+[ext_resource type="Texture2D" uid="uid://bkqly7kql0nt2" path="res://art/sprites/bosses/glacier_drill_boss.png" id="1_qee86"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1frvq"]
+atlas = ExtResource("1_qee86")
+region = Rect2(0, 0, 168, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lg4cn"]
+atlas = ExtResource("1_qee86")
+region = Rect2(168, 0, 168, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6o40"]
+atlas = ExtResource("1_qee86")
+region = Rect2(336, 0, 168, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nh1cb"]
+atlas = ExtResource("1_qee86")
+region = Rect2(504, 0, 168, 112)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1frvq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lg4cn")
+}],
+"loop": 1,
+"name": &"phase1",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6o40")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nh1cb")
+}],
+"loop": 1,
+"name": &"phase2",
+"speed": 3.0
+}]

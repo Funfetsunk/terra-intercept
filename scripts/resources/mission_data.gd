@@ -12,6 +12,9 @@ class_name MissionData
 @export var stage_music: AudioStream
 @export var pre_briefing_lines: Array[Resource] = []
 @export var post_briefing_lines: Array[Resource] = []
+## Scene shown after the post-mission briefing instead of the hangar (the
+## finale goes to the ending credits). Empty means the hangar.
+@export var after_mission_scene: String = ""
 ## Fjord-style side walls: each key is (distance scrolled in px, left wall
 ## width, right wall width). Empty means no walls.
 @export var wall_keys: PackedVector3Array = PackedVector3Array()

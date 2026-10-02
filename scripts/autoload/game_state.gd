@@ -108,6 +108,11 @@ func register_kill(base_score: int) -> void:
 	kill_chain = min(chain_multiplier_max, kill_chain + 1)
 	kill_chain_changed.emit(kill_chain)
 
+## Flat score bonus (the homeworld escape's time bonus).
+func add_score_bonus(amount: int) -> void:
+	score += amount
+	score_changed.emit(score)
+
 func break_chain() -> void:
 	if kill_chain != 1:
 		kill_chain = 1

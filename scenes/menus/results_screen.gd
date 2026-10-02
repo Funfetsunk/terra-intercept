@@ -25,9 +25,12 @@ func _unhandled_input(event: InputEvent) -> void:
 func _on_continue() -> void:
 	var game_state: Node = get_node("/root/GameState")
 	var map_node: MapNodeData = game_state.find_map_node(game_state.current_mission_name)
+	var next_scene: String = "res://scenes/menus/hangar.tscn"
+	if map_node != null and map_node.mission_data != null and not map_node.mission_data.after_mission_scene.is_empty():
+		next_scene = map_node.mission_data.after_mission_scene
 	if map_node != null and map_node.mission_data != null and not map_node.mission_data.post_briefing_lines.is_empty():
 		game_state.pending_briefing_lines = map_node.mission_data.post_briefing_lines
-		game_state.pending_briefing_next_scene = "res://scenes/menus/hangar.tscn"
+		game_state.pending_briefing_next_scene = next_scene
 		get_tree().change_scene_to_file("res://scenes/menus/briefing_screen.tscn")
 		return
-	get_tree().change_scene_to_file("res://scenes/menus/hangar.tscn")
+	get_tree().change_scene_to_file(next_scene)

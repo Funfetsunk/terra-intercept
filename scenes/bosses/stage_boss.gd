@@ -9,6 +9,9 @@ extends EnemyBase
 ## ground: while moving into place the ground scrolls at the boss's own speed,
 ## then stops once it arrives (presentation only).
 @export var lock_background_scroll: bool = true
+## Off for a boss whose death leads into something else first (the Gate Core
+## hands over to the homeworld escape, which completes the mission itself).
+@export var completes_mission: bool = true
 
 var _phase2_active: bool = false
 var _audio: Node = null
@@ -48,4 +51,5 @@ func take_damage(amount: float) -> bool:
 
 func _die() -> void:
 	super._die()
-	get_node("/root/GameState").complete_mission()
+	if completes_mission:
+		get_node("/root/GameState").complete_mission()

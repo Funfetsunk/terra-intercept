@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://dao0fjbvsgsts"]
+
+[ext_resource type="PackedScene" uid="uid://bca5f08gnsvli" path="res://scenes/effects/explosion_medium.tscn" id="1_awpu1"]
+[ext_resource type="Resource" uid="uid://bwmffcdm6pv6s" path="res://data/patterns/carrier_pattern.tres" id="2_t0tvv"]
+[ext_resource type="Script" uid="uid://bxbax4x8ptrvy" path="res://scripts/resources/enemy_data.gd" id="3_dhrrj"]
+
+[resource]
+script = ExtResource("3_dhrrj")
+enemy_name = "Carrier"
+move_speed = 22.0
+hull_max = 16.0
+hitbox_radius = 13.0
+pattern = ExtResource("2_t0tvv")
+score_value = 600
+alien_tech_drop = 4
+explosion_scene = ExtResource("1_awpu1")

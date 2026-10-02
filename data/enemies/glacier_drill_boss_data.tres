@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="BossData" format=3 uid="uid://b5dmtd7uk86uf"]
+
+[ext_resource type="PackedScene" uid="uid://c5hgr5sh58h6f" path="res://scenes/effects/explosion_large.tscn" id="1_0gxht"]
+[ext_resource type="AudioStream" uid="uid://b4jsl3exhcfm8" path="res://audio/music/boss.ogg" id="2_owdqn"]
+[ext_resource type="AudioStream" uid="uid://jhas3alcpgyt" path="res://audio/music/boss_phase2.ogg" id="3_muip1"]
+[ext_resource type="Resource" uid="uid://b22b5xdqitjh4" path="res://data/patterns/glacier_drill_phase1.tres" id="4_es4eh"]
+[ext_resource type="Resource" uid="uid://b1natr18smlot" path="res://data/patterns/glacier_drill_phase2.tres" id="5_c3afo"]
+[ext_resource type="Resource" uid="uid://droy4l1slcn6b" path="res://data/patterns/glacier_drill_phase2_ring.tres" id="6_gvc7l"]
+[ext_resource type="Script" uid="uid://mfqvklciutsc" path="res://scripts/resources/boss_data.gd" id="7_0qola"]
+[ext_resource type="Resource" uid="uid://bit81r0mdw3ns" path="res://data/patterns/glacier_drill_phase1_ring.tres" id="8_j186u"]
+
+[resource]
+script = ExtResource("7_0qola")
+phase_2_pattern = ExtResource("5_c3afo")
+secondary_pattern = ExtResource("8_j186u")
+phase_2_secondary_pattern = ExtResource("6_gvc7l")
+sprite_size = 168.0
+music = ExtResource("2_owdqn")
+music_phase2 = ExtResource("3_muip1")
+enemy_name = "Glacier Drill Rig"
+move_speed = 20.0
+hull_max = 520.0
+hitbox_radius = 42.0
+pattern = ExtResource("4_es4eh")
+score_value = 9000
+alien_tech_drop = 24
+explosion_scene = ExtResource("1_0gxht")

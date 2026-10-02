@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="BossData" format=3 uid="uid://c878tmwfhowe6"]
+
+[ext_resource type="PackedScene" uid="uid://c5hgr5sh58h6f" path="res://scenes/effects/explosion_large.tscn" id="1_dllod"]
+[ext_resource type="AudioStream" uid="uid://xweoxwdo0mpr" path="res://audio/music/mid_boss.ogg" id="2_a0wlh"]
+[ext_resource type="AudioStream" uid="uid://cy8m8buhn168n" path="res://audio/music/mid_boss_phase2.ogg" id="3_3dmk5"]
+[ext_resource type="Resource" uid="uid://uh4bp5mv2j0j" path="res://data/patterns/boss_pattern_phase1.tres" id="4_8qphj"]
+[ext_resource type="Resource" uid="uid://cmv7j4ebnyu8" path="res://data/patterns/boss_pattern_phase2.tres" id="5_cc7sf"]
+[ext_resource type="Resource" uid="uid://c0gmkrbmltmnk" path="res://data/patterns/paris_mid_boss_aimed_p2.tres" id="6_l620e"]
+[ext_resource type="Script" uid="uid://mfqvklciutsc" path="res://scripts/resources/boss_data.gd" id="7_peil2"]
+[ext_resource type="Resource" uid="uid://c3ewsangq547k" path="res://data/patterns/paris_mid_boss_aimed.tres" id="8_x8nsh"]
+
+[resource]
+script = ExtResource("7_peil2")
+phase_2_pattern = ExtResource("5_cc7sf")
+secondary_pattern = ExtResource("8_x8nsh")
+phase_2_secondary_pattern = ExtResource("6_l620e")
+music = ExtResource("2_a0wlh")
+music_phase2 = ExtResource("3_3dmk5")
+enemy_name = "Sentinel (Fjords)"
+move_speed = 20.0
+hull_max = 180.0
+hitbox_radius = 24.0
+pattern = ExtResource("4_8qphj")
+score_value = 6000
+alien_tech_drop = 12
+explosion_scene = ExtResource("1_dllod")

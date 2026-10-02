@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://dqmciljn1nhpd"]
+
+[ext_resource type="Script" uid="uid://75rqdkq3l656" path="res://scenes/levels/mission_level.gd" id="1_gbec2"]
+[ext_resource type="PackedScene" uid="uid://c1woeggvkgk0f" path="res://scenes/hud/hud.tscn" id="2_bu6uv"]
+[ext_resource type="PackedScene" uid="uid://bdjsxy2elcbrc" path="res://scenes/hud/dialogue_box.tscn" id="3_2g76o"]
+[ext_resource type="Script" uid="uid://b1vqxoh2qfcwi" path="res://scripts/systems/dialogue_controller.gd" id="4_vg3gs"]
+[ext_resource type="Resource" uid="uid://cn6v44si2qvob" path="res://data/missions/fjords_mission.tres" id="5_gy7q2"]
+[ext_resource type="Script" uid="uid://bjif1hmet7sgc" path="res://scripts/systems/playfield_shake.gd" id="6_4dhfo"]
+[ext_resource type="PackedScene" uid="uid://bveh1trv7wuqf" path="res://scenes/player/player_ship.tscn" id="7_hhrtr"]
+[ext_resource type="Script" uid="uid://bmpk44dxyxabo" path="res://scenes/levels/fjord_walls.gd" id="8_w7x4f"]
+[ext_resource type="Texture2D" uid="uid://cmncby18phelh" path="res://art/sprites/backgrounds/fjords/cliff_rock.png" id="9_nsdr1"]
+[ext_resource type="Script" uid="uid://c6cns2cik14l2" path="res://scenes/levels/scrolling_background.gd" id="10_vc4de"]
+[ext_resource type="PackedScene" uid="uid://ort4tmjdo7j" path="res://scenes/levels/background_layer.tscn" id="11_q17oq"]
+[ext_resource type="Texture2D" uid="uid://bb2aiod1q6g7" path="res://art/sprites/backgrounds/fjords/fjord_a.png" id="12_2g76o"]
+[ext_resource type="Texture2D" uid="uid://dvhhaaltk6dka" path="res://art/sprites/backgrounds/london/smoke.png" id="12_dmt07"]
+[ext_resource type="Script" uid="uid://bgoiagdeo8ki4" path="res://scripts/systems/enemy_spawner.gd" id="13_5bdvk"]
+[ext_resource type="Texture2D" uid="uid://bfn4tsohwani4" path="res://art/sprites/backgrounds/fjords/fjord_b.png" id="13_vg3gs"]
+[ext_resource type="PackedScene" uid="uid://wklwemvx00mv" path="res://scenes/hud/crosshair.tscn" id="14_vcd7b"]
+[ext_resource type="PackedScene" uid="uid://ci0m4dfh7cg55" path="res://scenes/hud/pause_menu.tscn" id="15_mruc8"]
+
+[node name="Fjords" type="Node2D" unique_id=705097]
+script = ExtResource("1_gbec2")
+mission_id = "col2_north"
+
+[node name="HUD" parent="." unique_id=1725720245 instance=ExtResource("2_bu6uv")]
+
+[node name="DialogueBox" parent="." unique_id=647446749 instance=ExtResource("3_2g76o")]
+
+[node name="DialogueController" type="Node" parent="." unique_id=1061489573]
+script = ExtResource("4_vg3gs")
+mission = ExtResource("5_gy7q2")
+dialogue_box_path = NodePath("../DialogueBox")
+
+[node name="PlayfieldRoot" type="Node2D" parent="." unique_id=370220181]
+position = Vector2(140, 0)
+script = ExtResource("6_4dhfo")
+
+[node name="PlayerShip" parent="PlayfieldRoot" unique_id=1276083379 instance=ExtResource("7_hhrtr")]
+position = Vector2(180, 300)
+
+[node name="FjordWalls" type="Node2D" parent="PlayfieldRoot" unique_id=1800470214]
+z_index = -8
+script = ExtResource("8_w7x4f")
+mission = ExtResource("5_gy7q2")
+rock_texture = ExtResource("9_nsdr1")
+
+[node name="Background" type="Node2D" parent="PlayfieldRoot" unique_id=455193155 groups=["scrolling_background"]]
+z_index = -10
+script = ExtResource("10_vc4de")
+mission = ExtResource("5_gy7q2")
+
+[node name="FarLayer" parent="PlayfieldRoot/Background" unique_id=2071353270 instance=ExtResource("11_q17oq")]
+panel_a_texture = ExtResource("12_2g76o")
+panel_b_texture = ExtResource("13_vg3gs")
+
+[node name="NearLayer" parent="PlayfieldRoot/Background" unique_id=899699578 instance=ExtResource("11_q17oq")]
+scroll_speed_multiplier = 1.4
+panel_a_texture = ExtResource("12_dmt07")
+panel_b_texture = ExtResource("12_dmt07")
+
+[node name="EnemySpawner" type="Node" parent="PlayfieldRoot" unique_id=1415624087]
+script = ExtResource("13_5bdvk")
+mission = ExtResource("5_gy7q2")
+
+[node name="Crosshair" parent="." unique_id=1482935218 instance=ExtResource("14_vcd7b")]
+
+[node name="PauseMenu" parent="." unique_id=366232786 instance=ExtResource("15_mruc8")]

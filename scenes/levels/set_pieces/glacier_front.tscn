@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dcgrtp6jxp2ij"]
+
+[ext_resource type="Script" uid="uid://dsiocmmqolpwy" path="res://scenes/levels/set_piece.gd" id="1_mqfbe"]
+[ext_resource type="Texture2D" uid="uid://boimxj87cjvql" path="res://art/sprites/backgrounds/fjords/glacier_front.png" id="2_538ig"]
+
+[node name="GlacierFront" type="Node2D" unique_id=1035734409]
+z_index = -9
+script = ExtResource("1_mqfbe")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=2036218772]
+texture = ExtResource("2_538ig")

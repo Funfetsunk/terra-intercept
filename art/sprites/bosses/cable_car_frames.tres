@@ -1,0 +1,25 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://d245ucajhkw4u"]
+
+[ext_resource type="Texture2D" uid="uid://dm0u0lfqsyyjn" path="res://art/sprites/bosses/cable_car.png" id="1_7myvw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k6qx6"]
+atlas = ExtResource("1_7myvw")
+region = Rect2(0, 0, 32, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dtwg0"]
+atlas = ExtResource("1_7myvw")
+region = Rect2(32, 0, 32, 24)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k6qx6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dtwg0")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 4.0
+}]

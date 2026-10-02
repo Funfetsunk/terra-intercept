@@ -1,0 +1,25 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://dujih7wmraany"]
+
+[ext_resource type="Texture2D" uid="uid://1cjdhu1jdoqm" path="res://art/sprites/enemies/mini_drone.png" id="1_8p8iy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7g5ek"]
+atlas = ExtResource("1_8p8iy")
+region = Rect2(0, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mtkme"]
+atlas = ExtResource("1_8p8iy")
+region = Rect2(10, 0, 10, 10)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7g5ek")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mtkme")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 6.0
+}]

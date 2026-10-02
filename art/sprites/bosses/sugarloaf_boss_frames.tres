@@ -1,0 +1,44 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://ccn4g26rv42ey"]
+
+[ext_resource type="Texture2D" uid="uid://dhjw0cfa77xn" path="res://art/sprites/bosses/sugarloaf_boss.png" id="1_7232o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2e6qa"]
+atlas = ExtResource("1_7232o")
+region = Rect2(0, 0, 168, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8e3j7"]
+atlas = ExtResource("1_7232o")
+region = Rect2(168, 0, 168, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2octh"]
+atlas = ExtResource("1_7232o")
+region = Rect2(336, 0, 168, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tr375"]
+atlas = ExtResource("1_7232o")
+region = Rect2(504, 0, 168, 128)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2e6qa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8e3j7")
+}],
+"loop": 1,
+"name": &"phase1",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2octh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tr375")
+}],
+"loop": 1,
+"name": &"phase2",
+"speed": 3.0
+}]

@@ -1,0 +1,44 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://c6uh8mrev6i4r"]
+
+[ext_resource type="Texture2D" uid="uid://dqa2tfjq3q0p7" path="res://art/sprites/bosses/mining_crawler.png" id="1_qser2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdpfp"]
+atlas = ExtResource("1_qser2")
+region = Rect2(0, 0, 96, 168)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ygm4u"]
+atlas = ExtResource("1_qser2")
+region = Rect2(96, 0, 96, 168)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2wj5v"]
+atlas = ExtResource("1_qser2")
+region = Rect2(192, 0, 96, 168)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8w1ld"]
+atlas = ExtResource("1_qser2")
+region = Rect2(288, 0, 96, 168)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kdpfp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ygm4u")
+}],
+"loop": 1,
+"name": &"phase1",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2wj5v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8w1ld")
+}],
+"loop": 1,
+"name": &"phase2",
+"speed": 3.0
+}]

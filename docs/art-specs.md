@@ -72,7 +72,8 @@ Textured bullets are drawn at their own pixel size on whole pixels. The collisio
 | Shielder | 24×24, plus a 64×64 shield ring | **Built.** The ring (`shield_ring.png`) is drawn procedurally: a `cddf6c` rim with dithered `91db69`/`239063` inner rings, 2 shimmer frames. It's 64×64 rather than the planned 40×40 so it covers an escort beside the Shielder (shield radius 32). |
 | Cloaker | 20×20 | **Built.** Drawn through `shaders/cloak_dither.gdshader`, which keeps an ordered-dither fraction of pixels (12% cloaked, 100% when decloaked). No blending. |
 | Tether node | 16×16 | **Built.** The right-hand node is mirrored. The beam is drawn in code: a 5px `91db69` line with a 1px `cddf6c` core, dashed `239063` while telegraphing. |
-| Kamikaze | 16×16 | Plus a 2–3 frame "arming" flash |
+| Kamikaze | 16×16 | **Built.** `idle` 2 frames, `arming` 2 frames (glow turns red/orange). The lock-on line is a 1px `e83b3b` line drawn in code. |
+| Splitter | 20×20 | **Built.** Art turned a quarter turn to point down. `hit` is a single red-orange crack-flash frame. Splits into 10×10 mini drones (`mini_drone.png`, drawn procedurally). |
 
 - Every enemy is an `AnimatedSprite2D` with a `SpriteFrames` resource sliced from a uniform-grid sheet.
 - Each enemy needs 2–4 idle or movement frames. Harder variants are palette swaps within the alien ramps.
@@ -93,6 +94,8 @@ Textured bullets are drawn at their own pixel size on whole pixels. The collisio
 | Summit relay (Himalayas) | 168×128 | **Built.** A spire with four dishes. The snow base is mapped to muted greys and trimmed to a jagged peak so it never ends in a straight edge. `phase2` turns the coils orange. |
 | Kaiju mech (Tokyo) | Body 128×128, arms 40×48, back cannons 24×24 | **Built.** Separate parts. The right arm and right cannon are mirrored copies, and the cannon art is turned a quarter turn so its barrels point down. Phase 2 turns the spine glow orange. |
 | Harbour leviathan (Sydney) | 168×96, plus a 168×96 underwater shadow | **Built.** Foam is mapped to `7f708a`–`c7dcd0`. Phase 2 is a battle-damaged edit. The shadow is the hull silhouette in a `2e222f`/`323353` checker. |
+| Mining crawler (Grand Canyon) | 96×168 body, 40×32 drum cutters | **Built.** Art turned a quarter turn to face down. The drum cutters are BossPart children. |
+| Sugarloaf fortress (Rio) | 168×128, 32×24 cable cars | **Built.** Rock mapped to dark neutral greys. The cables are drawn in code (`2e222f` with a `7f708a` highlight) above the mountain sprite (`show_behind_parent`). |
 | Other Earth mission bosses | 128–200 on the longest side | Must fit within the 360-wide playfield with room to dodge; 200 wide is the practical maximum |
 | Mothership (mission 7) | Wider than the playfield, built from parts | Hull turrets as separate 16–32px pieces, plus a core of about 128×128 |
 | Gate Core (final boss) | About 200×200 | Broken into parts that can animate or be destroyed |
@@ -137,10 +140,10 @@ All effects end by blinking or dithering out, never by alpha fading.
 
 | Item | Size | Notes |
 |---|---|---|
-| Scrolling ground layer | 360×360 tiles | **Built** (London, Paris, Fjords, Siberia, Cairo): two tiles per mission (`thames_a`/`thames_b`, `seine_a`/`seine_b`, `fjord_a`/`fjord_b`, `tundra_a`/`tundra_b`, `desert_a`/`desert_b`, `wall_a`/`wall_b`, `slopes_a`/`slopes_b`, `city_a`/`city_b`, `harbour_a`/`harbour_b`). Siberia's B tile is A mirrored vertically, because its diagonal streams can't wrap any other way. Cairo uses the same tile twice, because its winding road can't be mirrored that alternate seamlessly. Any B tile must keep A's top and bottom edges. The HUD panels cover the playfield's side edges, so no screen-shake margin is needed. |
+| Scrolling ground layer | 360×360 tiles | **Built** (London, Paris, Fjords, Siberia, Cairo): two tiles per mission (`thames_a`/`thames_b`, `seine_a`/`seine_b`, `fjord_a`/`fjord_b`, `tundra_a`/`tundra_b`, `desert_a`/`desert_b`, `wall_a`/`wall_b`, `slopes_a`/`slopes_b`, `city_a`/`city_b`, `harbour_a`/`harbour_b`, `canyon_a`/`canyon_b`, `coast_a`/`coast_b`). Siberia's B tile is A mirrored vertically, because its diagonal streams can't wrap any other way. Cairo uses the same tile twice, because its winding road can't be mirrored that alternate seamlessly. Any B tile must keep A's top and bottom edges. The HUD panels cover the playfield's side edges, so no screen-shake margin is needed. |
 | Parallax layers (clouds, smoke) | 360×360 | **Built** (London): a dithered `smoke.png` haze, about 8% coverage, at 1.4× scroll. |
 | Space / test range | 360×360 | **Built:** a palette starfield. |
-| Set-piece landmarks | 120–240 on the longest side | Drawn at an angle so they read from above. **Built:** the Eiffel Tower (96×160, `backgrounds/paris/eiffel_tower.png`), a `SetPiece` scene that scrolls with the ground once, spawned from the mission timeline. Mapped darker than the gameplay layer, like the tiles. Also the Opera House (128×96) and Harbour Bridge (360×80, flown under three times) in `backgrounds/sydney/`, and the glacier front (360×200, `backgrounds/fjords/glacier_front.png`), which slides in under the Fjords boss and stops when the scroll locks. |
+| Set-piece landmarks | 120–240 on the longest side | Drawn at an angle so they read from above. **Built:** the Eiffel Tower (96×160, `backgrounds/paris/eiffel_tower.png`), a `SetPiece` scene that scrolls with the ground once, spawned from the mission timeline. Mapped darker than the gameplay layer, like the tiles. Also the Opera House (128×96) and Harbour Bridge (360×80, flown under three times) in `backgrounds/sydney/`, Christ the Redeemer (96×96, `backgrounds/rio/`), the Grand Canyon rock pillars (40×40, solid obstacles), and the glacier front (360×200, `backgrounds/fjords/glacier_front.png`), which slides in under the Fjords boss and stops when the scroll locks. |
 | Fjord cliff walls | 124×104, tiles vertically | **Built:** `backgrounds/fjords/cliff_rock.png`, a seamless rock-and-pine texture drawn by `FjordWalls` up to 118px deep on each side, with a 1px `9babb2` rim and a 3px `2e222f` shadow on the water side. Snow is mapped to `7f708a` so the walls stay background-dark. |
 
 Layers scroll on whole pixels. Keep backgrounds darker and lower in contrast than everything in the gameplay layer.

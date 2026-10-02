@@ -1,0 +1,25 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://bovjc125fwwp1"]
+
+[ext_resource type="Texture2D" uid="uid://bopohog7v4vf4" path="res://art/sprites/bosses/drum_cutter.png" id="1_e2i1d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_issd7"]
+atlas = ExtResource("1_e2i1d")
+region = Rect2(0, 0, 40, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u7xw8"]
+atlas = ExtResource("1_e2i1d")
+region = Rect2(40, 0, 40, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_issd7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u7xw8")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 8.0
+}]

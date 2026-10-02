@@ -20,6 +20,9 @@ extends Node2D
 @export var contact_cooldown: float = 0.6
 ## How far from the wall the player's centre is kept, so the ship sprite doesn't sink into the rock.
 @export var push_margin: float = 8.0
+## Smoothstep between wall keys (gentle Fjords bends). Off gives straight
+## zigzag runs with sharp corners (the Grand Canyon).
+@export var smooth_bends: bool = true
 
 var _scrolled: float = 0.0
 var _contact_timer: float = 0.0
@@ -55,7 +58,7 @@ func _widths_at_distance(distance: float) -> Vector2:
 		if distance <= keys[i].x:
 			var a: Vector3 = keys[i - 1]
 			var b: Vector3 = keys[i]
-			var t: float = smoothstep(a.x, b.x, distance)
+			var t: float = smoothstep(a.x, b.x, distance) if smooth_bends else inverse_lerp(a.x, b.x, distance)
 			return Vector2(lerpf(a.y, b.y, t), lerpf(a.z, b.z, t))
 	var last: Vector3 = keys[keys.size() - 1]
 	return Vector2(last.y, last.z)

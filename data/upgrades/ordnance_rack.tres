@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://c6wip2iww20wf"]
+
+[ext_resource type="Script" uid="uid://bsd2c4vqvxcyc" path="res://scripts/resources/upgrade_data.gd" id="1_7ujio"]
+
+[resource]
+script = ExtResource("1_7ujio")
+id = "ordnance_rack"
+upgrade_name = "Ordnance Rack"
+description = "Start missions with +1 missile."
+cost = 50
+cost_increase_per_level = 50
+stat_name = "ordnance_capacity"
+value_per_level = 1.0
+max_level = 3
+unlock_column = 4

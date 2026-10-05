@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://tviuewvo4daa" path="res://scenes/menus/upgrade_row.gd" id="1_v3ejo"]
 
 [node name="UpgradeRow" type="HBoxContainer" unique_id=874269573]
-custom_minimum_size = Vector2(0, 50)
+custom_minimum_size = Vector2(0, 26)
 theme_override_constants/separation = 12
 script = ExtResource("1_v3ejo")
 
@@ -17,10 +17,14 @@ stretch_mode = 3
 [node name="InfoLabel" type="Label" parent="." unique_id=1735889118]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Upgrade name (Lv 0/3) — description — Cost 0"
-autowrap_mode = 3
+theme_override_colors/font_outline_color = Color(0.18039216, 0.13333334, 0.18431373, 1)
+theme_override_constants/outline_size = 2
+vertical_alignment = 1
+text = "Upgrade name  Lv 0/3  Cost 0
+description"
 
 [node name="ActionButton" type="Button" parent="." unique_id=1847970737]
-custom_minimum_size = Vector2(140, 0)
+custom_minimum_size = Vector2(140, 22)
 layout_mode = 2
+size_flags_vertical = 4
 text = "Buy"

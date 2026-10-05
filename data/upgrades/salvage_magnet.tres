@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://b8dcpu5a43ru8"]
+
+[ext_resource type="Script" uid="uid://bsd2c4vqvxcyc" path="res://scripts/resources/upgrade_data.gd" id="1_80dqv"]
+
+[resource]
+script = ExtResource("1_80dqv")
+id = "salvage_magnet"
+upgrade_name = "Salvage Magnet"
+description = "Wider pull radius for tech and pickups."
+cost = 40
+cost_increase_per_level = 40
+stat_name = "pickup_magnet_radius"
+value_per_level = 20.0
+max_level = 3

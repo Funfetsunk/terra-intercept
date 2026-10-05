@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://il665awsm33y"]
+
+[ext_resource type="Script" uid="uid://bsd2c4vqvxcyc" path="res://scripts/resources/upgrade_data.gd" id="1_4clh8"]
+
+[resource]
+script = ExtResource("1_4clh8")
+id = "overcharged_rounds"
+upgrade_name = "Overcharged Rounds"
+description = "Main weapon shots deal +0.1 damage."
+cost = 80
+cost_increase_per_level = 80
+stat_name = "bullet_damage"
+value_per_level = 0.1
+max_level = 3
+unlock_column = 5

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://cky7l5wjvdaqe"]
+
+[ext_resource type="Script" uid="uid://bsd2c4vqvxcyc" path="res://scripts/resources/upgrade_data.gd" id="1_xrn07"]
+
+[resource]
+script = ExtResource("1_xrn07")
+id = "chrono_lens"
+upgrade_name = "Chrono Lens"
+description = "Alien time-lens. +1s of focus."
+cost = 50
+cost_increase_per_level = 50
+stat_name = "focus_meter_max"
+value_per_level = 1.0
+max_level = 3
+unlock_column = 3

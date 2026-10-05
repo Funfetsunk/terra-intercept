@@ -64,8 +64,8 @@ func _ready() -> void:
 func start_new_run() -> void:
 	is_game_over = false
 	lives_remaining = starting_lives
-	current_weapon_level = 1
-	ordnance_ammo = ordnance.starting_ammo if ordnance != null else 0
+	current_weapon_level = clampi(1 + int(upgrade_bonus("starting_weapon_level")), 1, max_weapon_level)
+	ordnance_ammo = (ordnance.starting_ammo if ordnance != null else 0) + int(upgrade_bonus("ordnance_capacity"))
 	mission_tech = 0
 	score = 0
 	kill_chain = 1
@@ -175,12 +175,23 @@ func purchase_upgrade(id: String) -> bool:
 	var owned_level: int = upgrades_owned.get(id, 0)
 	if owned_level >= upgrade.max_level:
 		return false
-	if banked_tech < upgrade.cost:
+	var price: int = upgrade.cost_for_level(owned_level)
+	if banked_tech < price:
 		return false
-	banked_tech -= upgrade.cost
+	banked_tech -= price
 	upgrades_owned[id] = owned_level + 1
-	purchase_ledger.append({"id": id, "cost": upgrade.cost})
+	purchase_ledger.append({"id": id, "cost": price})
 	return true
+
+## Total bonus from owned upgrades that target `stat_name` (for run stats that
+## don't live on ShipData, such as the starting weapon level).
+func upgrade_bonus(stat_name: String) -> float:
+	var total: float = 0.0
+	for id: String in upgrades_owned.keys():
+		var upgrade: UpgradeData = find_upgrade(id)
+		if upgrade != null and upgrade.stat_name == stat_name:
+			total += upgrade.value_per_level * int(upgrades_owned[id])
+	return total
 
 func refund_ledger() -> void:
 	for i in range(purchase_ledger.size() - 1, -1, -1):

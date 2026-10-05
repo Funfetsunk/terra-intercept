@@ -130,6 +130,10 @@ func _apply_upgrades() -> void:
 		var upgrade: UpgradeData = _game_state.find_upgrade(id)
 		if upgrade == null or upgrade.stat_name.is_empty():
 			continue
+		# Run stats (weapon level, ordnance, magnet) aren't ShipData fields;
+		# GameState and the pickups apply those.
+		if not upgrade.stat_name in data:
+			continue
 		var current_value: float = data.get(upgrade.stat_name)
 		data.set(upgrade.stat_name, current_value + upgrade.value_per_level * level)
 

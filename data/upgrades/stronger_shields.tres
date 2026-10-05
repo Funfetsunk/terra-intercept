@@ -6,9 +6,10 @@
 [resource]
 script = ExtResource("1_q0mrb")
 id = "stronger_shields"
-upgrade_name = "Stronger Shields"
-description = "Adds one point of maximum shield."
-cost = 20
+upgrade_name = "Shield Capacitors"
+description = "Captured field cells. +1 max shield."
+cost = 60
+cost_increase_per_level = 60
 stat_name = "shield_max"
 value_per_level = 1.0
 max_level = 3

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://bmp06jivwyd5o"]
+
+[ext_resource type="Script" uid="uid://bsd2c4vqvxcyc" path="res://scripts/resources/upgrade_data.gd" id="1_hwq62"]
+
+[resource]
+script = ExtResource("1_hwq62")
+id = "weapon_primer"
+upgrade_name = "Weapon Primer"
+description = "Start missions one weapon level higher."
+cost = 120
+cost_increase_per_level = 120
+stat_name = "starting_weapon_level"
+value_per_level = 1.0
+max_level = 2
+unlock_column = 2

@@ -5,7 +5,7 @@ const UPGRADE_ROW_SCENE: PackedScene = preload("res://scenes/menus/upgrade_row.t
 
 @onready var _game_state: Node = get_node("/root/GameState")
 @onready var _tech_label: Label = $TechLabel
-@onready var _upgrade_list: VBoxContainer = $UpgradeList
+@onready var _upgrade_list: VBoxContainer = $UpgradeScroll/UpgradeList
 @onready var _back_button: Button = $BackButton
 
 var _rows: Array[UpgradeRow] = []

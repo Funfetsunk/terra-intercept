@@ -10,12 +10,19 @@
 [ext_resource type="Resource" uid="uid://ctramuajawwt1" path="res://data/upgrades/more_hull.tres" id="7_more_hull"]
 [ext_resource type="Resource" uid="uid://ctp80w1forxtg" path="res://data/upgrades/stronger_shields.tres" id="8_stronger_shields"]
 [ext_resource type="Resource" uid="uid://c28nf0r125pyw" path="res://data/upgrades/special_meter_rate.tres" id="9_special_meter_rate"]
+[ext_resource type="Resource" uid="uid://b8dcpu5a43ru8" path="res://data/upgrades/salvage_magnet.tres" id="9_uwthy"]
 [ext_resource type="Resource" uid="uid://cma26on4uccb3" path="res://data/map/col1_london.tres" id="10_map_col1"]
 [ext_resource type="Resource" uid="uid://bq77qd3xxjq4u" path="res://data/map/col2_north_fjords.tres" id="11_map_col2n"]
+[ext_resource type="Resource" uid="uid://bmp06jivwyd5o" path="res://data/upgrades/weapon_primer.tres" id="11_plxl1"]
+[ext_resource type="Resource" uid="uid://xssqaedsju3d" path="res://data/upgrades/quick_recharge.tres" id="12_drfct"]
 [ext_resource type="Resource" uid="uid://04klj432nxf0" path="res://data/map/col2_south_paris.tres" id="12_map_col2s"]
+[ext_resource type="Resource" uid="uid://cky7l5wjvdaqe" path="res://data/upgrades/chrono_lens.tres" id="13_feqvy"]
 [ext_resource type="Resource" uid="uid://ea120mf6twe" path="res://data/map/col3_north_siberia.tres" id="13_map_col3n"]
+[ext_resource type="Resource" uid="uid://c6wip2iww20wf" path="res://data/upgrades/ordnance_rack.tres" id="14_idb60"]
 [ext_resource type="Resource" uid="uid://boh2scmwqdbkb" path="res://data/map/col3_south_cairo.tres" id="14_map_col3s"]
+[ext_resource type="Resource" uid="uid://il665awsm33y" path="res://data/upgrades/overcharged_rounds.tres" id="15_a177p"]
 [ext_resource type="Resource" uid="uid://blwqsgmc0dfuc" path="res://data/map/col4_north_great_wall.tres" id="15_map_col4n"]
+[ext_resource type="Resource" uid="uid://bkcvpcqyrl1wc" path="res://data/upgrades/squad_uplink.tres" id="16_68pjv"]
 [ext_resource type="Resource" uid="uid://ce0jbm5y4br3t" path="res://data/map/col4_south_himalayas.tres" id="16_map_col4s"]
 [ext_resource type="Resource" uid="uid://dava785jxvmwf" path="res://data/map/col5_north_tokyo.tres" id="17_map_col5n"]
 [ext_resource type="Resource" uid="uid://dn2iyb6hqyw2k" path="res://data/map/col5_south_sydney.tres" id="18_map_col5s"]
@@ -31,7 +38,7 @@
 [node name="GameState" type="Node" unique_id=1245739816]
 script = ExtResource("1_kkv1x")
 ship_roster = Array[ExtResource("2_ircbp")]([ExtResource("2_interceptor"), ExtResource("3_striker"), ExtResource("4_guardian"), ExtResource("5_vanguard")])
-all_upgrades = Array[Resource]([ExtResource("7_more_hull"), ExtResource("8_stronger_shields"), ExtResource("9_special_meter_rate")])
+all_upgrades = Array[Resource]([ExtResource("7_more_hull"), ExtResource("8_stronger_shields"), ExtResource("9_uwthy"), ExtResource("9_special_meter_rate"), ExtResource("11_plxl1"), ExtResource("12_drfct"), ExtResource("13_feqvy"), ExtResource("14_idb60"), ExtResource("15_a177p"), ExtResource("16_68pjv")])
 all_map_nodes = Array[Resource]([ExtResource("10_map_col1"), ExtResource("11_map_col2n"), ExtResource("12_map_col2s"), ExtResource("13_map_col3n"), ExtResource("14_map_col3s"), ExtResource("15_map_col4n"), ExtResource("16_map_col4s"), ExtResource("17_map_col5n"), ExtResource("18_map_col5s"), ExtResource("19_map_col6n"), ExtResource("20_map_col6s"), ExtResource("21_map_col7"), ExtResource("22_yktvh")])
 midgame_reveal_lines = Array[Resource]([ExtResource("22_reveal1"), ExtResource("23_reveal2"), ExtResource("24_reveal3"), ExtResource("25_reveal4")])
 ordnance = ExtResource("6_ordnance")

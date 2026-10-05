@@ -41,13 +41,19 @@ offset_bottom = 58.0
 text = "Tech: 0"
 horizontal_alignment = 1
 
-[node name="UpgradeList" type="VBoxContainer" parent="." unique_id=209540095]
+[node name="UpgradeScroll" type="ScrollContainer" parent="." unique_id=993652132]
 layout_mode = 0
 offset_left = 60.0
 offset_top = 80.0
 offset_right = 580.0
 offset_bottom = 300.0
-theme_override_constants/separation = 10
+follow_focus = true
+horizontal_scroll_mode = 0
+
+[node name="UpgradeList" type="VBoxContainer" parent="UpgradeScroll" unique_id=209540095]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 6
 
 [node name="BackButton" type="Button" parent="." unique_id=1239208107]
 layout_mode = 0

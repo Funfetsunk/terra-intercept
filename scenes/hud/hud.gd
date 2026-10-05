@@ -31,6 +31,8 @@ extends CanvasLayer
 @onready var _squad_icon: TextureRect = $HUDRoot/RightPanelBg/SquadIcon
 @onready var _squad_name: Label = $HUDRoot/RightPanelBg/SquadName
 @onready var _ordnance_label: Label = $HUDRoot/LeftPanel/OrdnanceLabel
+## Shows "+N" when more missiles are held than the badge grid can show.
+@onready var _ordnance_extra_label: Label = $HUDRoot/LeftPanelBg/OrdnanceExtraLabel
 @onready var _tech_label: Label = $HUDRoot/LeftPanel/TechLabel
 @onready var _score_label: Label = $HUDRoot/LeftPanel/ScoreLabel
 @onready var _chain_label: Label = $HUDRoot/LeftPanel/ChainLabel
@@ -104,13 +106,16 @@ func _on_special_fired(_ship: ShipData) -> void:
 
 func _on_ordnance_ammo_changed(current: int) -> void:
 	var game_state: Node = get_node("/root/GameState")
-	var max_ammo: int = game_state.ordnance.starting_ammo if game_state.ordnance != null else 0
+	var max_ammo: int = (game_state.ordnance.starting_ammo if game_state.ordnance != null else 0) + int(game_state.upgrade_bonus("ordnance_capacity"))
 	_ordnance_label.text = "Ordnance: %d/%d" % [current, max_ammo]
 	_update_ordnance_badges(current)
 
 func _update_ordnance_badges(current: int) -> void:
 	for i in range(_ordnance_badges.size()):
 		_ordnance_badges[i].visible = i < current
+	var extra: int = current - _ordnance_badges.size()
+	_ordnance_extra_label.visible = extra > 0
+	_ordnance_extra_label.text = "+%d" % extra
 
 func _on_life_lost(lives_remaining: int) -> void:
 	_lives_label.text = "Lives: %d" % lives_remaining

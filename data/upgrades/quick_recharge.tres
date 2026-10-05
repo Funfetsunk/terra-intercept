@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://xssqaedsju3d"]
+
+[ext_resource type="Script" uid="uid://bsd2c4vqvxcyc" path="res://scripts/resources/upgrade_data.gd" id="1_hl7sr"]
+
+[resource]
+script = ExtResource("1_hl7sr")
+id = "quick_recharge"
+upgrade_name = "Quick Recharge"
+description = "Shields start recharging 0.5s sooner."
+cost = 50
+cost_increase_per_level = 50
+stat_name = "shield_recharge_delay"
+value_per_level = -0.5
+max_level = 3
+unlock_column = 3

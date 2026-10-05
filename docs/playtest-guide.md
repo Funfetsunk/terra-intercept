@@ -51,10 +51,11 @@ For each mission you play, please note:
 1. **Mission and ship** (for example "Cairo, Guardian").
 2. **Difficulty setting** (Options: Easy or Normal).
 3. **Lives lost**, and **where**: wave, mid-boss, boss phase, or a twist such as walls, fog, gusts, avalanches, beams or the escape.
-4. **How it felt:** too easy / about right / too hard. One sentence on why helps a lot.
-5. **Unfair moments:** deaths you couldn't see coming, bullets hidden by the background, or attacks with no warning.
-6. **Bosses:** too long, too short, or too spongy? Which phase was hardest?
-7. **Performance:** did the FPS counter drop below 60, and where? Include your CPU and graphics card if you can.
-8. **Anything broken:** crashes, getting stuck, visual glitches. A screenshot is ideal.
+4. **Tech banked:** the Tech figure on the results screen. This helps price the hangar upgrades.
+5. **How it felt:** too easy / about right / too hard. One sentence on why helps a lot.
+6. **Unfair moments:** deaths you couldn't see coming, bullets hidden by the background, or attacks with no warning.
+7. **Bosses:** too long, too short, or too spongy? Which phase was hardest?
+8. **Performance:** did the FPS counter drop below 60, and where? Include your CPU and graphics card if you can.
+9. **Anything broken:** crashes, getting stuck, visual glitches. A screenshot is ideal.
 
 A quick note per mission is plenty. Thanks!

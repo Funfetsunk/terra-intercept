@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://bmp06jivwyd5o"]
 
 [ext_resource type="Script" uid="uid://bsd2c4vqvxcyc" path="res://scripts/resources/upgrade_data.gd" id="1_hwq62"]
+[ext_resource type="Texture2D" uid="uid://csrlfllck3hsh" path="res://art/sprites/ui/upgrades/upgrade_primer.png" id="1_qqk0o"]
 
 [resource]
 script = ExtResource("1_hwq62")
@@ -13,3 +14,4 @@ stat_name = "starting_weapon_level"
 value_per_level = 1.0
 max_level = 2
 unlock_column = 2
+icon = ExtResource("1_qqk0o")

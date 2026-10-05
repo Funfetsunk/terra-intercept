@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://il665awsm33y"]
 
+[ext_resource type="Texture2D" uid="uid://cspbydeeyvy30" path="res://art/sprites/ui/upgrades/upgrade_rounds.png" id="1_2lvx3"]
 [ext_resource type="Script" uid="uid://bsd2c4vqvxcyc" path="res://scripts/resources/upgrade_data.gd" id="1_4clh8"]
 
 [resource]
@@ -13,3 +14,4 @@ stat_name = "bullet_damage"
 value_per_level = 0.1
 max_level = 3
 unlock_column = 5
+icon = ExtResource("1_2lvx3")

@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://c6wip2iww20wf"]
 
 [ext_resource type="Script" uid="uid://bsd2c4vqvxcyc" path="res://scripts/resources/upgrade_data.gd" id="1_7ujio"]
+[ext_resource type="Texture2D" uid="uid://b1f0jyhsjpdco" path="res://art/sprites/ui/upgrades/upgrade_ordnance.png" id="1_41gy5"]
 
 [resource]
 script = ExtResource("1_7ujio")
@@ -13,3 +14,4 @@ stat_name = "ordnance_capacity"
 value_per_level = 1.0
 max_level = 3
 unlock_column = 4
+icon = ExtResource("1_41gy5")

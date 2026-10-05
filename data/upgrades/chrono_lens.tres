@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://cky7l5wjvdaqe"]
 
+[ext_resource type="Texture2D" uid="uid://bluglmry0m0y" path="res://art/sprites/ui/upgrades/upgrade_chrono.png" id="1_1vfrw"]
 [ext_resource type="Script" uid="uid://bsd2c4vqvxcyc" path="res://scripts/resources/upgrade_data.gd" id="1_xrn07"]
 
 [resource]
@@ -13,3 +14,4 @@ stat_name = "focus_meter_max"
 value_per_level = 1.0
 max_level = 3
 unlock_column = 3
+icon = ExtResource("1_1vfrw")

@@ -175,7 +175,7 @@ Layers scroll on whole pixels. Keep backgrounds darker and lower in contrast tha
 | World map | 640×360 | **Built.** A tactical world map. Each node's `map_position` is its real location, from a projection fitted to the image (Europe nudged apart slightly so icons don't overlap). |
 | World map node icons | 16×16 | **Built.** Completed (check), available (blinking target, 2 frames), locked (padlock). |
 | Map route lines | 2px | **Built** in code: solid gold when open, dim dashes when locked. Long routes wrap round the Pacific. |
-| Upgrade icons (hangar list) | 16×16 | **Built.** Cut from the matching HUD icons. |
+| Upgrade icons (hangar list) | 16×16 | **Built.** Hull, shield and special are cut from the matching HUD icons. The other seven (`upgrade_magnet`, `_primer`, `_recharge`, `_chrono`, `_ordnance`, `_rounds`, `_uplink`) are drawn procedurally: a round medallion with a `2e222f` outline, three diagonal shading bands in one hue family, and a 7×7 white or gold glyph in the centre. Each upgrade gets its own hue. |
 | UI frame | 16×16 9-slice, 6px margins | **Built.** `ui_frame` plus focus, pressed and disabled variants, used for buttons, dialogue and panels. |
 | Mouse aim crosshair | 11×11 | **Built.** White ticks and a centre dot with a dark outline, drawn in game pixels on its own layer (not as the OS cursor, which wouldn't scale). |
 | Cutscene frames | 640×360 | |

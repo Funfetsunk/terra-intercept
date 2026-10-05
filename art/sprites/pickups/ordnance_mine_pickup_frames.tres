@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://bcutheujmdaep"]
+
+[ext_resource type="Texture2D" uid="uid://cao8ac2skwomk" path="res://art/sprites/pickups/ordnance_mine_pickup.png" id="1_jtx3l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1q3v7"]
+atlas = ExtResource("1_jtx3l")
+region = Rect2(0, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oegdg"]
+atlas = ExtResource("1_jtx3l")
+region = Rect2(12, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_385wc"]
+atlas = ExtResource("1_jtx3l")
+region = Rect2(24, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1plrf"]
+atlas = ExtResource("1_jtx3l")
+region = Rect2(36, 0, 12, 12)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1q3v7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oegdg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_385wc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1plrf")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 8.0
+}]

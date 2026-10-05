@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://b5lt4g2ewvl5p"]
+
+[ext_resource type="Texture2D" uid="uid://bmdieyrulk8jl" path="res://art/sprites/pickups/ordnance_missile_pickup.png" id="1_vwe0i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_maqdt"]
+atlas = ExtResource("1_vwe0i")
+region = Rect2(0, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r6g8m"]
+atlas = ExtResource("1_vwe0i")
+region = Rect2(12, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfaj8"]
+atlas = ExtResource("1_vwe0i")
+region = Rect2(24, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0885n"]
+atlas = ExtResource("1_vwe0i")
+region = Rect2(36, 0, 12, 12)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_maqdt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r6g8m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jfaj8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0885n")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 8.0
+}]

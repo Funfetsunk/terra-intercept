@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="OrdnanceData" format=3 uid="uid://qwq80kwtgrr"]
 
-[ext_resource type="Texture2D" uid="uid://c8700dx21ljde" path="res://art/sprites/hud/player_ordinance.png" id="1_i1vtx"]
+[ext_resource type="Texture2D" uid="uid://c6lxtut7rw575" path="res://art/sprites/hud/player_ordnance_mine.png" id="1_i1vtx"]
 [ext_resource type="PackedScene" uid="uid://c5hgr5sh58h6f" path="res://scenes/effects/explosion_large.tscn" id="2_rhxp5"]
 [ext_resource type="PackedScene" uid="uid://h8im0jdejmg0" path="res://scenes/player/player_mine.tscn" id="3_c3sxt"]
 [ext_resource type="Script" uid="uid://b681onsb0ephm" path="res://scripts/resources/ordnance_data.gd" id="4_6x1nt"]

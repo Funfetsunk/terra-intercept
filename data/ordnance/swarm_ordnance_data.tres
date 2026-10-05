@@ -1,8 +1,9 @@
 [gd_resource type="Resource" script_class="OrdnanceData" format=3 uid="uid://dw2k0xlx7h0uk"]
 
-[ext_resource type="Texture2D" uid="uid://c8700dx21ljde" path="res://art/sprites/hud/player_ordinance.png" id="1_byn60"]
+[ext_resource type="Texture2D" uid="uid://dd32y8ueresi2" path="res://art/sprites/hud/player_ordnance_swarm.png" id="1_24a30"]
 [ext_resource type="PackedScene" uid="uid://c5glm5ofoajet" path="res://scenes/effects/explosion_small.tscn" id="2_24a30"]
 [ext_resource type="Script" uid="uid://b681onsb0ephm" path="res://scripts/resources/ordnance_data.gd" id="3_1x6w1"]
+[ext_resource type="Texture2D" uid="uid://dmslmd1vq2x5o" path="res://art/sprites/bullets/ordnance_swarm.png" id="3_rn47a"]
 
 [resource]
 script = ExtResource("3_1x6w1")
@@ -12,10 +13,11 @@ starting_ammo = 6
 fire_cooldown = 0.5
 bullet_speed = 170.0
 bullet_radius = 3.0
-bullet_color = Color(0.9843137, 0.41960785, 0.11372549, 1)
+bullet_color = Color(1, 1, 1, 1)
+bullet_direction_sheet = ExtResource("3_rn47a")
 bullet_damage = 2.0
 bullet_lifetime = 2.5
-badge_texture = ExtResource("1_byn60")
+badge_texture = ExtResource("1_24a30")
 blast_effect = ExtResource("2_24a30")
 projectile_count = 3
 spread_degrees = 60.0

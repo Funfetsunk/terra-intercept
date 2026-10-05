@@ -1,10 +1,16 @@
 [gd_resource type="Resource" script_class="OrdnanceData" format=3 uid="uid://r48ijib2xvvg"]
 
 [ext_resource type="Script" uid="uid://b681onsb0ephm" path="res://scripts/resources/ordnance_data.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://c8700dx21ljde" path="res://art/sprites/hud/player_ordinance.png" id="1_ig2wn"]
 [ext_resource type="Texture2D" uid="uid://bcpidng3nhigl" path="res://art/sprites/bullets/ordnance_missile.png" id="1_vhyfn"]
+[ext_resource type="PackedScene" uid="uid://bca5f08gnsvli" path="res://scenes/effects/explosion_medium.tscn" id="2_fho76"]
 
 [resource]
 script = ExtResource("1")
 starting_ammo = 6
 bullet_color = Color(1, 1, 1, 1)
 bullet_direction_sheet = ExtResource("1_vhyfn")
+badge_texture = ExtResource("1_ig2wn")
+blast_radius = 24.0
+blast_damage = 3.0
+blast_effect = ExtResource("2_fho76")

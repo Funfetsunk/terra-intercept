@@ -60,6 +60,8 @@ func bind_player(player: Node) -> void:
 	_on_focus_changed(player.get_focus_meter(), player.data.focus_meter_max)
 	_on_special_changed(player.special_charges, player.data.special_charge_max)
 	_game_state = get_node("/root/GameState")
+	_game_state.ordnance_type_changed.connect(_on_ordnance_type_changed)
+	_on_ordnance_type_changed(_game_state.current_ordnance)
 	_on_ordnance_ammo_changed(_game_state.ordnance_ammo)
 	_game_state.life_lost.connect(_on_life_lost)
 	_game_state.tech_changed.connect(_on_tech_changed)
@@ -106,9 +108,16 @@ func _on_special_fired(_ship: ShipData) -> void:
 
 func _on_ordnance_ammo_changed(current: int) -> void:
 	var game_state: Node = get_node("/root/GameState")
-	var max_ammo: int = (game_state.ordnance.starting_ammo if game_state.ordnance != null else 0) + int(game_state.upgrade_bonus("ordnance_capacity"))
+	var max_ammo: int = game_state.ordnance_capacity()
 	_ordnance_label.text = "Ordnance: %d/%d" % [current, max_ammo]
 	_update_ordnance_badges(current)
+
+## Swaps the badge art to the type now in the ordnance slot.
+func _on_ordnance_type_changed(ordnance: OrdnanceData) -> void:
+	if ordnance == null or ordnance.badge_texture == null:
+		return
+	for badge: TextureRect in _ordnance_badges:
+		badge.texture = ordnance.badge_texture
 
 func _update_ordnance_badges(current: int) -> void:
 	for i in range(_ordnance_badges.size()):

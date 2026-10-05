@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://h8im0jdejmg0"]
+
+[ext_resource type="Script" uid="uid://cv4vvgplbptrc" path="res://scenes/player/player_mine.gd" id="1_hsdmn"]
+[ext_resource type="SpriteFrames" uid="uid://cfp515ksgeqm8" path="res://art/sprites/enemies/mine_frames.tres" id="2_j4jjo"]
+
+[node name="PlayerMine" type="Node2D" unique_id=2100128261]
+script = ExtResource("1_hsdmn")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1998963745]
+sprite_frames = ExtResource("2_j4jjo")
+animation = &"blink"

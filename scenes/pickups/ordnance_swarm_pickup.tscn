@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://2km3m2ryi3dx"]
+
+[ext_resource type="Script" uid="uid://dxne1w5pg4r4k" path="res://scenes/pickups/pickup.gd" id="1_aex0c"]
+[ext_resource type="Resource" uid="uid://dnnnyjip5ywok" path="res://data/pickups/ordnance_swarm_pickup.tres" id="2_srj47"]
+[ext_resource type="SpriteFrames" uid="uid://csgld13cw4wpu" path="res://art/sprites/pickups/weapon_pickup_frames.tres" id="3_klhmg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_377g7"]
+
+[node name="OrdnanceSwarmPickup" type="Node2D" unique_id=993242960]
+script = ExtResource("1_aex0c")
+data = ExtResource("2_srj47")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=780148317]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1676945954]
+shape = SubResource("CircleShape2D_377g7")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1854921222]
+sprite_frames = ExtResource("3_klhmg")
+animation = &"idle"
+autoplay = "idle"

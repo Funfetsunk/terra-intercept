@@ -8,6 +8,7 @@ signal tech_changed(current: int)
 signal score_changed(current: int)
 signal kill_chain_changed(multiplier: int)
 signal mission_completed(results: Dictionary)
+signal ordnance_type_changed(ordnance: OrdnanceData)
 
 @export var starting_lives: int = 3
 @export var max_weapon_level: int = 5
@@ -16,6 +17,7 @@ signal mission_completed(results: Dictionary)
 @export var all_upgrades: Array[Resource] = []
 @export var all_map_nodes: Array[Resource] = []
 @export var midgame_reveal_lines: Array[Resource] = []
+## The ordnance type every mission starts with.
 @export var ordnance: OrdnanceData
 @export var chain_multiplier_max: int = 5
 @export var completion_bonus: int = 1000
@@ -51,6 +53,8 @@ var is_game_over: bool = false
 var lives_remaining: int = 0
 var current_weapon_level: int = 1
 var ordnance_ammo: int = 0
+## The type in the ordnance slot this mission (ordnance pickups can swap it).
+var current_ordnance: OrdnanceData = null
 var mission_tech: int = 0
 var score: int = 0
 var kill_chain: int = 1
@@ -65,7 +69,8 @@ func start_new_run() -> void:
 	is_game_over = false
 	lives_remaining = starting_lives
 	current_weapon_level = clampi(1 + int(upgrade_bonus("starting_weapon_level")), 1, max_weapon_level)
-	ordnance_ammo = (ordnance.starting_ammo if ordnance != null else 0) + int(upgrade_bonus("ordnance_capacity"))
+	current_ordnance = ordnance
+	ordnance_ammo = ordnance_capacity()
 	mission_tech = 0
 	score = 0
 	kill_chain = 1
@@ -97,6 +102,24 @@ func drop_weapon_level() -> void:
 func raise_weapon_level(amount: int) -> void:
 	current_weapon_level = min(max_weapon_level, current_weapon_level + amount)
 	weapon_level_changed.emit(current_weapon_level)
+
+## Ammo cap for the current type: its starting ammo plus Ordnance Rack.
+func ordnance_capacity() -> int:
+	if current_ordnance == null:
+		return 0
+	return current_ordnance.starting_ammo + int(upgrade_bonus("ordnance_capacity"))
+
+## An ordnance pickup: the same type tops up by `top_up` (up to the cap); a
+## different type swaps the slot to it and refills to the cap.
+func collect_ordnance(type: OrdnanceData, top_up: int) -> void:
+	if type == null:
+		return
+	if type == current_ordnance:
+		ordnance_ammo = mini(ordnance_capacity(), ordnance_ammo + top_up)
+		return
+	current_ordnance = type
+	ordnance_ammo = ordnance_capacity()
+	ordnance_type_changed.emit(type)
 
 func collect_tech(amount: int) -> void:
 	mission_tech += amount

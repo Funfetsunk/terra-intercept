@@ -51,3 +51,6 @@ func _apply(player: Node2D) -> void:
 		PickupData.PickupType.SPECIAL_CHARGE:
 			if player.has_method("grant_special_charge"):
 				player.grant_special_charge(int(data.amount))
+		PickupData.PickupType.ORDNANCE:
+			if player.has_method("collect_ordnance"):
+				player.collect_ordnance(data.ordnance, int(data.amount))

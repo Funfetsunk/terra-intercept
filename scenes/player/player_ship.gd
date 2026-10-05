@@ -115,6 +115,7 @@ func _ready() -> void:
 	hull_current = data.hull_max
 	_focus_meter = data.focus_meter_max
 	_bullets.register_player(self, data.normal_hitbox_radius)
+	_bullets.ordnance_detonated.connect(_on_ordnance_detonated)
 	_game_state.register_player(self)
 	shield_changed.emit(shield_current, data.shield_max)
 	hull_changed.emit(hull_current, data.hull_max)
@@ -423,14 +424,40 @@ func _apply_special_effect(armed: ShipData) -> void:
 func _try_fire_ordnance() -> void:
 	if _ordnance_cooldown > 0.0 or _game_state.ordnance_ammo <= 0:
 		return
-	var ordnance: OrdnanceData = _game_state.ordnance
+	var ordnance: OrdnanceData = _game_state.current_ordnance
 	if ordnance == null:
 		return
 	_game_state.ordnance_ammo -= 1
 	ordnance_ammo_changed.emit(_game_state.ordnance_ammo)
-	_bullets.spawn_player_bullet(global_position, _last_move_dir, ordnance.bullet_speed, ordnance.bullet_radius, ordnance.bullet_color, 3.0, ordnance.bullet_damage, ordnance.texture_for_direction(_last_move_dir))
+	match ordnance.behaviour:
+		OrdnanceData.Behaviour.MINE:
+			if ordnance.mine_scene != null:
+				var mine: Node2D = ordnance.mine_scene.instantiate()
+				mine.set("ordnance", ordnance)
+				get_parent().add_child(mine)
+				mine.global_position = global_position
+		_:
+			var count: int = maxi(1, ordnance.projectile_count)
+			for i in range(count):
+				var offset: float = 0.0
+				if count > 1:
+					offset = deg_to_rad(ordnance.spread_degrees) * (float(i) / float(count - 1) - 0.5)
+				_bullets.spawn_player_ordnance_shot(global_position, _last_move_dir.rotated(offset), ordnance)
 	_ordnance_cooldown = ordnance.fire_cooldown
 	ordnance_fired.emit()
+
+## Ordnance pickup: tops up or swaps the slot (GameState.collect_ordnance).
+func collect_ordnance(type: OrdnanceData, top_up: int) -> void:
+	_game_state.collect_ordnance(type, top_up)
+	ordnance_ammo_changed.emit(_game_state.ordnance_ammo)
+
+## Plays the ordnance type's blast effect where a shot burst.
+func _on_ordnance_detonated(pos: Vector2, ordnance: OrdnanceData) -> void:
+	if ordnance.blast_effect == null or not is_inside_tree():
+		return
+	var effect: Node2D = ordnance.blast_effect.instantiate()
+	get_parent().add_child(effect)
+	effect.global_position = pos.round()
 
 func get_armed_squad_ship() -> ShipData:
 	return _squad[_squad_index] if not _squad.is_empty() else null

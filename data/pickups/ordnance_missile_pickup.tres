@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PickupData" format=3 uid="uid://do1k21ed65sgk"]
+
+[ext_resource type="Resource" uid="uid://r48ijib2xvvg" path="res://data/ordnance/missile_ordnance_data.tres" id="1_7bam1"]
+[ext_resource type="Script" uid="uid://bvlmt8sav707s" path="res://scripts/resources/pickup_data.gd" id="2_2vovq"]
+
+[resource]
+script = ExtResource("2_2vovq")
+pickup_type = 3
+amount = 3.0
+ordnance = ExtResource("1_7bam1")

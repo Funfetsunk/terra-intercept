@@ -1,7 +1,12 @@
 extends Resource
 class_name OrdnanceData
 
+enum Behaviour { MISSILE, SWARM, MINE }
+
 @export var ordnance_name: String = "Missile"
+## MISSILE: one straight shot. SWARM: `projectile_count` homing shots fanned
+## across `spread_degrees`. MINE: drops `mine_scene` at the ship.
+@export var behaviour: Behaviour = Behaviour.MISSILE
 @export var starting_ammo: int = 5
 @export var fire_cooldown: float = 0.4
 @export var bullet_speed: float = 200.0
@@ -31,3 +36,28 @@ func texture_for_direction(direction: Vector2) -> Texture2D:
 	var count: int = _direction_frames.size()
 	return _direction_frames[int(roundf(angle / TAU * count)) % count]
 @export var bullet_damage: float = 3.0
+@export var bullet_lifetime: float = 3.0
+## HUD badge art for this type (the 6-badge grid).
+@export var badge_texture: Texture2D
+
+@export_group("Blast")
+## Radius of the burst on impact (0 = none). Damages every other enemy inside it.
+@export var blast_radius: float = 0.0
+@export var blast_damage: float = 0.0
+## Effect scene played at each blast (an Explosion).
+@export var blast_effect: PackedScene
+
+@export_group("Swarm")
+@export var projectile_count: int = 1
+@export var spread_degrees: float = 0.0
+## How fast homing shots turn towards the nearest enemy (0 = no homing).
+@export var homing_turn_degrees_per_second: float = 0.0
+
+@export_group("Mine")
+@export var mine_scene: PackedScene
+@export var mine_drift_speed: float = 30.0
+@export var mine_fuse: float = 4.0
+## An enemy this close (plus its hitbox) sets the mine off.
+@export var mine_trigger_radius: float = 32.0
+## The mine's blast also clears enemy bullets inside it.
+@export var mine_clears_bullets: bool = true
